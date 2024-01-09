@@ -12,4 +12,14 @@ export default {
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",
   // publicPath: "/build/",
+  // routes(defineRoutes) {
+  //   return defineRoutes((route) => {
+  //     route("/", "home.tsx", { index: true });
+  //     route("about", "about/route.tsx");
+  //     route("random", "random/layout.tsx", () => {
+  //       route("", "random/index.tsx", { index: true });
+  //       route("/password-generator", "random/password-generator.tsx");
+  //     });
+  //   });
+  // },
 };
