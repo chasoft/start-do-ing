@@ -50,7 +50,7 @@ export function HomeGrid({ children }: { children: React.ReactNode }) {
 	console.log("logger", { currentLayoutId, inactiveLayoutIdList, main: currentLayoutMeta["primaryBgColor"] })
 
 	return (
-		<div className="grid grid-cols-4 md:grid-cols-5 gap-2 xl:gap-3 p-1 xl:p-2 min-h-svh 2xl:max-h-dvh border-2 border-red-500 grid-rows-[minmax(100px,200px)_1fr_minmax(80px,100px)] sm:grid-rows-[minmax(100px,200px)_1fr_minmax(50px,150px)]">
+		<div className="grid grid-cols-4 md:grid-cols-5 gap-2 xl:gap-3 p-1 xl:p-2 min-h-svh 2xl:max-h-dvh grid-rows-[minmax(100px,200px)_1fr_minmax(80px,100px)] sm:grid-rows-[minmax(100px,200px)_1fr_minmax(50px,150px)]">
 			<Block className="col-span-2" bgColor={inactiveLayoutIdList[0]["bgColor"]} layoutId={inactiveLayoutIdList[0]["id"]} />
 			<Block className="" bgColor={inactiveLayoutIdList[1]["bgColor"]} layoutId={inactiveLayoutIdList[1]["id"]} />
 			<Block className="col-span-1" bgColor={inactiveLayoutIdList[2]["bgColor"]} layoutId={inactiveLayoutIdList[2]["id"]} />
