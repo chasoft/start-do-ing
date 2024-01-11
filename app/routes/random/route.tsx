@@ -1,14 +1,10 @@
 import { Link, Outlet } from "@remix-run/react";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 
-export async function loader() {
-	return "RandomLayoutRoute"
-}
-
 export default function RandomLayoutRoute() {
 	return (
 		<>
-			<div className="bg-blue-200">
+			<div className="bg-blue-200 h-full">
 				<h1>RandomLayout</h1>
 				<ul className="flex gap-2">
 					<li>

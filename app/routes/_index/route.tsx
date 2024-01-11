@@ -1,4 +1,5 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
+import { type MetaFunction } from "@remix-run/cloudflare";
+import { TRouteHandle } from "~/data/constants";
 
 export const meta: MetaFunction = () => {
   return [
@@ -7,8 +8,12 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const handle: TRouteHandle = {
+  layoutId: "home"
+};
+
 export default function Index() {
   return (
-    <div>Home</div>
+    <>This is home</>
   );
 }

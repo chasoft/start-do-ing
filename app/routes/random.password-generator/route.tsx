@@ -1,15 +1,14 @@
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
+import { TRouteHandle } from "~/data/constants"
 
-export async function loader() {
-	return "RandomPasswordRoute"
-}
+export const handle: TRouteHandle = {
+	layoutId: "password-generator"
+};
 
 export default function RandomPasswordRoute() {
 	return (
 		<>
-			<div>
-				Password Generator
-			</div>
+			Password Generator
 		</>
 	)
 }

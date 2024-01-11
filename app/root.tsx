@@ -8,8 +8,10 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useMatches,
 } from "@remix-run/react";
 import { HomeGrid } from "./components";
+import { TRouteHandle } from "./data/constants";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -17,6 +19,14 @@ export const links: LinksFunction = () => [
 ];
 
 export default function App() {
+
+  const matches = useMatches();
+  const activeHandle = matches[matches.length - 1].handle as TRouteHandle;
+  const currentLayoutId = activeHandle.layoutId
+
+  console.log("logger", currentLayoutId)
+
+
   return (
     <html lang="en">
       <head>
