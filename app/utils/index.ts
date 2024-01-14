@@ -1,3 +1,5 @@
+// import { BREAKPOINT_TYPE } from "~/data/constants";
+
 type RouteWithHandle<Handle extends string, Value> = {
   id: string;
   pathname: string;
@@ -36,3 +38,10 @@ export function hasHandle<Handle extends string, Value>(
 export function isString(value: unknown): value is string {
   return typeof value === "string";
 }
+
+/**
+ * Default breakpoint for server is `lg`
+ */
+// export function getCurrentBreakpoint(): BREAKPOINT_TYPE {
+//   d
+// }

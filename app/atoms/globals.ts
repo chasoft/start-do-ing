@@ -1,4 +1,11 @@
 import { atom } from "jotai";
-import { layoutIdList } from "~/data/constants";
+import { BLOCKS } from "~/data/constants";
 
-export const inactiveLayoutIdListAtom = atom([...layoutIdList]);
+export const layoutsAtom = atom([...BLOCKS]);
+
+export const layoutsPropsAtom = atom((get) =>
+  get(layoutsAtom).map((layout) => ({
+    bgColor: layout.color.bg,
+    layoutId: layout.id,
+  }))
+);

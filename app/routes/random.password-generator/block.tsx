@@ -5,7 +5,7 @@ import { TLayoutId } from "~/data/constants";
 export function PasswordGeneratorBlock({ className, display, bgColor, layoutId }: { className?: string, display?: string, bgColor: string, layoutId?: TLayoutId }) {
 	return (
 		<div className={`${className ?? ""} ${display ?? ""}`}>
-			<motion.div className={`h-full ${bgColor}`} layoutId={layoutId}>
+			<motion.div initial={false} className={`h-full ${bgColor}`} layoutId={layoutId}>
 				<Link to="/random/password-generator" className="block h-full">
 					<div className="p-2">
 						Password Generator Block
