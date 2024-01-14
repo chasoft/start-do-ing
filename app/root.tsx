@@ -8,24 +8,33 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useMatches,
+  useNavigation,
 } from "@remix-run/react";
 import { HomeGrid } from "./components";
-import { TRouteHandle } from "./data/constants";
+import NProgress from "nprogress"
+import nProgressStyles from "nprogress/nprogress.css"
+import React from "react";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
   { rel: "stylesheet", href: stylesheet },
+  { rel: "stylesheet", href: nProgressStyles },
 ];
 
-export default function App() {
+interface DocumentProps {
+  children: React.ReactNode
+}
 
-  const matches = useMatches();
-  const activeHandle = matches[matches.length - 1].handle as TRouteHandle;
-  const currentLayoutId = activeHandle.layoutId
+function Document({ children }: DocumentProps) {
+  const transition = useNavigation()
 
-  console.log("logger", currentLayoutId)
-
+  React.useEffect(() => {
+    // when the state is idle then we can to complete the progress bar
+    if (transition.state === "idle") NProgress.done()
+    // and when it's something else it means it's either submitting a form or
+    // waiting for the loaders of the next location so we start it
+    else NProgress.start()
+  }, [transition.state])
 
   return (
     <html lang="en">
@@ -37,12 +46,20 @@ export default function App() {
       </head>
       <body>
         <HomeGrid>
-          <Outlet />
+          {children}
         </HomeGrid>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
       </body>
     </html>
+  )
+}
+
+export default function App() {
+  return (
+    <Document>
+      <Outlet />
+    </Document>
   );
 }
