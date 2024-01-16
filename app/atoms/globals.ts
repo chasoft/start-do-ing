@@ -1,7 +1,7 @@
 import { atom } from "jotai";
-import { BLOCKS } from "~/data/constants";
+import { dynamicBlocks } from "~/data/constants";
 
-export const layoutsAtom = atom([...BLOCKS]);
+export const layoutsAtom = atom([...dynamicBlocks]);
 
 export const layoutsPropsAtom = atom((get) =>
   get(layoutsAtom).map((layout) => ({

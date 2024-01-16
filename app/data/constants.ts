@@ -1,4 +1,8 @@
-export const BREAKPOINTS = [
+import { Block, Breakpoint, LayoutId } from "~/utils";
+
+export const emptyId: LayoutId = "404";
+
+export const breakpoints: Breakpoint[] = [
   "xs",
   "sm",
   "md",
@@ -6,32 +10,15 @@ export const BREAKPOINTS = [
   "xl",
   "2xl",
   "3xl",
-] as const;
+];
 
-export type BREAKPOINT_TYPE = (typeof BREAKPOINTS)[number];
+/**************************************************************************
+ *
+ *     Dynamic blocks
+ *
+ *************************************************************************/
 
-export type BlockId =
-  | "home"
-  | "about"
-  | "random"
-  | "password-generator"
-  | "countdown"
-  | "magic-wheel"
-  | "404"
-  | "left"
-  | "right";
-
-export type Block = {
-  id: BlockId;
-  description: string;
-  color: {
-    text: string;
-    bg: string;
-    primaryBg: string;
-  };
-};
-
-export const BLOCKS: Block[] = [
+export const dynamicBlocks: Block[] = [
   {
     id: "home",
     description: "",
@@ -86,12 +73,18 @@ export const BLOCKS: Block[] = [
       primaryBg: "bg-blue-300",
     },
   },
-] as const;
+];
 
-export const EMPTY_ID: BlockId = "404";
+export const defaultBlock: Block = dynamicBlocks[0];
 
-export const EMPTY_BLOCK: Block = {
-  id: EMPTY_ID,
+/**************************************************************************
+ *
+ *     Empty blocks
+ *
+ *************************************************************************/
+
+export const emptyBlock: Block = {
+  id: emptyId,
   description: "Empty block",
   color: {
     text: "#000",
@@ -100,7 +93,13 @@ export const EMPTY_BLOCK: Block = {
   },
 };
 
-export const SIDE_BLOCKS: Block[] = [
+/**************************************************************************
+ *
+ *     Side blocks
+ *
+ *************************************************************************/
+
+export const sideBlocks: Block[] = [
   {
     id: "left",
     description: "",
@@ -121,48 +120,23 @@ export const SIDE_BLOCKS: Block[] = [
   },
 ];
 
-export const SIDE_BLOCKS_PROPS = SIDE_BLOCKS.map((block) => ({
+export const sideBlocksProps = sideBlocks.map((block) => ({
   bgColor: block.color.bg,
   layoutId: block.id,
 }));
 
-export type TLayoutId = (typeof BLOCKS)[number]["id"];
+/**************************************************************************
+ *
+ *     Last block (which is used for block #16)
+ *
+ *************************************************************************/
 
-export type TRouteHandle = Partial<{
-  layoutId: TLayoutId;
-}>;
-
-export function getBlocks() {
-  const breaks: Record<BREAKPOINT_TYPE, boolean> = {
-    xs: window.matchMedia("(max-width: 400px)").matches,
-    sm: window.matchMedia("(max-width: 640px)").matches,
-    md: window.matchMedia("(max-width: 768px)").matches,
-    lg: window.matchMedia("(max-width: 1024px)").matches,
-    xl: window.matchMedia("(max-width: 1280px)").matches,
-    "2xl": window.matchMedia("(max-width: 1536px)").matches,
-    "3xl": window.matchMedia("(max-width: 1800px)").matches,
-  };
-
-  return [
-    // Row 1
-    BLOCKS[0],
-    BLOCKS[1],
-    BLOCKS[2],
-    ...(breaks.xs || breaks.sm ? [EMPTY_BLOCK, EMPTY_BLOCK, EMPTY_BLOCK] : []),
-    ...(breaks.md ? [EMPTY_BLOCK, EMPTY_BLOCK] : []),
-    ...(breaks["2xl"] ? [EMPTY_BLOCK] : []),
-    ...(BLOCKS[3] ? [BLOCKS[3]] : [EMPTY_BLOCK]),
-    ...(BLOCKS[4] ? [BLOCKS[4]] : [EMPTY_BLOCK]),
-    ...(BLOCKS[5] ? [BLOCKS[5]] : [EMPTY_BLOCK]),
-    // Row 3
-    ...(BLOCKS[6] ? [BLOCKS[6]] : [EMPTY_BLOCK]),
-    ...(BLOCKS[7] ? [BLOCKS[7]] : [EMPTY_BLOCK]),
-    ...(BLOCKS[8] ? [BLOCKS[8]] : [EMPTY_BLOCK]),
-    ...(breaks.xs || breaks.sm ? [EMPTY_BLOCK, EMPTY_BLOCK, EMPTY_BLOCK] : []),
-    ...(breaks.md ? [EMPTY_BLOCK, EMPTY_BLOCK] : []),
-    ...(breaks["2xl"] ? [EMPTY_BLOCK] : []),
-    ...(BLOCKS[9] ? [BLOCKS[9]] : [EMPTY_BLOCK]),
-    ...(BLOCKS[10] ? [BLOCKS[10]] : [EMPTY_BLOCK]),
-    ...(BLOCKS[11] ? [BLOCKS[1]] : [EMPTY_BLOCK]),
-  ];
-}
+export const lastBlock: Block = {
+  id: "lastBlock",
+  description: "",
+  color: {
+    text: "#000",
+    bg: "bg-gray-200",
+    primaryBg: "bg-gray-300",
+  },
+};

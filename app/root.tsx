@@ -14,6 +14,7 @@ import { HomeGrid } from "./components";
 import NProgress from "nprogress"
 import nProgressStyles from "nprogress/nprogress.css"
 import React from "react";
+import { Provider } from "jotai";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -45,9 +46,11 @@ function Document({ children }: DocumentProps) {
         <Links />
       </head>
       <body>
-        <HomeGrid>
-          {children}
-        </HomeGrid>
+        <Provider>
+          <HomeGrid>
+            {children}
+          </HomeGrid>
+        </Provider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
