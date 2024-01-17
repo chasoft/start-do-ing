@@ -1,7 +1,7 @@
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
-import { TRouteHandle } from "~/data/constants"
+import { CustomRouteHandle } from "~/utils/types";
 
-export const handle: TRouteHandle = {
+export const handle: CustomRouteHandle = {
 	layoutId: "password-generator"
 };
 

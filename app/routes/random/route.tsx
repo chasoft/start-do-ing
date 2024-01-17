@@ -1,5 +1,10 @@
 import { Link, Outlet } from "@remix-run/react";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
+import { CustomRouteHandle } from "~/utils/types";
+
+export const handle: CustomRouteHandle = {
+	layoutId: "random"
+};
 
 export default function RandomLayoutRoute() {
 	return (
@@ -9,9 +14,6 @@ export default function RandomLayoutRoute() {
 				<ul className="flex gap-2">
 					<li>
 						<Link to="/random">Random</Link>
-					</li>
-					<li>
-						<Link to="/random/password-generator">Password</Link>
 					</li>
 				</ul>
 				<Outlet />

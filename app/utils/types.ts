@@ -12,7 +12,7 @@ export type LayoutId =
   | "right"
   | "lastBlock";
 
-export type RouteHandle = Partial<{
+export type CustomRouteHandle = Partial<{
   layoutId: LayoutId;
 }>;
 

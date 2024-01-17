@@ -3,21 +3,21 @@ import { Breakpoint } from ".";
 import { dynamicBlocks, emptyBlock } from "~/data/constants";
 
 export function getMediaBreakpoint(): [Breakpoint, boolean] {
-  const defaultBreakpointForServer: [Breakpoint, boolean] = ["2xl", true];
+  const defaultBreakpointForServer: [Breakpoint, boolean] = ["3xl", true];
   if (typeof window === "undefined") return defaultBreakpointForServer;
-  return window.matchMedia("(max-width: 400px)").matches
-    ? ["xs", true]
-    : window.matchMedia("(max-width: 640px)").matches
-    ? ["sm", true]
-    : window.matchMedia("(max-width: 768px)").matches
-    ? ["md", true]
-    : window.matchMedia("(max-width: 1024px)").matches
-    ? ["lg", true]
-    : window.matchMedia("(max-width: 1281px)").matches
-    ? ["xl", true]
-    : window.matchMedia("(max-width: 1536px)").matches
+  return window.matchMedia("(min-width: 1800px)").matches
+    ? ["3xl", true]
+    : window.matchMedia("(min-width: 1536px)").matches
     ? ["2xl", true]
-    : ["3xl", true];
+    : window.matchMedia("(min-width: 1280px)").matches
+    ? ["xl", true]
+    : window.matchMedia("(min-width: 1024px)").matches
+    ? ["lg", true]
+    : window.matchMedia("(min-width: 768px)").matches
+    ? ["md", true]
+    : window.matchMedia("(min-width: 640px)").matches
+    ? ["sm", true]
+    : ["xs", true];
 }
 
 export const getEmptyBlocksInsertionIndexes = () => {
@@ -30,7 +30,7 @@ export const getEmptyBlocksInsertionIndexes = () => {
        * Design: [0, 1, 2, ⬇️, 3, 4, 5, ⬇️, ...]
        * Insert 3 empty blocks to ensure that Row 1 and Row 3 always have 7 blocks.
        */
-      return [[0, 2], [3, 5], [6]];
+      return [[0, 3], [3, 6], [6]];
     case "md":
     case "lg":
     case "xl":
@@ -38,14 +38,14 @@ export const getEmptyBlocksInsertionIndexes = () => {
        * Design: [0, 1, 2, 3, ⬇️, 4, 5, 6, 7, ⬇️, ...]
        * Insert 2 empty blocks to ensure that Row 1 and Row 3 always have 7 blocks.
        */
-      return [[0, 3], [4, 7], [8]];
+      return [[0, 4], [4, 8], [8]];
     case "2xl":
       /**
        * Design: [0, 1, 2, 3, 4, ⬇️, 5, 6, 7, 8, 9, ⬇️, ...]
        * Insert 1 empty blocks to ensure that Row 1 and Row 3 always have 7 blocks.
        */
       //
-      return [[0, 4], [5, 9], [10]];
+      return [[0, 5], [5, 10], [10]];
     default:
       /**
        * Don't need to insert any empty blocks

@@ -1,6 +1,6 @@
-import { TRouteHandle } from "~/data/constants"
+import { CustomRouteHandle } from "~/utils/types";
 
-export const handle: TRouteHandle = {
+export const handle: CustomRouteHandle = {
 	layoutId: "random"
 };
 
