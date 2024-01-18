@@ -1,15 +1,9 @@
 import { Link, Outlet } from "@remix-run/react";
-import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
-import { CustomRouteHandle } from "~/utils/types";
-
-export const handle: CustomRouteHandle = {
-	layoutId: "random"
-};
 
 export default function RandomLayoutRoute() {
 	return (
 		<>
-			<div className="bg-blue-200 h-full">
+			<div className="bg-blue-200 h-full grid place-content-center">
 				<h1>RandomLayout</h1>
 				<ul className="flex gap-2">
 					<li>
@@ -21,5 +15,3 @@ export default function RandomLayoutRoute() {
 		</>
 	)
 }
-
-export const ErrorBoundary = ErrorBoundaryBase("RANDOM")

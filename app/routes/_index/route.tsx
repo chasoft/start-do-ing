@@ -1,19 +1,26 @@
+import { getBlockMetaData } from "~/utils";
 import { type MetaFunction } from "@remix-run/cloudflare";
-import { CustomRouteHandle } from "~/utils/types";
+import type { CustomRouteHandle, LayoutId } from "~/utils/types";
+import { AboutFeature } from "../about/feature";
+
+const layoutId: LayoutId = "home"
 
 export const meta: MetaFunction = () => {
+  const { title, description } = getBlockMetaData(layoutId);
   return [
-    { title: "Start-Do-Ing" },
-    { name: "description", content: "Welcome to Startdo.ing!" },
+    { title },
+    { name: "description", content: description },
   ];
 };
 
 export const handle: CustomRouteHandle = {
-  layoutId: "home"
+  layoutId: layoutId
 };
 
-export default function Index() {
+export default function HomeRoute() {
   return (
-    <>This is home</>
+    <>
+      <AboutFeature layoutId={layoutId} />
+    </>
   );
 }

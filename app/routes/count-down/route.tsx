@@ -1,9 +1,10 @@
+import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
 import { type MetaFunction } from "@remix-run/cloudflare";
 import type { CustomRouteHandle, LayoutId } from "~/utils/types";
-import { RandomHomeFeature } from "./feature";
+import { CountDownFeature } from "./feature";
 
-const layoutId: LayoutId = "random"
+const layoutId: LayoutId = "count-down"
 
 export const meta: MetaFunction = () => {
 	const { title, description } = getBlockMetaData(layoutId);
@@ -14,11 +15,15 @@ export const meta: MetaFunction = () => {
 };
 
 export const handle: CustomRouteHandle = {
-	layoutId
+	layoutId: layoutId
 };
 
-export default function RandomIndexRoute() {
+export default function CountDownRoute() {
 	return (
-		<RandomHomeFeature layoutId={layoutId} />
+		<>
+			<CountDownFeature layoutId={layoutId} />
+		</>
 	)
 }
+
+export const ErrorBoundary = ErrorBoundaryBase(layoutId)

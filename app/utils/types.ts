@@ -5,24 +5,51 @@ export type LayoutId =
   | "about"
   | "random"
   | "password-generator"
-  | "countdown"
+  | "count-down"
   | "magic-wheel"
   | "404"
   | "left"
   | "right"
   | "lastBlock";
 
+export type Tag = "random" | "number" | "alphabet" | "password" | "kahoot";
+
 export type CustomRouteHandle = Partial<{
   layoutId: LayoutId;
 }>;
 
 export type Block = {
+  /**
+   * layout animation based on id
+   */
   id: LayoutId;
+  /**
+   * introduction information of the block
+   */
+  icon: string;
+  title: string;
   description: string;
+  to: string;
+  /**
+   * organizing blocks by tags and/or favorite
+   */
+  tags: Tag[];
+  favorite: boolean;
+  /**
+   * decoration color of the block
+   */
   color: {
     text: string;
     bg: string;
     primaryBg: string;
+  };
+  /**
+   * versioning is required to keep track of the changes made to the block
+   */
+  versioning: {
+    releaseDate: Date;
+    major: number;
+    minor: number;
   };
 };
 

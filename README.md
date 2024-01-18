@@ -1,6 +1,6 @@
 # Welcome to Start-Do-Ing Project
 
-- [https://startdo.ing](https://startdo.ing)
+- [https://startdo.ing](https://startdo.ing) is a project that provides a lot of small blocks of functionality for everyday activities.
 
 ## Local Development
 

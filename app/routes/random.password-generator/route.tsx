@@ -1,16 +1,29 @@
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
-import { CustomRouteHandle } from "~/utils/types";
+import { getBlockMetaData } from "~/utils";
+import { type MetaFunction } from "@remix-run/cloudflare";
+import type { CustomRouteHandle, LayoutId } from "~/utils/types";
+import { PasswordGeneratorFeature } from "./feature";
 
-export const handle: CustomRouteHandle = {
-	layoutId: "password-generator"
+const layoutId: LayoutId = "password-generator"
+
+export const meta: MetaFunction = () => {
+	const { title, description } = getBlockMetaData(layoutId);
+	return [
+		{ title },
+		{ name: "description", content: description },
+	];
 };
 
-export default function RandomPasswordRoute() {
+export const handle: CustomRouteHandle = {
+	layoutId: layoutId
+};
+
+export default function PasswordGeneratorRoute() {
 	return (
 		<>
-			Password Generator
+			<PasswordGeneratorFeature layoutId={layoutId} />
 		</>
 	)
 }
 
-export const ErrorBoundary = ErrorBoundaryBase("Password Generator")
+export const ErrorBoundary = ErrorBoundaryBase(layoutId)

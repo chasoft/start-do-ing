@@ -1,6 +1,6 @@
-import { Block, LayoutId } from "./types";
 import { Breakpoint } from ".";
-import { dynamicBlocks, emptyBlock } from "~/data/constants";
+import { DYNAMIC_BLOCKS, EMPTY_BLOCK, SITE } from "~/constants";
+import type { Block, LayoutId } from "./types";
 
 export function getMediaBreakpoint(): [Breakpoint, boolean] {
   const defaultBreakpointForServer: [Breakpoint, boolean] = ["3xl", true];
@@ -22,7 +22,6 @@ export function getMediaBreakpoint(): [Breakpoint, boolean] {
 
 export const getEmptyBlocksInsertionIndexes = () => {
   const breakpoint = getMediaBreakpoint()[0];
-  console.log("logger =>", breakpoint);
   switch (breakpoint) {
     case "xs":
     case "sm":
@@ -72,13 +71,13 @@ const getEmptyBlocks = () => {
   switch (breakpoint) {
     case "xs":
     case "sm":
-      return [emptyBlock, emptyBlock, emptyBlock];
+      return [EMPTY_BLOCK, EMPTY_BLOCK, EMPTY_BLOCK];
     case "md":
     case "lg":
     case "xl":
-      return [emptyBlock, emptyBlock];
+      return [EMPTY_BLOCK, EMPTY_BLOCK];
     case "2xl":
-      return [emptyBlock];
+      return [EMPTY_BLOCK];
     default:
       return [];
   }
@@ -89,10 +88,10 @@ const getEmptyBlocks = () => {
  */
 export const getDynamicBlocks = () => {
   const minLength = 21;
-  const numberOfMissingBlocks = minLength - dynamicBlocks.length;
+  const numberOfMissingBlocks = minLength - DYNAMIC_BLOCKS.length;
   return numberOfMissingBlocks > 0
-    ? dynamicBlocks.concat(new Array(numberOfMissingBlocks).fill(emptyBlock))
-    : dynamicBlocks;
+    ? DYNAMIC_BLOCKS.concat(new Array(numberOfMissingBlocks).fill(EMPTY_BLOCK))
+    : DYNAMIC_BLOCKS;
 };
 
 /**
@@ -114,3 +113,10 @@ export function getBlocks(selectedLayoutId: LayoutId): Block[] {
       )
     : blocks;
 }
+
+export const getBlockMetaData = (id: LayoutId) => {
+  const block = DYNAMIC_BLOCKS.find((b) => b.id === id);
+  return block
+    ? { title: `${SITE.title} - ${block.title}`, desc: block.description }
+    : { title: SITE.title, description: SITE.description };
+};

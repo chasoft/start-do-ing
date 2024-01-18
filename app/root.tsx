@@ -1,6 +1,4 @@
-import type { LinksFunction } from "@remix-run/cloudflare";
-import { cssBundleHref } from "@remix-run/css-bundle";
-import stylesheet from "~/tailwind.css";
+import React from "react";
 import {
   Links,
   LiveReload,
@@ -10,11 +8,15 @@ import {
   ScrollRestoration,
   useNavigation,
 } from "@remix-run/react";
-import { HomeGrid } from "./components";
+import type { LinksFunction } from "@remix-run/cloudflare";
+import { cssBundleHref } from "@remix-run/css-bundle";
+
+import { Provider } from "jotai";
 import NProgress from "nprogress"
 import nProgressStyles from "nprogress/nprogress.css"
-import React from "react";
-import { Provider } from "jotai";
+
+import { HomeGrid } from "./components";
+import stylesheet from "~/tailwind.css";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
