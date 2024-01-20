@@ -4,7 +4,7 @@ import { HomeFeature } from "~/routes/_index/feature"
 import { AboutFeature } from "~/routes/about/feature"
 import { CountDownFeature } from "~/routes/count-down/feature"
 import { MagicWheelFeature } from "~/routes/magic-wheel/feature"
-import { RandomHomeFeature } from "~/routes/random._index/feature"
+import { RandomIndexFeature } from "~/routes/random._index/feature"
 import { PasswordGeneratorFeature } from "~/routes/random.password-generator/feature"
 import { LayoutId } from "~/utils/types"
 
@@ -16,7 +16,7 @@ export function Features({ className, layoutId }: { className?: string, layoutId
 		case "about":
 			return <AboutFeature className={cn} layoutId={layoutId} />
 		case "random":
-			return <RandomHomeFeature className={cn} layoutId={layoutId} />
+			return <RandomIndexFeature className={cn} layoutId={layoutId} />
 		case "password-generator":
 			return <PasswordGeneratorFeature className={cn} layoutId={layoutId} />
 		case "count-down":

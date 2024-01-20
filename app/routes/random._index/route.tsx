@@ -1,7 +1,8 @@
 import { getBlockMetaData } from "~/utils";
 import { type MetaFunction } from "@remix-run/cloudflare";
 import type { CustomRouteHandle, LayoutId } from "~/utils/types";
-import { RandomHomeFeature } from "./feature";
+import { RandomIndexFeature } from "./feature";
+import { ErrorBoundaryBase } from "~/components";
 
 const layoutId: LayoutId = "random"
 
@@ -19,6 +20,8 @@ export const handle: CustomRouteHandle = {
 
 export default function RandomIndexRoute() {
 	return (
-		<RandomHomeFeature layoutId={layoutId} />
+		<RandomIndexFeature layoutId={layoutId} />
 	)
 }
+
+export const ErrorBoundary = ErrorBoundaryBase(layoutId)

@@ -1,9 +1,9 @@
 import { Block } from "~/utils/types";
 
 export const COUNT_DOWN: Block = {
-  id: "password-generator",
-  icon: "/password-generator.svg",
-  title: "Password Generator",
+  id: "count-down",
+  icon: "/count-down.svg",
+  title: "Count down",
   description: "",
   to: "/count-down",
   tags: [],

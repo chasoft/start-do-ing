@@ -16,6 +16,7 @@ export type Tag = "random" | "number" | "alphabet" | "password" | "kahoot";
 
 export type CustomRouteHandle = Partial<{
   layoutId: LayoutId;
+  breadcrumb: () => JSX.Element;
 }>;
 
 export type Block = {

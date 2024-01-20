@@ -1,7 +1,8 @@
 import { getBlockMetaData } from "~/utils";
 import { type MetaFunction } from "@remix-run/cloudflare";
 import type { CustomRouteHandle, LayoutId } from "~/utils/types";
-import { AboutFeature } from "../about/feature";
+import { ErrorBoundaryBase } from "~/components";
+import { HomeFeature } from "./feature";
 
 const layoutId: LayoutId = "home"
 
@@ -20,7 +21,9 @@ export const handle: CustomRouteHandle = {
 export default function HomeRoute() {
   return (
     <>
-      <AboutFeature layoutId={layoutId} />
+      <HomeFeature layoutId={layoutId} />
     </>
   );
 }
+
+export const ErrorBoundary = ErrorBoundaryBase(layoutId)

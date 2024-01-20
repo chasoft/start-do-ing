@@ -36,3 +36,11 @@ export function hasHandle<Handle extends string, Value>(
 export function isString(value: unknown): value is string {
   return typeof value === "string";
 }
+
+export function isJSXElement(value: unknown): value is JSX.Element {
+  if (typeof value !== "object" || value === null) {
+    return false; // Not an object, so definitely not a JSX element
+  }
+  const maybeEl = value as JSX.Element; // Narrow the type
+  return typeof maybeEl.type === "function" && "key" in value;
+}

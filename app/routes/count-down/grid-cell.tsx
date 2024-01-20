@@ -6,9 +6,9 @@ export function CountDownGridCell({ className, display, bgColor, layoutId }: { c
 	return (
 		<div className={`${className ?? ""} ${display ?? ""}`}>
 			<motion.div className={`h-full ${bgColor}`} layoutId={layoutId}>
-				<Link to="/random/password-generator" className="block h-full">
+				<Link to="/count-down" className="block h-full">
 					<div className="p-2">
-						Password Generator Block
+						Count down Block
 						<p>layoutId: {layoutId}</p>
 					</div>
 				</Link>

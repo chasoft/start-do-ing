@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, useMatches } from "@remix-run/react";
+import { useMatches } from "@remix-run/react";
 
 import { AnimatePresence } from "framer-motion";
 import { useAtomValue, useSetAtom } from "jotai";
@@ -10,7 +10,7 @@ import { CustomRouteHandle, getBlocks, useBreakpoint, } from "~/utils";
 import { layoutsAtom, layoutsPropsAtom } from "~/atoms/globals";
 import { GridCell } from "./GridCell";
 
-export function HomeGrid() {
+export function HomeGrid({ children }: { children: React.ReactNode }) {
 	const updateLayouts = useSetAtom(layoutsAtom)
 	const layoutsProps = useAtomValue(layoutsPropsAtom)
 	const breakpoint = useBreakpoint()
@@ -35,7 +35,7 @@ export function HomeGrid() {
 				)}
 			>
 				{/* Row 1 */}
-				<GridCell className="col-span-2" {...layoutsProps[0]} />
+				<GridCell className="col-span-2 rounded-tl-xl" {...layoutsProps[0]} />
 				<GridCell {...layoutsProps[1]} />
 				<GridCell {...layoutsProps[2]} />
 				<GridCell display="hidden md:block" {...layoutsProps[3]} />
@@ -43,9 +43,9 @@ export function HomeGrid() {
 				<GridCell display="hidden 3xl:block" {...layoutsProps[5]} />
 				{/* Row 2 */}
 				<GridCell className="aspect-h-2 aspect-w-2" display="hidden md:block" {...SIDE_BLOCKS_PROPS[0]} />
-				<div className="col-span-4 md:col-span-3 2xl:col-span-4 3xsl:col-span-5 grid grid-cols-subgrid gap-4">
+				<div className="col-span-4 md:col-span-3 2xl:col-span-4 3xl:col-span-5 grid grid-cols-subgrid gap-4">
 					<div className="col-start-1 col-span-4 md:col-span-3 2xl:col-span-4 3xl:col-span-5 h-full">
-						<Outlet />
+						{children}
 					</div>
 				</div>
 				<GridCell className="aspect-h-2 aspect-w-2" display="hidden md:block" {...SIDE_BLOCKS_PROPS[1]} />

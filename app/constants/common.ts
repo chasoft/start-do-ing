@@ -39,4 +39,4 @@ export const DYNAMIC_BLOCKS: Block[] = [
   MAGIC_WHEEL,
 ];
 
-export const DEFAULT_BLOCK: Block = DYNAMIC_BLOCKS[0];
+export const DEFAULT_BLOCK: Block = HOME;
