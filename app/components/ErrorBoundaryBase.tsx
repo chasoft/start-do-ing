@@ -1,4 +1,19 @@
+/* FRAMEWORK */
 import { isRouteErrorResponse, useRouteError } from "@remix-run/react";
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+
+/***************************************************************************
+ * 
+ *  START
+ * 
+ **************************************************************************/
 
 function ErrorBox({ children }: { children: React.ReactNode }) {
 	return (

@@ -1,6 +1,21 @@
-import { Block } from "~/utils/types";
+/* FRAMEWORK */
 
-export const RANDOM: Block = {
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
+import type { Block } from "~/utils/types";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+
+/***************************************************************************
+ *
+ *  START
+ *
+ **************************************************************************/
+
+export const RANDOM_LAYOUT: Block = {
   id: "random",
   icon: "/random.svg",
   title: "Random",

@@ -15,18 +15,18 @@ import type { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const PASSWORD_GENERATOR: Block = {
-  id: "password-generator",
-  icon: "/password-generator.svg",
-  title: "Password Generator",
+export const RANDOM: Block = {
+  id: "random",
+  icon: "/random.svg",
+  title: "Random",
   description: "",
-  to: "/random/password-generator",
+  to: "/random",
   tags: [],
-  favorite: false,
+  favorite: true,
   color: {
     text: "#000",
-    bg: "bg-blue-200",
-    primaryBg: "bg-blue-300",
+    bg: "bg-green-200",
+    primaryBg: "bg-green-300",
   },
   versioning: {
     releaseDate: new Date("2023/01/17"),

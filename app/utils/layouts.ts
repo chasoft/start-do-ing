@@ -2,6 +2,12 @@ import { Breakpoint } from ".";
 import { DYNAMIC_BLOCKS, EMPTY_BLOCK, SITE } from "~/constants";
 import type { Block, LayoutId } from "./types";
 
+/***************************************************************************
+ *
+ *  START
+ *
+ **************************************************************************/
+
 export function getMediaBreakpoint(): [Breakpoint, boolean] {
   const defaultBreakpointForServer: [Breakpoint, boolean] = ["3xl", true];
   if (typeof window === "undefined") return defaultBreakpointForServer;

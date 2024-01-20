@@ -1,8 +1,23 @@
-import { getBlockMetaData } from "~/utils";
+/* FRAMEWORK */
+
+/* THIRD-PARTY PACKAGES */
 import { type MetaFunction } from "@remix-run/cloudflare";
-import type { CustomRouteHandle, LayoutId } from "~/utils/types";
+
+/* COMPONENTS & UTILS */
 import { ErrorBoundaryBase } from "~/components";
+import { getBlockMetaData } from "~/utils";
 import { HomeFeature } from "./feature";
+import type { CustomRouteHandle, LayoutId } from "~/utils/types";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+
+/***************************************************************************
+ * 
+ *  START
+ * 
+ **************************************************************************/
 
 const layoutId: LayoutId = "home"
 

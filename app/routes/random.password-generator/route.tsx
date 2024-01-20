@@ -1,10 +1,25 @@
+/* FRAMEWORK */
+import { Link } from "@remix-run/react";
+import { type MetaFunction } from "@remix-run/cloudflare";
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
-import { type MetaFunction } from "@remix-run/cloudflare";
-import type { CustomRouteHandle, LayoutId } from "~/utils/types";
 import { PasswordGeneratorFeature } from "./feature";
-import { Link } from "@remix-run/react";
+import type { CustomRouteHandle, LayoutId } from "~/utils/types";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
 import { PASSWORD_GENERATOR } from "./metadata";
+
+/***************************************************************************
+ * 
+ *  START
+ * 
+ **************************************************************************/
 
 const layoutId: LayoutId = "password-generator"
 

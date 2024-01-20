@@ -1,15 +1,30 @@
+/* FRAMEWORK */
+
+/* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
-import { EMPTY_ID } from "~/constants"
+
+/* COMPONENTS & UTILS */
 import { HomeFeature } from "~/routes/_index/feature"
 import { AboutFeature } from "~/routes/about/feature"
 import { CountDownFeature } from "~/routes/count-down/feature"
 import { MagicWheelFeature } from "~/routes/magic-wheel/feature"
 import { RandomIndexFeature } from "~/routes/random._index/feature"
 import { PasswordGeneratorFeature } from "~/routes/random.password-generator/feature"
-import { LayoutId } from "~/utils/types"
+import type { LayoutId } from "~/utils/types"
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+import { BLOCK_NOT_FOUND } from "~/constants"
+
+/***************************************************************************
+ * 
+ *  START
+ * 
+ **************************************************************************/
 
 export function Features({ className, layoutId }: { className?: string, layoutId?: LayoutId }) {
-	const cn = `${className ?? ""} ${layoutId !== EMPTY_ID ? "cursor-pointer" : ""} transition-all`
+	const cn = `${className ?? ""} ${layoutId !== BLOCK_NOT_FOUND ? "cursor-pointer" : ""} transition-all`
 	switch (layoutId) {
 		case "home":
 			return <HomeFeature className={cn} layoutId={layoutId} />

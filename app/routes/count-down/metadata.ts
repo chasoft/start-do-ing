@@ -1,4 +1,19 @@
-import { Block } from "~/utils/types";
+/* FRAMEWORK */
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
+import type { Block } from "~/utils/types";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+
+/***************************************************************************
+ *
+ *  START
+ *
+ **************************************************************************/
 
 export const COUNT_DOWN: Block = {
   id: "count-down",

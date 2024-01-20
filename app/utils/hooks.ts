@@ -1,5 +1,13 @@
 import React from "react";
-import { getMediaBreakpoint } from ".";
+import { CustomRouteHandle, getMediaBreakpoint } from ".";
+import { useMatches } from "@remix-run/react";
+import { DEFAULT_BLOCK } from "~/constants";
+
+/***************************************************************************
+ *
+ *  HOOKS
+ *
+ **************************************************************************/
 
 export const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
@@ -19,4 +27,11 @@ export function useBreakpoint() {
   }, []);
 
   return breakpoint;
+}
+
+export function useCurrentLayoutId() {
+  const matches = useMatches();
+  const activeHandle = matches[matches.length - 1].handle as CustomRouteHandle;
+  const currenLayoutId = activeHandle.layoutId ?? DEFAULT_BLOCK.id;
+  return currenLayoutId;
 }

@@ -10,7 +10,7 @@ import clsx from "clsx";
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { COUNT_DOWN } from "./metadata";
+import { LAST_BLOCK } from "~/constants";
 
 /***************************************************************************
  * 
@@ -18,13 +18,12 @@ import { COUNT_DOWN } from "./metadata";
  * 
  **************************************************************************/
 
-export function CountDownGridCell({ className }: { className?: string }) {
+export function LastGridCell({ className }: { className?: string }) {
 	return (
-		<motion.div className={clsx("h-full", COUNT_DOWN.color.bg, className)} layoutId={COUNT_DOWN.id}>
-			<Link to={COUNT_DOWN.to} className="block h-full">
+		<motion.div className={clsx("h-full", LAST_BLOCK.color.bg, className)} layoutId={LAST_BLOCK.id}>
+			<Link to={LAST_BLOCK.to} className="block h-full">
 				<div className="p-2">
-					Count down Block
-					<p>layoutId: {COUNT_DOWN.id}</p>
+					<p>layoutId: {LAST_BLOCK.id}</p>
 				</div>
 			</Link>
 		</motion.div>

@@ -1,4 +1,19 @@
-import { Block } from "~/utils/types";
+/* FRAMEWORK */
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
+import type { Block } from "~/utils/types";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+
+/***************************************************************************
+ *
+ *  START
+ *
+ **************************************************************************/
 
 export const HOME: Block = {
   id: "home",
@@ -10,7 +25,7 @@ export const HOME: Block = {
   favorite: true,
   color: {
     text: "#000",
-    bg: "bg-emerald-200",
+    bg: "bg-pink-500",
     primaryBg: "bg-emerald-300",
   },
   versioning: {

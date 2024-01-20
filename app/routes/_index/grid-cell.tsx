@@ -1,17 +1,31 @@
+/* FRAMEWORK */
 import { Link } from "@remix-run/react";
-import { motion } from "framer-motion";
-import { LayoutId } from "~/utils/types";
 
-export function HomeGridCell({ className, display, bgColor, layoutId }: { className?: string, display?: string, bgColor: string, layoutId?: LayoutId }) {
+/* THIRD-PARTY PACKAGES */
+import { motion } from "framer-motion";
+import clsx from "clsx";
+
+/* COMPONENTS & UTILS */
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+import { HOME } from "./metadata";
+
+/***************************************************************************
+ * 
+ *  START
+ * 
+ **************************************************************************/
+
+export function HomeGridCell({ className }: { className?: string }) {
 	return (
-		<div className={`${className ?? ""} ${display ?? ""}`}>
-			<motion.div className={`h-full ${bgColor}`} layoutId={layoutId}>
-				<Link to="/" className="block h-full">
-					<div className="p-2">
-						Home Block<p>layoutId: {layoutId}</p>
-					</div>
-				</Link>
-			</motion.div>
-		</div>
+		<motion.div className={clsx("h-full", HOME.color.bg, className)} layoutId={HOME.id}>
+			<Link to="/" className="block h-full">
+				<div className="p-2">
+					Home Block<p>layoutId: {HOME.id}</p>
+				</div>
+			</Link>
+		</motion.div>
 	)
 }

@@ -1,3 +1,4 @@
+/* FRAMEWORK */
 import React from "react";
 import {
   Links,
@@ -8,25 +9,37 @@ import {
   ScrollRestoration,
   useNavigation,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/cloudflare";
 import { cssBundleHref } from "@remix-run/css-bundle";
+import type { LinksFunction } from "@remix-run/cloudflare";
 
+/* THIRD-PARTY PACKAGES */
 import { Provider } from "jotai";
 import NProgress from "nprogress"
 import nProgressStyles from "nprogress/nprogress.css"
 
+/* COMPONENTS & UTILS */
 import { HomeGrid } from "./components";
 import stylesheet from "~/tailwind.css";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+
+/***************************************************************************
+ *
+ *  START
+ *
+ **************************************************************************/
+
+interface DocumentProps {
+  children: React.ReactNode
+}
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
   { rel: "stylesheet", href: stylesheet },
   { rel: "stylesheet", href: nProgressStyles },
 ];
-
-interface DocumentProps {
-  children: React.ReactNode
-}
 
 function Document({ children }: DocumentProps) {
   const transition = useNavigation()

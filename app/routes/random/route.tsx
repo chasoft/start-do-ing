@@ -1,4 +1,19 @@
+/* FRAMEWORK */
 import { Outlet } from "@remix-run/react";
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+
+/***************************************************************************
+ * 
+ *  START
+ * 
+ **************************************************************************/
 
 // export const handle: CustomRouteHandle = {
 // 	breadcrumb: () => <Link to={RANDOM.to}>{RANDOM.title}</Link>,
@@ -16,7 +31,7 @@ export default function RandomLayoutRoute() {
 
 	return (
 		<>
-			<div className="bg-blue-500 h-full grid place-content-center">
+			<div className="h-full bg-blue-500">
 				{/* <header>
 					<ol>
 						{breadcrumbs.map((match, index) => (

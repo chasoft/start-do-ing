@@ -1,4 +1,13 @@
+/* FRAMEWORK */
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
 import type { Block } from "~/utils/types";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
 
 /**************************************************************************
  *
@@ -7,7 +16,7 @@ import type { Block } from "~/utils/types";
  *************************************************************************/
 
 export const LAST_BLOCK: Block = {
-  id: "lastBlock",
+  id: "last",
   icon: "/last-block.svg",
   title: "Last block",
   description: "Last block",

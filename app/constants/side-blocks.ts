@@ -1,9 +1,18 @@
+/* FRAMEWORK */
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
 import type { Block } from "~/utils/types";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
 
 /**************************************************************************
  *
  * Side blocks
- * Could be used for ads or event's banners
+ * Could be used for ads / event's banners / featured content
  *
  *************************************************************************/
 
@@ -47,8 +56,3 @@ export const SIDE_BLOCKS: Block[] = [
     },
   },
 ];
-
-export const SIDE_BLOCKS_PROPS = SIDE_BLOCKS.map((block) => ({
-  bgColor: block.color.bg,
-  layoutId: block.id,
-}));

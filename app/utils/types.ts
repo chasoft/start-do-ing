@@ -1,23 +1,44 @@
-export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
-
-export type LayoutId =
-  | "home"
-  | "about"
-  | "random"
-  | "password-generator"
-  | "count-down"
-  | "magic-wheel"
-  | "404"
-  | "left"
-  | "right"
-  | "lastBlock";
-
-export type Tag = "random" | "number" | "alphabet" | "password" | "kahoot";
-
 export type CustomRouteHandle = Partial<{
   layoutId: LayoutId;
   breadcrumb: () => JSX.Element;
 }>;
+
+export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
+
+export type LayoutId =
+  /******************************************************************
+   *
+   *   System layout
+   *
+   ******************************************************************/
+  | "home"
+  | "about"
+  | "last"
+  | "empty"
+  | "404"
+  /******************************************************************
+   *
+   *   Featured layout
+   *
+   ******************************************************************/
+  | "left"
+  | "right"
+  /******************************************************************
+   *
+   *   Functional layout
+   *
+   ******************************************************************/
+  | "random"
+  | "password-generator"
+  | "count-down"
+  | "magic-wheel";
+
+/******************************************************************
+ *
+ *   Tags to manage/group functional layouts
+ *
+ ******************************************************************/
+export type Tag = "random" | "number" | "alphabet" | "password" | "kahoot";
 
 export type Block = {
   /**
@@ -52,9 +73,4 @@ export type Block = {
     major: number;
     minor: number;
   };
-};
-
-export type BlockProps = {
-  layoutId: LayoutId;
-  bgColor: string;
 };

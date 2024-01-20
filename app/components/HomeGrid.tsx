@@ -1,23 +1,32 @@
+/* FRAMEWORK */
 import React from "react";
-import { useMatches } from "@remix-run/react";
 
+/* THIRD-PARTY PACKAGES */
 import { AnimatePresence } from "framer-motion";
 import { useAtomValue, useSetAtom } from "jotai";
 import clsx from "clsx";
 
-import { DEFAULT_BLOCK, SIDE_BLOCKS_PROPS } from "~/constants";
-import { CustomRouteHandle, getBlocks, useBreakpoint, } from "~/utils";
-import { layoutsAtom, layoutsPropsAtom } from "~/atoms/globals";
+/* COMPONENTS & UTILS */
+import { getBlocks, useBreakpoint, useCurrentLayoutId, } from "~/utils";
 import { GridCell } from "./GridCell";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+import { SIDE_BLOCKS } from "~/constants";
+import { layoutsAtom, layoutsPropsAtom } from "~/atoms/globals";
+
+/***************************************************************************
+ * 
+ *  START
+ * 
+ **************************************************************************/
 
 export function HomeGrid({ children }: { children: React.ReactNode }) {
 	const updateLayouts = useSetAtom(layoutsAtom)
-	const layoutsProps = useAtomValue(layoutsPropsAtom)
+	const layoutIds = useAtomValue(layoutsPropsAtom)
 	const breakpoint = useBreakpoint()
-
-	const matches = useMatches();
-	const activeHandle = matches[matches.length - 1].handle as CustomRouteHandle;
-	const currenLayoutId = activeHandle.layoutId ?? DEFAULT_BLOCK.id;
+	const currenLayoutId = useCurrentLayoutId()
 
 	React.useLayoutEffect(() => {
 		updateLayouts(getBlocks(currenLayoutId))
@@ -35,28 +44,28 @@ export function HomeGrid({ children }: { children: React.ReactNode }) {
 				)}
 			>
 				{/* Row 1 */}
-				<GridCell className="col-span-2 rounded-tl-xl" {...layoutsProps[0]} />
-				<GridCell {...layoutsProps[1]} />
-				<GridCell {...layoutsProps[2]} />
-				<GridCell display="hidden md:block" {...layoutsProps[3]} />
-				<GridCell display="hidden 2xl:block" {...layoutsProps[4]} />
-				<GridCell display="hidden 3xl:block" {...layoutsProps[5]} />
+				<GridCell className="col-span-2" layoutId={layoutIds[0]} />
+				<GridCell layoutId={layoutIds[1]} />
+				<GridCell layoutId={layoutIds[2]} />
+				<GridCell className="hidden md:block" layoutId={layoutIds[3]} />
+				<GridCell className="hidden 2xl:block" layoutId={layoutIds[4]} />
+				<GridCell className="hidden 3xl:block" layoutId={layoutIds[5]} />
 				{/* Row 2 */}
-				<GridCell className="aspect-h-2 aspect-w-2" display="hidden md:block" {...SIDE_BLOCKS_PROPS[0]} />
-				<div className="col-span-4 md:col-span-3 2xl:col-span-4 3xl:col-span-5 grid grid-cols-subgrid gap-4">
-					<div className="col-start-1 col-span-4 md:col-span-3 2xl:col-span-4 3xl:col-span-5 h-full">
+				<GridCell className={clsx("aspect-h-2 aspect-w-2", { "hidden md:block": "display" })} layoutId={SIDE_BLOCKS[0].id} />
+				<div className="grid col-span-4 gap-4 md:col-span-3 2xl:col-span-4 3xl:col-span-5 grid-cols-subgrid">
+					<div className="h-full col-span-4 col-start-1 md:col-span-3 2xl:col-span-4 3xl:col-span-5">
 						{children}
 					</div>
 				</div>
-				<GridCell className="aspect-h-2 aspect-w-2" display="hidden md:block" {...SIDE_BLOCKS_PROPS[1]} />
+				<GridCell className={clsx("aspect-h-2 aspect-w-2", { "hidden md:block": "display" })} layoutId={SIDE_BLOCKS[0].id} />
 				{/* Row 3 */}
-				<GridCell {...layoutsProps[6]} />
-				<GridCell {...layoutsProps[7]} />
-				<GridCell {...layoutsProps[8]} />
-				<GridCell display="hidden md:block" {...layoutsProps[9]} />
-				<GridCell display="hidden 2xl:block" {...layoutsProps[10]} />
-				<GridCell display="hidden 3xl:block" {...layoutsProps[11]} />
-				<GridCell bgColor="bg-red-200" />
+				<GridCell layoutId={layoutIds[6]} />
+				<GridCell layoutId={layoutIds[7]} />
+				<GridCell layoutId={layoutIds[8]} />
+				<GridCell className={clsx({ "hidden md:block": "display" })} layoutId={layoutIds[9]} />
+				<GridCell className={clsx({ "hidden 2xl:block": "display" })} layoutId={layoutIds[10]} />
+				<GridCell className={clsx({ "hidden 3xl:block": "display" })} layoutId={layoutIds[11]} />
+				<GridCell layoutId="last" />
 			</div>
 		</AnimatePresence>
 	)

@@ -1,9 +1,24 @@
+/* FRAMEWORK */
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
 import type { Block, LayoutId } from "~/utils/types";
 
-export const EMPTY_ID: LayoutId = "404";
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+
+/***************************************************************************
+ *
+ *  START
+ *
+ **************************************************************************/
+
+export const BLOCK_NOT_FOUND: LayoutId = "404";
 
 export const EMPTY_BLOCK: Block = {
-  id: EMPTY_ID,
+  id: "empty",
   icon: "/empty.svg",
   title: "Empty block",
   description: "Empty block",

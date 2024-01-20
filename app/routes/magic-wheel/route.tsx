@@ -1,8 +1,23 @@
+/* FRAMEWORK */
+import { type MetaFunction } from "@remix-run/cloudflare";
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
-import { type MetaFunction } from "@remix-run/cloudflare";
-import type { CustomRouteHandle, LayoutId } from "~/utils/types";
 import { MagicWheelFeature } from "./feature";
+import type { CustomRouteHandle, LayoutId } from "~/utils/types";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+
+/***************************************************************************
+ * 
+ *  START
+ * 
+ **************************************************************************/
 
 const layoutId: LayoutId = "magic-wheel"
 

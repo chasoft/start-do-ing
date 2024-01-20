@@ -1,8 +1,23 @@
-import { getBlockMetaData } from "~/utils";
+/* FRAMEWORK */
 import { type MetaFunction } from "@remix-run/cloudflare";
-import type { CustomRouteHandle, LayoutId } from "~/utils/types";
-import { RandomIndexFeature } from "./feature";
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
 import { ErrorBoundaryBase } from "~/components";
+import { getBlockMetaData } from "~/utils";
+import { RandomIndexFeature } from "./feature";
+import type { CustomRouteHandle, LayoutId } from "~/utils/types";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+
+/***************************************************************************
+ * 
+ *  START
+ * 
+ **************************************************************************/
 
 const layoutId: LayoutId = "random"
 

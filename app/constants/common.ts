@@ -1,10 +1,25 @@
+/* FRAMEWORK */
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
 import { ABOUT } from "~/routes/about/metadata";
-import { Block, Breakpoint, Tag } from "~/utils";
 import { COUNT_DOWN } from "~/routes/count-down/metadata";
 import { HOME } from "~/routes/_index/metadata";
 import { MAGIC_WHEEL } from "~/routes/magic-wheel/metadata";
 import { PASSWORD_GENERATOR } from "~/routes/random.password-generator/metadata";
-import { RANDOM } from "~/routes/random/metadata";
+import { RANDOM } from "~/routes/random._index/metadata";
+import type { Block, Breakpoint, Tag } from "~/utils";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+
+/***************************************************************************
+ *
+ *  START
+ *
+ **************************************************************************/
 
 export const SITE = {
   title: "Start-Do-Ing",

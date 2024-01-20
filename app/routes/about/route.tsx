@@ -1,8 +1,23 @@
+/* FRAMEWORK */
+import { type MetaFunction } from "@remix-run/cloudflare";
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
+import { AboutFeature } from "./feature";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
-import { type MetaFunction } from "@remix-run/cloudflare";
 import type { CustomRouteHandle, LayoutId } from "~/utils/types";
-import { AboutFeature } from "./feature";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+
+/***************************************************************************
+ * 
+ *  START
+ * 
+ **************************************************************************/
 
 const layoutId: LayoutId = "about"
 
