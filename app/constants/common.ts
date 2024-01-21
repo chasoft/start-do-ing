@@ -55,3 +55,11 @@ export const DYNAMIC_BLOCKS: Block[] = [
 ];
 
 export const DEFAULT_BLOCK: Block = HOME;
+
+/***************************************************************************
+ *
+ *  COMMON CSS
+ *
+ **************************************************************************/
+
+// export const gridCellIcon = ""

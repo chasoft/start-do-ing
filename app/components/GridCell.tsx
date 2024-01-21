@@ -35,25 +35,25 @@ export function GridCell({ className, layoutId }: { className?: string, layoutId
 		 *********************************************************************/
 		case "home":
 			return (
-				<div className={clsx(className, "overflow-hidden")}>
+				<div className={clsx(className)}>
 					<HomeGridCell />
 				</div>
 			)
 		case "about":
 			return (
-				<div className={clsx(className, "overflow-hidden")}>
+				<div className={clsx(className)}>
 					<AboutGridCell />
 				</div>
 			)
 		case "empty":
 			return (
-				<div className={clsx(className, "overflow-hidden")}>
+				<div className={clsx(className)}>
 					<EmptyGridCell />
 				</div>
 			)
 		case "last":
 			return (
-				<div className={clsx(className, "overflow-hidden")}>
+				<div className={clsx(className)}>
 					<LastGridCell />
 				</div>
 			)
@@ -64,13 +64,13 @@ export function GridCell({ className, layoutId }: { className?: string, layoutId
 		 *********************************************************************/
 		case "left":
 			return (
-				<div className={clsx(className, "overflow-hidden")}>
+				<div className={clsx(className)}>
 					<LeftGridCell />
 				</div>
 			)
 		case "right":
 			return (
-				<div className={clsx(className, "overflow-hidden")}>
+				<div className={clsx(className)}>
 					<RightGridCell />
 				</div>
 			)
@@ -81,25 +81,25 @@ export function GridCell({ className, layoutId }: { className?: string, layoutId
 		 *********************************************************************/
 		case "random":
 			return (
-				<div className={clsx(className, "overflow-hidden")}>
+				<div className={clsx(className)}>
 					<RandomGridCell />
 				</div>
 			)
 		case "password-generator":
 			return (
-				<div className={clsx(className, "overflow-hidden")}>
+				<div className={clsx(className)}>
 					<PasswordGeneratorGridCell />
 				</div>
 			)
 		case "count-down":
 			return (
-				<div className={clsx(className, "overflow-hidden")}>
+				<div className={clsx(className)}>
 					<CountDownGridCell />
 				</div>
 			)
 		case "magic-wheel":
 			return (
-				<div className={clsx(className, "overflow-hidden")}>
+				<div className={clsx(className)}>
 					<MagicWheelGridCell />
 				</div>
 			)
@@ -110,7 +110,7 @@ export function GridCell({ className, layoutId }: { className?: string, layoutId
 		 *********************************************************************/
 		default:
 			return (
-				<div className={clsx(className, "h-full overflow-hidden")}>
+				<div className={clsx(className, "h-full")}>
 					<motion.div className={clsx("h-full bg-gray-200")} layoutId={BLOCK_NOT_FOUND}>
 						<div className="grid text-2xl text-red-900 place-content-center">BLOCK NOT FOUND</div>
 					</motion.div>

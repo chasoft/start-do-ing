@@ -25,8 +25,7 @@ export const COUNT_DOWN: Block = {
   favorite: false,
   color: {
     text: "#000",
-    bg: "bg-blue-200",
-    primaryBg: "bg-blue-300",
+    primaryBg: "bg-blue-200",
   },
   versioning: {
     releaseDate: new Date("2023/01/17"),

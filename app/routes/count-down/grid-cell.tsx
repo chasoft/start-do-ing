@@ -20,8 +20,8 @@ import { COUNT_DOWN } from "./metadata";
 
 export function CountDownGridCell({ className }: { className?: string }) {
 	return (
-		<motion.div className={clsx("h-full", COUNT_DOWN.color.bg, className)} layoutId={COUNT_DOWN.id}>
-			<Link to={COUNT_DOWN.to} className="block h-full">
+		<motion.div className={clsx("h-full", className)} layoutId={COUNT_DOWN.id}>
+			<Link to={COUNT_DOWN.to} className="relative block h-full transition-colors bg-pink-100 rounded-lg hover:bg-pink-200 hover:outline-pink-300 outline-pink-200 outline-2 hover:outline-2 outline">
 				<div className="p-2">
 					Count down Block
 					<p>layoutId: {COUNT_DOWN.id}</p>

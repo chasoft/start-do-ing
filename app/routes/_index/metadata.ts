@@ -25,8 +25,7 @@ export const HOME: Block = {
   favorite: true,
   color: {
     text: "#000",
-    bg: "bg-pink-500",
-    primaryBg: "bg-emerald-300",
+    primaryBg: "bg-pink-200",
   },
   versioning: {
     releaseDate: new Date("2023/01/17"),

@@ -23,7 +23,7 @@ function Buttons() {
 }
 export function ContentWrapper({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="relative w-full h-full p-2 border-2 rounded-xl">
+		<div className="relative w-full h-full p-2 border-2 rounded-[var(--cell-grid-rounded)]">
 			<Buttons />
 			{children}
 		</div>

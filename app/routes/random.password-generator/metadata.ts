@@ -25,8 +25,7 @@ export const PASSWORD_GENERATOR: Block = {
   favorite: false,
   color: {
     text: "#000",
-    bg: "bg-blue-200",
-    primaryBg: "bg-blue-300",
+    primaryBg: "bg-rose-200",
   },
   versioning: {
     releaseDate: new Date("2023/01/17"),

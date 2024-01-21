@@ -25,8 +25,7 @@ export const RANDOM_LAYOUT: Block = {
   favorite: true,
   color: {
     text: "#000",
-    bg: "bg-green-200",
-    primaryBg: "bg-green-300",
+    primaryBg: "bg-green-200",
   },
   versioning: {
     releaseDate: new Date("2023/01/17"),

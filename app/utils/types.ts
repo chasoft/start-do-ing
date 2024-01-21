@@ -62,7 +62,6 @@ export type Block = {
    */
   color: {
     text: string;
-    bg: string;
     primaryBg: string;
   };
   /**

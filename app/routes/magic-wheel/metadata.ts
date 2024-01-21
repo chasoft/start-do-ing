@@ -25,8 +25,7 @@ export const MAGIC_WHEEL: Block = {
   favorite: true,
   color: {
     text: "#000",
-    bg: "bg-blue-200",
-    primaryBg: "bg-blue-300",
+    primaryBg: "bg-orange-200",
   },
   versioning: {
     releaseDate: new Date("2023/01/17"),

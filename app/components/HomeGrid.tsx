@@ -53,7 +53,7 @@ export function HomeGrid({ children }: { children: React.ReactNode }) {
 				{/* Row 2 */}
 				<GridCell className={clsx("aspect-h-2 aspect-w-2", { "hidden md:block": "display" })} layoutId={SIDE_BLOCKS[0].id} />
 				<div className="grid col-span-4 gap-4 md:col-span-3 2xl:col-span-4 3xl:col-span-5 grid-cols-subgrid">
-					<div className="h-full col-span-4 col-start-1 md:col-span-3 2xl:col-span-4 3xl:col-span-5">
+					<div className="h-full col-span-4 col-start-1 overflow-hidden md:col-span-3 2xl:col-span-4 3xl:col-span-5">
 						{children}
 					</div>
 				</div>
