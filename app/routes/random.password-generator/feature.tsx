@@ -20,7 +20,9 @@ export function PasswordGeneratorFeature({ className, layoutId }: { className?: 
 	return (
 		<ContentWrapper>
 			<motion.div className={className} layoutId={layoutId}>
-				<h1>Password Generator Feature</h1>
+				<div className="h-full p-2 sm:p-4 xl:p-6">
+					<h1 className="text-lg font-semibold sm:text-2xl">Password Generator</h1>
+				</div>
 			</motion.div>
 		</ContentWrapper>
 	)

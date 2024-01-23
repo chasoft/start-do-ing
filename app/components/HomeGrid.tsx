@@ -40,7 +40,8 @@ export function HomeGrid({ children }: { children: React.ReactNode }) {
 					"gap-2 xl:gap-3 p-2 xl:p-3", "min-h-svh 2xl:max-h-dvh",
 					"grid-rows-[minmax(80px,100px)_minmax(300px,1fr)_minmax(80px,120px)]",
 					"sm:grid-rows-[minmax(100px,150px)_minmax(300px,1fr)_minmax(80px,120px)]",
-					"md:grid-rows-[minmax(100px,200px)_minmax(300px,1fr)_minmax(50px,150px)]"
+					"md:grid-rows-[minmax(100px,200px)_minmax(300px,1fr)_minmax(50px,150px)]",
+					"bg-[url('https://images.unsplash.com/photo-1531219572328-a0171b4448a3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover"
 				)}
 			>
 				{/* Row 1 */}
@@ -57,7 +58,7 @@ export function HomeGrid({ children }: { children: React.ReactNode }) {
 						{children}
 					</div>
 				</div>
-				<GridCell className={clsx("aspect-h-2 aspect-w-2", { "hidden md:block": "display" })} layoutId={SIDE_BLOCKS[0].id} />
+				<GridCell className={clsx("aspect-h-2 aspect-w-2", { "hidden md:block": "display" })} layoutId={SIDE_BLOCKS[1].id} />
 				{/* Row 3 */}
 				<GridCell layoutId={layoutIds[6]} />
 				<GridCell layoutId={layoutIds[7]} />

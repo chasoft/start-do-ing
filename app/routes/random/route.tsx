@@ -31,7 +31,7 @@ export default function RandomLayoutRoute() {
 
 	return (
 		<>
-			<div className="h-full bg-blue-500">
+			<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
 				{/* <header>
 					<ol>
 						{breadcrumbs.map((match, index) => (

@@ -14,10 +14,11 @@ export default {
     },
   },
   plugins: [
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/forms"),
+    require("@tailwindcss/line-clamp"),
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/container-queries"),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
     require("daisyui"),
   ],
 } satisfies Config;

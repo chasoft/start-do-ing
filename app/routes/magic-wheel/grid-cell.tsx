@@ -1,11 +1,11 @@
 /* FRAMEWORK */
-import { Link } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
+import { GridCellLink } from "~/components";
 
 /* TRANSLATIONS IMPORT */
 
@@ -24,11 +24,12 @@ export function MagicWheelGridCell({ className }: { className?: string }) {
 			className={clsx("h-full", className)}
 			layoutId={MAGIC_WHEEL.id}
 		>
-			<Link to={MAGIC_WHEEL.to} className="relative block h-full transition-colors bg-pink-100 rounded-lg hover:bg-pink-200 hover:outline-pink-300 outline-pink-200 outline-2 hover:outline-2 outline">
-				<div className="p-2">
-					Magic Wheel Block<p>layoutId: {MAGIC_WHEEL.id}</p>
+			<GridCellLink to={MAGIC_WHEEL.to}>
+				<div className="grid h-full p-2 place-content-center">
+					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Magic wheel</h2>
+					<span className="line-clamp-2">Your wheel of magic</span>
 				</div>
-			</Link>
+			</GridCellLink>
 		</motion.div>
 	)
 }

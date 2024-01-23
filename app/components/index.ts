@@ -26,4 +26,5 @@ export * from "./RightGridCell";
 
 export * from "./Features";
 export * from "./GridCell";
+export * from "./GridCellLink";
 export * from "./HomeGrid";

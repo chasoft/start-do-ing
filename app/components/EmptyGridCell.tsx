@@ -20,10 +20,10 @@ import { EMPTY_BLOCK } from "~/constants";
 
 export function EmptyGridCell({ className }: { className?: string }) {
 	return (
-		<motion.div className={clsx("h-full", EMPTY_BLOCK.color.bg, className)} layoutId={EMPTY_BLOCK.id}>
-			<Link to={EMPTY_BLOCK.to} className="block h-full">
+		<motion.div className={clsx("h-full", className)} layoutId={EMPTY_BLOCK.id}>
+			<Link to={EMPTY_BLOCK.to} className="block h-full bg-gray-200 bg-opacity-50 rounded-lg hover:bg-opacity-70">
 				<div className="p-2">
-					<p>layoutId: {EMPTY_BLOCK.id}</p>
+					<p></p>
 				</div>
 			</Link>
 		</motion.div>
