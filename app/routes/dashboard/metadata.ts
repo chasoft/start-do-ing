@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import type { Block, LayoutId } from "~/utils/types";
+import type { Block } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,22 +15,20 @@ import type { Block, LayoutId } from "~/utils/types";
  *
  **************************************************************************/
 
-export const BLOCK_NOT_FOUND: LayoutId = "404";
-
-export const EMPTY_BLOCK: Block = {
-  id: "empty",
-  icon: "/empty.svg",
-  title: "Empty block",
-  description: "Empty block",
-  to: "/",
+export const DASHBOARD_LAYOUT: Block = {
+  id: "dashboard",
+  icon: "/dashboard.svg",
+  title: "Dashboard",
+  description: "",
+  to: "/dashboard",
   tags: [],
-  favorite: false,
+  favorite: true,
   color: {
     text: "#000",
-    primaryBg: "bg-gray-300",
+    primaryBg: "bg-green-200",
   },
   versioning: {
-    releaseDate: new Date(),
+    releaseDate: new Date("2023/01/17"),
     major: 0,
     minor: 1,
   },

@@ -27,7 +27,6 @@ export const SIDE_BLOCKS: Block[] = [
     favorite: false,
     color: {
       text: "#000",
-      bg: "bg-red-200",
       primaryBg: "bg-red-300",
     },
     versioning: {
@@ -46,7 +45,6 @@ export const SIDE_BLOCKS: Block[] = [
     favorite: false,
     color: {
       text: "#000",
-      bg: "bg-yellow-200",
       primaryBg: "bg-yellow-300",
     },
     versioning: {

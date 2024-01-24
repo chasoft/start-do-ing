@@ -20,12 +20,11 @@ export const LAST_BLOCK: Block = {
   icon: "/last-block.svg",
   title: "Last block",
   description: "Last block",
-  to: "/",
+  to: "/dashboard",
   tags: [],
   favorite: true,
   color: {
     text: "#000",
-    bg: "bg-gray-200",
     primaryBg: "bg-gray-300",
   },
   versioning: {

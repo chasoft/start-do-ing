@@ -111,8 +111,11 @@ export function GridCell({ className, layoutId }: { className?: string, layoutId
 		default:
 			return (
 				<div className={clsx(className, "h-full")}>
-					<motion.div className={clsx("h-full bg-gray-200")} layoutId={BLOCK_NOT_FOUND}>
-						<div className="grid text-2xl text-red-900 place-content-center">BLOCK NOT FOUND</div>
+					<motion.div className={clsx("h-full bg-gray-200 rounded-lg")} layoutId={BLOCK_NOT_FOUND}>
+						<div className="grid h-full text-lg md:text-xl text-red-900 place-content-center">
+							BLOCK NOT FOUND
+							<p>{layoutId}</p>
+						</div>
 					</motion.div>
 				</div>
 			);

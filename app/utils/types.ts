@@ -13,6 +13,8 @@ export type LayoutId =
    ******************************************************************/
   | "home"
   | "about"
+  | "dashboard"
+  | "settings"
   | "last"
   | "empty"
   | "404"

@@ -1,5 +1,6 @@
 /* FRAMEWORK */
 
+import { Link } from "@remix-run/react"
 import { IconExpand } from "./icons"
 
 /* THIRD-PARTY PACKAGES */
@@ -17,17 +18,16 @@ import { IconExpand } from "./icons"
  **************************************************************************/
 
 function FullScreenButton() {
+	const url = new URL(window.location.href)
+	url.searchParams.set("full", "true")
+	const fullUrl = url.href;
 	return (
-		<div className="absolute top-2 right-2">
-			<button
-				title="Expand to full page"
-				className="w-8 h-8 px-2 py-1 text-black bg-gray-200 rounded-md hover:bg-gray-400 hover:bg-opacity-60 active:bg-gray-500 active:text-white"
-			>
-				<IconExpand />
-			</button>
-		</div>
+		<Link to={fullUrl} className="absolute top-2 right-2 sm:top-3 sm:right-3">
+			<IconExpand className="w-6 h-6 text-gray-700 hover:scale-125 active:scale-150 transition-all cursor-pointer" />
+		</Link>
 	)
 }
+
 export function ContentWrapper({ children }: { children: React.ReactNode }) {
 	return (
 		<div className="relative w-full h-full p-2 rounded-lg">

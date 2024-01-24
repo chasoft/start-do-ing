@@ -1,17 +1,16 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
 import clsx from "clsx";
+import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
+import { GridCellLink } from "~/components";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
 import { HOME } from "./metadata";
-import homeIcon from "~/assets/svg/home.svg"
-import { GridCellLink } from "~/components";
 
 /***************************************************************************
  * 
@@ -27,7 +26,6 @@ export function HomeGridCell({ className }: { className?: string }) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Home</h2>
 					<span className="line-clamp-2">Site introduction</span>
 				</div>
-				<img src={homeIcon} alt="home" className="absolute w-6 h-6 bottom-2 right-2 sm:bottom-3 sm:right-3" />
 			</GridCellLink>
 		</motion.div>
 	)

@@ -1,6 +1,15 @@
+/* FRAMEWORK */
 import React from "react";
-import { CustomRouteHandle, getMediaBreakpoint } from ".";
 import { useMatches } from "@remix-run/react";
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
+import { CustomRouteHandle, getMediaBreakpoint } from ".";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
 import { DEFAULT_BLOCK } from "~/constants";
 
 /***************************************************************************

@@ -21,6 +21,8 @@ import type { Block, Breakpoint, Tag } from "~/utils";
  *
  **************************************************************************/
 
+export const SITE_URL = "https://startdo.ing";
+
 export const SITE = {
   title: "Start-Do-Ing",
   description:
@@ -46,8 +48,16 @@ export const tags: Record<Tag, string> = {
 };
 
 export const DYNAMIC_BLOCKS: Block[] = [
+  /**
+   * System
+   */
   HOME,
   ABOUT,
+  // SETTINGS,
+  // DASHBOARD,
+  /**
+   * Functional
+   */
   RANDOM,
   PASSWORD_GENERATOR,
   COUNT_DOWN,
