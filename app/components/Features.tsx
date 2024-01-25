@@ -4,13 +4,13 @@
 import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { HomeFeature } from "~/routes/_index/feature"
-import { AboutFeature } from "~/routes/about/feature"
+import { HomeFeature } from "~/routes/_index/content"
+import { AboutFeature } from "~/routes/about/content"
 import { CountDownFeature } from "~/routes/count-down/feature"
-import { MagicWheelFeature } from "~/routes/magic-wheel/feature"
-import { RandomIndexFeature } from "~/routes/random._index/feature"
-import { PasswordGeneratorFeature } from "~/routes/random.password-generator/feature"
-import type { LayoutId } from "~/utils/types"
+import { MagicWheelFeature } from "~/routes/magic-wheel/content"
+import { RandomIndexContent } from "~/routes/random._index/content"
+import { PasswordGeneratorContent } from "~/routes/random.password-generator/content"
+import type { PageId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
@@ -23,7 +23,7 @@ import { BLOCK_NOT_FOUND } from "~/constants"
  * 
  **************************************************************************/
 
-export function Features({ className, layoutId }: { className?: string, layoutId?: LayoutId }) {
+export function Features({ className, layoutId }: { className?: string, layoutId?: PageId }) {
 	const cn = `${className ?? ""} ${layoutId !== BLOCK_NOT_FOUND ? "cursor-pointer" : ""} transition-all`
 	switch (layoutId) {
 		case "home":
@@ -31,9 +31,9 @@ export function Features({ className, layoutId }: { className?: string, layoutId
 		case "about":
 			return <AboutFeature className={cn} layoutId={layoutId} />
 		case "random":
-			return <RandomIndexFeature className={cn} layoutId={layoutId} />
+			return <RandomIndexContent className={cn} layoutId={layoutId} />
 		case "password-generator":
-			return <PasswordGeneratorFeature className={cn} layoutId={layoutId} />
+			return <PasswordGeneratorContent className={cn} layoutId={layoutId} />
 		case "count-down":
 			return <CountDownFeature className={cn} layoutId={layoutId} />
 		case "magic-wheel":

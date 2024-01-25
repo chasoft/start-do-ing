@@ -6,8 +6,8 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 /* COMPONENTS & UTILS */
 import { ErrorBoundaryBase } from "~/components";
 import { getBlockMetaData } from "~/utils";
-import { RandomIndexFeature } from "./feature";
-import type { CustomRouteHandle, LayoutId } from "~/utils/types";
+import { RandomIndexContent } from "./content";
+import type { CustomRouteHandle, PageId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,7 +19,7 @@ import type { CustomRouteHandle, LayoutId } from "~/utils/types";
  * 
  **************************************************************************/
 
-const layoutId: LayoutId = "random"
+const layoutId: PageId = "random"
 
 export const meta: MetaFunction = () => {
 	const { title, description } = getBlockMetaData(layoutId);
@@ -35,7 +35,7 @@ export const handle: CustomRouteHandle = {
 
 export default function RandomIndexRoute() {
 	return (
-		<RandomIndexFeature layoutId={layoutId} />
+		<RandomIndexContent layoutId={layoutId} />
 	)
 }
 

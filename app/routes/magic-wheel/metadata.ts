@@ -21,7 +21,7 @@ export const MAGIC_WHEEL: Block = {
   title: "Magic Wheel",
   description: "",
   to: "/magic-wheel",
-  tags: [],
+  group: [],
   favorite: true,
   color: {
     text: "#000",

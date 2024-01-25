@@ -1,6 +1,6 @@
 import { Breakpoint } from ".";
 import { DYNAMIC_BLOCKS, EMPTY_BLOCK, SITE } from "~/constants";
-import type { Block, LayoutId } from "./types";
+import type { Block, PageId } from "./types";
 
 /***************************************************************************
  *
@@ -103,7 +103,7 @@ export const getDynamicBlocks = () => {
 /**
  * Main function to get a list of blocks to be populated in the layout
  */
-export function getBlocks(selectedLayoutId: LayoutId): Block[] {
+export function getBlocks(selectedLayoutId: PageId): Block[] {
   const emptyBlocks = getEmptyBlocks();
   const blocks = getDynamicBlocks().filter(
     (block) => block.id !== selectedLayoutId
@@ -120,7 +120,7 @@ export function getBlocks(selectedLayoutId: LayoutId): Block[] {
     : blocks;
 }
 
-export const getBlockMetaData = (id: LayoutId) => {
+export const getBlockMetaData = (id: PageId) => {
   const block = DYNAMIC_BLOCKS.find((b) => b.id === id);
   return block
     ? { title: `${SITE.title} - ${block.title}`, desc: block.description }

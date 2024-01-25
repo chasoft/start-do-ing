@@ -1,0 +1,45 @@
+/* FRAMEWORK */
+import { Link } from "@remix-run/react";
+import { type MetaFunction } from "@remix-run/cloudflare";
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
+import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
+import { getBlockMetaData } from "~/utils";
+import { DevUtilsBase64Content } from "./content";
+import type { CustomRouteHandle, PageId } from "~/utils/types";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+import { DEV_UTILS_BASE64 } from "./metadata";
+
+/***************************************************************************
+ * 
+ *  START
+ * 
+ **************************************************************************/
+
+const layoutId: PageId = "dev-utils-base64";
+
+export const meta: MetaFunction = () => {
+	const { title, description } = getBlockMetaData(layoutId);
+	return [
+		{ title },
+		{ name: "description", content: description },
+	];
+};
+
+export const handle: CustomRouteHandle = {
+	layoutId,
+	breadcrumb: () => <Link to={DEV_UTILS_BASE64.to}>{DEV_UTILS_BASE64.title}</Link>,
+};
+
+export default function DevUtilsBase64Route() {
+	return (
+		<DevUtilsBase64Content layoutId={layoutId} />
+	)
+}
+
+export const ErrorBoundary = ErrorBoundaryBase(layoutId)

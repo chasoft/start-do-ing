@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import type { Block, LayoutId } from "~/utils/types";
+import type { Block, PageId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import type { Block, LayoutId } from "~/utils/types";
  *
  **************************************************************************/
 
-export const BLOCK_NOT_FOUND: LayoutId = "404";
+export const BLOCK_NOT_FOUND: PageId = "404";
 
 export const EMPTY_BLOCK: Block = {
   id: "empty",
@@ -23,7 +23,7 @@ export const EMPTY_BLOCK: Block = {
   title: "Empty block",
   description: "Empty block",
   to: "/",
-  tags: [],
+  group: [],
   favorite: false,
   color: {
     text: "#000",

@@ -18,7 +18,7 @@ import { RANDOM } from "./metadata";
  * 
  **************************************************************************/
 
-export function RandomGridCell({ className }: { className?: string }) {
+export function RandomIndexCell({ className }: { className?: string }) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={RANDOM.id}>
 			<GridCellLink to={RANDOM.to}>

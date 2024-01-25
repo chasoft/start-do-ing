@@ -4,10 +4,10 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { AboutFeature } from "./feature";
+import { AboutFeature } from "./content";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
-import type { CustomRouteHandle, LayoutId } from "~/utils/types";
+import type { CustomRouteHandle, PageId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,7 +19,7 @@ import type { CustomRouteHandle, LayoutId } from "~/utils/types";
  * 
  **************************************************************************/
 
-const layoutId: LayoutId = "about"
+const layoutId: PageId = "about"
 
 export const meta: MetaFunction = () => {
 	const { title, description } = getBlockMetaData(layoutId);

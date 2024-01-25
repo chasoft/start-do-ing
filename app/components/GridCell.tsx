@@ -10,9 +10,9 @@ import { CountDownGridCell } from "~/routes/count-down/grid-cell";
 import { EmptyGridCell, LeftGridCell, RightGridCell } from ".";
 import { HomeGridCell } from "~/routes/_index/grid-cell";
 import { MagicWheelGridCell } from "~/routes/magic-wheel/grid-cell";
-import { PasswordGeneratorGridCell } from "~/routes/random.password-generator/grid-cell";
-import { RandomGridCell } from "~/routes/random._index/grid-cell";
-import type { LayoutId } from "~/utils";
+import { RandomPasswordCell } from "~/routes/random.password/grid-cell";
+import { RandomIndexCell } from "~/routes/random._index/grid-cell";
+import type { PageId } from "~/utils";
 
 /* TRANSLATIONS IMPORT */
 
@@ -26,7 +26,7 @@ import { LastGridCell } from "./LastGridCell";
  * 
  **************************************************************************/
 
-export function GridCell({ className, layoutId }: { className?: string, layoutId?: LayoutId }) {
+export function GridCell({ className, layoutId }: { className?: string, layoutId?: PageId }) {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -82,13 +82,13 @@ export function GridCell({ className, layoutId }: { className?: string, layoutId
 		case "random":
 			return (
 				<div className={clsx(className)}>
-					<RandomGridCell />
+					<RandomIndexCell />
 				</div>
 			)
 		case "password-generator":
 			return (
 				<div className={clsx(className)}>
-					<PasswordGeneratorGridCell />
+					<RandomPasswordCell />
 				</div>
 			)
 		case "count-down":

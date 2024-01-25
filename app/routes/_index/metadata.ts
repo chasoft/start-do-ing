@@ -21,7 +21,7 @@ export const HOME: Block = {
   title: "Home",
   description: "",
   to: "/",
-  tags: [],
+  group: [],
   favorite: true,
   color: {
     text: "#000",

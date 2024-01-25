@@ -21,7 +21,7 @@ export const ABOUT: Block = {
   title: "About",
   description: "",
   to: "/about",
-  tags: [],
+  group: [],
   favorite: true,
   color: {
     text: "#000",

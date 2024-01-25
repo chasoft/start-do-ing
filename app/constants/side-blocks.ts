@@ -23,7 +23,7 @@ export const SIDE_BLOCKS: Block[] = [
     title: "Left block",
     description: "Left block",
     to: "/",
-    tags: [],
+    group: [],
     favorite: false,
     color: {
       text: "#000",
@@ -41,7 +41,7 @@ export const SIDE_BLOCKS: Block[] = [
     title: "Right block",
     description: "Right block",
     to: "/",
-    tags: [],
+    group: [],
     favorite: false,
     color: {
       text: "#000",

@@ -21,7 +21,7 @@ export const DASHBOARD_LAYOUT: Block = {
   title: "Dashboard",
   description: "",
   to: "/dashboard",
-  tags: [],
+  group: [],
   favorite: true,
   color: {
     text: "#000",

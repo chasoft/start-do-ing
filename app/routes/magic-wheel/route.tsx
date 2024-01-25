@@ -6,8 +6,8 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 /* COMPONENTS & UTILS */
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
-import { MagicWheelFeature } from "./feature";
-import type { CustomRouteHandle, LayoutId } from "~/utils/types";
+import { MagicWheelFeature } from "./content";
+import type { CustomRouteHandle, PageId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,7 +19,7 @@ import type { CustomRouteHandle, LayoutId } from "~/utils/types";
  * 
  **************************************************************************/
 
-const layoutId: LayoutId = "magic-wheel"
+const layoutId: PageId = "magic-wheel"
 
 export const meta: MetaFunction = () => {
 	const { title, description } = getBlockMetaData(layoutId);

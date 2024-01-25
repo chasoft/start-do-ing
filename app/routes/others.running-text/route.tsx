@@ -1,0 +1,45 @@
+/* FRAMEWORK */
+import { Link } from "@remix-run/react";
+import { type MetaFunction } from "@remix-run/cloudflare";
+
+/* THIRD-PARTY PACKAGES */
+
+/* COMPONENTS & UTILS */
+import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
+import { getBlockMetaData } from "~/utils";
+import { OthersRunningTextContent } from "./content";
+import type { CustomRouteHandle, PageId } from "~/utils/types";
+
+/* TRANSLATIONS IMPORT */
+
+/* DATA IMPORT */
+import { OTHERS_RUNNING_TEXT } from "./metadata";
+
+/***************************************************************************
+ * 
+ *  START
+ * 
+ **************************************************************************/
+
+const layoutId: PageId = "others-running-text"
+
+export const meta: MetaFunction = () => {
+	const { title, description } = getBlockMetaData(layoutId);
+	return [
+		{ title },
+		{ name: "description", content: description },
+	];
+};
+
+export const handle: CustomRouteHandle = {
+	layoutId,
+	breadcrumb: () => <Link to={OTHERS_RUNNING_TEXT.to}>{OTHERS_RUNNING_TEXT.title}</Link>,
+};
+
+export default function OthersRunningTextRoute() {
+	return (
+		<OthersRunningTextContent layoutId={layoutId} />
+	)
+}
+
+export const ErrorBoundary = ErrorBoundaryBase(layoutId)

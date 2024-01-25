@@ -1,52 +1,104 @@
 export type CustomRouteHandle = Partial<{
-  layoutId: LayoutId;
+  layoutId: PageId;
   breadcrumb: () => JSX.Element;
 }>;
 
 export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
 
-export type LayoutId =
+export type GroupId =
+  | "home" //(1)
+  | "blog" //(2)
+  | "date-time" //(3)
+  | "dev-utils" //(4)
+  | "domains" //(5)
+  | "kahoot" //(6)
+  | "languages" //(7)
+  | "maths" //(8)
+  | "random" //(9)
+  | "url-shortener" //(10)
+  | "others"; //(11)
+
+export type PageId =
+  | GroupId
   /******************************************************************
-   *
-   *   System layout
-   *
+   * (1) home / System pages
    ******************************************************************/
-  | "home"
+  | "404"
   | "about"
   | "dashboard"
-  | "settings"
-  | "last"
   | "empty"
-  | "404"
-  /******************************************************************
-   *
-   *   Featured layout
-   *
-   ******************************************************************/
+  | "last"
   | "left"
   | "right"
+  | "settings"
   /******************************************************************
-   *
-   *   Functional layout
-   *
+   * (2) blog
    ******************************************************************/
-  | "random"
-  | "password-generator"
-  | "count-down"
-  | "magic-wheel";
-
-/******************************************************************
- *
- *   Tags to manage/group functional layouts
- *
- ******************************************************************/
-export type Tag = "random" | "number" | "alphabet" | "password" | "kahoot";
+  | "blog-post"
+  /******************************************************************
+   * (3) date-time
+   ******************************************************************/
+  | "date-time-analog-clock"
+  | "date-time-calculator"
+  | "date-time-calendar"
+  | "date-time-count-down"
+  | "date-time-digital-clock"
+  /******************************************************************
+   * (4) dev-utils
+   ******************************************************************/
+  | "dev-utils-base64"
+  | "dev-utils-curl-converter"
+  | "dev-utils-hash-generator"
+  | "dev-utils-lorem-ipsum-generator"
+  | "dev-utils-markdown-editor"
+  | "dev-utils-sql-formatter"
+  | "dev-utils-string-converter"
+  /******************************************************************
+   * (5) domains
+   ******************************************************************/
+  | "domains-builder"
+  | "domains-extensions"
+  | "domains-whois"
+  /******************************************************************
+   * (6) kahoot
+   ******************************************************************/
+  | "kahoot-quiz"
+  /******************************************************************
+   * (7) languages
+   ******************************************************************/
+  | "100-popular-chinese-words"
+  | "chinese-characters"
+  | "vietnamese-reading-for-kids"
+  /******************************************************************
+   * (8) maths
+   ******************************************************************/
+  | "maths-empty-1"
+  | "maths-empty-2"
+  | "maths-empty-3"
+  | "maths-empty-4"
+  /******************************************************************
+   * (9) random
+   ******************************************************************/
+  | "random-by-groups"
+  | "random-lottery"
+  | "random-magic-wheel"
+  | "random-number"
+  | "random-password"
+  | "random-username"
+  /******************************************************************
+   * (10) url-shortener
+   ******************************************************************/
+  | "url-shortener-empty-1"
+  /******************************************************************
+   * (11) others
+   ******************************************************************/
+  | "others-running-text";
 
 export type Block = {
   /**
    * layout animation based on id
    */
-  id: LayoutId;
+  id: PageId;
   /**
    * introduction information of the block
    */
@@ -57,7 +109,7 @@ export type Block = {
   /**
    * organizing blocks by tags and/or favorite
    */
-  tags: Tag[];
+  group: GroupId[];
   favorite: boolean;
   /**
    * decoration color of the block

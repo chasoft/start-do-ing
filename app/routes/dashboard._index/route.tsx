@@ -6,8 +6,8 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 /* COMPONENTS & UTILS */
 import { ErrorBoundaryBase } from "~/components";
 import { getBlockMetaData } from "~/utils";
-import { DashboardIndexFeature } from "./feature";
-import type { CustomRouteHandle, LayoutId } from "~/utils/types";
+import { DashboardIndexFeature } from "./content";
+import type { CustomRouteHandle, PageId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,7 +19,7 @@ import type { CustomRouteHandle, LayoutId } from "~/utils/types";
  * 
  **************************************************************************/
 
-const layoutId: LayoutId = "dashboard"
+const layoutId: PageId = "dashboard"
 
 export const meta: MetaFunction = () => {
 	const { title, description } = getBlockMetaData(layoutId);

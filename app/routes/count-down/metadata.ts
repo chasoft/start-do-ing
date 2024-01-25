@@ -21,7 +21,7 @@ export const COUNT_DOWN: Block = {
   title: "Count down",
   description: "",
   to: "/count-down",
-  tags: [],
+  group: [],
   favorite: false,
   color: {
     text: "#000",

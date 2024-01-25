@@ -21,7 +21,7 @@ export const LAST_BLOCK: Block = {
   title: "Last block",
   description: "Last block",
   to: "/dashboard",
-  tags: [],
+  group: [],
   favorite: true,
   color: {
     text: "#000",

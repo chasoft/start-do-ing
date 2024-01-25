@@ -21,7 +21,7 @@ export const SETTINGS: Block = {
   title: "Settings",
   description: "",
   to: "/dashboard/settings",
-  tags: [],
+  group: [],
   favorite: true,
   color: {
     text: "#000",

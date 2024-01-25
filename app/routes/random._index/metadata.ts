@@ -21,7 +21,7 @@ export const RANDOM: Block = {
   title: "Random",
   description: "",
   to: "/random",
-  tags: [],
+  group: [],
   favorite: true,
   color: {
     text: "#000",
