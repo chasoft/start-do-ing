@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
+import type { LanguagesLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -16,7 +17,7 @@ import { ContentWrapper } from "~/components";
  * 
  **************************************************************************/
 
-export function LanguagesVietnameseReadingForKidsContent({ className, layoutId }: { className?: string, layoutId: string }) {
+export function LanguagesVietnameseReadingForKidsContent({ className, layoutId }: { className?: string, layoutId: LanguagesLayoutId }) {
 	return (
 		<ContentWrapper>
 			<motion.div className={className} layoutId={layoutId}>

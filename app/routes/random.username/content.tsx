@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
+import type { RandomLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -16,7 +17,7 @@ import { ContentWrapper } from "~/components";
  * 
  **************************************************************************/
 
-export function RandomUsernameContent({ className, layoutId }: { className?: string, layoutId: string }) {
+export function RandomUsernameContent({ className, layoutId }: { className?: string, layoutId: RandomLayoutId }) {
 	return (
 		<ContentWrapper>
 			<motion.div className={className} layoutId={layoutId}>

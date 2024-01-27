@@ -8,11 +8,12 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
 import { KahootQuizContent } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { KAHOOT_BLOCKS } from "~/data";
 import { KAHOOT_QUIZ } from "./metadata";
 
 /***************************************************************************
@@ -21,10 +22,10 @@ import { KAHOOT_QUIZ } from "./metadata";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "kahoot-quiz"
+const layoutId = "kahoot-quiz"
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(KAHOOT_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

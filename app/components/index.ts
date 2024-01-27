@@ -15,6 +15,7 @@ export * from "./LastGridCell";
  *
  ******************************************************************/
 
+export * from "./NavigationGrid";
 export * from "./LeftGridCell";
 export * from "./RightGridCell";
 
@@ -24,7 +25,4 @@ export * from "./RightGridCell";
  *
  ******************************************************************/
 
-export * from "./Features";
-export * from "./GridCell";
 export * from "./GridCellLink";
-export * from "./HomeGrid";

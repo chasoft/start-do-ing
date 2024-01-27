@@ -8,11 +8,12 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
 import { DomainsWhoisContent } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { DOMAINS_BLOCKS } from "~/data";
 import { DOMAINS_WHOIS } from "./metadata";
 
 /***************************************************************************
@@ -21,10 +22,10 @@ import { DOMAINS_WHOIS } from "./metadata";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "domains-whois";
+const layoutId = "domains-whois";
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(DOMAINS_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

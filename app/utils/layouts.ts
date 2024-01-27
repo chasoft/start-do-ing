@@ -1,6 +1,5 @@
-import { Breakpoint } from ".";
-import { DYNAMIC_BLOCKS, EMPTY_BLOCK, SITE } from "~/constants";
-import type { Block, PageId } from "./types";
+import { EMPTY_BLOCK, SITE } from "~/data";
+import type { Block, Breakpoint, PageId } from "./types";
 
 /***************************************************************************
  *
@@ -92,36 +91,39 @@ const getEmptyBlocks = () => {
 /**
  * Ensure blockList has at least 21 blocks
  */
-export const getDynamicBlocks = () => {
+export const getDynamicBlocks = (blocks: Block<PageId>[]) => {
   const minLength = 21;
-  const numberOfMissingBlocks = minLength - DYNAMIC_BLOCKS.length;
+  const numberOfMissingBlocks = minLength - blocks.length;
   return numberOfMissingBlocks > 0
-    ? DYNAMIC_BLOCKS.concat(new Array(numberOfMissingBlocks).fill(EMPTY_BLOCK))
-    : DYNAMIC_BLOCKS;
+    ? blocks.concat(new Array(numberOfMissingBlocks).fill(EMPTY_BLOCK))
+    : blocks;
 };
 
 /**
  * Main function to get a list of blocks to be populated in the layout
  */
-export function getBlocks(selectedLayoutId: PageId): Block[] {
+export function getBlocks(
+  blocks: Block<PageId>[],
+  selectedLayoutId: PageId
+): Block<PageId>[] {
   const emptyBlocks = getEmptyBlocks();
-  const blocks = getDynamicBlocks().filter(
+  const dynamicBlocks = getDynamicBlocks(blocks).filter(
     (block) => block.id !== selectedLayoutId
   );
   const idxes = getEmptyBlocksInsertionIndexes();
   return idxes
-    ? ([] as Block[]).concat(
-        blocks.slice(idxes[0][0], idxes[0][1]),
+    ? ([] as Block<PageId>[]).concat(
+        dynamicBlocks.slice(idxes[0][0], idxes[0][1]),
         emptyBlocks,
-        blocks.slice(idxes[1][0], idxes[1][1]),
+        dynamicBlocks.slice(idxes[1][0], idxes[1][1]),
         emptyBlocks,
-        blocks.slice(idxes[2][0])
+        dynamicBlocks.slice(idxes[2][0])
       )
-    : blocks;
+    : dynamicBlocks;
 }
 
-export const getBlockMetaData = (id: PageId) => {
-  const block = DYNAMIC_BLOCKS.find((b) => b.id === id);
+export const getBlockMetaData = (blocks: Block<PageId>[], id: PageId) => {
+  const block = blocks.find((b) => b.id === id);
   return block
     ? { title: `${SITE.title} - ${block.title}`, desc: block.description }
     : { title: SITE.title, description: SITE.description };

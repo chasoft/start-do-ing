@@ -8,11 +8,12 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
 import { LanguagesChineseCharactersContent } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { LANGUAGES_BLOCKS } from "~/data";
 import { LANGUAGES_CHINESE_CHARACTERS } from "./metadata";
 
 /***************************************************************************
@@ -21,10 +22,10 @@ import { LANGUAGES_CHINESE_CHARACTERS } from "./metadata";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "chinese-characters"
+const layoutId = "chinese-characters"
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(LANGUAGES_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

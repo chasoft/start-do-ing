@@ -5,12 +5,13 @@ import { useMatches } from "@remix-run/react";
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { CustomRouteHandle, getMediaBreakpoint } from ".";
+import { getMediaBreakpoint } from ".";
+import type { CustomRouteHandle } from "./types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { DEFAULT_BLOCK } from "~/constants";
+import { DEFAULT_BLOCK } from "~/data";
 
 /***************************************************************************
  *

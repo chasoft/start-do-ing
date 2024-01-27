@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
+import type { BlogLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -16,7 +17,7 @@ import { ContentWrapper } from "~/components";
  * 
  **************************************************************************/
 
-export function BlogIndexContent({ className, layoutId }: { className?: string, layoutId: string }) {
+export function BlogIndexContent({ className, layoutId }: { className?: string, layoutId: BlogLayoutId }) {
 	return (
 		<ContentWrapper>
 			<motion.div className={className} layoutId={layoutId}>

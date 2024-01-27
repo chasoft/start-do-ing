@@ -10,7 +10,7 @@ import { GridCellLink } from "~/components";
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { DATE_TIME } from "./metadata";
+import { DATE_TIME } from "../date-time/metadata";
 
 /***************************************************************************
  * 

@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types";
+import type { Block, DevUtilsLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const DEV_UTILS_LOREM_IPSUM_GENERATOR: Block = {
+export const DEV_UTILS_LOREM_IPSUM_GENERATOR: Block<DevUtilsLayoutId> = {
   id: "dev-utils-lorem-ipsum-generator",
   icon: "/dev-utils-lorem-ipsum-generator.svg",
   title: "Lorem Ipsum Generator",

@@ -10,7 +10,7 @@ import { GridCellLink } from "~/components";
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { URL_SHORTENER } from "./metadata";
+import { URL_SHORTENER } from "../url-shortener/metadata";
 
 /***************************************************************************
  * 

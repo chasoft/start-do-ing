@@ -4,14 +4,15 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
+import { BlogIndexContent } from "./content";
 import { ErrorBoundaryBase } from "~/components";
 import { getBlockMetaData } from "~/utils";
-import { BlogIndexContent } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { BLOG_BLOCKS } from "~/data";
 
 /***************************************************************************
  * 
@@ -19,10 +20,10 @@ import type { CustomRouteHandle, PageId } from "~/utils/types";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "blog"
+const layoutId = "blog"
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(BLOG_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

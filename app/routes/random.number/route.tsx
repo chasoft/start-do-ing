@@ -8,11 +8,12 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
 import { RandomNumberContent } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { RANDOM_BLOCKS } from "~/data";
 import { RANDOM_NUMBER } from "./metadata";
 
 /***************************************************************************
@@ -21,10 +22,10 @@ import { RANDOM_NUMBER } from "./metadata";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "random-number"
+const layoutId = "random-number"
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(RANDOM_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

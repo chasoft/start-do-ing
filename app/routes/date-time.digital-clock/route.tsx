@@ -8,11 +8,12 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
 import { DateTimeDigitalClockContent } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { DATE_TIME_BLOCKS } from "~/data";
 import { DATE_TIME_DIGITAL_CLOCK } from "./metadata";
 
 /***************************************************************************
@@ -21,10 +22,10 @@ import { DATE_TIME_DIGITAL_CLOCK } from "./metadata";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "date-time-digital-clock";
+const layoutId = "date-time-digital-clock";
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(DATE_TIME_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

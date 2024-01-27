@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types";
+import type { Block, RandomLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const RANDOM_BY_GROUPS: Block = {
+export const RANDOM_BY_GROUPS: Block<RandomLayoutId> = {
   id: "random-by-groups",
   icon: "/random-by-groups.svg",
   title: "Random by Groups",

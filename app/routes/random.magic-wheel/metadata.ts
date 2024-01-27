@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import type { Block } from "~/utils/types";
+import type { Block, RandomLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import type { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const RANDOM_MAGIC_WHEEL: Block = {
+export const RANDOM_MAGIC_WHEEL: Block<RandomLayoutId> = {
   id: "random-magic-wheel",
   icon: "/random-magic-wheel.svg",
   title: "Magic Wheel",

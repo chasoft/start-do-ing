@@ -10,7 +10,7 @@ import { GridCellLink } from "~/components";
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { DEV_UTILS } from "./metadata";
+import { DEV_UTILS } from "../dev-utils/metadata";
 
 /***************************************************************************
  * 

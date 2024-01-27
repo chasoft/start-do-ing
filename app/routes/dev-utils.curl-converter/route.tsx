@@ -8,11 +8,12 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
 import { DevUtilsCurlConverterContent } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { DEV_UTILS_BLOCKS } from "~/data";
 import { DEV_UTILS_CURL_CONVERTER } from "./metadata";
 
 /***************************************************************************
@@ -21,10 +22,10 @@ import { DEV_UTILS_CURL_CONVERTER } from "./metadata";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "dev-utils-curl-converter";
+const layoutId = "dev-utils-curl-converter";
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(DEV_UTILS_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

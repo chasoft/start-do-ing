@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import type { Block } from "~/utils/types";
+import type { Block, OthersLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import type { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const OTHERS_RUNNING_TEXT: Block = {
+export const OTHERS_RUNNING_TEXT: Block<OthersLayoutId> = {
   id: "others-running-text",
   icon: "/others-running-text.svg",
   title: "Running Text",

@@ -8,11 +8,12 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
 import { MathsEmpty3Content } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { MATHS_BLOCKS } from "~/data";
 import { MATHS_EMPTY_3 } from "./metadata";
 
 /***************************************************************************
@@ -21,10 +22,10 @@ import { MATHS_EMPTY_3 } from "./metadata";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "maths-empty-3"
+const layoutId = "maths-empty-3"
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(MATHS_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

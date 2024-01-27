@@ -10,7 +10,7 @@ import { GridCellLink } from "~/components";
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { RANDOM } from "./metadata";
+import { RANDOM } from "../random/metadata";
 
 /***************************************************************************
  * 

@@ -18,7 +18,7 @@ import NProgress from "nprogress"
 import nProgressStyles from "nprogress/nprogress.css"
 
 /* COMPONENTS & UTILS */
-import { HomeGrid } from "./components";
+import { NavigationGrid } from "./components";
 import stylesheet from "~/tailwind.css";
 
 /* TRANSLATIONS IMPORT */
@@ -62,9 +62,7 @@ function Document({ children }: DocumentProps) {
       </head>
       <body>
         <Provider>
-          <HomeGrid>
-            {children}
-          </HomeGrid>
+          {children}
         </Provider>
         <ScrollRestoration />
         <Scripts />

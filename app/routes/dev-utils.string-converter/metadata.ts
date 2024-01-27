@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types";
+import type { Block, DevUtilsLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const DEV_UTILS_STRING_CONVERTER: Block = {
+export const DEV_UTILS_STRING_CONVERTER: Block<DevUtilsLayoutId> = {
   id: "dev-utils-string-converter",
   icon: "/dev-utils-string-converter.svg",
   title: "String Converter",

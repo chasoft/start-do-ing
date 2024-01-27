@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types";
+import type { Block, DevUtilsLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const DEV_UTILS_BASE64: Block = {
+export const DEV_UTILS_BASE64: Block<DevUtilsLayoutId> = {
   id: "dev-utils-base64",
   icon: "/dev-utils-base64.svg",
   title: "Base64",

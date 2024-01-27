@@ -14,7 +14,6 @@ export default {
     },
   },
   plugins: [
-    require("@tailwindcss/line-clamp"),
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/container-queries"),
     require("@tailwindcss/forms"),

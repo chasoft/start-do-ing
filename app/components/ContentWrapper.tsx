@@ -2,6 +2,7 @@
 
 import { Link } from "@remix-run/react"
 import { IconExpand } from "./icons"
+import { SITE } from "~/data";
 
 /* THIRD-PARTY PACKAGES */
 
@@ -18,7 +19,7 @@ import { IconExpand } from "./icons"
  **************************************************************************/
 
 function FullScreenButton() {
-	const url = new URL(window.location.href)
+	const url = new URL(typeof window !== "undefined" ? window.location.href : SITE.url)
 	url.searchParams.set("full", "true")
 	const fullUrl = url.href;
 	return (

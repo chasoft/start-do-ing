@@ -10,7 +10,7 @@ import clsx from "clsx";
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { EMPTY_BLOCK } from "~/constants";
+import { EMPTY_BLOCK } from "~/data";
 
 /***************************************************************************
  * 

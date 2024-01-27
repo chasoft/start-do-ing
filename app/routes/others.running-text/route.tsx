@@ -8,11 +8,12 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
 import { OthersRunningTextContent } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { OTHERS_BLOCKS } from "~/data";
 import { OTHERS_RUNNING_TEXT } from "./metadata";
 
 /***************************************************************************
@@ -21,10 +22,10 @@ import { OTHERS_RUNNING_TEXT } from "./metadata";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "others-running-text"
+const layoutId = "others-running-text"
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(OTHERS_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

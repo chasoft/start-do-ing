@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import type { Block } from "~/utils/types";
+import type { Block, RandomLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import type { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const RANDOM_USERNAME: Block = {
+export const RANDOM_USERNAME: Block<RandomLayoutId> = {
   id: "random-username",
   icon: "/random-username.svg",
   title: "Username Generator",

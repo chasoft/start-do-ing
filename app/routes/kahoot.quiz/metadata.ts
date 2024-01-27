@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types";
+import type { Block, KahootLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const KAHOOT_QUIZ: Block = {
+export const KAHOOT_QUIZ: Block<KahootLayoutId> = {
   id: "kahoot-quiz",
   icon: "/kahoot-quiz.svg",
   title: "Kahoot Quiz",

@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types";
+import type { Block, MathsLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const MATHS_EMPTY_4: Block = {
+export const MATHS_EMPTY_4: Block<MathsLayoutId> = {
   id: "maths-empty-4",
   icon: "/maths-empty-4.svg",
   title: "Maths Empty 4",

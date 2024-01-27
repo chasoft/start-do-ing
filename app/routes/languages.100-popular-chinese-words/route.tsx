@@ -8,12 +8,13 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
 import { Languages100PopularChineseWordsContent } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
 import { LANGUAGES_100_POPULAR_CHINESE_WORDS } from "./metadata";
+import { LANGUAGES_BLOCKS } from "~/data";
 
 /***************************************************************************
  * 
@@ -21,10 +22,10 @@ import { LANGUAGES_100_POPULAR_CHINESE_WORDS } from "./metadata";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "100-popular-chinese-words"
+const layoutId = "100-popular-chinese-words"
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(LANGUAGES_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

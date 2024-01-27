@@ -4,11 +4,13 @@ import { Outlet } from "@remix-run/react";
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
+import { ContentWrapper, NavigationGrid } from "~/components";
+import { UrlShortenerGridCells } from "./UrlShortenerGridCells";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { URL_SHORTENER_BLOCKS } from "~/data";
 
 /***************************************************************************
  * 
@@ -16,12 +18,14 @@ import { ContentWrapper } from "~/components";
  * 
  **************************************************************************/
 
-export default function ShortenerRoute() {
+export default function UrlShortenerRoute() {
 	return (
-		<ContentWrapper>
-			<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
-				<Outlet />
-			</div>
-		</ContentWrapper>
+		<NavigationGrid blocks={URL_SHORTENER_BLOCKS} GridCell={UrlShortenerGridCells}>
+			<ContentWrapper>
+				<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
+					<Outlet />
+				</div>
+			</ContentWrapper>
+		</NavigationGrid>
 	)
 }

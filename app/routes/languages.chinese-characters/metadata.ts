@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types";
+import type { Block, LanguagesLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const LANGUAGES_CHINESE_CHARACTERS: Block = {
+export const LANGUAGES_CHINESE_CHARACTERS: Block<LanguagesLayoutId> = {
   id: "chinese-characters",
   icon: "/chinese-characters.svg",
   title: "Chinese Characters",

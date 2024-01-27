@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import type { Block } from "~/utils/types";
+import type { Block, DashboardLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import type { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const DASHBOARD_LAYOUT: Block = {
+export const DASHBOARD: Block<DashboardLayoutId> = {
   id: "dashboard",
   icon: "/dashboard.svg",
   title: "Dashboard",

@@ -10,7 +10,7 @@ import { GridCellLink } from "~/components";
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { KAHOOT } from "./metadata";
+import { KAHOOT } from "../kahoot/metadata";
 
 /***************************************************************************
  * 

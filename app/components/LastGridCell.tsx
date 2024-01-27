@@ -10,7 +10,7 @@ import { DashboardIconButton } from "~/routes/dashboard/dashboard-icon-button";
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { LAST_BLOCK } from "~/constants";
+import { LAST_BLOCK } from "~/data";
 import { GridCellLink } from ".";
 
 /***************************************************************************

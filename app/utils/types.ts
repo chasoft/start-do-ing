@@ -5,6 +5,8 @@ export type CustomRouteHandle = Partial<{
 
 export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
 
+export type EmptyLayoutId = "404";
+
 export type GroupId =
   | "home" //(1)
   | "blog" //(2)
@@ -16,89 +18,120 @@ export type GroupId =
   | "maths" //(8)
   | "random" //(9)
   | "url-shortener" //(10)
-  | "others"; //(11)
-
-export type PageId =
-  | GroupId
-  /******************************************************************
-   * (1) home / System pages
-   ******************************************************************/
-  | "404"
+  | "others" //(11)
   | "about"
-  | "dashboard"
-  | "empty"
-  | "last"
-  | "left"
-  | "right"
-  | "settings"
-  /******************************************************************
-   * (2) blog
-   ******************************************************************/
-  | "blog-post"
-  /******************************************************************
-   * (3) date-time
-   ******************************************************************/
+  | "dashboard";
+
+export type BlogLayoutId =
+  | "blog"
+  | "AI"
+  | "chess"
+  | "philosophy"
+  | "programming"
+  | "travel";
+
+export type DateTimeLayoutId =
+  | "date-time"
   | "date-time-analog-clock"
   | "date-time-calculator"
   | "date-time-calendar"
   | "date-time-count-down"
-  | "date-time-digital-clock"
-  /******************************************************************
-   * (4) dev-utils
-   ******************************************************************/
+  | "date-time-digital-clock";
+
+export type DevUtilsLayoutId =
+  | "dev-utils"
   | "dev-utils-base64"
   | "dev-utils-curl-converter"
   | "dev-utils-hash-generator"
   | "dev-utils-lorem-ipsum-generator"
   | "dev-utils-markdown-editor"
   | "dev-utils-sql-formatter"
-  | "dev-utils-string-converter"
-  /******************************************************************
-   * (5) domains
-   ******************************************************************/
+  | "dev-utils-string-converter";
+
+export type DomainsLayoutId =
+  | "domains"
   | "domains-builder"
   | "domains-extensions"
-  | "domains-whois"
-  /******************************************************************
-   * (6) kahoot
-   ******************************************************************/
-  | "kahoot-quiz"
-  /******************************************************************
-   * (7) languages
-   ******************************************************************/
+  | "domains-whois";
+
+export type KahootLayoutId = "kahoot" | "kahoot-quiz";
+
+export type LanguagesLayoutId =
+  | "languages"
   | "100-popular-chinese-words"
   | "chinese-characters"
-  | "vietnamese-reading-for-kids"
-  /******************************************************************
-   * (8) maths
-   ******************************************************************/
+  | "vietnamese-reading-for-kids";
+
+export type MathsLayoutId =
+  | "maths"
   | "maths-empty-1"
   | "maths-empty-2"
   | "maths-empty-3"
-  | "maths-empty-4"
-  /******************************************************************
-   * (9) random
-   ******************************************************************/
+  | "maths-empty-4";
+
+export type RandomLayoutId =
+  | "random"
   | "random-by-groups"
   | "random-lottery"
   | "random-magic-wheel"
   | "random-number"
   | "random-password"
-  | "random-username"
-  /******************************************************************
-   * (10) url-shortener
-   ******************************************************************/
-  | "url-shortener-empty-1"
-  /******************************************************************
-   * (11) others
-   ******************************************************************/
-  | "others-running-text";
+  | "random-username";
 
-export type Block = {
+export type UrlShortenerLayoutId = "url-shortener" | "url-shortener-empty-1";
+
+export type OthersLayoutId = "others" | "others-running-text";
+
+export type PageId =
+  | GroupId
+  | DashboardLayoutId
+  | BlogLayoutId
+  | DateTimeLayoutId
+  | DevUtilsLayoutId
+  | DomainsLayoutId
+  | KahootLayoutId
+  | LanguagesLayoutId
+  | MathsLayoutId
+  | RandomLayoutId
+  | UrlShortenerLayoutId
+  | OthersLayoutId
+  | SystemLayoutId
+  | FeatureLayoutId;
+
+export type FeatureLayoutId = "left" | "right" | "last";
+export type SystemLayoutId = "empty" | "404";
+export type DashboardLayoutId = "dashboard" | "settings";
+
+export interface GridCellProps<TLayout> {
+  className?: string;
+  layoutId?: TLayout | FeatureLayoutId | SystemLayoutId | DashboardLayoutId;
+}
+
+export interface GridCellFunction<T> {
+  (props: GridCellProps<T>): JSX.Element;
+}
+
+export type NavigationGridCell =
+  | GridCellFunction<GroupId>
+  | GridCellFunction<DashboardLayoutId>
+  | GridCellFunction<BlogLayoutId>
+  | GridCellFunction<DateTimeLayoutId>
+  | GridCellFunction<DevUtilsLayoutId>
+  | GridCellFunction<DomainsLayoutId>
+  | GridCellFunction<KahootLayoutId>
+  | GridCellFunction<LanguagesLayoutId>
+  | GridCellFunction<MathsLayoutId>
+  | GridCellFunction<RandomLayoutId>
+  | GridCellFunction<UrlShortenerLayoutId>
+  | GridCellFunction<OthersLayoutId>
+  | GridCellFunction<SystemLayoutId>
+  | GridCellFunction<FeatureLayoutId>;
+
+export type Block<TLayout> = {
   /**
    * layout animation based on id
    */
-  id: PageId;
+  id: TLayout;
   /**
    * introduction information of the block
    */

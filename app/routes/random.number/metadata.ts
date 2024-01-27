@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import type { Block } from "~/utils/types";
+import type { Block, RandomLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import type { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const RANDOM_NUMBER: Block = {
+export const RANDOM_NUMBER: Block<RandomLayoutId> = {
   id: "random-number",
   icon: "/random-number.svg",
   title: "Number Generator",

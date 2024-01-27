@@ -8,11 +8,12 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
 import { RandomMagicWheelContent } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { RANDOM_BLOCKS } from "~/data";
 import { RANDOM_MAGIC_WHEEL } from "./metadata";
 
 /***************************************************************************
@@ -21,10 +22,10 @@ import { RANDOM_MAGIC_WHEEL } from "./metadata";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "random-magic-wheel";
+const layoutId = "random-magic-wheel";
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(RANDOM_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

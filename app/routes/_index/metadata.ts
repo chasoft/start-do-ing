@@ -15,7 +15,7 @@ import type { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const HOME: Block = {
+export const HOME: Block<"home"> = {
   id: "home",
   icon: "/home.svg",
   title: "Home",

@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types";
+import type { Block, DateTimeLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const DATE_TIME_DIGITAL_CLOCK: Block = {
+export const DATE_TIME_DIGITAL_CLOCK: Block<DateTimeLayoutId> = {
   id: "date-time-digital-clock",
   icon: "/date-time-digital-clock.svg",
   title: "Digital Clock",

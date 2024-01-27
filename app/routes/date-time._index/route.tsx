@@ -7,11 +7,12 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { ErrorBoundaryBase } from "~/components";
 import { getBlockMetaData } from "~/utils";
 import { DateTimeIndexContent } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { DATE_TIME_BLOCKS } from "~/data";
 
 /***************************************************************************
  * 
@@ -19,10 +20,10 @@ import type { CustomRouteHandle, PageId } from "~/utils/types";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "date-time"
+const layoutId = "date-time"
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(DATE_TIME_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

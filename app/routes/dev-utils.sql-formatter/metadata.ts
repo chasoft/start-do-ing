@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types";
+import type { Block, DevUtilsLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const DEV_UTILS_SQL_FORMATTER: Block = {
+export const DEV_UTILS_SQL_FORMATTER: Block<DevUtilsLayoutId> = {
   id: "dev-utils-sql-formatter",
   icon: "/dev-utils-sql-formatter.svg",
   title: "SQL Formatter",

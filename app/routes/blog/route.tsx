@@ -4,11 +4,13 @@ import { Outlet } from "@remix-run/react";
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
+import { BlogGridCells } from "./BlogGridCells";
+import { ContentWrapper, NavigationGrid } from "~/components";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { BLOG_BLOCKS } from "~/data";
 
 /***************************************************************************
  * 
@@ -18,10 +20,12 @@ import { ContentWrapper } from "~/components";
 
 export default function BlogGroupRoute() {
 	return (
-		<ContentWrapper>
-			<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
-				<Outlet />
-			</div>
-		</ContentWrapper>
+		<NavigationGrid blocks={BLOG_BLOCKS} GridCell={BlogGridCells}>
+			<ContentWrapper>
+				<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
+					<Outlet />
+				</div>
+			</ContentWrapper>
+		</NavigationGrid>
 	)
 }

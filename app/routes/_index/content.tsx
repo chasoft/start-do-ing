@@ -16,6 +16,7 @@ import { ContentWrapper } from "~/components";
  * 
  **************************************************************************/
 
+//TODO: layoutId is tring, need to change
 export function HomeFeature({ className, layoutId }: { className?: string, layoutId: string }) {
 	return (
 		<ContentWrapper>

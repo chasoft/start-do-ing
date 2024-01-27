@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types";
+import type { Block, DateTimeLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const DATE_TIME_COUNT_DOWN: Block = {
+export const DATE_TIME_COUNT_DOWN: Block<DateTimeLayoutId> = {
   id: "date-time-count-down",
   icon: "/date-time-count-down.svg",
   title: "Date/Time Count Down",

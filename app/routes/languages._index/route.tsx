@@ -7,11 +7,12 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { ErrorBoundaryBase } from "~/components";
 import { getBlockMetaData } from "~/utils";
 import { LanguagesIndexContent } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { LANGUAGES_BLOCKS } from "~/data";
 
 /***************************************************************************
  * 
@@ -19,10 +20,10 @@ import type { CustomRouteHandle, PageId } from "~/utils/types";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "languages";
+const layoutId = "languages";
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(LANGUAGES_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

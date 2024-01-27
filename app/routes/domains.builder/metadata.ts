@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types";
+import type { Block, DomainsLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const DOMAINS_BUILDER: Block = {
+export const DOMAINS_BUILDER: Block<DomainsLayoutId> = {
   id: "domains-builder",
   icon: "/domains-builder.svg",
   title: "Domains Builder",

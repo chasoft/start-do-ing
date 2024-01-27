@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types";
+import type { Block, LanguagesLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const LANGUAGES_100_POPULAR_CHINESE_WORDS: Block = {
+export const LANGUAGES_100_POPULAR_CHINESE_WORDS: Block<LanguagesLayoutId> = {
   id: "100-popular-chinese-words",
   icon: "/100-popular-chinese-words.svg",
   title: "100 Popular Chinese Words",

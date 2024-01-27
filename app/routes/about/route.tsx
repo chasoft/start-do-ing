@@ -7,11 +7,14 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { AboutFeature } from "./content";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import { NavigationGrid } from "~/components";
+import { RootGridCells } from "~/components/RootGridCells";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { HOME_BLOCKS } from "~/data";
 
 /***************************************************************************
  * 
@@ -19,10 +22,10 @@ import type { CustomRouteHandle, PageId } from "~/utils/types";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "about"
+const layoutId = "about"
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(HOME_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },
@@ -35,9 +38,9 @@ export const handle: CustomRouteHandle = {
 
 export default function AboutRoute() {
 	return (
-		<>
+		<NavigationGrid blocks={HOME_BLOCKS} GridCell={RootGridCells}>
 			<AboutFeature layoutId={layoutId} />
-		</>
+		</NavigationGrid>
 	);
 }
 

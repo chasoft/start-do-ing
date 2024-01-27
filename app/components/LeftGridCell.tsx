@@ -10,7 +10,7 @@ import clsx from "clsx";
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { SIDE_BLOCKS } from "~/constants";
+import { SIDE_BLOCKS } from "~/data";
 
 /***************************************************************************
  * 

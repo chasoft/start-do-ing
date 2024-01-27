@@ -8,11 +8,12 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
 import { getBlockMetaData } from "~/utils";
 import { DevUtilsHashGeneratorContent } from "./content";
-import type { CustomRouteHandle, PageId } from "~/utils/types";
+import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { DEV_UTILS_BLOCKS } from "~/data";
 import { DEV_UTILS_HASH_GENERATOR } from "./metadata";
 
 /***************************************************************************
@@ -21,10 +22,10 @@ import { DEV_UTILS_HASH_GENERATOR } from "./metadata";
  * 
  **************************************************************************/
 
-const layoutId: PageId = "dev-utils-hash-generator";
+const layoutId = "dev-utils-hash-generator";
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(layoutId);
+	const { title, description } = getBlockMetaData(DEV_UTILS_BLOCKS, layoutId);
 	return [
 		{ title },
 		{ name: "description", content: description },

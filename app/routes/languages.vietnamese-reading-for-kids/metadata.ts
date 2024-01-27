@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types";
+import type { Block, LanguagesLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,7 +15,7 @@ import { Block } from "~/utils/types";
  *
  **************************************************************************/
 
-export const LANGUAGES_VIETNAMESE_READING_FOR_KIDS: Block = {
+export const LANGUAGES_VIETNAMESE_READING_FOR_KIDS: Block<LanguagesLayoutId> = {
   id: "vietnamese-reading-for-kids",
   icon: "/vietnamese-reading-for-kids.svg",
   title: "Vietnamese Reading for Kids",
