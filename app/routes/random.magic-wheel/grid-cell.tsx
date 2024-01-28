@@ -6,6 +6,8 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
+import { HomeLink } from "~/components/HomeLink";
+import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -18,7 +20,7 @@ import { RANDOM_MAGIC_WHEEL } from "./metadata";
  * 
  **************************************************************************/
 
-export function RandomMagicWheelCell({ className }: { className?: string }) {
+export function RandomMagicWheelCell({ className, isFirstCell }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={RANDOM_MAGIC_WHEEL.id}>
 			<GridCellLink to={RANDOM_MAGIC_WHEEL.to}>
@@ -26,6 +28,7 @@ export function RandomMagicWheelCell({ className }: { className?: string }) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Magic Wheel</h2>
 					<span className="line-clamp-2">...</span>
 				</div>
+				{isFirstCell && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

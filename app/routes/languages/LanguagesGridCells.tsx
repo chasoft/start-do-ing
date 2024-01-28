@@ -6,7 +6,11 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
-import type { GridCellProps, LanguagesLayoutId } from "~/utils/types";
+import { Languages100PopularChineseWordsCell } from "../languages.100-popular-chinese-words/grid-cell";
+import { LanguagesChineseCharactersCell } from "../languages.chinese-characters/grid-cell";
+import { LanguagesGroupCell } from "./grid-cell";
+import { LanguagesVietnameseReadingForKidsCell } from "../languages.vietnamese-reading-for-kids/grid-cell";
+import type { GridCellsProps, LanguagesLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,29 +23,35 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function LanguagesGridCells({ className, layoutId }: GridCellProps<LanguagesLayoutId>): JSX.Element {
+export function LanguagesGridCells({ className, isFirstCell, layoutId }: GridCellsProps<LanguagesLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
 		 *  CONTENT BLOCKS
 		 * 
 		 *********************************************************************/
+		case "languages":
+			return (
+				<div className={clsx(className)}>
+					<LanguagesGroupCell isFirstCell={isFirstCell} />
+				</div>
+			)
 		case "100-popular-chinese-words":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<Languages100PopularChineseWordsCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "chinese-characters":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<LanguagesChineseCharactersCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "vietnamese-reading-for-kids":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<LanguagesVietnameseReadingForKidsCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "empty":

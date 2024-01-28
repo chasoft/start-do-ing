@@ -1,14 +1,13 @@
 /* FRAMEWORK */
-import React, { useMemo } from "react";
+import React, { useState } from "react";
 
 /* THIRD-PARTY PACKAGES */
 import { AnimatePresence } from "framer-motion";
-import { atom, useAtom } from "jotai";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { getBlocks, useBreakpoint, useCurrentLayoutId } from "~/utils";
-import type { Block, NavigationGridCell, PageId } from "~/utils/types";
+import type { Block, NavigationGridCells, PageId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -21,8 +20,13 @@ import { SIDE_BLOCKS } from "~/data";
  * 
  **************************************************************************/
 
-export function NavigationGrid({ GridCell, blocks, children }: { GridCell: NavigationGridCell, blocks: Block<unknown>[], children: React.ReactNode }) {
-	const [layouts, updateLayouts] = useAtom(useMemo(() => atom([...blocks]), [blocks]))
+
+/**
+ * NavigationGrid is used in `nested routes`,
+ * it will persists the state for the whole branch.
+ */
+export function NavigationGrid({ GridCell, blocks, children }: { GridCell: NavigationGridCells, blocks: Block<unknown>[], children: React.ReactNode }) {
+	const [layouts, updateLayouts] = useState([...blocks])
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const layoutIds = layouts.map((block) => block.id) as any[]
 	const breakpoint = useBreakpoint()
@@ -45,27 +49,27 @@ export function NavigationGrid({ GridCell, blocks, children }: { GridCell: Navig
 				)}
 			>
 				{/* Row 1 */}
-				<GridCell className="col-span-2" layoutId={layoutIds[0]} />
+				<GridCell layoutId={layoutIds[0]} isFirstCell={true} className="col-span-2" />
 				<GridCell layoutId={layoutIds[1]} />
 				<GridCell layoutId={layoutIds[2]} />
-				<GridCell className="hidden md:block" layoutId={layoutIds[3]} />
-				<GridCell className="hidden 2xl:block" layoutId={layoutIds[4]} />
-				<GridCell className="hidden 3xl:block" layoutId={layoutIds[5]} />
+				<GridCell layoutId={layoutIds[3]} className="hidden md:block" />
+				<GridCell layoutId={layoutIds[4]} className="hidden 2xl:block" />
+				<GridCell layoutId={layoutIds[5]} className="hidden 3xl:block" />
 				{/* Row 2 */}
-				<GridCell className={clsx("aspect-h-2 aspect-w-2", { "hidden md:block": "display" })} layoutId={SIDE_BLOCKS[0].id} />
+				<GridCell layoutId={SIDE_BLOCKS[0].id} className={clsx("aspect-h-2 aspect-w-2", { "hidden md:block": "display" })} />
 				<div className="grid col-span-4 gap-4 md:col-span-3 2xl:col-span-4 3xl:col-span-5 grid-cols-subgrid">
 					<div className="h-full col-span-4 col-start-1 overflow-hidden md:col-span-3 2xl:col-span-4 3xl:col-span-5">
 						{children}
 					</div>
 				</div>
-				<GridCell className={clsx("aspect-h-2 aspect-w-2", { "hidden md:block": "display" })} layoutId={SIDE_BLOCKS[1].id} />
+				<GridCell layoutId={SIDE_BLOCKS[1].id} className={clsx("aspect-h-2 aspect-w-2", { "hidden md:block": "display" })} />
 				{/* Row 3 */}
 				<GridCell layoutId={layoutIds[6]} />
 				<GridCell layoutId={layoutIds[7]} />
 				<GridCell layoutId={layoutIds[8]} />
-				<GridCell className={clsx({ "hidden md:block": "display" })} layoutId={layoutIds[9]} />
-				<GridCell className={clsx({ "hidden 2xl:block": "display" })} layoutId={layoutIds[10]} />
-				<GridCell className={clsx({ "hidden 3xl:block": "display" })} layoutId={layoutIds[11]} />
+				<GridCell layoutId={layoutIds[9]} className={clsx({ "hidden md:block": "display" })} />
+				<GridCell layoutId={layoutIds[10]} className={clsx({ "hidden 2xl:block": "display" })} />
+				<GridCell layoutId={layoutIds[11]} className={clsx({ "hidden 3xl:block": "display" })} />
 				<GridCell layoutId="last" />
 			</div>
 		</AnimatePresence>

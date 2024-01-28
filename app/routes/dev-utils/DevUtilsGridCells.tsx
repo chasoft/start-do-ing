@@ -5,8 +5,16 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
+import { DevUtilsBase64Cell } from "../dev-utils.base64/grid-cell";
+import { DevUtilsCurlConverterCell } from "../dev-utils.curl-converter/grid-cell";
+import { DevUtilsGroupCell } from "./grid-cell";
+import { DevUtilsHashGeneratorCell } from "../dev-utils.hash-generator/grid-cell";
+import { DevUtilsLoremIpsumGeneratorCell } from "../dev-utils.lorem-ipsum-generator/grid-cell";
+import { DevUtilsMarkdownEditorCell } from "../dev-utils.markdown-editor/grid-cell";
+import { DevUtilsSqlFormatterCell } from "../dev-utils.sql-formatter/grid-cell";
+import { DevUtilsStringConverterCell } from "../dev-utils.string-converter/grid-cell";
 import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
-import type { DevUtilsLayoutId, GridCellProps } from "~/utils/types";
+import type { DevUtilsLayoutId, GridCellsProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,53 +27,59 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function DevUtilsGridCells({ className, layoutId }: GridCellProps<DevUtilsLayoutId>): JSX.Element {
+export function DevUtilsGridCells({ className, isFirstCell, layoutId }: GridCellsProps<DevUtilsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
 		 *  CONTENT BLOCKS
 		 * 
 		 *********************************************************************/
+		case "dev-utils":
+			return (
+				<div className={clsx(className)}>
+					<DevUtilsGroupCell isFirstCell={isFirstCell} />
+				</div>
+			)
 		case "dev-utils-base64":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DevUtilsBase64Cell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "dev-utils-curl-converter":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DevUtilsCurlConverterCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "dev-utils-hash-generator":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DevUtilsHashGeneratorCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "dev-utils-lorem-ipsum-generator":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DevUtilsLoremIpsumGeneratorCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "dev-utils-markdown-editor":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DevUtilsMarkdownEditorCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "dev-utils-sql-formatter":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DevUtilsSqlFormatterCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "dev-utils-string-converter":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DevUtilsStringConverterCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "empty":

@@ -6,6 +6,8 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
+import { HomeLink } from "~/components/HomeLink";
+import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -18,7 +20,7 @@ import { KAHOOT_QUIZ } from "./metadata";
  * 
  **************************************************************************/
 
-export function KahootQuizCell({ className }: { className?: string }) {
+export function KahootQuizCell({ className, isFirstCell }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={KAHOOT_QUIZ.id}>
 			<GridCellLink to={KAHOOT_QUIZ.to}>
@@ -26,6 +28,7 @@ export function KahootQuizCell({ className }: { className?: string }) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Kahoot Quiz</h2>
 					<span className="line-clamp-2">...</span>
 				</div>
+				{isFirstCell && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

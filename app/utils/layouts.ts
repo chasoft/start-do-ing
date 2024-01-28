@@ -25,7 +25,7 @@ export function getMediaBreakpoint(): [Breakpoint, boolean] {
     : ["xs", true];
 }
 
-export const getEmptyBlocksInsertionIndexes = () => {
+export function getEmptyBlocksInsertionIndexes() {
   const breakpoint = getMediaBreakpoint()[0];
   switch (breakpoint) {
     case "xs":
@@ -56,7 +56,7 @@ export const getEmptyBlocksInsertionIndexes = () => {
        */
       return null;
   }
-};
+}
 
 /**
  * Layout explanation:
@@ -71,7 +71,7 @@ export const getEmptyBlocksInsertionIndexes = () => {
  * For each for responsive breakpoint, we need to add empty blocks
  * to ensure that Row 1 and Row 3 always have 7 blocks.
  */
-const getEmptyBlocks = () => {
+function getEmptyBlocks() {
   const [breakpoint] = getMediaBreakpoint();
   switch (breakpoint) {
     case "xs":
@@ -86,18 +86,18 @@ const getEmptyBlocks = () => {
     default:
       return [];
   }
-};
+}
 
 /**
  * Ensure blockList has at least 21 blocks
  */
-export const getDynamicBlocks = (blocks: Block<PageId>[]) => {
+export function getDynamicBlocks(blocks: Block<PageId>[]) {
   const minLength = 21;
   const numberOfMissingBlocks = minLength - blocks.length;
   return numberOfMissingBlocks > 0
     ? blocks.concat(new Array(numberOfMissingBlocks).fill(EMPTY_BLOCK))
     : blocks;
-};
+}
 
 /**
  * Main function to get a list of blocks to be populated in the layout
@@ -122,9 +122,21 @@ export function getBlocks(
     : dynamicBlocks;
 }
 
-export const getBlockMetaData = (blocks: Block<PageId>[], id: PageId) => {
+export function getBlockMetaData(blocks: Block<PageId>[], id: PageId) {
   const block = blocks.find((b) => b.id === id);
   return block
     ? { title: `${SITE.title} - ${block.title}`, desc: block.description }
     : { title: SITE.title, description: SITE.description };
-};
+}
+
+/**
+ * Note: first item will be removed by default
+ */
+export function getMenuItemsFromBlocks(blocks: Block<unknown>[]) {
+  return blocks
+    .map((block) => ({
+      title: block.title,
+      to: block.to,
+    }))
+    .slice(1);
+}

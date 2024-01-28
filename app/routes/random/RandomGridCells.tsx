@@ -6,7 +6,14 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
-import type { GridCellProps, RandomLayoutId } from "~/utils/types";
+import { RandomByGroupsCell } from "../random.by-groups/grid-cell";
+import { RandomGroupCell } from "./grid-cell";
+import { RandomLotteryCell } from "../random.lottery/grid-cell";
+import { RandomMagicWheelCell } from "../random.magic-wheel/grid-cell";
+import { RandomNumberCell } from "../random.number/grid-cell";
+import { RandomPasswordCell } from "../random.password/grid-cell";
+import { RandomUsernameCell } from "../random.username/grid-cell";
+import type { GridCellsProps, RandomLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,47 +26,53 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function RandomGridCells({ className, layoutId }: GridCellProps<RandomLayoutId>): JSX.Element {
+export function RandomGridCells({ className, isFirstCell, layoutId }: GridCellsProps<RandomLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
 		 *  CONTENT BLOCKS
 		 * 
 		 *********************************************************************/
+		case "random":
+			return (
+				<div className={clsx(className)}>
+					<RandomGroupCell isFirstCell={isFirstCell} />
+				</div>
+			)
 		case "random-by-groups":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<RandomByGroupsCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "random-lottery":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<RandomLotteryCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "random-magic-wheel":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<RandomMagicWheelCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "random-number":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<RandomNumberCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "random-password":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<RandomPasswordCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "random-username":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<RandomUsernameCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "empty":

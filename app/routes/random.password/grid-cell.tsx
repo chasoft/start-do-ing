@@ -6,6 +6,8 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
+import { HomeLink } from "~/components/HomeLink";
+import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -18,7 +20,7 @@ import { RANDOM_PASSWORD } from "./metadata";
  * 
  **************************************************************************/
 
-export function RandomPasswordCell({ className }: { className?: string }) {
+export function RandomPasswordCell({ className, isFirstCell }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={RANDOM_PASSWORD.id}>
 			<GridCellLink to={RANDOM_PASSWORD.to}>
@@ -26,6 +28,7 @@ export function RandomPasswordCell({ className }: { className?: string }) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Password Generator</h2>
 					<span className="line-clamp-2">Get your new secured password</span>
 				</div>
+				{isFirstCell && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

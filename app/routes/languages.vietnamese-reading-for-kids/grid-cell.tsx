@@ -6,6 +6,8 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
+import { HomeLink } from "~/components/HomeLink";
+import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -18,7 +20,7 @@ import { LANGUAGES_VIETNAMESE_READING_FOR_KIDS } from "./metadata";
  * 
  **************************************************************************/
 
-export function LanguagesVietnameseReadingForKidsCell({ className }: { className?: string }) {
+export function LanguagesVietnameseReadingForKidsCell({ className, isFirstCell }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={LANGUAGES_VIETNAMESE_READING_FOR_KIDS.id}>
 			<GridCellLink to={LANGUAGES_VIETNAMESE_READING_FOR_KIDS.to}>
@@ -26,6 +28,7 @@ export function LanguagesVietnameseReadingForKidsCell({ className }: { className
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Vietnamese Reading For Kids</h2>
 					<span className="line-clamp-2">...</span>
 				</div>
+				{isFirstCell && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

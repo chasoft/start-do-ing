@@ -1,3 +1,6 @@
+// icon:expand | Ionicons https://ionicons.com/ | Ionic Framework
+import * as React from "react";
+
 export function IconExpand(props: React.SVGProps<SVGSVGElement>) {
 	return (
 		<svg

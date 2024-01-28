@@ -6,6 +6,8 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
+import { HomeLink } from "~/components/HomeLink";
+import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -18,7 +20,7 @@ import { MATHS_EMPTY_4 } from "./metadata";
  * 
  **************************************************************************/
 
-export function MathsEmpty4Cell({ className }: { className?: string }) {
+export function MathsEmpty4Cell({ className, isFirstCell }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={MATHS_EMPTY_4.id}>
 			<GridCellLink to={MATHS_EMPTY_4.to}>
@@ -26,6 +28,7 @@ export function MathsEmpty4Cell({ className }: { className?: string }) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Maths Empty 4</h2>
 					<span className="line-clamp-2">Maths Empty 4</span>
 				</div>
+				{isFirstCell && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

@@ -5,8 +5,14 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
+import { DateTimeAnalogClockCell } from "../date-time.analog-clock/grid-cell";
+import { DateTimeCalculatorCell } from "../date-time.calculator/grid-cell";
+import { DateTimeCalendarCell } from "../date-time.calendar/grid-cell";
+import { DateTimeCountDownCell } from "../date-time.count-down/grid-cell";
+import { DateTimeDigitalClockCell } from "../date-time.digital-clock/grid-cell";
+import { DateTimeIndexCell } from "../date-time._index/grid-cell";
 import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
-import type { DateTimeLayoutId, GridCellProps } from "~/utils/types";
+import type { DateTimeLayoutId, GridCellsProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,41 +25,47 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function DateTimeGridCells({ className, layoutId }: GridCellProps<DateTimeLayoutId>): JSX.Element {
+export function DateTimeGridCells({ className, isFirstCell, layoutId }: GridCellsProps<DateTimeLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
 		 *  CONTENT BLOCKS
 		 * 
 		 *********************************************************************/
+		case "date-time":
+			return (
+				<div className={clsx(className)}>
+					<DateTimeIndexCell isFirstCell={isFirstCell} />
+				</div>
+			)
 		case "date-time-analog-clock":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DateTimeAnalogClockCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "date-time-calculator":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DateTimeCalculatorCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "date-time-calendar":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DateTimeCalendarCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "date-time-count-down":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DateTimeCountDownCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "date-time-digital-clock":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DateTimeDigitalClockCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "empty":

@@ -69,6 +69,7 @@ import type {
   RandomLayoutId,
   UrlShortenerLayoutId,
 } from "~/utils/types";
+import { DASHBOARD_SETTINGS } from "~/routes/dashboard.settings._index/metadata";
 
 /* TRANSLATIONS IMPORT */
 
@@ -100,8 +101,8 @@ export const breakpoints: Breakpoint[] = [
 // 1
 export const HOME_BLOCKS: Block<GroupId>[] = [
   HOME,
-  ABOUT,
-  BLOG,
+  // ABOUT,
+  // BLOG,
   DATE_TIME,
   DEV_UTILS,
   DOMAINS,
@@ -195,7 +196,10 @@ export const OTHERS_BLOCKS: Block<OthersLayoutId>[] = [
   OTHERS_RUNNING_TEXT,
 ];
 
-export const DASHBOARD_BLOCKS: Block<DashboardLayoutId>[] = [DASHBOARD];
+export const DASHBOARD_BLOCKS: Block<DashboardLayoutId>[] = [
+  DASHBOARD,
+  DASHBOARD_SETTINGS,
+];
 
 export const ABOUT_BLOCKS: Block<"about">[] = [ABOUT];
 

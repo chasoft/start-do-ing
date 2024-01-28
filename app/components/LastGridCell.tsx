@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { DashboardIconButton } from "~/routes/dashboard/dashboard-icon-button";
+import { DashboardLink } from "~/routes/dashboard/dashboard-icon-button";
 
 /* TRANSLATIONS IMPORT */
 
@@ -28,7 +28,7 @@ export function LastGridCell({ className }: { className?: string }) {
 					<span className="line-clamp-2">Control and/or pre-setup your data/settings</span>
 				</div>
 				<div className="absolute bottom-0 right-2 sm:bottom-3 sm:right-3">
-					<DashboardIconButton className="w-6 h-6 text-gray-700 hover:scale-125 active:text-blue-900 active:scale-110 transition-all" />
+					<DashboardLink className="w-6 h-6 text-gray-700 hover:scale-125 active:text-blue-900 active:scale-110 transition-all" />
 				</div>
 			</GridCellLink>
 		</motion.div>

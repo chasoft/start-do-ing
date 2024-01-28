@@ -15,7 +15,7 @@ import type { Block, DashboardLayoutId } from "~/utils/types";
  *
  **************************************************************************/
 
-export const SETTINGS: Block<DashboardLayoutId> = {
+export const DASHBOARD_SETTINGS: Block<DashboardLayoutId> = {
   id: "settings",
   icon: "/settings.svg",
   title: "Settings",

@@ -12,7 +12,7 @@ import type { GridCellProps } from "~/utils/types";
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { DATE_TIME_COUNT_DOWN } from "./metadata";
+import { DASHBOARD_SETTINGS } from "./metadata";
 
 /***************************************************************************
  * 
@@ -20,12 +20,12 @@ import { DATE_TIME_COUNT_DOWN } from "./metadata";
  * 
  **************************************************************************/
 
-export function DateTimeCountDownCell({ className, isFirstCell }: GridCellProps) {
+export function DashboardSettingsCell({ className, isFirstCell }: GridCellProps) {
 	return (
-		<motion.div className={clsx("h-full", className)} layoutId={DATE_TIME_COUNT_DOWN.id}>
-			<GridCellLink to={DATE_TIME_COUNT_DOWN.to}>
+		<motion.div className={clsx("h-full", className)} layoutId={DASHBOARD_SETTINGS.id}>
+			<GridCellLink to={DASHBOARD_SETTINGS.to}>
 				<div className="grid h-full p-2 place-content-center">
-					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Date/Time Count Down</h2>
+					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Dashboard Setttings</h2>
 					<span className="line-clamp-2">...</span>
 				</div>
 				{isFirstCell && <HomeLink />}

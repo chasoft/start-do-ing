@@ -5,8 +5,12 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
+import { DomainsBuilderCell } from "../domains.builder/grid-cell";
+import { DomainsExtensionsCell } from "../domains.extensions/grid-cell";
+import { DomainsGroupCell } from "./grid-cell";
+import { DomainsWhoiCell } from "../domains.whois/grid-cell";
 import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
-import type { DomainsLayoutId, GridCellProps } from "~/utils/types";
+import type { DomainsLayoutId, GridCellsProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,29 +23,35 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function DomainsGridCells({ className, layoutId }: GridCellProps<DomainsLayoutId>): JSX.Element {
+export function DomainsGridCells({ className, isFirstCell, layoutId }: GridCellsProps<DomainsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
 		 *  CONTENT BLOCKS
 		 * 
 		 *********************************************************************/
+		case "domains":
+			return (
+				<div className={clsx(className)}>
+					<DomainsGroupCell isFirstCell={isFirstCell} />
+				</div>
+			)
 		case "domains-builder":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DomainsBuilderCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "domains-extensions":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DomainsExtensionsCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "domains-whois":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DomainsWhoiCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "empty":

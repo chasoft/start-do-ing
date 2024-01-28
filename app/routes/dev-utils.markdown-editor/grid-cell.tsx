@@ -6,6 +6,8 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
+import { HomeLink } from "~/components/HomeLink";
+import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -18,7 +20,7 @@ import { DEV_UTILS_MARKDOWN_EDITOR } from "./metadata";
  * 
  **************************************************************************/
 
-export function DevUtilsMarkdownEditorCell({ className }: { className?: string }) {
+export function DevUtilsMarkdownEditorCell({ className, isFirstCell }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={DEV_UTILS_MARKDOWN_EDITOR.id}>
 			<GridCellLink to={DEV_UTILS_MARKDOWN_EDITOR.to}>
@@ -26,6 +28,7 @@ export function DevUtilsMarkdownEditorCell({ className }: { className?: string }
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Markdown Editor</h2>
 					<span className="line-clamp-2">...</span>
 				</div>
+				{isFirstCell && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

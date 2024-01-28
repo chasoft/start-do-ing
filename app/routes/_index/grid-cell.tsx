@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
+import { HomeLink } from "~/components/HomeLink";
+import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -18,7 +20,7 @@ import { HOME } from "./metadata";
  * 
  **************************************************************************/
 
-export function HomeGridCell({ className }: { className?: string }) {
+export function HomeGridCell({ className, isFirstCell }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={HOME.id}>
 			<GridCellLink to={HOME.to}>
@@ -26,6 +28,7 @@ export function HomeGridCell({ className }: { className?: string }) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Home</h2>
 					<span className="line-clamp-2">Site introduction</span>
 				</div>
+				{isFirstCell && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

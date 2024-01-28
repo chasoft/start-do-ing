@@ -6,6 +6,8 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
+import { HomeLink } from "~/components/HomeLink";
+import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -18,7 +20,7 @@ import { DATE_TIME_DIGITAL_CLOCK } from "./metadata";
  * 
  **************************************************************************/
 
-export function DateTimeDigitalClockCell({ className }: { className?: string }) {
+export function DateTimeDigitalClockCell({ className, isFirstCell }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={DATE_TIME_DIGITAL_CLOCK.id}>
 			<GridCellLink to={DATE_TIME_DIGITAL_CLOCK.to}>
@@ -26,6 +28,7 @@ export function DateTimeDigitalClockCell({ className }: { className?: string }) 
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Digital Clock</h2>
 					<span className="line-clamp-2">...</span>
 				</div>
+				{isFirstCell && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

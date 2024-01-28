@@ -6,12 +6,14 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
-import type { GridCellProps, KahootLayoutId } from "~/utils/types";
+import type { GridCellsProps, KahootLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
 import { BLOCK_NOT_FOUND } from "~/data";
+import { KahootQuizCell } from "../kahoot.quiz/grid-cell";
+import { KahootGroupCell } from "./grid-cell";
 
 /***************************************************************************
  * 
@@ -19,17 +21,23 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function KahootGridCells({ className, layoutId }: GridCellProps<KahootLayoutId>): JSX.Element {
+export function KahootGridCells({ className, isFirstCell, layoutId }: GridCellsProps<KahootLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
 		 *  CONTENT BLOCKS
 		 * 
 		 *********************************************************************/
+		case "kahoot":
+			return (
+				<div className={clsx(className)}>
+					<KahootGroupCell isFirstCell={isFirstCell} />
+				</div>
+			)
 		case "kahoot-quiz":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<KahootQuizCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "empty":

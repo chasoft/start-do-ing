@@ -1,3 +1,4 @@
+// icon:settings-outline | Ionicons https://ionicons.com/ | Ionic Framework
 import * as React from "react";
 
 export function IconSettingsOutline(props: React.SVGProps<SVGSVGElement>) {

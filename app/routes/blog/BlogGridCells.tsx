@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
+import { BlogAICell, BlogChessCell, BlogGroupCell, BlogPhilosophyCell, BlogProgrammingCell, BlogTravelCell } from "./grid-cell";
 import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
-import type { BlogLayoutId, GridCellProps } from "~/utils/types";
+import type { BlogLayoutId, GridCellsProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,41 +20,47 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function BlogGridCells({ className, layoutId }: GridCellProps<BlogLayoutId>): JSX.Element {
+export function BlogGridCells({ className, isFirstCell, layoutId }: GridCellsProps<BlogLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
 		 *  CONTENT BLOCKS
 		 * 
 		 *********************************************************************/
+		case "blog":
+			return (
+				<div className={clsx(className)}>
+					<BlogGroupCell isFirstCell={isFirstCell} />
+				</div>
+			)
 		case "AI":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<BlogAICell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "chess":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<BlogChessCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "philosophy":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<BlogPhilosophyCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "programming":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<BlogProgrammingCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "travel":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<BlogTravelCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "empty":

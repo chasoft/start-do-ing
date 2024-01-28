@@ -6,6 +6,8 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
+import { HomeLink } from "~/components/HomeLink";
+import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -18,7 +20,7 @@ import { RANDOM_NUMBER } from "./metadata";
  * 
  **************************************************************************/
 
-export function RandomNumberCell({ className }: { className?: string }) {
+export function RandomNumberCell({ className, isFirstCell }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={RANDOM_NUMBER.id}>
 			<GridCellLink to={RANDOM_NUMBER.to}>
@@ -26,6 +28,7 @@ export function RandomNumberCell({ className }: { className?: string }) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Random Number</h2>
 					<span className="line-clamp-2">Get your new secured username</span>
 				</div>
+				{isFirstCell && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

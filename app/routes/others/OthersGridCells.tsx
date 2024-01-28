@@ -6,7 +6,9 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
-import type { GridCellProps, OthersLayoutId } from "~/utils/types";
+import { OthersGroupCell } from "./grid-cell";
+import { OthersRunningTextCell } from "../others.running-text/grid-cell";
+import type { GridCellsProps, OthersLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,17 +21,23 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function OthersGridCells({ className, layoutId }: GridCellProps<OthersLayoutId>): JSX.Element {
+export function OthersGridCells({ className, isFirstCell, layoutId }: GridCellsProps<OthersLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
 		 *  CONTENT BLOCKS
 		 * 
 		 *********************************************************************/
+		case "others":
+			return (
+				<div className={clsx(className)}>
+					<OthersGroupCell isFirstCell={isFirstCell} />
+				</div>
+			)
 		case "others-running-text":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<OthersRunningTextCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "empty":

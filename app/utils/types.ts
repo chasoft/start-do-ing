@@ -102,30 +102,36 @@ export type FeatureLayoutId = "left" | "right" | "last";
 export type SystemLayoutId = "empty" | "404";
 export type DashboardLayoutId = "dashboard" | "settings";
 
-export interface GridCellProps<TLayout> {
+export interface GridCellProps {
   className?: string;
+  isFirstCell?: boolean;
+}
+
+export interface GridCellsProps<TLayout> {
+  className?: string;
+  isFirstCell?: boolean;
   layoutId?: TLayout | FeatureLayoutId | SystemLayoutId | DashboardLayoutId;
 }
 
-export interface GridCellFunction<T> {
-  (props: GridCellProps<T>): JSX.Element;
+export interface GridCellsFunction<T> {
+  (props: GridCellsProps<T>): JSX.Element;
 }
 
-export type NavigationGridCell =
-  | GridCellFunction<GroupId>
-  | GridCellFunction<DashboardLayoutId>
-  | GridCellFunction<BlogLayoutId>
-  | GridCellFunction<DateTimeLayoutId>
-  | GridCellFunction<DevUtilsLayoutId>
-  | GridCellFunction<DomainsLayoutId>
-  | GridCellFunction<KahootLayoutId>
-  | GridCellFunction<LanguagesLayoutId>
-  | GridCellFunction<MathsLayoutId>
-  | GridCellFunction<RandomLayoutId>
-  | GridCellFunction<UrlShortenerLayoutId>
-  | GridCellFunction<OthersLayoutId>
-  | GridCellFunction<SystemLayoutId>
-  | GridCellFunction<FeatureLayoutId>;
+export type NavigationGridCells =
+  | GridCellsFunction<GroupId>
+  | GridCellsFunction<DashboardLayoutId>
+  | GridCellsFunction<BlogLayoutId>
+  | GridCellsFunction<DateTimeLayoutId>
+  | GridCellsFunction<DevUtilsLayoutId>
+  | GridCellsFunction<DomainsLayoutId>
+  | GridCellsFunction<KahootLayoutId>
+  | GridCellsFunction<LanguagesLayoutId>
+  | GridCellsFunction<MathsLayoutId>
+  | GridCellsFunction<RandomLayoutId>
+  | GridCellsFunction<UrlShortenerLayoutId>
+  | GridCellsFunction<OthersLayoutId>
+  | GridCellsFunction<SystemLayoutId>
+  | GridCellsFunction<FeatureLayoutId>;
 
 export type Block<TLayout> = {
   /**

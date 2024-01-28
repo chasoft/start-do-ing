@@ -6,7 +6,11 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
-import type { GridCellProps, MathsLayoutId } from "~/utils/types";
+import { MathsEmpty1Cell } from "../maths.empty-1/grid-cell";
+import { MathsEmpty2Cell } from "../maths.empty-2/grid-cell";
+import { MathsEmpty3Cell } from "../maths.empty-3/grid-cell";
+import { MathsEmpty4Cell } from "../maths.empty-4/grid-cell";
+import type { GridCellsProps, MathsLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,7 +23,7 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function MathsGridCells({ className, layoutId }: GridCellProps<MathsLayoutId>): JSX.Element {
+export function MathsGridCells({ className, isFirstCell, layoutId }: GridCellsProps<MathsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -29,25 +33,25 @@ export function MathsGridCells({ className, layoutId }: GridCellProps<MathsLayou
 		case "maths-empty-1":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<MathsEmpty1Cell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "maths-empty-2":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<MathsEmpty2Cell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "maths-empty-3":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<MathsEmpty3Cell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "maths-empty-4":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<MathsEmpty4Cell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "empty":

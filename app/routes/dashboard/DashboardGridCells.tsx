@@ -5,13 +5,15 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
+import { DashboardSettingsCell } from "../dashboard.settings._index/grid-cell";
 import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
-import type { DashboardLayoutId, GridCellProps } from "~/utils/types";
+import type { DashboardLayoutId, GridCellsProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
 import { BLOCK_NOT_FOUND } from "~/data";
+import { DashboardGroupCell } from "./grid-cell";
 
 /***************************************************************************
  * 
@@ -19,7 +21,7 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function DashboardGridCells({ className, layoutId }: GridCellProps<DashboardLayoutId>): JSX.Element {
+export function DashboardGridCells({ className, isFirstCell, layoutId }: GridCellsProps<DashboardLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -29,13 +31,13 @@ export function DashboardGridCells({ className, layoutId }: GridCellProps<Dashbo
 		case "dashboard":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DashboardGroupCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "settings":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<DashboardSettingsCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "empty":

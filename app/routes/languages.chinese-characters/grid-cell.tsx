@@ -6,6 +6,8 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
+import { HomeLink } from "~/components/HomeLink";
+import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -18,7 +20,7 @@ import { LANGUAGES_CHINESE_CHARACTERS } from "./metadata";
  * 
  **************************************************************************/
 
-export function LanguagesChineseCharactersCell({ className }: { className?: string }) {
+export function LanguagesChineseCharactersCell({ className, isFirstCell }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={LANGUAGES_CHINESE_CHARACTERS.id}>
 			<GridCellLink to={LANGUAGES_CHINESE_CHARACTERS.to}>
@@ -26,6 +28,7 @@ export function LanguagesChineseCharactersCell({ className }: { className?: stri
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Chinese Characters</h2>
 					<span className="line-clamp-2">...</span>
 				</div>
+				{isFirstCell && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

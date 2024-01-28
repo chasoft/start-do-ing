@@ -6,6 +6,8 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
+import { HomeLink } from "~/components/HomeLink";
+import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -18,7 +20,7 @@ import { DOMAINS_BUILDER } from "./metadata";
  * 
  **************************************************************************/
 
-export function DomainsBuilderCell({ className }: { className?: string }) {
+export function DomainsBuilderCell({ className, isFirstCell }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={DOMAINS_BUILDER.id}>
 			<GridCellLink to={DOMAINS_BUILDER.to}>
@@ -26,6 +28,7 @@ export function DomainsBuilderCell({ className }: { className?: string }) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Domains Builder</h2>
 					<span className="line-clamp-2">...</span>
 				</div>
+				{isFirstCell && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

@@ -6,7 +6,9 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
-import type { GridCellProps, UrlShortenerLayoutId } from "~/utils/types";
+import { UrlShortenerGroupCell } from "./grid-cell";
+import { URLShortenerIndexCell } from "../url-shortener._index/grid-cell";
+import type { GridCellsProps, UrlShortenerLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,17 +21,23 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function UrlShortenerGridCells({ className, layoutId }: GridCellProps<UrlShortenerLayoutId>): JSX.Element {
+export function UrlShortenerGridCells({ className, isFirstCell, layoutId }: GridCellsProps<UrlShortenerLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
 		 *  CONTENT BLOCKS
 		 * 
 		 *********************************************************************/
+		case "url-shortener":
+			return (
+				<div className={clsx(className)}>
+					<UrlShortenerGroupCell isFirstCell={isFirstCell} />
+				</div>
+			)
 		case "url-shortener-empty-1":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<URLShortenerIndexCell isFirstCell={isFirstCell} />
 				</div>
 			)
 		case "empty":

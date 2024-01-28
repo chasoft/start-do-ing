@@ -6,29 +6,26 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
-import { HomeLink } from "~/components/HomeLink";
-import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { DATE_TIME } from "../date-time/metadata";
+import { DASHBOARD } from "../dashboard/metadata";
 
 /***************************************************************************
  * 
  *  START
- * 
+ *  
  **************************************************************************/
 
-export function DateTimeIndexCell({ className, isFirstCell }: GridCellProps) {
+export function DashboardIndexCell({ className }: { className?: string }) {
 	return (
-		<motion.div className={clsx("h-full", className)} layoutId={DATE_TIME.id}>
-			<GridCellLink to={DATE_TIME.to}>
+		<motion.div className={clsx("h-full", className)} layoutId={DASHBOARD.id}>
+			<GridCellLink to={DASHBOARD.to}>
 				<div className="grid h-full p-2 place-content-center">
-					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Date/Time</h2>
-					<span>What? Date/Time what?</span>
+					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Dashboard Index</h2>
+					<span>What? Dashboard Index what?</span>
 				</div>
-				{isFirstCell && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

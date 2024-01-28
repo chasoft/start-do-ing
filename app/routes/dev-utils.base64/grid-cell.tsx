@@ -6,6 +6,8 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
+import { HomeLink } from "~/components/HomeLink";
+import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -18,7 +20,7 @@ import { DEV_UTILS_BASE64 } from "./metadata";
  * 
  **************************************************************************/
 
-export function DevUtilsBase64Cell({ className }: { className?: string }) {
+export function DevUtilsBase64Cell({ className, isFirstCell }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={DEV_UTILS_BASE64.id}>
 			<GridCellLink to={DEV_UTILS_BASE64.to}>
@@ -26,6 +28,7 @@ export function DevUtilsBase64Cell({ className }: { className?: string }) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Base64</h2>
 					<span className="line-clamp-2">...</span>
 				</div>
+				{isFirstCell && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

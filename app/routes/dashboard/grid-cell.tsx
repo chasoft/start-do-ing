@@ -14,8 +14,8 @@ import type { GridCellProps } from "~/utils/types";
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { DATE_TIME } from "./metadata";
-import { DATE_TIME_BLOCKS } from "~/data";
+import { DASHBOARD } from "./metadata";
+import { DASHBOARD_BLOCKS } from "~/data";
 
 /***************************************************************************
  * 
@@ -23,15 +23,15 @@ import { DATE_TIME_BLOCKS } from "~/data";
  *  
  **************************************************************************/
 
-const dropdownMenuItems = getMenuItemsFromBlocks(DATE_TIME_BLOCKS)
+const dropdownMenuItems = getMenuItemsFromBlocks(DASHBOARD_BLOCKS)
 
-export function DateTimeGroupCell({ className, isFirstCell }: GridCellProps) {
+export function DashboardGroupCell({ className, isFirstCell }: GridCellProps) {
 	return (
-		<motion.div className={clsx("h-full relative block", className)} layoutId={DATE_TIME.id}>
-			<GridCellLink to={DATE_TIME.to}>
+		<motion.div className={clsx("h-full relative block", className)} layoutId={DASHBOARD.id}>
+			<GridCellLink to={DASHBOARD.to}>
 				<div className="grid h-full p-2 place-content-center">
-					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Date Time Group</h2>
-					<span>What? Date Time Group what?</span>
+					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Dashboard Group</h2>
+					<span>What? Dashboard Group what?</span>
 				</div>
 				{isFirstCell && <HomeLink />}
 			</GridCellLink>
