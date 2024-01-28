@@ -7,6 +7,7 @@ import clsx from "clsx";
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
 import { HomeLink } from "~/components/HomeLink";
+import { isFirstCell } from "~/utils";
 import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +21,7 @@ import { DEV_UTILS_LOREM_IPSUM_GENERATOR } from "./metadata";
  * 
  **************************************************************************/
 
-export function DevUtilsLoremIpsumGeneratorCell({ className, isFirstCell }: GridCellProps) {
+export function DevUtilsLoremIpsumGeneratorCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={DEV_UTILS_LOREM_IPSUM_GENERATOR.id}>
 			<GridCellLink to={DEV_UTILS_LOREM_IPSUM_GENERATOR.to}>
@@ -28,7 +29,7 @@ export function DevUtilsLoremIpsumGeneratorCell({ className, isFirstCell }: Grid
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Lorem Ipsum Generator</h2>
 					<span className="line-clamp-2">...</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{isFirstCell(blockIndex) && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

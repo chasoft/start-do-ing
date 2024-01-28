@@ -7,6 +7,7 @@ import clsx from "clsx";
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
 import { HomeLink } from "~/components/HomeLink";
+import { isFirstCell } from "~/utils";
 import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +21,7 @@ import { DOMAINS_EXTENSIONS } from "./metadata";
  * 
  **************************************************************************/
 
-export function DomainsExtensionsCell({ className, isFirstCell }: GridCellProps) {
+export function DomainsExtensionsCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={DOMAINS_EXTENSIONS.id}>
 			<GridCellLink to={DOMAINS_EXTENSIONS.to}>
@@ -28,7 +29,7 @@ export function DomainsExtensionsCell({ className, isFirstCell }: GridCellProps)
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Domains Extensions</h2>
 					<span className="line-clamp-2">...</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{isFirstCell(blockIndex) && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

@@ -7,6 +7,7 @@ import clsx from "clsx";
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
 import { HomeLink } from "~/components/HomeLink";
+import { isFirstCell } from "~/utils";
 import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +21,7 @@ import { DATE_TIME } from "../date-time/metadata";
  * 
  **************************************************************************/
 
-export function DateTimeIndexCell({ className, isFirstCell }: GridCellProps) {
+export function DateTimeIndexCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={DATE_TIME.id}>
 			<GridCellLink to={DATE_TIME.to}>
@@ -28,7 +29,7 @@ export function DateTimeIndexCell({ className, isFirstCell }: GridCellProps) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Date/Time</h2>
 					<span>What? Date/Time what?</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{isFirstCell(blockIndex) && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

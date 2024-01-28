@@ -13,6 +13,7 @@ import type { GridCellProps } from "~/utils/types";
 
 /* DATA IMPORT */
 import { HOME } from "./metadata";
+import { firstBlockOfRow1 } from "~/data";
 
 /***************************************************************************
  * 
@@ -20,7 +21,7 @@ import { HOME } from "./metadata";
  * 
  **************************************************************************/
 
-export function HomeGridCell({ className, isFirstCell }: GridCellProps) {
+export function HomeGridCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={HOME.id}>
 			<GridCellLink to={HOME.to}>
@@ -28,7 +29,7 @@ export function HomeGridCell({ className, isFirstCell }: GridCellProps) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Home</h2>
 					<span className="line-clamp-2">Site introduction</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{blockIndex === firstBlockOfRow1 && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

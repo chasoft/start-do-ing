@@ -23,7 +23,7 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function MathsGridCells({ className, isFirstCell, layoutId }: GridCellsProps<MathsLayoutId>): JSX.Element {
+export function MathsGridCells({ className, layoutId, blockIndex }: GridCellsProps<MathsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -33,25 +33,25 @@ export function MathsGridCells({ className, isFirstCell, layoutId }: GridCellsPr
 		case "maths-empty-1":
 			return (
 				<div className={clsx(className)}>
-					<MathsEmpty1Cell isFirstCell={isFirstCell} />
+					<MathsEmpty1Cell blockIndex={blockIndex} />
 				</div>
 			)
 		case "maths-empty-2":
 			return (
 				<div className={clsx(className)}>
-					<MathsEmpty2Cell isFirstCell={isFirstCell} />
+					<MathsEmpty2Cell blockIndex={blockIndex} />
 				</div>
 			)
 		case "maths-empty-3":
 			return (
 				<div className={clsx(className)}>
-					<MathsEmpty3Cell isFirstCell={isFirstCell} />
+					<MathsEmpty3Cell blockIndex={blockIndex} />
 				</div>
 			)
 		case "maths-empty-4":
 			return (
 				<div className={clsx(className)}>
-					<MathsEmpty4Cell isFirstCell={isFirstCell} />
+					<MathsEmpty4Cell blockIndex={blockIndex} />
 				</div>
 			)
 		case "empty":

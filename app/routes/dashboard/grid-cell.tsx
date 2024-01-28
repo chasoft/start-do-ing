@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { getMenuItemsFromBlocks } from "~/utils";
+import { getMenuItemsFromBlocks, isFirstCell, isFirstRow } from "~/utils";
 import { GridCellDropdownMenu } from "~/components/GridCellDropdownMenu";
 import { GridCellLink } from "~/components";
 import { HomeLink } from "~/components/HomeLink";
@@ -25,7 +25,8 @@ import { DASHBOARD_BLOCKS } from "~/data";
 
 const dropdownMenuItems = getMenuItemsFromBlocks(DASHBOARD_BLOCKS)
 
-export function DashboardGroupCell({ className, isFirstCell }: GridCellProps) {
+export function DashboardGroupCell({ className, blockIndex }: GridCellProps) {
+	const dropdownPosition = isFirstRow(blockIndex) ? "bottom-right" : "top-right"
 	return (
 		<motion.div className={clsx("h-full relative block", className)} layoutId={DASHBOARD.id}>
 			<GridCellLink to={DASHBOARD.to}>
@@ -33,9 +34,9 @@ export function DashboardGroupCell({ className, isFirstCell }: GridCellProps) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Dashboard Group</h2>
 					<span>What? Dashboard Group what?</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{isFirstCell(blockIndex) && <HomeLink />}
 			</GridCellLink>
-			<GridCellDropdownMenu position="bottom-right" items={dropdownMenuItems} />
+			<GridCellDropdownMenu position={dropdownPosition} items={dropdownMenuItems} />
 		</motion.div>
 	)
 }

@@ -1,4 +1,10 @@
-import { EMPTY_BLOCK, SITE } from "~/data";
+import {
+  EMPTY_BLOCK,
+  SITE,
+  firstBlockOfRow1,
+  firstBlockOfRow2,
+  firstBlockOfRow3,
+} from "~/data";
 import type { Block, Breakpoint, PageId } from "./types";
 
 /***************************************************************************
@@ -140,3 +146,9 @@ export function getMenuItemsFromBlocks(blocks: Block<unknown>[]) {
     }))
     .slice(1);
 }
+
+export const isFirstRow = (blockIndex: number) => blockIndex < firstBlockOfRow2;
+export const isFirstCell = (blockIndex: number) =>
+  blockIndex === firstBlockOfRow1;
+export const isFirstCellOfRow3 = (blockIndex: number) =>
+  blockIndex === firstBlockOfRow3;

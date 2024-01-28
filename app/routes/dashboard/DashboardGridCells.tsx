@@ -21,7 +21,7 @@ import { DashboardGroupCell } from "./grid-cell";
  * 
  **************************************************************************/
 
-export function DashboardGridCells({ className, isFirstCell, layoutId }: GridCellsProps<DashboardLayoutId>): JSX.Element {
+export function DashboardGridCells({ className, layoutId, blockIndex }: GridCellsProps<DashboardLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -31,13 +31,13 @@ export function DashboardGridCells({ className, isFirstCell, layoutId }: GridCel
 		case "dashboard":
 			return (
 				<div className={clsx(className)}>
-					<DashboardGroupCell isFirstCell={isFirstCell} />
+					<DashboardGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "settings":
 			return (
 				<div className={clsx(className)}>
-					<DashboardSettingsCell isFirstCell={isFirstCell} />
+					<DashboardSettingsCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "empty":

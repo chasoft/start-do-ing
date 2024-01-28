@@ -7,6 +7,7 @@ import clsx from "clsx";
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
 import { HomeLink } from "~/components/HomeLink";
+import { isFirstCell } from "~/utils";
 import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +21,7 @@ import { DEV_UTILS_CURL_CONVERTER } from "./metadata";
  * 
  **************************************************************************/
 
-export function DevUtilsCurlConverterCell({ className, isFirstCell }: GridCellProps) {
+export function DevUtilsCurlConverterCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={DEV_UTILS_CURL_CONVERTER.id}>
 			<GridCellLink to={DEV_UTILS_CURL_CONVERTER.to}>
@@ -28,7 +29,7 @@ export function DevUtilsCurlConverterCell({ className, isFirstCell }: GridCellPr
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">curl Converter</h2>
 					<span className="line-clamp-2">...</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{isFirstCell(blockIndex) && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

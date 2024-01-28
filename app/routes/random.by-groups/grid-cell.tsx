@@ -7,6 +7,7 @@ import clsx from "clsx";
 /* COMPONENTS & UTILS */
 import { GridCellLink } from "~/components";
 import { HomeLink } from "~/components/HomeLink";
+import { isFirstCell } from "~/utils";
 import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +21,7 @@ import { RANDOM_BY_GROUPS } from "./metadata";
  * 
  **************************************************************************/
 
-export function RandomByGroupsCell({ className, isFirstCell }: GridCellProps) {
+export function RandomByGroupsCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={RANDOM_BY_GROUPS.id}>
 			<GridCellLink to={RANDOM_BY_GROUPS.to}>
@@ -28,7 +29,7 @@ export function RandomByGroupsCell({ className, isFirstCell }: GridCellProps) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Random By Groups</h2>
 					<span className="line-clamp-2">Random By Groups</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{isFirstCell(blockIndex) && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

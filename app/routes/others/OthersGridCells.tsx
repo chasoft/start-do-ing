@@ -21,7 +21,7 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function OthersGridCells({ className, isFirstCell, layoutId }: GridCellsProps<OthersLayoutId>): JSX.Element {
+export function OthersGridCells({ className, layoutId, blockIndex }: GridCellsProps<OthersLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -31,13 +31,13 @@ export function OthersGridCells({ className, isFirstCell, layoutId }: GridCellsP
 		case "others":
 			return (
 				<div className={clsx(className)}>
-					<OthersGroupCell isFirstCell={isFirstCell} />
+					<OthersGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "others-running-text":
 			return (
 				<div className={clsx(className)}>
-					<OthersRunningTextCell isFirstCell={isFirstCell} />
+					<OthersRunningTextCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "empty":

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { getMenuItemsFromBlocks } from "~/utils";
+import { getMenuItemsFromBlocks, isFirstCell, isFirstRow } from "~/utils";
 import { GridCellDropdownMenu } from "~/components/GridCellDropdownMenu";
 import { GridCellLink } from "~/components";
 import { HomeLink } from "~/components/HomeLink";
@@ -25,7 +25,8 @@ import { BLOG_BLOCKS } from "~/data";
 
 const dropdownMenuItems = getMenuItemsFromBlocks(BLOG_BLOCKS)
 
-export function BlogGroupCell({ className, isFirstCell }: GridCellProps) {
+export function BlogGroupCell({ className, blockIndex }: GridCellProps) {
+	const dropdownPosition = isFirstRow(blockIndex) ? "bottom-right" : "top-right"
 	return (
 		<motion.div className={clsx("h-full relative block", className)} layoutId={BLOG.id}>
 			<GridCellLink to={BLOG.to}>
@@ -33,14 +34,14 @@ export function BlogGroupCell({ className, isFirstCell }: GridCellProps) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Blog Group</h2>
 					<span>What? Blog Group what?</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{isFirstCell(blockIndex) && <HomeLink />}
 			</GridCellLink>
-			<GridCellDropdownMenu position="bottom-right" items={dropdownMenuItems} />
+			<GridCellDropdownMenu position={dropdownPosition} items={dropdownMenuItems} />
 		</motion.div>
 	)
 }
 
-export function BlogAICell({ className, isFirstCell }: GridCellProps) {
+export function BlogAICell({ className, blockIndex }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={BLOG_AI.id}>
 			<GridCellLink to={BLOG_AI.to}>
@@ -48,13 +49,13 @@ export function BlogAICell({ className, isFirstCell }: GridCellProps) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Blog AI</h2>
 					<span>What? Blog AI what?</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{isFirstCell(blockIndex) && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)
 }
 
-export function BlogChessCell({ className, isFirstCell }: GridCellProps) {
+export function BlogChessCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={BLOG_CHESS.id}>
 			<GridCellLink to={BLOG_CHESS.to}>
@@ -62,13 +63,13 @@ export function BlogChessCell({ className, isFirstCell }: GridCellProps) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Blog Chess</h2>
 					<span>What? Blog Chess what?</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{isFirstCell(blockIndex) && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)
 }
 
-export function BlogPhilosophyCell({ className, isFirstCell }: GridCellProps) {
+export function BlogPhilosophyCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={BLOG_PHILOSOPHY.id}>
 			<GridCellLink to={BLOG_PHILOSOPHY.to}>
@@ -76,13 +77,13 @@ export function BlogPhilosophyCell({ className, isFirstCell }: GridCellProps) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Blog Philosophy</h2>
 					<span>What? Blog Philosophy what?</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{isFirstCell(blockIndex) && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)
 }
 
-export function BlogProgrammingCell({ className, isFirstCell }: GridCellProps) {
+export function BlogProgrammingCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={BLOG_PROGRAMMING.id}>
 			<GridCellLink to={BLOG_PROGRAMMING.to}>
@@ -90,13 +91,13 @@ export function BlogProgrammingCell({ className, isFirstCell }: GridCellProps) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Blog Programming</h2>
 					<span>What? Blog Programming what?</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{isFirstCell(blockIndex) && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)
 }
 
-export function BlogTravelCell({ className, isFirstCell }: GridCellProps) {
+export function BlogTravelCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={BLOG_TRAVEL.id}>
 			<GridCellLink to={BLOG_TRAVEL.to}>
@@ -104,7 +105,7 @@ export function BlogTravelCell({ className, isFirstCell }: GridCellProps) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Blog Travel</h2>
 					<span>What? Blog Travel what?</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{isFirstCell(blockIndex) && <HomeLink />}
 			</GridCellLink>
 		</motion.div>
 	)

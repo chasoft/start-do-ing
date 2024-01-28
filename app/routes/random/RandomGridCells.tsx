@@ -26,7 +26,7 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function RandomGridCells({ className, isFirstCell, layoutId }: GridCellsProps<RandomLayoutId>): JSX.Element {
+export function RandomGridCells({ className, layoutId, blockIndex }: GridCellsProps<RandomLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -36,43 +36,43 @@ export function RandomGridCells({ className, isFirstCell, layoutId }: GridCellsP
 		case "random":
 			return (
 				<div className={clsx(className)}>
-					<RandomGroupCell isFirstCell={isFirstCell} />
+					<RandomGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "random-by-groups":
 			return (
 				<div className={clsx(className)}>
-					<RandomByGroupsCell isFirstCell={isFirstCell} />
+					<RandomByGroupsCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "random-lottery":
 			return (
 				<div className={clsx(className)}>
-					<RandomLotteryCell isFirstCell={isFirstCell} />
+					<RandomLotteryCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "random-magic-wheel":
 			return (
 				<div className={clsx(className)}>
-					<RandomMagicWheelCell isFirstCell={isFirstCell} />
+					<RandomMagicWheelCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "random-number":
 			return (
 				<div className={clsx(className)}>
-					<RandomNumberCell isFirstCell={isFirstCell} />
+					<RandomNumberCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "random-password":
 			return (
 				<div className={clsx(className)}>
-					<RandomPasswordCell isFirstCell={isFirstCell} />
+					<RandomPasswordCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "random-username":
 			return (
 				<div className={clsx(className)}>
-					<RandomUsernameCell isFirstCell={isFirstCell} />
+					<RandomUsernameCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "empty":

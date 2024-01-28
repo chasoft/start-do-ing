@@ -104,12 +104,18 @@ export type DashboardLayoutId = "dashboard" | "settings";
 
 export interface GridCellProps {
   className?: string;
-  isFirstCell?: boolean;
+  blockIndex: number;
 }
 
 export interface GridCellsProps<TLayout> {
   className?: string;
-  isFirstCell?: boolean;
+  /**
+   * Row1: 0 -> 5
+   * Row2: 20 -> 21
+   * Row3: 30 -> 35
+   * last-block: 100
+   */
+  blockIndex: number;
   layoutId?: TLayout | FeatureLayoutId | SystemLayoutId | DashboardLayoutId;
 }
 

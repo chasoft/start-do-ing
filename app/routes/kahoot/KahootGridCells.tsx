@@ -21,7 +21,7 @@ import { KahootGroupCell } from "./grid-cell";
  * 
  **************************************************************************/
 
-export function KahootGridCells({ className, isFirstCell, layoutId }: GridCellsProps<KahootLayoutId>): JSX.Element {
+export function KahootGridCells({ className, layoutId, blockIndex }: GridCellsProps<KahootLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -31,13 +31,13 @@ export function KahootGridCells({ className, isFirstCell, layoutId }: GridCellsP
 		case "kahoot":
 			return (
 				<div className={clsx(className)}>
-					<KahootGroupCell isFirstCell={isFirstCell} />
+					<KahootGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "kahoot-quiz":
 			return (
 				<div className={clsx(className)}>
-					<KahootQuizCell isFirstCell={isFirstCell} />
+					<KahootQuizCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "empty":

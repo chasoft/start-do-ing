@@ -23,7 +23,7 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function LanguagesGridCells({ className, isFirstCell, layoutId }: GridCellsProps<LanguagesLayoutId>): JSX.Element {
+export function LanguagesGridCells({ className, layoutId, blockIndex }: GridCellsProps<LanguagesLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -33,25 +33,25 @@ export function LanguagesGridCells({ className, isFirstCell, layoutId }: GridCel
 		case "languages":
 			return (
 				<div className={clsx(className)}>
-					<LanguagesGroupCell isFirstCell={isFirstCell} />
+					<LanguagesGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "100-popular-chinese-words":
 			return (
 				<div className={clsx(className)}>
-					<Languages100PopularChineseWordsCell isFirstCell={isFirstCell} />
+					<Languages100PopularChineseWordsCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "chinese-characters":
 			return (
 				<div className={clsx(className)}>
-					<LanguagesChineseCharactersCell isFirstCell={isFirstCell} />
+					<LanguagesChineseCharactersCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "vietnamese-reading-for-kids":
 			return (
 				<div className={clsx(className)}>
-					<LanguagesVietnameseReadingForKidsCell isFirstCell={isFirstCell} />
+					<LanguagesVietnameseReadingForKidsCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "empty":

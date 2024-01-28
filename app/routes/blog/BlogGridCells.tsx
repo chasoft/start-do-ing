@@ -20,7 +20,7 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function BlogGridCells({ className, isFirstCell, layoutId }: GridCellsProps<BlogLayoutId>): JSX.Element {
+export function BlogGridCells({ className, layoutId, blockIndex }: GridCellsProps<BlogLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -30,37 +30,37 @@ export function BlogGridCells({ className, isFirstCell, layoutId }: GridCellsPro
 		case "blog":
 			return (
 				<div className={clsx(className)}>
-					<BlogGroupCell isFirstCell={isFirstCell} />
+					<BlogGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "AI":
 			return (
 				<div className={clsx(className)}>
-					<BlogAICell isFirstCell={isFirstCell} />
+					<BlogAICell blockIndex={blockIndex} />
 				</div>
 			)
 		case "chess":
 			return (
 				<div className={clsx(className)}>
-					<BlogChessCell isFirstCell={isFirstCell} />
+					<BlogChessCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "philosophy":
 			return (
 				<div className={clsx(className)}>
-					<BlogPhilosophyCell isFirstCell={isFirstCell} />
+					<BlogPhilosophyCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "programming":
 			return (
 				<div className={clsx(className)}>
-					<BlogProgrammingCell isFirstCell={isFirstCell} />
+					<BlogProgrammingCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "travel":
 			return (
 				<div className={clsx(className)}>
-					<BlogTravelCell isFirstCell={isFirstCell} />
+					<BlogTravelCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "empty":

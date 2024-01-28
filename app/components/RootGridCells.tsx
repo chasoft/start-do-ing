@@ -30,7 +30,7 @@ import { OthersGroupCell } from "~/routes/others/grid-cell";
  * 
  **************************************************************************/
 
-export function RootGridCells({ className, layoutId, isFirstCell }: GridCellsProps<GroupId>): JSX.Element {
+export function RootGridCells({ className, layoutId, blockIndex }: GridCellsProps<GroupId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -40,61 +40,61 @@ export function RootGridCells({ className, layoutId, isFirstCell }: GridCellsPro
 		case "home":
 			return (
 				<div className={clsx(className)}>
-					<HomeGridCell isFirstCell={isFirstCell} />
+					<HomeGridCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "date-time":
 			return (
 				<div className={clsx(className)}>
-					<DateTimeGroupCell isFirstCell={isFirstCell} />
+					<DateTimeGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "dev-utils":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsGroupCell isFirstCell={isFirstCell} />
+					<DevUtilsGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "domains":
 			return (
 				<div className={clsx(className)}>
-					<DomainsGroupCell isFirstCell={isFirstCell} />
+					<DomainsGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "kahoot":
 			return (
 				<div className={clsx(className)}>
-					<KahootGroupCell isFirstCell={isFirstCell} />
+					<KahootGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "languages":
 			return (
 				<div className={clsx(className)}>
-					<LanguagesGroupCell isFirstCell={isFirstCell} />
+					<LanguagesGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "maths":
 			return (
 				<div className={clsx(className)}>
-					<MathsGroupCell isFirstCell={isFirstCell} />
+					<MathsGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "random":
 			return (
 				<div className={clsx(className)}>
-					<RandomGroupCell isFirstCell={isFirstCell} />
+					<RandomGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "url-shortener":
 			return (
 				<div className={clsx(className)}>
-					<UrlShortenerGroupCell isFirstCell={isFirstCell} />
+					<UrlShortenerGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "others":
 			return (
 				<div className={clsx(className)}>
-					<OthersGroupCell isFirstCell={isFirstCell} />
+					<OthersGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "empty":

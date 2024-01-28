@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { getMenuItemsFromBlocks } from "~/utils";
+import { getMenuItemsFromBlocks, isFirstCell, isFirstRow } from "~/utils";
 import { GridCellDropdownMenu } from "~/components/GridCellDropdownMenu";
 import { GridCellLink } from "~/components";
 import { HomeLink } from "~/components/HomeLink";
@@ -25,7 +25,8 @@ import { MATHS_BLOCKS } from "~/data";
 
 const dropdownMenuItems = getMenuItemsFromBlocks(MATHS_BLOCKS)
 
-export function MathsGroupCell({ className, isFirstCell }: GridCellProps) {
+export function MathsGroupCell({ className, blockIndex }: GridCellProps) {
+	const dropdownPosition = isFirstRow(blockIndex) ? "bottom-right" : "top-right"
 	return (
 		<motion.div className={clsx("h-full relative block", className)} layoutId={MATHS.id}>
 			<GridCellLink to={MATHS.to}>
@@ -33,9 +34,9 @@ export function MathsGroupCell({ className, isFirstCell }: GridCellProps) {
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Maths Group</h2>
 					<span>What? Maths Group what?</span>
 				</div>
-				{isFirstCell && <HomeLink />}
+				{isFirstCell(blockIndex) && <HomeLink />}
 			</GridCellLink>
-			<GridCellDropdownMenu position="bottom-right" items={dropdownMenuItems} />
+			<GridCellDropdownMenu position={dropdownPosition} items={dropdownMenuItems} />
 		</motion.div>
 	)
 }

@@ -27,7 +27,7 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function DevUtilsGridCells({ className, isFirstCell, layoutId }: GridCellsProps<DevUtilsLayoutId>): JSX.Element {
+export function DevUtilsGridCells({ className, layoutId, blockIndex }: GridCellsProps<DevUtilsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -37,49 +37,49 @@ export function DevUtilsGridCells({ className, isFirstCell, layoutId }: GridCell
 		case "dev-utils":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsGroupCell isFirstCell={isFirstCell} />
+					<DevUtilsGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "dev-utils-base64":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsBase64Cell isFirstCell={isFirstCell} />
+					<DevUtilsBase64Cell blockIndex={blockIndex} />
 				</div>
 			)
 		case "dev-utils-curl-converter":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsCurlConverterCell isFirstCell={isFirstCell} />
+					<DevUtilsCurlConverterCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "dev-utils-hash-generator":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsHashGeneratorCell isFirstCell={isFirstCell} />
+					<DevUtilsHashGeneratorCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "dev-utils-lorem-ipsum-generator":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsLoremIpsumGeneratorCell isFirstCell={isFirstCell} />
+					<DevUtilsLoremIpsumGeneratorCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "dev-utils-markdown-editor":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsMarkdownEditorCell isFirstCell={isFirstCell} />
+					<DevUtilsMarkdownEditorCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "dev-utils-sql-formatter":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsSqlFormatterCell isFirstCell={isFirstCell} />
+					<DevUtilsSqlFormatterCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "dev-utils-string-converter":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsStringConverterCell isFirstCell={isFirstCell} />
+					<DevUtilsStringConverterCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "empty":

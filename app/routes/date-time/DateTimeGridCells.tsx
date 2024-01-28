@@ -25,7 +25,7 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function DateTimeGridCells({ className, isFirstCell, layoutId }: GridCellsProps<DateTimeLayoutId>): JSX.Element {
+export function DateTimeGridCells({ className, layoutId, blockIndex }: GridCellsProps<DateTimeLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -35,37 +35,37 @@ export function DateTimeGridCells({ className, isFirstCell, layoutId }: GridCell
 		case "date-time":
 			return (
 				<div className={clsx(className)}>
-					<DateTimeIndexCell isFirstCell={isFirstCell} />
+					<DateTimeIndexCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "date-time-analog-clock":
 			return (
 				<div className={clsx(className)}>
-					<DateTimeAnalogClockCell isFirstCell={isFirstCell} />
+					<DateTimeAnalogClockCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "date-time-calculator":
 			return (
 				<div className={clsx(className)}>
-					<DateTimeCalculatorCell isFirstCell={isFirstCell} />
+					<DateTimeCalculatorCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "date-time-calendar":
 			return (
 				<div className={clsx(className)}>
-					<DateTimeCalendarCell isFirstCell={isFirstCell} />
+					<DateTimeCalendarCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "date-time-count-down":
 			return (
 				<div className={clsx(className)}>
-					<DateTimeCountDownCell isFirstCell={isFirstCell} />
+					<DateTimeCountDownCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "date-time-digital-clock":
 			return (
 				<div className={clsx(className)}>
-					<DateTimeDigitalClockCell isFirstCell={isFirstCell} />
+					<DateTimeDigitalClockCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "empty":

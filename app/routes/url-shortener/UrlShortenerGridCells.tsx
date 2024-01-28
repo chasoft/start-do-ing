@@ -21,7 +21,7 @@ import { BLOCK_NOT_FOUND } from "~/data";
  * 
  **************************************************************************/
 
-export function UrlShortenerGridCells({ className, isFirstCell, layoutId }: GridCellsProps<UrlShortenerLayoutId>): JSX.Element {
+export function UrlShortenerGridCells({ className, layoutId, blockIndex }: GridCellsProps<UrlShortenerLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 * 
@@ -31,13 +31,13 @@ export function UrlShortenerGridCells({ className, isFirstCell, layoutId }: Grid
 		case "url-shortener":
 			return (
 				<div className={clsx(className)}>
-					<UrlShortenerGroupCell isFirstCell={isFirstCell} />
+					<UrlShortenerGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "url-shortener-empty-1":
 			return (
 				<div className={clsx(className)}>
-					<URLShortenerIndexCell isFirstCell={isFirstCell} />
+					<URLShortenerIndexCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "empty":
