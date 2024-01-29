@@ -19,7 +19,7 @@ export const URL_SHORTENER: Block<"url-shortener"> = {
   id: "url-shortener",
   icon: "/url-shortener.svg",
   title: "URL Shortener",
-  description: "",
+  description: "Short URLs for actions",
   to: "/url-shortener",
   group: [],
   favorite: true,

@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
+import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
+import { KahootGroupCell } from "./grid-cell";
+import { KahootQuizCell } from "../kahoot.quiz/grid-cell";
 import type { GridCellsProps, KahootLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
 import { BLOCK_NOT_FOUND } from "~/data";
-import { KahootQuizCell } from "../kahoot.quiz/grid-cell";
-import { KahootGroupCell } from "./grid-cell";
 
 /***************************************************************************
  * 
@@ -43,7 +43,7 @@ export function KahootGridCells({ className, layoutId, blockIndex }: GridCellsPr
 		case "empty":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<CellGridEmpty />
 				</div>
 			)
 		/**********************************************************************
@@ -54,7 +54,7 @@ export function KahootGridCells({ className, layoutId, blockIndex }: GridCellsPr
 		case "left":
 			return (
 				<div className={clsx(className)}>
-					<LeftGridCell />
+					<CellGridLeft />
 				</div>
 			)
 		case "right":
@@ -66,7 +66,7 @@ export function KahootGridCells({ className, layoutId, blockIndex }: GridCellsPr
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<LastGridCell />
+					<CellGridLast />
 				</div>
 			)
 		/**********************************************************************

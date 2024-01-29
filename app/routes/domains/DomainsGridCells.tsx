@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
+import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
 import { DomainsBuilderCell } from "../domains.builder/grid-cell";
 import { DomainsExtensionsCell } from "../domains.extensions/grid-cell";
 import { DomainsGroupCell } from "./grid-cell";
 import { DomainsWhoiCell } from "../domains.whois/grid-cell";
-import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
 import type { DomainsLayoutId, GridCellsProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -57,7 +57,7 @@ export function DomainsGridCells({ className, layoutId, blockIndex }: GridCellsP
 		case "empty":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<CellGridEmpty />
 				</div>
 			)
 		/**********************************************************************
@@ -68,7 +68,7 @@ export function DomainsGridCells({ className, layoutId, blockIndex }: GridCellsP
 		case "left":
 			return (
 				<div className={clsx(className)}>
-					<LeftGridCell />
+					<CellGridLeft />
 				</div>
 			)
 		case "right":
@@ -80,7 +80,7 @@ export function DomainsGridCells({ className, layoutId, blockIndex }: GridCellsP
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<LastGridCell />
+					<CellGridLast />
 				</div>
 			)
 		/**********************************************************************

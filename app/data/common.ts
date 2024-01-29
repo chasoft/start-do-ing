@@ -231,3 +231,6 @@ export const DEFAULT_BLOCK: Block<"home"> = HOME;
 export const firstBlockOfRow1 = 0;
 export const firstBlockOfRow2 = 20;
 export const firstBlockOfRow3 = 30;
+
+export const DEFAULT_SHARING_IMAGE =
+  "https://startdo.ing/static/images/sharing.png";

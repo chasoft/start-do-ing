@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
+import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
 import { OthersGroupCell } from "./grid-cell";
 import { OthersRunningTextCell } from "../others.running-text/grid-cell";
 import type { GridCellsProps, OthersLayoutId } from "~/utils/types";
@@ -43,7 +43,7 @@ export function OthersGridCells({ className, layoutId, blockIndex }: GridCellsPr
 		case "empty":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<CellGridEmpty />
 				</div>
 			)
 		/**********************************************************************
@@ -54,7 +54,7 @@ export function OthersGridCells({ className, layoutId, blockIndex }: GridCellsPr
 		case "left":
 			return (
 				<div className={clsx(className)}>
-					<LeftGridCell />
+					<CellGridLeft />
 				</div>
 			)
 		case "right":
@@ -66,7 +66,7 @@ export function OthersGridCells({ className, layoutId, blockIndex }: GridCellsPr
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<LastGridCell />
+					<CellGridLast />
 				</div>
 			)
 		/**********************************************************************

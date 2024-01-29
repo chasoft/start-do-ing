@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
+import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
 import { RandomByGroupsCell } from "../random.by-groups/grid-cell";
 import { RandomGroupCell } from "./grid-cell";
 import { RandomLotteryCell } from "../random.lottery/grid-cell";
@@ -78,7 +78,7 @@ export function RandomGridCells({ className, layoutId, blockIndex }: GridCellsPr
 		case "empty":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<CellGridEmpty />
 				</div>
 			)
 		/**********************************************************************
@@ -89,7 +89,7 @@ export function RandomGridCells({ className, layoutId, blockIndex }: GridCellsPr
 		case "left":
 			return (
 				<div className={clsx(className)}>
-					<LeftGridCell />
+					<CellGridLeft />
 				</div>
 			)
 		case "right":
@@ -101,7 +101,7 @@ export function RandomGridCells({ className, layoutId, blockIndex }: GridCellsPr
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<LastGridCell />
+					<CellGridLast />
 				</div>
 			)
 		/**********************************************************************

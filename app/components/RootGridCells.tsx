@@ -5,24 +5,24 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { EmptyGridCell, LeftGridCell, RightGridCell } from ".";
+import { CellGridEmpty, CellGridLeft, RightGridCell } from ".";
+import { CellGridLast } from "./CellGridLast";
+import { DateTimeGroupCell } from "~/routes/date-time/grid-cell";
+import { DevUtilsGroupCell } from "~/routes/dev-utils/grid-cell";
+import { DomainsGroupCell } from "~/routes/domains/grid-cell";
 import { HomeGridCell } from "~/routes/_index/grid-cell";
+import { KahootGroupCell } from "~/routes/kahoot/grid-cell";
+import { LanguagesGroupCell } from "~/routes/languages/grid-cell";
+import { MathsGroupCell } from "~/routes/maths/grid-cell";
+import { OthersGroupCell } from "~/routes/others/grid-cell";
+import { RandomGroupCell } from "~/routes/random/grid-cell";
+import { UrlShortenerGroupCell } from "~/routes/url-shortener/grid-cell";
 import type { GridCellsProps, GroupId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
 import { BLOCK_NOT_FOUND } from "~/data";
-import { LastGridCell } from "./LastGridCell";
-import { DateTimeGroupCell } from "~/routes/date-time/grid-cell";
-import { DevUtilsGroupCell } from "~/routes/dev-utils/grid-cell";
-import { DomainsGroupCell } from "~/routes/domains/grid-cell";
-import { KahootGroupCell } from "~/routes/kahoot/grid-cell";
-import { LanguagesGroupCell } from "~/routes/languages/grid-cell";
-import { MathsGroupCell } from "~/routes/maths/grid-cell";
-import { RandomGroupCell } from "~/routes/random/grid-cell";
-import { UrlShortenerGroupCell } from "~/routes/url-shortener/grid-cell";
-import { OthersGroupCell } from "~/routes/others/grid-cell";
 
 /***************************************************************************
  * 
@@ -100,7 +100,7 @@ export function RootGridCells({ className, layoutId, blockIndex }: GridCellsProp
 		case "empty":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<CellGridEmpty />
 				</div>
 			)
 		/**********************************************************************
@@ -111,7 +111,7 @@ export function RootGridCells({ className, layoutId, blockIndex }: GridCellsProp
 		case "left":
 			return (
 				<div className={clsx(className)}>
-					<LeftGridCell />
+					<CellGridLeft />
 				</div>
 			)
 		case "right":
@@ -123,7 +123,7 @@ export function RootGridCells({ className, layoutId, blockIndex }: GridCellsProp
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<LastGridCell />
+					<CellGridLast />
 				</div>
 			)
 		/**********************************************************************
@@ -135,7 +135,7 @@ export function RootGridCells({ className, layoutId, blockIndex }: GridCellsProp
 			return (
 				<div className={clsx(className, "h-full")}>
 					<motion.div className={clsx("h-full bg-gray-200 rounded-lg")} layoutId={BLOCK_NOT_FOUND}>
-						<div className="grid h-full text-lg md:text-xl text-red-900 place-content-center">
+						<div className="grid h-full text-lg text-red-900 md:text-xl place-content-center">
 							BLOCK NOT FOUND
 							<p>{layoutId}</p>
 						</div>

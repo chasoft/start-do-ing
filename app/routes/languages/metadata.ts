@@ -19,7 +19,7 @@ export const LANGUAGES: Block<"languages"> = {
   id: "languages",
   icon: "/languages.svg",
   title: "Languages",
-  description: "",
+  description: "Human languages",
   to: "/languages",
   group: [],
   favorite: true,

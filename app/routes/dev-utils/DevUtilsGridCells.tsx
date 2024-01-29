@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
+import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
 import { DevUtilsBase64Cell } from "../dev-utils.base64/grid-cell";
 import { DevUtilsCurlConverterCell } from "../dev-utils.curl-converter/grid-cell";
 import { DevUtilsGroupCell } from "./grid-cell";
@@ -13,7 +14,6 @@ import { DevUtilsLoremIpsumGeneratorCell } from "../dev-utils.lorem-ipsum-genera
 import { DevUtilsMarkdownEditorCell } from "../dev-utils.markdown-editor/grid-cell";
 import { DevUtilsSqlFormatterCell } from "../dev-utils.sql-formatter/grid-cell";
 import { DevUtilsStringConverterCell } from "../dev-utils.string-converter/grid-cell";
-import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
 import type { DevUtilsLayoutId, GridCellsProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -85,7 +85,7 @@ export function DevUtilsGridCells({ className, layoutId, blockIndex }: GridCells
 		case "empty":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<CellGridEmpty />
 				</div>
 			)
 		/**********************************************************************
@@ -96,7 +96,7 @@ export function DevUtilsGridCells({ className, layoutId, blockIndex }: GridCells
 		case "left":
 			return (
 				<div className={clsx(className)}>
-					<LeftGridCell />
+					<CellGridLeft />
 				</div>
 			)
 		case "right":
@@ -108,7 +108,7 @@ export function DevUtilsGridCells({ className, layoutId, blockIndex }: GridCells
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<LastGridCell />
+					<CellGridLast />
 				</div>
 			)
 		/**********************************************************************
@@ -120,7 +120,7 @@ export function DevUtilsGridCells({ className, layoutId, blockIndex }: GridCells
 			return (
 				<div className={clsx(className, "h-full")}>
 					<motion.div className={clsx("h-full bg-gray-200 rounded-lg")} layoutId={BLOCK_NOT_FOUND}>
-						<div className="grid h-full text-lg md:text-xl text-red-900 place-content-center">
+						<div className="grid h-full text-lg text-red-900 md:text-xl place-content-center">
 							BLOCK NOT FOUND
 							<p>{layoutId}</p>
 						</div>

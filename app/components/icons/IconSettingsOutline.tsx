@@ -21,5 +21,3 @@ export function IconSettingsOutline(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
-
-export default IconSettingsOutline;

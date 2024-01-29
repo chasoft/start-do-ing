@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { GridCellLink } from "~/components";
+import { CellGridLink } from "~/components";
 
 /* TRANSLATIONS IMPORT */
 
@@ -21,12 +21,12 @@ import { DASHBOARD } from "../dashboard/metadata";
 export function DashboardIndexCell({ className }: { className?: string }) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={DASHBOARD.id}>
-			<GridCellLink to={DASHBOARD.to}>
+			<CellGridLink to={DASHBOARD.to}>
 				<div className="grid h-full p-2 place-content-center">
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Dashboard Index</h2>
 					<span>What? Dashboard Index what?</span>
 				</div>
-			</GridCellLink>
+			</CellGridLink>
 		</motion.div>
 	)
 }

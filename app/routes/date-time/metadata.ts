@@ -19,7 +19,7 @@ export const DATE_TIME: Block<"date-time"> = {
   id: "date-time",
   icon: "/date-time.svg",
   title: "Date/Time",
-  description: "",
+  description: "Tools for date/time manipulation",
   to: "/date-time",
   group: [],
   favorite: true,

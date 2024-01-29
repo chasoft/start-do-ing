@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { GridCellLink } from "~/components";
+import { CellGridLink } from "~/components";
 
 /* TRANSLATIONS IMPORT */
 
@@ -21,12 +21,12 @@ import { RANDOM } from "../random/metadata";
 export function RandomIndexCell({ className }: { className?: string }) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={RANDOM.id}>
-			<GridCellLink to={RANDOM.to}>
+			<CellGridLink to={RANDOM.to}>
 				<div className="grid h-full p-2 place-content-center">
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Random</h2>
 					<span>What? Random what?</span>
 				</div>
-			</GridCellLink>
+			</CellGridLink>
 		</motion.div>
 	)
 }

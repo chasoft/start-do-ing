@@ -19,7 +19,7 @@ export const KAHOOT: Block<"kahoot"> = {
   id: "kahoot",
   icon: "/kahoot.svg",
   title: "Kahoot",
-  description: "",
+  description: "Play online quiz games",
   to: "/kahoot",
   group: [],
   favorite: true,

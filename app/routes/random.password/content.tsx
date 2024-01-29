@@ -5,11 +5,13 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
+import { getUrlSharingData } from "~/utils";
 import type { RandomLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { RANDOM_PASSWORD } from "./metadata";
 
 /***************************************************************************
  * 
@@ -18,8 +20,9 @@ import type { RandomLayoutId } from "~/utils/types";
  **************************************************************************/
 
 export function RandomPasswordContent({ className, layoutId }: { className?: string, layoutId: RandomLayoutId }) {
+	const urlSharingData = getUrlSharingData(RANDOM_PASSWORD)
 	return (
-		<ContentWrapper>
+		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>
 				<div className="h-full p-2 sm:p-4 xl:p-6">
 					<h1 className="text-lg font-semibold sm:text-2xl">Password Generator</h1>

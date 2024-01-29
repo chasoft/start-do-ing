@@ -5,11 +5,13 @@ import { Outlet } from "@remix-run/react";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper, NavigationGrid } from "~/components";
+import { getUrlSharingData } from "~/utils";
 import { MathsGridCells } from "./MathsGridCells";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { MATHS } from "./metadata";
 import { MATHS_BLOCKS } from "~/data";
 
 /***************************************************************************
@@ -19,9 +21,10 @@ import { MATHS_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function MathsGroupRoute() {
+	const urlSharingData = getUrlSharingData(MATHS)
 	return (
 		<NavigationGrid blocks={MATHS_BLOCKS} GridCell={MathsGridCells}>
-			<ContentWrapper>
+			<ContentWrapper urlSharingData={urlSharingData}>
 				<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
 					<Outlet />
 				</div>

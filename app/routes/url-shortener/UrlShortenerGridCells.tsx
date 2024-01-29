@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
+import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
 import { UrlShortenerGroupCell } from "./grid-cell";
 import { URLShortenerIndexCell } from "../url-shortener._index/grid-cell";
 import type { GridCellsProps, UrlShortenerLayoutId } from "~/utils/types";
@@ -43,7 +43,7 @@ export function UrlShortenerGridCells({ className, layoutId, blockIndex }: GridC
 		case "empty":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<CellGridEmpty />
 				</div>
 			)
 		/**********************************************************************
@@ -54,7 +54,7 @@ export function UrlShortenerGridCells({ className, layoutId, blockIndex }: GridC
 		case "left":
 			return (
 				<div className={clsx(className)}>
-					<LeftGridCell />
+					<CellGridLeft />
 				</div>
 			)
 		case "right":
@@ -66,7 +66,7 @@ export function UrlShortenerGridCells({ className, layoutId, blockIndex }: GridC
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<LastGridCell />
+					<CellGridLast />
 				</div>
 			)
 		/**********************************************************************
@@ -78,7 +78,7 @@ export function UrlShortenerGridCells({ className, layoutId, blockIndex }: GridC
 			return (
 				<div className={clsx(className, "h-full")}>
 					<motion.div className={clsx("h-full bg-gray-200 rounded-lg")} layoutId={BLOCK_NOT_FOUND}>
-						<div className="grid h-full text-lg md:text-xl text-red-900 place-content-center">
+						<div className="grid h-full text-lg text-red-900 md:text-xl place-content-center">
 							BLOCK NOT FOUND
 							<p>{layoutId}</p>
 						</div>

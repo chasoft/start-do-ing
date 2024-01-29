@@ -19,7 +19,7 @@ export const OTHERS: Block<"others"> = {
   id: "others",
   icon: "/others.svg",
   title: "Others",
-  description: "",
+  description: "Interesting things",
   to: "/others",
   group: [],
   favorite: true,

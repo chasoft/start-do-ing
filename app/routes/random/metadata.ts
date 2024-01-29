@@ -19,7 +19,7 @@ export const RANDOM: Block<"random"> = {
   id: "random",
   icon: "/random.svg",
   title: "Random",
-  description: "",
+  description: "From numbers to everything",
   to: "/random",
   group: [],
   favorite: true,

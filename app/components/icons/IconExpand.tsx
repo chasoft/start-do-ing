@@ -21,5 +21,3 @@ export function IconExpand(props: React.SVGProps<SVGSVGElement>) {
 		</svg>
 	);
 }
-
-export default IconExpand;

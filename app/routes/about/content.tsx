@@ -5,10 +5,12 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
+import { getUrlSharingData } from "~/utils/common";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { ABOUT } from "./metadata";
 
 /***************************************************************************
  * 
@@ -18,8 +20,9 @@ import { ContentWrapper } from "~/components";
 
 //TODO: layoutId is tring, need to change
 export function AboutFeature({ className, layoutId }: { className?: string, layoutId: string }) {
+	const urlSharingData = getUrlSharingData(ABOUT)
 	return (
-		<ContentWrapper>
+		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>
 				<div className="h-full p-2 sm:p-4 xl:p-6">
 					<h1 className="text-lg font-semibold sm:text-2xl">About</h1>

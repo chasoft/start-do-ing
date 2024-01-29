@@ -19,7 +19,7 @@ export const DOMAINS: Block<"domains"> = {
   id: "domains",
   icon: "/domains.svg",
   title: "Domains",
-  description: "",
+  description: "Your domain assistants",
   to: "/domains",
   group: [],
   favorite: true,

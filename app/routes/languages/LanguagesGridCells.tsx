@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
+import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
 import { Languages100PopularChineseWordsCell } from "../languages.100-popular-chinese-words/grid-cell";
 import { LanguagesChineseCharactersCell } from "../languages.chinese-characters/grid-cell";
 import { LanguagesGroupCell } from "./grid-cell";
@@ -57,7 +57,7 @@ export function LanguagesGridCells({ className, layoutId, blockIndex }: GridCell
 		case "empty":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<CellGridEmpty />
 				</div>
 			)
 		/**********************************************************************
@@ -68,7 +68,7 @@ export function LanguagesGridCells({ className, layoutId, blockIndex }: GridCell
 		case "left":
 			return (
 				<div className={clsx(className)}>
-					<LeftGridCell />
+					<CellGridLeft />
 				</div>
 			)
 		case "right":
@@ -80,7 +80,7 @@ export function LanguagesGridCells({ className, layoutId, blockIndex }: GridCell
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<LastGridCell />
+					<CellGridLast />
 				</div>
 			)
 		/**********************************************************************

@@ -4,22 +4,21 @@ import { Link } from "@remix-run/react";
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { IconHome } from "./icons";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { HOME } from "~/routes/_index/metadata";
 
 /***************************************************************************
  * 
  *  START
  * 
  **************************************************************************/
-export function HomeLink() {
+
+export function CellGridLink({ to, children }: { to: string, children: React.ReactNode }) {
 	return (
-		<Link to={HOME.to} className="absolute p-2 top-0 left-0">
-			<IconHome className="w-6 h-6 hover:scale-125 active:text-blue-900 active:scale-110 transition-all" />
+		<Link to={to} className="relative block h-full transition-all bg-pink-200 border-2 border-transparent rounded-lg bg-opacity-30 hover:bg-opacity-60 hover:outline-pink-300 outline-pink-200 hover:border-blue-300">
+			{children}
 		</Link>
 	)
 }

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { GridCellLink } from "~/components";
+import { CellGridLink } from "~/components";
 
 /* TRANSLATIONS IMPORT */
 
@@ -21,12 +21,12 @@ import { BLOG } from "../blog/metadata";
 export function BlogIndexCell({ className }: { className?: string }) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={BLOG.id}>
-			<GridCellLink to={BLOG.to}>
+			<CellGridLink to={BLOG.to}>
 				<div className="grid h-full p-2 place-content-center">
 					<h2 className="text-lg font-semibold sm:text-2xl line-clamp-1">Blog</h2>
 					<span>What? Blog what?</span>
 				</div>
-			</GridCellLink>
+			</CellGridLink>
 		</motion.div>
 	)
 }

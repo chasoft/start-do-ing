@@ -5,10 +5,12 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
+import { getUrlSharingData } from "~/utils/common";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
+import { HOME } from "./metadata";
 
 /***************************************************************************
  * 
@@ -18,8 +20,9 @@ import { ContentWrapper } from "~/components";
 
 //TODO: layoutId is tring, need to change
 export function HomeFeature({ className, layoutId }: { className?: string, layoutId: string }) {
+	const urlSharingData = getUrlSharingData(HOME)
 	return (
-		<ContentWrapper>
+		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>
 				<div className="h-full p-2 sm:p-4 xl:p-6">
 					<h1 className="text-lg font-semibold sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 2xl:mb-8">Welcome to Startdo.ing Space</h1>

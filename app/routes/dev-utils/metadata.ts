@@ -19,7 +19,7 @@ export const DEV_UTILS: Block<"dev-utils"> = {
   id: "dev-utils",
   icon: "/dev-utils.svg",
   title: "Dev Utils",
-  description: "",
+  description: "Utils for web development",
   to: "/dev-utils",
   group: [],
   favorite: true,

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
+import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
 import { MathsEmpty1Cell } from "../maths.empty-1/grid-cell";
 import { MathsEmpty2Cell } from "../maths.empty-2/grid-cell";
 import { MathsEmpty3Cell } from "../maths.empty-3/grid-cell";
@@ -57,7 +57,7 @@ export function MathsGridCells({ className, layoutId, blockIndex }: GridCellsPro
 		case "empty":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<CellGridEmpty />
 				</div>
 			)
 		/**********************************************************************
@@ -68,7 +68,7 @@ export function MathsGridCells({ className, layoutId, blockIndex }: GridCellsPro
 		case "left":
 			return (
 				<div className={clsx(className)}>
-					<LeftGridCell />
+					<CellGridLeft />
 				</div>
 			)
 		case "right":
@@ -80,7 +80,7 @@ export function MathsGridCells({ className, layoutId, blockIndex }: GridCellsPro
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<LastGridCell />
+					<CellGridLast />
 				</div>
 			)
 		/**********************************************************************

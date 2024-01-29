@@ -150,6 +150,7 @@ export type Block<TLayout> = {
   icon: string;
   title: string;
   description: string;
+  image?: string;
   to: string;
   /**
    * organizing blocks by tags and/or favorite
@@ -171,4 +172,11 @@ export type Block<TLayout> = {
     major: number;
     minor: number;
   };
+};
+
+export type UrlSharingData = {
+  image: string;
+  title: string;
+  description: string;
+  url: string;
 };

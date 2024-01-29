@@ -19,7 +19,7 @@ export const MATHS: Block<"maths"> = {
   id: "maths",
   icon: "/maths.svg",
   title: "Maths",
-  description: "",
+  description: "Maths for kids",
   to: "/maths",
   group: [],
   favorite: true,

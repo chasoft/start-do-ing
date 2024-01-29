@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
 import { BlogAICell, BlogChessCell, BlogGroupCell, BlogPhilosophyCell, BlogProgrammingCell, BlogTravelCell } from "./grid-cell";
-import { EmptyGridCell, LastGridCell, LeftGridCell, RightGridCell } from "~/components";
+import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
 import type { BlogLayoutId, GridCellsProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -66,7 +66,7 @@ export function BlogGridCells({ className, layoutId, blockIndex }: GridCellsProp
 		case "empty":
 			return (
 				<div className={clsx(className)}>
-					<EmptyGridCell />
+					<CellGridEmpty />
 				</div>
 			)
 		/**********************************************************************
@@ -77,7 +77,7 @@ export function BlogGridCells({ className, layoutId, blockIndex }: GridCellsProp
 		case "left":
 			return (
 				<div className={clsx(className)}>
-					<LeftGridCell />
+					<CellGridLeft />
 				</div>
 			)
 		case "right":
@@ -89,7 +89,7 @@ export function BlogGridCells({ className, layoutId, blockIndex }: GridCellsProp
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<LastGridCell />
+					<CellGridLast />
 				</div>
 			)
 		/**********************************************************************

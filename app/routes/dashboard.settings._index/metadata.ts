@@ -19,7 +19,7 @@ export const DASHBOARD_SETTINGS: Block<DashboardLayoutId> = {
   id: "settings",
   icon: "/settings.svg",
   title: "Settings",
-  description: "",
+  description: "Setup and configure your tools",
   to: "/dashboard/settings",
   group: [],
   favorite: true,
