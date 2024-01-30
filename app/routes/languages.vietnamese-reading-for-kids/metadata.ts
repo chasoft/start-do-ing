@@ -19,7 +19,7 @@ export const LANGUAGES_VIETNAMESE_READING_FOR_KIDS: Block<LanguagesLayoutId> = {
   id: "vietnamese-reading-for-kids",
   icon: "/vietnamese-reading-for-kids.svg",
   title: "Vietnamese Reading for Kids",
-  description: "",
+  description: "Helps your kids to read Vietnamese words",
   to: "/languages/vietnamese-reading-for-kids",
   group: [],
   favorite: false,

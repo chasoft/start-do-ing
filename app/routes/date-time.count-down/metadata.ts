@@ -19,7 +19,7 @@ export const DATE_TIME_COUNT_DOWN: Block<DateTimeLayoutId> = {
   id: "date-time-count-down",
   icon: "/date-time-count-down.svg",
   title: "Date/Time Count Down",
-  description: "",
+  description: "Everything counting down",
   to: "/date-time/count-down",
   group: [],
   favorite: false,

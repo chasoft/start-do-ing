@@ -19,7 +19,7 @@ export const DEV_UTILS_LOREM_IPSUM_GENERATOR: Block<DevUtilsLayoutId> = {
   id: "dev-utils-lorem-ipsum-generator",
   icon: "/dev-utils-lorem-ipsum-generator.svg",
   title: "Lorem Ipsum Generator",
-  description: "",
+  description: "Dummy text for your design",
   to: "/dev-utils/lorem-ipsum-generator",
   group: [],
   favorite: false,

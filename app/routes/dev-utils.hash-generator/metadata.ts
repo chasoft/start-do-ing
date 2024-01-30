@@ -19,7 +19,7 @@ export const DEV_UTILS_HASH_GENERATOR: Block<DevUtilsLayoutId> = {
   id: "dev-utils-hash-generator",
   icon: "/dev-utils-hash-generator.svg",
   title: "Hash Generator",
-  description: "",
+  description: "Calculate has (MD5, SHA-1, SHA-256, SHA-512)",
   to: "/dev-utils/hash-generator",
   group: [],
   favorite: false,

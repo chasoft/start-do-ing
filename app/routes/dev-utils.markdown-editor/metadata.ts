@@ -19,7 +19,7 @@ export const DEV_UTILS_MARKDOWN_EDITOR: Block<DevUtilsLayoutId> = {
   id: "dev-utils-markdown-editor",
   icon: "/dev-utils-markdown-editor.svg",
   title: "Markdown Editor",
-  description: "",
+  description: "Quick editor your web-browser",
   to: "/dev-utils/markdown-editor",
   group: [],
   favorite: false,

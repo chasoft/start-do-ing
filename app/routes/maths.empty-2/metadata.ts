@@ -19,7 +19,7 @@ export const MATHS_EMPTY_2: Block<MathsLayoutId> = {
   id: "maths-empty-2",
   icon: "/maths-empty-2.svg",
   title: "Maths Empty 2",
-  description: "",
+  description: "Fast maths for kids 2",
   to: "/maths/empty-2",
   group: [],
   favorite: false,

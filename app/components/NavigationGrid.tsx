@@ -6,7 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { getBlocks, useBreakpoint, useCurrentLayoutId } from "~/utils";
+import { getBlocks, getDynamicBlocks, useBreakpoint, useCurrentLayoutId } from "~/utils";
 import type { Block, NavigationGridCells, PageId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -26,7 +26,7 @@ import { SIDE_BLOCKS } from "~/data";
  * it will persists the state for the whole branch.
  */
 export function NavigationGrid({ GridCell, blocks, children }: { GridCell: NavigationGridCells, blocks: Block<unknown>[], children: React.ReactNode }) {
-	const [layouts, updateLayouts] = useState([...blocks])
+	const [layouts, updateLayouts] = useState(() => [...getDynamicBlocks(blocks as Block<PageId>[])])
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const layoutIds = layouts.map((block) => block.id) as any[]
 	const breakpoint = useBreakpoint()
@@ -35,7 +35,7 @@ export function NavigationGrid({ GridCell, blocks, children }: { GridCell: Navig
 	React.useLayoutEffect(() => {
 		updateLayouts(getBlocks(blocks as Block<PageId>[], currenLayoutId))
 	}, [currenLayoutId, updateLayouts, breakpoint, blocks])
-
+	console.log(layoutIds)
 	return (
 		<AnimatePresence initial={false}>
 			<div
@@ -45,7 +45,6 @@ export function NavigationGrid({ GridCell, blocks, children }: { GridCell: Navig
 					"grid-rows-[minmax(80px,100px)_minmax(300px,1fr)_minmax(80px,120px)]",
 					"sm:grid-rows-[minmax(100px,150px)_minmax(300px,1fr)_minmax(80px,120px)]",
 					"md:grid-rows-[minmax(100px,200px)_minmax(300px,1fr)_minmax(50px,150px)]",
-					"bg-[url('https://images.unsplash.com/photo-1531219572328-a0171b4448a3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover"
 				)}
 			>
 				{/* Row 1 */}

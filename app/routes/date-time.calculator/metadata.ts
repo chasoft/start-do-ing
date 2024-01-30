@@ -19,7 +19,7 @@ export const DATE_TIME_CALCULATOR: Block<DateTimeLayoutId> = {
   id: "date-time-calculator",
   icon: "/date-time-calculator.svg",
   title: "Date/Time Calculator",
-  description: "",
+  description: "Calculate date and time",
   to: "/date-time/calculator",
   group: [],
   favorite: false,

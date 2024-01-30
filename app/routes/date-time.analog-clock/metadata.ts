@@ -19,7 +19,7 @@ export const DATE_TIME_ANALOG_CLOCK: Block<DateTimeLayoutId> = {
   id: "date-time-analog-clock",
   icon: "/date-time-analog-clock.svg",
   title: "Analog Clock",
-  description: "",
+  description: "Just a traditional clock",
   to: "/date-time/analog-clock",
   group: [],
   favorite: false,

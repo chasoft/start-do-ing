@@ -19,7 +19,7 @@ export const DOMAINS_BUILDER: Block<DomainsLayoutId> = {
   id: "domains-builder",
   icon: "/domains-builder.svg",
   title: "Domains Builder",
-  description: "",
+  description: "Find your desired domain names",
   to: "/domains/builder",
   group: [],
   favorite: false,

@@ -19,7 +19,7 @@ export const LANGUAGES_CHINESE_CHARACTERS: Block<LanguagesLayoutId> = {
   id: "chinese-characters",
   icon: "/chinese-characters.svg",
   title: "Chinese Characters",
-  description: "",
+  description: "Basic Chinese-Vietnamese dictionary",
   to: "/languages/chinese-characters",
   group: [],
   favorite: false,

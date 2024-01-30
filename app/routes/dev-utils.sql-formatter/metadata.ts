@@ -19,7 +19,7 @@ export const DEV_UTILS_SQL_FORMATTER: Block<DevUtilsLayoutId> = {
   id: "dev-utils-sql-formatter",
   icon: "/dev-utils-sql-formatter.svg",
   title: "SQL Formatter",
-  description: "",
+  description: "Beautify your SQL queries",
   to: "/dev-utils/sql-formatter",
   group: [],
   favorite: false,

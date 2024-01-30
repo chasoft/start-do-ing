@@ -1,17 +1,15 @@
 /* FRAMEWORK */
-import { Outlet } from "@remix-run/react";
+import { Outlet, useSearchParams } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper, NavigationGrid } from "~/components";
+import { NavigationGrid } from "~/components";
 import { DevUtilsGridCells } from "./DevUtilsGridCells";
-import { getUrlSharingData } from "~/utils";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { DEV_UTILS } from "./metadata";
 import { DEV_UTILS_BLOCKS } from "~/data";
 
 /***************************************************************************
@@ -21,14 +19,18 @@ import { DEV_UTILS_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function DevUtilsGroupRoute() {
-	const urlSharingData = getUrlSharingData(DEV_UTILS)
+	const [searchParams] = useSearchParams()
+	const isFullScreen = searchParams.get("full") === "true"
+
+	if (isFullScreen) {
+		return <Outlet />
+	}
+
 	return (
 		<NavigationGrid blocks={DEV_UTILS_BLOCKS} GridCell={DevUtilsGridCells}>
-			<ContentWrapper urlSharingData={urlSharingData}>
-				<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
-					<Outlet />
-				</div>
-			</ContentWrapper>
+			<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
+				<Outlet />
+			</div>
 		</NavigationGrid>
 	)
 }

@@ -1,5 +1,5 @@
 /* FRAMEWORK */
-import { Outlet } from "@remix-run/react";
+import { Outlet, useSearchParams } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 
@@ -19,6 +19,13 @@ import { DASHBOARD_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function DashboardLayoutRoute() {
+	const [searchParams] = useSearchParams()
+	const isFullScreen = searchParams.get("full") === "true"
+
+	if (isFullScreen) {
+		return <Outlet />
+	}
+
 	return (
 		<NavigationGrid blocks={DASHBOARD_BLOCKS} GridCell={DashboardGridCells}>
 			<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">

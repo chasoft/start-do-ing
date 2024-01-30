@@ -19,7 +19,7 @@ export const DOMAINS_WHOIS: Block<DomainsLayoutId> = {
   id: "domains-whois",
   icon: "/domains-whois.svg",
   title: "Domains Whois",
-  description: "",
+  description: "Fastest whois lookup",
   to: "/domains/whois",
   group: [],
   favorite: false,

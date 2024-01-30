@@ -19,7 +19,7 @@ export const DATE_TIME_CALENDAR: Block<DateTimeLayoutId> = {
   id: "date-time-calendar",
   icon: "/date-time-calendar.svg",
   title: "Calendar",
-  description: "",
+  description: "Lunar date and public events",
   to: "/date-time/calendar",
   group: [],
   favorite: false,

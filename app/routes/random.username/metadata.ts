@@ -19,7 +19,7 @@ export const RANDOM_USERNAME: Block<RandomLayoutId> = {
   id: "random-username",
   icon: "/random-username.svg",
   title: "Username Generator",
-  description: "",
+  description: "Give me a name!",
   to: "/random/username",
   group: [],
   favorite: false,

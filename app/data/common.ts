@@ -13,6 +13,7 @@ import {
   BLOG_TRAVEL,
 } from "~/routes/blog/metadata";
 import { DASHBOARD } from "~/routes/dashboard/metadata";
+import { DASHBOARD_SETTINGS } from "~/routes/dashboard.settings._index/metadata";
 import { DATE_TIME } from "~/routes/date-time/metadata";
 import { DATE_TIME_ANALOG_CLOCK } from "~/routes/date-time.analog-clock/metadata";
 import { DATE_TIME_CALCULATOR } from "~/routes/date-time.calculator/metadata";
@@ -53,6 +54,7 @@ import { RANDOM_NUMBER } from "~/routes/random.number/metadata";
 import { RANDOM_PASSWORD } from "~/routes/random.password/metadata";
 import { RANDOM_USERNAME } from "~/routes/random.username/metadata";
 import { URL_SHORTENER } from "~/routes/url-shortener/metadata";
+import { URL_SHORTENER_INDEX } from "~/routes/url-shortener._index/metadata";
 import type {
   Block,
   BlogLayoutId,
@@ -69,7 +71,6 @@ import type {
   RandomLayoutId,
   UrlShortenerLayoutId,
 } from "~/utils/types";
-import { DASHBOARD_SETTINGS } from "~/routes/dashboard.settings._index/metadata";
 
 /* TRANSLATIONS IMPORT */
 
@@ -188,6 +189,7 @@ export const RANDOM_BLOCKS: Block<RandomLayoutId>[] = [
 // 10
 export const URL_SHORTENER_BLOCKS: Block<UrlShortenerLayoutId>[] = [
   URL_SHORTENER,
+  URL_SHORTENER_INDEX,
 ];
 
 // 11

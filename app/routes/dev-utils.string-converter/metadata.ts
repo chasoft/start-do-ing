@@ -19,7 +19,7 @@ export const DEV_UTILS_STRING_CONVERTER: Block<DevUtilsLayoutId> = {
   id: "dev-utils-string-converter",
   icon: "/dev-utils-string-converter.svg",
   title: "String Converter",
-  description: "",
+  description: "String utils",
   to: "/dev-utils/string-converter",
   group: [],
   favorite: false,

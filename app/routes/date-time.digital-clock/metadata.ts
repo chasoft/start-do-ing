@@ -19,7 +19,7 @@ export const DATE_TIME_DIGITAL_CLOCK: Block<DateTimeLayoutId> = {
   id: "date-time-digital-clock",
   icon: "/date-time-digital-clock.svg",
   title: "Digital Clock",
-  description: "",
+  description: "Modern digital clock",
   to: "/date-time/digital-clock",
   group: [],
   favorite: false,

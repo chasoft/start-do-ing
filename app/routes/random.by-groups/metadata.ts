@@ -19,7 +19,7 @@ export const RANDOM_BY_GROUPS: Block<RandomLayoutId> = {
   id: "random-by-groups",
   icon: "/random-by-groups.svg",
   title: "Random by Groups",
-  description: "",
+  description: "Split into groups",
   to: "/random/by-groups",
   group: [],
   favorite: false,

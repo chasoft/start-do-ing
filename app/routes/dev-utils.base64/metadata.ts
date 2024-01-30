@@ -19,7 +19,7 @@ export const DEV_UTILS_BASE64: Block<DevUtilsLayoutId> = {
   id: "dev-utils-base64",
   icon: "/dev-utils-base64.svg",
   title: "Base64",
-  description: "",
+  description: "Base64 converter",
   to: "/dev-utils/base64",
   group: [],
   favorite: false,

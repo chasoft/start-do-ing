@@ -78,7 +78,7 @@ export type RandomLayoutId =
   | "random-password"
   | "random-username";
 
-export type UrlShortenerLayoutId = "url-shortener" | "url-shortener-empty-1";
+export type UrlShortenerLayoutId = "url-shortener" | "url-shortener-index";
 
 export type OthersLayoutId = "others" | "others-running-text";
 

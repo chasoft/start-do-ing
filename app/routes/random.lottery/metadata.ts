@@ -19,7 +19,7 @@ export const RANDOM_LOTTERY: Block<RandomLayoutId> = {
   id: "random-lottery",
   icon: "/random-lottery.svg",
   title: "Lottery Generator",
-  description: "",
+  description: "Find your lucky numbers",
   to: "/random/lottery",
   group: [],
   favorite: false,

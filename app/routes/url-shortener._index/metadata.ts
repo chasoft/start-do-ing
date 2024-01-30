@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import type { Block, KahootLayoutId } from "~/utils/types";
+import type { Block, UrlShortenerLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
@@ -15,17 +15,17 @@ import type { Block, KahootLayoutId } from "~/utils/types";
  *
  **************************************************************************/
 
-export const KAHOOT_QUIZ: Block<KahootLayoutId> = {
-  id: "kahoot-quiz",
-  icon: "/kahoot-quiz.svg",
-  title: "Kahoot Quiz",
-  description: "Play online quiz with friends",
-  to: "/kahoot/quiz",
+export const URL_SHORTENER_INDEX: Block<UrlShortenerLayoutId> = {
+  id: "url-shortener-index",
+  icon: "/url-shortener.svg",
+  title: "URL Shortener",
+  description: "Short URLs for actions",
+  to: "/url-shortener",
   group: [],
-  favorite: false,
+  favorite: true,
   color: {
     text: "#000",
-    primaryBg: "bg-rose-200",
+    primaryBg: "bg-fuchsia-200",
   },
   versioning: {
     releaseDate: new Date("2023/01/17"),

@@ -34,7 +34,7 @@ export function UrlShortenerGridCells({ className, layoutId, blockIndex }: GridC
 					<UrlShortenerGroupCell blockIndex={blockIndex} />
 				</div>
 			)
-		case "url-shortener-empty-1":
+		case "url-shortener-index":
 			return (
 				<div className={clsx(className)}>
 					<URLShortenerIndexCell blockIndex={blockIndex} />

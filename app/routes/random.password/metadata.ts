@@ -19,7 +19,7 @@ export const RANDOM_PASSWORD: Block<RandomLayoutId> = {
   id: "random-password",
   icon: "/random-password.svg",
   title: "Password Generator",
-  description: "",
+  description: "Strong passwords",
   to: "/random/password",
   group: [],
   favorite: false,

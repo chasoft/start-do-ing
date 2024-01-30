@@ -1,5 +1,5 @@
 /* FRAMEWORK */
-import { Outlet } from "@remix-run/react";
+import { Outlet, useSearchParams } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 
@@ -22,6 +22,19 @@ import { URL_SHORTENER_BLOCKS } from "~/data";
 
 export default function UrlShortenerRoute() {
 	const urlSharingData = getUrlSharingData(URL_SHORTENER)
+	const [searchParams] = useSearchParams()
+	const isFullScreen = searchParams.get("full") === "true"
+
+	if (isFullScreen) {
+		return (
+			<ContentWrapper urlSharingData={urlSharingData}>
+				<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
+					<Outlet />
+				</div>
+			</ContentWrapper>
+		)
+	}
+
 	return (
 		<NavigationGrid blocks={URL_SHORTENER_BLOCKS} GridCell={UrlShortenerGridCells}>
 			<ContentWrapper urlSharingData={urlSharingData}>

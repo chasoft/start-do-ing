@@ -19,7 +19,7 @@ export const RANDOM_MAGIC_WHEEL: Block<RandomLayoutId> = {
   id: "random-magic-wheel",
   icon: "/random-magic-wheel.svg",
   title: "Magic Wheel",
-  description: "",
+  description: "Playing with friends",
   to: "/random/magic-wheel",
   group: [],
   favorite: false,

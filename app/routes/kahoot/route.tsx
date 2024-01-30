@@ -1,17 +1,15 @@
 /* FRAMEWORK */
-import { Outlet } from "@remix-run/react";
+import { Outlet, useSearchParams } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper, NavigationGrid } from "~/components";
-import { getUrlSharingData } from "~/utils";
+import { NavigationGrid } from "~/components";
 import { KahootGridCells } from "./KahootGridCells";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { KAHOOT } from "./metadata";
 import { KAHOOT_BLOCKS } from "~/data";
 
 /***************************************************************************
@@ -21,14 +19,18 @@ import { KAHOOT_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function KahootGroupRoute() {
-	const urlSharingData = getUrlSharingData(KAHOOT)
+	const [searchParams] = useSearchParams()
+	const isFullScreen = searchParams.get("full") === "true"
+
+	if (isFullScreen) {
+		return <Outlet />
+	}
+
 	return (
 		<NavigationGrid blocks={KAHOOT_BLOCKS} GridCell={KahootGridCells}>
-			<ContentWrapper urlSharingData={urlSharingData}>
-				<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
-					<Outlet />
-				</div>
-			</ContentWrapper>
+			<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
+				<Outlet />
+			</div>
 		</NavigationGrid>
 	)
 }

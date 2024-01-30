@@ -19,7 +19,7 @@ export const DOMAINS_EXTENSIONS: Block<DomainsLayoutId> = {
   id: "domains-extensions",
   icon: "/domains-extensions.svg",
   title: "Domains Extensions",
-  description: "",
+  description: "Explore world of domain extensions",
   to: "/domains/extensions",
   group: [],
   favorite: false,

@@ -19,7 +19,7 @@ export const DEV_UTILS_CURL_CONVERTER: Block<DevUtilsLayoutId> = {
   id: "dev-utils-curl-converter",
   icon: "/dev-utils-curl-converter.svg",
   title: "cURL Converter",
-  description: "",
+  description: "cURL commands to code",
   to: "/dev-utils/curl-converter",
   group: [],
   favorite: false,

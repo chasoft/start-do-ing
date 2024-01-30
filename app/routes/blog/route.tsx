@@ -1,17 +1,15 @@
 /* FRAMEWORK */
-import { Outlet } from "@remix-run/react";
+import { Outlet, useSearchParams } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
 import { BlogGridCells } from "./BlogGridCells";
-import { ContentWrapper, NavigationGrid } from "~/components";
-import { getUrlSharingData } from "~/utils/common";
+import { NavigationGrid } from "~/components";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
-import { BLOG } from "./metadata";
 import { BLOG_BLOCKS } from "~/data";
 
 /***************************************************************************
@@ -21,14 +19,18 @@ import { BLOG_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function BlogGroupRoute() {
-	const urlSharingData = getUrlSharingData(BLOG)
+	const [searchParams] = useSearchParams()
+	const isFullScreen = searchParams.get("full") === "true"
+
+	if (isFullScreen) {
+		return <Outlet />
+	}
+
 	return (
 		<NavigationGrid blocks={BLOG_BLOCKS} GridCell={BlogGridCells}>
-			<ContentWrapper urlSharingData={urlSharingData}>
-				<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
-					<Outlet />
-				</div>
-			</ContentWrapper>
+			<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
+				<Outlet />
+			</div>
 		</NavigationGrid>
 	)
 }

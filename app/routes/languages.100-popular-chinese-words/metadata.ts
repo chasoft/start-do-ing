@@ -19,7 +19,7 @@ export const LANGUAGES_100_POPULAR_CHINESE_WORDS: Block<LanguagesLayoutId> = {
   id: "100-popular-chinese-words",
   icon: "/100-popular-chinese-words.svg",
   title: "100 Popular Chinese Words",
-  description: "",
+  description: "Pinyin, Meaning, Strokes...",
   to: "/languages/100-popular-chinese-words",
   group: [],
   favorite: false,

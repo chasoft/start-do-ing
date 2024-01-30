@@ -19,7 +19,7 @@ export const RANDOM_NUMBER: Block<RandomLayoutId> = {
   id: "random-number",
   icon: "/random-number.svg",
   title: "Number Generator",
-  description: "",
+  description: "Random for any purposes",
   to: "/random/number",
   group: [],
   favorite: false,
