@@ -11,6 +11,7 @@ export * from "./CellGroup";
 export * from "./CellItem";
 export * from "./ContentWrapper";
 export * from "./ErrorBoundaryBase";
+export * from "./FullScreenContentWrapper";
 
 /******************************************************************
  *

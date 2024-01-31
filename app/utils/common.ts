@@ -20,7 +20,7 @@ export function getUrlSharingData(block: Block<unknown>) {
   return {
     title: block.title,
     description: block.description,
-    url: `${SITE.url}/${block.to}?full=true`,
+    url: `${SITE.url}${block.to}?full=true`,
     image: block.image ?? DEFAULT_SHARING_IMAGE,
   };
 }

@@ -5,7 +5,7 @@ import { Outlet } from "@remix-run/react";
 
 /* COMPONENTS & UTILS */
 import { DomainsGridCells } from "./DomainsGridCells";
-import { NavigationGrid } from "~/components";
+import { FullScreenContentWrapper, NavigationGrid } from "~/components";
 import { useIsFullscreen } from "~/utils";
 
 /* TRANSLATIONS IMPORT */
@@ -20,17 +20,19 @@ import { DOMAINS_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function DomainsGroupRoute() {
-	const [isFullScreen] = useIsFullscreen()
+	const isFullScreen = useIsFullscreen()
 
 	if (isFullScreen) {
-		return <Outlet />
+		return (
+			<FullScreenContentWrapper>
+				<Outlet />
+			</FullScreenContentWrapper>
+		)
 	}
 
 	return (
 		<NavigationGrid blocks={DOMAINS_BLOCKS} GridCell={DomainsGridCells}>
-			<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
-				<Outlet />
-			</div>
+			<Outlet />
 		</NavigationGrid>
 	)
 }

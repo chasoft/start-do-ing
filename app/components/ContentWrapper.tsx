@@ -18,12 +18,12 @@ import type { UrlSharingData } from "~/utils/types";
 
 export function ContentWrapper({ urlSharingData, children }: { urlSharingData: UrlSharingData, children: React.ReactNode }) {
 	return (
-		<div className="relative w-full h-full p-2 lg:p-4 rounded-lg">
-			<div className="absolute top-0 right-0 sm:top-1 sm:right-1 flex">
+		<div className="relative w-full h-full p-2 bg-blue-200 bg-opacity-50 rounded-lg lg:p-4">
+			<div className="absolute top-0 right-0 flex sm:top-1 sm:right-1">
 				<SharingButton data={urlSharingData} />
 				<FullScreenButton />
 			</div>
-			<div className="h-full w-full">
+			<div className="w-full h-full">
 				{children}
 			</div>
 		</div>

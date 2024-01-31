@@ -5,7 +5,7 @@ import { Outlet } from "@remix-run/react";
 
 /* COMPONENTS & UTILS */
 import { BlogGridCells } from "./BlogGridCells";
-import { NavigationGrid } from "~/components";
+import { FullScreenContentWrapper, NavigationGrid } from "~/components";
 import { useIsFullscreen } from "~/utils";
 
 /* TRANSLATIONS IMPORT */
@@ -20,17 +20,19 @@ import { BLOG_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function BlogGroupRoute() {
-	const [isFullScreen] = useIsFullscreen()
+	const isFullScreen = useIsFullscreen()
 
 	if (isFullScreen) {
-		return <Outlet />
+		return (
+			<FullScreenContentWrapper>
+				<Outlet />
+			</FullScreenContentWrapper>
+		)
 	}
 
 	return (
 		<NavigationGrid blocks={BLOG_BLOCKS} GridCell={BlogGridCells}>
-			<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
-				<Outlet />
-			</div>
+			<Outlet />
 		</NavigationGrid>
 	)
 }

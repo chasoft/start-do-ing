@@ -5,7 +5,7 @@ import { Outlet } from "@remix-run/react";
 
 /* COMPONENTS & UTILS */
 import { DashboardGridCells } from "./DashboardGridCells";
-import { NavigationGrid } from "~/components";
+import { FullScreenContentWrapper, NavigationGrid } from "~/components";
 import { useIsFullscreen } from "~/utils";
 
 /* TRANSLATIONS IMPORT */
@@ -20,17 +20,19 @@ import { DASHBOARD_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function DashboardLayoutRoute() {
-	const [isFullScreen] = useIsFullscreen()
+	const isFullScreen = useIsFullscreen()
 
 	if (isFullScreen) {
-		return <Outlet />
+		return (
+			<FullScreenContentWrapper>
+				<Outlet />
+			</FullScreenContentWrapper>
+		)
 	}
 
 	return (
 		<NavigationGrid blocks={DASHBOARD_BLOCKS} GridCell={DashboardGridCells}>
-			<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
-				<Outlet />
-			</div>
+			<Outlet />
 		</NavigationGrid>
 	)
 }

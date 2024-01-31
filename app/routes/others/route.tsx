@@ -4,7 +4,7 @@ import { Outlet } from "@remix-run/react";
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { NavigationGrid } from "~/components";
+import { FullScreenContentWrapper, NavigationGrid } from "~/components";
 import { OthersGridCells } from "./OthersGridCells";
 import { useIsFullscreen } from "~/utils";
 
@@ -20,17 +20,19 @@ import { OTHERS_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function OthersGroupRoute() {
-	const [isFullScreen] = useIsFullscreen()
+	const isFullScreen = useIsFullscreen()
 
 	if (isFullScreen) {
-		return <Outlet />
+		return (
+			<FullScreenContentWrapper>
+				<Outlet />
+			</FullScreenContentWrapper>
+		)
 	}
 
 	return (
 		<NavigationGrid blocks={OTHERS_BLOCKS} GridCell={OthersGridCells}>
-			<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
-				<Outlet />
-			</div>
+			<Outlet />
 		</NavigationGrid>
 	)
 }

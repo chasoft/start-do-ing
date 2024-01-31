@@ -21,7 +21,7 @@ export function SharingButton({ data }: { data: UrlSharingData }) {
 		try {
 			const response = await fetch(data.image);
 			const blob = await response.blob();
-			const file = new File([blob], `Math.random().toString(32).slice(2).jpg`, { type: blob.type });
+			const file = new File([blob], `${Math.random().toString(32).slice(2)}.jpg`, { type: blob.type });
 			await navigator.share({
 				url: data.url,
 				title: data.title,

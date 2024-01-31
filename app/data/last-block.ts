@@ -18,8 +18,8 @@ import type { Block, FeatureLayoutId } from "~/utils/types";
 export const LAST_BLOCK: Block<FeatureLayoutId> = {
   id: "last",
   icon: "/last-block.svg",
-  title: "Last block",
-  description: "Last block",
+  title: "Manage",
+  description: "Manage your blocks",
   to: "/dashboard",
   group: [],
   favorite: true,

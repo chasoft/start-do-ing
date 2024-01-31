@@ -49,5 +49,5 @@ export function useCurrentLayoutId() {
 export function useIsFullscreen() {
   const [searchParams] = useSearchParams();
   const isFullScreen = searchParams.get("full") === "true";
-  return [isFullScreen];
+  return isFullScreen;
 }

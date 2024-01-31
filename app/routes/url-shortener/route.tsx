@@ -21,15 +21,13 @@ import { URL_SHORTENER_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function UrlShortenerRoute() {
-	const [isFullScreen] = useIsFullscreen()
+	const isFullScreen = useIsFullscreen()
 	const urlSharingData = getUrlSharingData(URL_SHORTENER)
 
 	if (isFullScreen) {
 		return (
 			<ContentWrapper urlSharingData={urlSharingData}>
-				<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
-					<Outlet />
-				</div>
+				<Outlet />
 			</ContentWrapper>
 		)
 	}
@@ -37,9 +35,7 @@ export default function UrlShortenerRoute() {
 	return (
 		<NavigationGrid blocks={URL_SHORTENER_BLOCKS} GridCell={UrlShortenerGridCells}>
 			<ContentWrapper urlSharingData={urlSharingData}>
-				<div className="h-full bg-blue-200 bg-opacity-50 rounded-lg">
-					<Outlet />
-				</div>
+				<Outlet />
 			</ContentWrapper>
 		</NavigationGrid>
 	)

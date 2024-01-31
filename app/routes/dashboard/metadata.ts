@@ -18,8 +18,8 @@ import type { Block, DashboardLayoutId } from "~/utils/types";
 export const DASHBOARD: Block<DashboardLayoutId> = {
   id: "dashboard",
   icon: "/dashboard.svg",
-  title: "Dashboard",
-  description: "",
+  title: "Manage",
+  description: "Managing your blocks",
   to: "/dashboard",
   group: [],
   favorite: true,
