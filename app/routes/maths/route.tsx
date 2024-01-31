@@ -1,5 +1,5 @@
 /* FRAMEWORK */
-import { Outlet, useSearchParams } from "@remix-run/react";
+import { Outlet } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 
@@ -11,6 +11,7 @@ import { MathsGridCells } from "./MathsGridCells";
 
 /* DATA IMPORT */
 import { MATHS_BLOCKS } from "~/data";
+import { useIsFullscreen } from "~/utils";
 
 /***************************************************************************
  * 
@@ -19,8 +20,7 @@ import { MATHS_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function MathsGroupRoute() {
-	const [searchParams] = useSearchParams()
-	const isFullScreen = searchParams.get("full") === "true"
+	const [isFullScreen] = useIsFullscreen()
 
 	if (isFullScreen) {
 		return <Outlet />

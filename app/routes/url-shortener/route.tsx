@@ -1,11 +1,11 @@
 /* FRAMEWORK */
-import { Outlet, useSearchParams } from "@remix-run/react";
+import { Outlet } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper, NavigationGrid } from "~/components";
-import { getUrlSharingData } from "~/utils";
+import { getUrlSharingData, useIsFullscreen } from "~/utils";
 import { UrlShortenerGridCells } from "./UrlShortenerGridCells";
 
 /* TRANSLATIONS IMPORT */
@@ -21,9 +21,8 @@ import { URL_SHORTENER_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function UrlShortenerRoute() {
+	const [isFullScreen] = useIsFullscreen()
 	const urlSharingData = getUrlSharingData(URL_SHORTENER)
-	const [searchParams] = useSearchParams()
-	const isFullScreen = searchParams.get("full") === "true"
 
 	if (isFullScreen) {
 		return (

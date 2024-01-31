@@ -35,7 +35,7 @@ export function NavigationGrid({ GridCell, blocks, children }: { GridCell: Navig
 	React.useLayoutEffect(() => {
 		updateLayouts(getBlocks(blocks as Block<PageId>[], currenLayoutId))
 	}, [currenLayoutId, updateLayouts, breakpoint, blocks])
-	console.log(layoutIds)
+
 	return (
 		<AnimatePresence initial={false}>
 			<div

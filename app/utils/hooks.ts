@@ -1,6 +1,6 @@
 /* FRAMEWORK */
 import React from "react";
-import { useMatches } from "@remix-run/react";
+import { useMatches, useSearchParams } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 
@@ -44,4 +44,10 @@ export function useCurrentLayoutId() {
   const activeHandle = matches[matches.length - 1].handle as CustomRouteHandle;
   const currenLayoutId = activeHandle.layoutId ?? DEFAULT_BLOCK.id;
   return currenLayoutId;
+}
+
+export function useIsFullscreen() {
+  const [searchParams] = useSearchParams();
+  const isFullScreen = searchParams.get("full") === "true";
+  return [isFullScreen];
 }

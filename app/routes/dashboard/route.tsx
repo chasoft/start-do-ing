@@ -1,11 +1,12 @@
 /* FRAMEWORK */
-import { Outlet, useSearchParams } from "@remix-run/react";
+import { Outlet } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
 import { DashboardGridCells } from "./DashboardGridCells";
 import { NavigationGrid } from "~/components";
+import { useIsFullscreen } from "~/utils";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,8 +20,7 @@ import { DASHBOARD_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function DashboardLayoutRoute() {
-	const [searchParams] = useSearchParams()
-	const isFullScreen = searchParams.get("full") === "true"
+	const [isFullScreen] = useIsFullscreen()
 
 	if (isFullScreen) {
 		return <Outlet />

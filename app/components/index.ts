@@ -29,3 +29,5 @@ export * from "./CellGridRight";
  ******************************************************************/
 
 export * from "./CellGridLink";
+export * from "./SharingButton";
+export * from "./FullScreenButton";

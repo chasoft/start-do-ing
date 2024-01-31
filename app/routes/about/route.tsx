@@ -1,5 +1,4 @@
 /* FRAMEWORK */
-import { useSearchParams } from "@remix-run/react";
 import { type MetaFunction } from "@remix-run/cloudflare";
 
 /* THIRD-PARTY PACKAGES */
@@ -7,7 +6,7 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 /* COMPONENTS & UTILS */
 import { AboutFeature } from "./content";
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase";
-import { getBlockMetaData } from "~/utils";
+import { getBlockMetaData, useIsFullscreen } from "~/utils";
 import { NavigationGrid } from "~/components";
 import { RootGridCells } from "~/components/RootGridCells";
 import type { CustomRouteHandle } from "~/utils/types";
@@ -38,8 +37,7 @@ export const handle: CustomRouteHandle = {
 };
 
 export default function AboutRoute() {
-	const [searchParams] = useSearchParams()
-	const isFullScreen = searchParams.get("full") === "true"
+	const [isFullScreen] = useIsFullscreen()
 
 	if (isFullScreen) {
 		return <AboutFeature layoutId={layoutId} />

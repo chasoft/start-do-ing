@@ -1,12 +1,11 @@
 /* FRAMEWORK */
-import { useSearchParams } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 import { type MetaFunction } from "@remix-run/cloudflare";
 
 /* COMPONENTS & UTILS */
 import { ErrorBoundaryBase, NavigationGrid } from "~/components";
-import { getBlockMetaData } from "~/utils";
+import { getBlockMetaData, useIsFullscreen } from "~/utils";
 import { HomeFeature } from "./content";
 import { RootGridCells } from "~/components/RootGridCells";
 import type { CustomRouteHandle } from "~/utils/types";
@@ -37,8 +36,7 @@ export const handle: CustomRouteHandle = {
 };
 
 export default function HomeRoute() {
-  const [searchParams] = useSearchParams()
-  const isFullScreen = searchParams.get("full") === "true"
+  const [isFullScreen] = useIsFullscreen()
 
   if (isFullScreen) {
     return <HomeFeature layoutId={layoutId} />

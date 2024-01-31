@@ -1,11 +1,12 @@
 /* FRAMEWORK */
-import { Outlet, useSearchParams } from "@remix-run/react";
+import { Outlet } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
 import { NavigationGrid } from "~/components";
 import { OthersGridCells } from "./OthersGridCells";
+import { useIsFullscreen } from "~/utils";
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,8 +20,7 @@ import { OTHERS_BLOCKS } from "~/data";
  **************************************************************************/
 
 export default function OthersGroupRoute() {
-	const [searchParams] = useSearchParams()
-	const isFullScreen = searchParams.get("full") === "true"
+	const [isFullScreen] = useIsFullscreen()
 
 	if (isFullScreen) {
 		return <Outlet />
