@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 /* THIRD-PARTY PACKAGES */
-import { AnimatePresence } from "framer-motion";
+import { Carousel } from '@mantine/carousel';
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
@@ -13,6 +13,7 @@ import type { Block, NavigationGridCells, PageId } from "~/utils/types";
 
 /* DATA IMPORT */
 import { SIDE_BLOCKS } from "~/data";
+import { HeaderMegaMenu } from "./HeaderMegaMenu";
 
 /***************************************************************************
  * 
@@ -37,7 +38,7 @@ export function NavigationGrid({ GridCell, blocks, children }: { GridCell: Navig
 	}, [currenLayoutId, updateLayouts, breakpoint, blocks])
 
 	return (
-		<AnimatePresence initial={false}>
+		<>
 			<div
 				className={clsx(
 					"grid grid-cols-4 md:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7",
@@ -71,6 +72,6 @@ export function NavigationGrid({ GridCell, blocks, children }: { GridCell: Navig
 				<GridCell layoutId={layoutIds[11]} blockIndex={35} className={clsx({ "hidden 3xl:block": "display" })} />
 				<GridCell layoutId="last" blockIndex={100} />
 			</div>
-		</AnimatePresence>
+		</>
 	)
 }

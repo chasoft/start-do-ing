@@ -9,4 +9,5 @@ export default {
   serverMinify: true,
   serverModuleFormat: "esm",
   serverPlatform: "neutral",
+  postcss: true,
 };
