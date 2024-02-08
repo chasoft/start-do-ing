@@ -158,6 +158,11 @@ export type Block<TLayout> = {
   group: GroupId[];
   favorite: boolean;
   /**
+   * highlight
+   */
+  tag?: string;
+  tagColor?: string;
+  /**
    * decoration color of the block
    */
   color: {

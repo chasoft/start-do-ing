@@ -26,7 +26,7 @@ export function HomeGridCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<CellGroup
 			blockIndex={blockIndex}
-			className={clsx(className)}
+			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={HOME}
 		/>

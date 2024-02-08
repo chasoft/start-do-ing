@@ -1,39 +1,42 @@
 import { AppShell, Burger, Group, Image, ScrollArea, Skeleton, Text } from '@mantine/core';
-import { useDisclosure, useMediaQuery } from '@mantine/hooks';
+import { useDisclosure } from '@mantine/hooks';
+import { Link } from '@remix-run/react';
 import Logo from '~/assets/startdoing-logo.svg'
-import { useIsFullscreen } from '~/utils';
+import { useIsFullscreen, useIsMobileWindowSize } from '~/utils';
+import { MobileMenu } from './MobileMenu';
 
 export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const [opened, { toggle }] = useDisclosure();
 	const isFullScreen = useIsFullscreen()
-	const isMobileWindowSize = useMediaQuery('(max-width: 640px)');
+	const isMobileWindowSize = useIsMobileWindowSize();
 
 	return (
 		<AppShell
 			header={{ height: 60 }}
-			navbar={{ width: 300, breakpoint: 'sm', collapsed: { mobile: !opened }, }}
+			navbar={{ width: 300, breakpoint: 'md', collapsed: { mobile: !opened }, }}
 			disabled={isFullScreen || !isMobileWindowSize}
 		>
 			<AppShell.Header>
 				<Group h="100%" px="md">
-					<Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-					<Group gap="xs">
+					<Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
+					<Link to={"/"} className="flex gap-2">
 						<Image src={Logo} className='w-7 h-7' />
 						<Text fw={700}>Startdo.ing</Text>
-					</Group>
+					</Link>
 				</Group>
 			</AppShell.Header>
-			<AppShell.Navbar p="md">
-				<AppShell.Section>Navbar header</AppShell.Section>
-				<AppShell.Section grow my="md" component={ScrollArea}>
-					60 links in a scrollable section
-					{Array(60)
-						.fill(0)
-						.map((_, index) => (
-							<Skeleton key={index} h={28} mt="sm" animate={false} />
-						))}
+			<AppShell.Navbar>
+				<AppShell.Section grow component={ScrollArea}>
+					<MobileMenu />
 				</AppShell.Section>
-				<AppShell.Section>Navbar footer – always at the bottom</AppShell.Section>
+				<AppShell.Section className="flex justify-between p-3" hiddenFrom="md">
+					<Text size="xs">
+						hi@startdo.ing
+					</Text>
+					<Text size="xs">
+						Make with 💖 by Brian Cao
+					</Text>
+				</AppShell.Section>
 			</AppShell.Navbar>
 			<AppShell.Main>{children}</AppShell.Main>
 		</AppShell>

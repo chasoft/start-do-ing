@@ -12,6 +12,7 @@ import type { CustomRouteHandle } from "./types";
 
 /* DATA IMPORT */
 import { DEFAULT_BLOCK } from "~/data";
+import { useMediaQuery } from "@mantine/hooks";
 
 /***************************************************************************
  *
@@ -50,4 +51,9 @@ export function useIsFullscreen() {
   const [searchParams] = useSearchParams();
   const isFullScreen = searchParams.get("full") === "true";
   return isFullScreen;
+}
+
+export function useIsMobileWindowSize() {
+  const isMobileWindowSize = useMediaQuery("(max-width: 1024px)");
+  return isMobileWindowSize;
 }

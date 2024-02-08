@@ -2,18 +2,17 @@
 import React, { useState } from "react";
 
 /* THIRD-PARTY PACKAGES */
-import { Carousel } from '@mantine/carousel';
+import { motion } from "framer-motion";
 import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { getBlocks, getDynamicBlocks, useBreakpoint, useCurrentLayoutId } from "~/utils";
+import { getBlocks, getDynamicBlocks, useBreakpoint, useCurrentLayoutId, useIsMobileWindowSize } from "~/utils";
 import type { Block, NavigationGridCells, PageId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
 /* DATA IMPORT */
 import { SIDE_BLOCKS } from "~/data";
-import { HeaderMegaMenu } from "./HeaderMegaMenu";
 
 /***************************************************************************
  * 
@@ -27,6 +26,7 @@ import { HeaderMegaMenu } from "./HeaderMegaMenu";
  * it will persists the state for the whole branch.
  */
 export function NavigationGrid({ GridCell, blocks, children }: { GridCell: NavigationGridCells, blocks: Block<unknown>[], children: React.ReactNode }) {
+	const isMobileWindowSize = useIsMobileWindowSize();
 	const [layouts, updateLayouts] = useState(() => [...getDynamicBlocks(blocks as Block<PageId>[])])
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const layoutIds = layouts.map((block) => block.id) as any[]
@@ -39,14 +39,14 @@ export function NavigationGrid({ GridCell, blocks, children }: { GridCell: Navig
 
 	return (
 		<>
-			<div
+			<motion.div
 				className={clsx(
 					"grid grid-cols-4 md:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7",
 					"gap-2 xl:gap-3 p-2 xl:p-3", "min-h-svh 2xl:max-h-dvh",
-					"grid-rows-[minmax(80px,100px)_minmax(300px,1fr)_minmax(80px,120px)]",
-					"sm:grid-rows-[minmax(100px,150px)_minmax(300px,1fr)_minmax(80px,120px)]",
-					"md:grid-rows-[minmax(100px,200px)_minmax(300px,1fr)_minmax(50px,150px)]",
+					"grid-rows-[150px_minmax(300px,1fr)_150px]",
 				)}
+				initial={{ opacity: isMobileWindowSize ? 1 : 0 }}
+				animate={{ opacity: isMobileWindowSize ? 0 : 1 }}
 			>
 				{/* Row 1 */}
 				<GridCell layoutId={layoutIds[0]} blockIndex={0} className="col-span-2" />
@@ -71,7 +71,7 @@ export function NavigationGrid({ GridCell, blocks, children }: { GridCell: Navig
 				<GridCell layoutId={layoutIds[10]} blockIndex={34} className={clsx({ "hidden 2xl:block": "display" })} />
 				<GridCell layoutId={layoutIds[11]} blockIndex={35} className={clsx({ "hidden 3xl:block": "display" })} />
 				<GridCell layoutId="last" blockIndex={100} />
-			</div>
+			</motion.div>
 		</>
 	)
 }

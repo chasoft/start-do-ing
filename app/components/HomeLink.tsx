@@ -18,8 +18,8 @@ import { HOME } from "~/routes/_index/metadata";
  **************************************************************************/
 export function HomeLink() {
 	return (
-		<Link to={HOME.to} className="absolute p-2 top-0 left-0">
-			<IconHome className="w-6 h-6 hover:scale-125 active:text-blue-900 active:scale-110 transition-all" />
+		<Link to={HOME.to} className="absolute top-0 right-0 p-2">
+			<IconHome className="w-6 h-6 transition-all hover:scale-125 active:text-blue-900 active:scale-110" />
 		</Link>
 	)
 }

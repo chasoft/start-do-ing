@@ -5,7 +5,7 @@ import { type MetaFunction } from "@remix-run/cloudflare";
 
 /* COMPONENTS & UTILS */
 import { ErrorBoundaryBase, FullScreenContentWrapper, NavigationGrid } from "~/components";
-import { getBlockMetaData, useIsFullscreen } from "~/utils";
+import { getBlockMetaData, useIsFullscreen, useIsMobileWindowSize } from "~/utils";
 import { HomeFeature } from "./content";
 import { RootGridCells } from "~/components/RootGridCells";
 import type { CustomRouteHandle } from "~/utils/types";
@@ -14,6 +14,7 @@ import type { CustomRouteHandle } from "~/utils/types";
 
 /* DATA IMPORT */
 import { HOME_BLOCKS } from "~/data";
+import { NavigationMobile } from "~/components/NavigationMobile";
 
 /***************************************************************************
  * 
@@ -37,12 +38,21 @@ export const handle: CustomRouteHandle = {
 
 export default function HomeRoute() {
   const isFullScreen = useIsFullscreen()
+  const isMobileWindowSize = useIsMobileWindowSize();
 
   if (isFullScreen) {
     return (
       <FullScreenContentWrapper>
         <HomeFeature layoutId={layoutId} />
       </FullScreenContentWrapper>
+    )
+  }
+
+  if (isMobileWindowSize) {
+    return (
+      <NavigationMobile blocks={HOME_BLOCKS} GridCell={RootGridCells}>
+        <HomeFeature layoutId={layoutId} />fsdsfd
+      </NavigationMobile>
     )
   }
 
