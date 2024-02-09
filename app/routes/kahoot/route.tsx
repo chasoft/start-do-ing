@@ -33,7 +33,7 @@ export default function KahootGroupRoute() {
 
 	if (isMobileWindowSize) {
 		return (
-			<NavigationMobile blocks={KAHOOT_BLOCKS} GridCell={KahootGridCells}>
+			<NavigationMobile>
 				<Outlet />
 			</NavigationMobile>
 		)

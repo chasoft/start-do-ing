@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils/common";
+import { useUrlSharingData } from "~/utils";
 import type { BlogLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +20,7 @@ import { BLOG } from "../blog/metadata";
  **************************************************************************/
 
 export function BlogIndexContent({ className, layoutId }: { className?: string, layoutId: BlogLayoutId }) {
-	const urlSharingData = getUrlSharingData(BLOG)
+	const urlSharingData = useUrlSharingData(BLOG)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

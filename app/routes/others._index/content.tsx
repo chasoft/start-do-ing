@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
+import { useUrlSharingData } from "~/utils";
 import type { OthersLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +20,7 @@ import { OTHERS } from "../others/metadata";
  **************************************************************************/
 
 export function OthersIndexContent({ className, layoutId }: { className?: string, layoutId: OthersLayoutId }) {
-	const urlSharingData = getUrlSharingData(OTHERS)
+	const urlSharingData = useUrlSharingData(OTHERS)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

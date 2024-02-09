@@ -3,7 +3,7 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { useIsMobileWindowSize } from "~/utils";
+import { useIsFullscreen, useIsMobileWindowSize, useIsShowMobileButtons } from "~/utils";
 import { FullScreenButton, SharingButton } from ".";
 import type { UrlSharingData } from "~/utils/types";
 import clsx from "clsx";
@@ -19,7 +19,10 @@ import clsx from "clsx";
  **************************************************************************/
 
 export function ContentWrapper({ urlSharingData, children }: { urlSharingData: UrlSharingData, children: React.ReactNode }) {
-	const isMobileWindowSize = useIsMobileWindowSize();
+	const isFullScreen = useIsFullscreen()
+	const isMobileWindowSize = useIsMobileWindowSize()
+	const isShowMobileButtons = useIsShowMobileButtons()
+
 	return (
 		<div
 			className={clsx(
@@ -30,10 +33,11 @@ export function ContentWrapper({ urlSharingData, children }: { urlSharingData: U
 				}
 			)}
 		>
-			<div className="absolute top-0 right-0 flex sm:top-1 sm:right-1">
-				<SharingButton data={urlSharingData} />
-				<FullScreenButton />
-			</div>
+			{(!isShowMobileButtons || isFullScreen) &&
+				<div className="absolute top-0 right-0 flex sm:top-1 sm:right-1">
+					<SharingButton data={urlSharingData} />
+					<FullScreenButton />
+				</div>}
 			<div className="w-full h-full">
 				{children}
 			</div>

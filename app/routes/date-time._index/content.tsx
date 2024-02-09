@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
+import { useUrlSharingData } from "~/utils";
 import type { DateTimeLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +20,7 @@ import { DATE_TIME } from "../date-time/metadata";
  **************************************************************************/
 
 export function DateTimeIndexContent({ className, layoutId }: { className?: string, layoutId: DateTimeLayoutId }) {
-	const urlSharingData = getUrlSharingData(DATE_TIME)
+	const urlSharingData = useUrlSharingData(DATE_TIME)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

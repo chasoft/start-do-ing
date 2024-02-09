@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
+import { useUrlSharingData } from "~/utils";
 import type { RandomLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +20,7 @@ import { RANDOM } from "../random/metadata";
  **************************************************************************/
 
 export function RandomIndexContent({ className, layoutId }: { className?: string, layoutId: RandomLayoutId }) {
-	const urlSharingData = getUrlSharingData(RANDOM)
+	const urlSharingData = useUrlSharingData(RANDOM)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

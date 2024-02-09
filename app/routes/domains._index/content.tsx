@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
+import { useUrlSharingData } from "~/utils";
 import type { DomainsLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +20,7 @@ import { DOMAINS } from "../domains/metadata";
  **************************************************************************/
 
 export function DomainsIndexContent({ className, layoutId }: { className?: string, layoutId: DomainsLayoutId }) {
-	const urlSharingData = getUrlSharingData(DOMAINS)
+	const urlSharingData = useUrlSharingData(DOMAINS)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

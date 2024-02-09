@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
+import { useUrlSharingData } from "~/utils";
 import type { KahootLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +20,7 @@ import { KAHOOT_QUIZ } from "./metadata";
  **************************************************************************/
 
 export function KahootQuizContent({ className, layoutId }: { className?: string, layoutId: KahootLayoutId }) {
-	const urlSharingData = getUrlSharingData(KAHOOT_QUIZ)
+	const urlSharingData = useUrlSharingData(KAHOOT_QUIZ)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

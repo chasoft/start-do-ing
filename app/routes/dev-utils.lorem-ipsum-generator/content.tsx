@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
+import { useUrlSharingData } from "~/utils";
 import type { DevUtilsLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +20,7 @@ import { DEV_UTILS_LOREM_IPSUM_GENERATOR } from "./metadata";
  **************************************************************************/
 
 export function DevUtilsLoremIpsumGeneratorContent({ className, layoutId }: { className?: string, layoutId: DevUtilsLayoutId }) {
-	const urlSharingData = getUrlSharingData(DEV_UTILS_LOREM_IPSUM_GENERATOR)
+	const urlSharingData = useUrlSharingData(DEV_UTILS_LOREM_IPSUM_GENERATOR)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

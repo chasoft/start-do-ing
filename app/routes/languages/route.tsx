@@ -33,7 +33,7 @@ export default function LanguagesGroupRoute() {
 
 	if (isMobileWindowSize) {
 		return (
-			<NavigationMobile blocks={LANGUAGES_BLOCKS} GridCell={LanguagesGridCells}>
+			<NavigationMobile>
 				<Outlet />
 			</NavigationMobile>
 		)

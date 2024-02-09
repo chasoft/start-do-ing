@@ -50,7 +50,7 @@ export default function SupportRoute() {
 
 	if (isMobileWindowSize) {
 		return (
-			<NavigationMobile blocks={HOME_BLOCKS} GridCell={RootGridCells}>
+			<NavigationMobile>
 				<SupportFeature layoutId={layoutId} />
 			</NavigationMobile>
 		)

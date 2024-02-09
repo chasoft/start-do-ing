@@ -2,14 +2,18 @@ import { AppShell, Burger, Group, Image, ScrollArea, Text } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks';
 import { Link } from '@remix-run/react';
 import Logo from '~/assets/startdoing-logo.svg'
-import { useIsFullscreen, useIsMobileWindowSize } from '~/utils';
+import { useIsFullscreen, useIsMobileWindowSize, useIsShowMobileButtons } from '~/utils';
 import { MobileMenu } from './MobileMenu';
+import { FullScreenButton, SharingButton } from '.';
+import { urlSharingDataAtom } from '~/atoms/globals';
+import { useAtomValue } from 'jotai';
 
 export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const [opened, { toggle, close }] = useDisclosure();
 	const isFullScreen = useIsFullscreen()
 	const isMobileWindowSize = useIsMobileWindowSize();
-
+	const isShowMobileButtons = useIsShowMobileButtons()
+	const urlSharingData = useAtomValue(urlSharingDataAtom)
 	return (
 		<AppShell
 			header={{ height: 60 }}
@@ -23,6 +27,12 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 						<Image src={Logo} className='w-7 h-7' />
 						<Text fw={700}>Startdo.ing</Text>
 					</Link>
+					{isShowMobileButtons &&
+						<div className="flex gap-1 ml-auto">
+							{urlSharingData.url !== "" &&
+								<SharingButton data={urlSharingData} />}
+							<FullScreenButton />
+						</div>}
 				</Group>
 			</AppShell.Header>
 			<AppShell.Navbar>

@@ -50,7 +50,7 @@ export default function HomeRoute() {
 
   if (isMobileWindowSize) {
     return (
-      <NavigationMobile blocks={HOME_BLOCKS} GridCell={RootGridCells}>
+      <NavigationMobile>
         <HomeFeature layoutId={layoutId} />
       </NavigationMobile>
     )

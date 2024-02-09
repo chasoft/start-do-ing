@@ -33,7 +33,7 @@ export default function OthersGroupRoute() {
 
 	if (isMobileWindowSize) {
 		return (
-			<NavigationMobile blocks={OTHERS_BLOCKS} GridCell={OthersGridCells}>
+			<NavigationMobile>
 				<Outlet />
 			</NavigationMobile>
 		)

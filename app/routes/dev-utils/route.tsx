@@ -33,7 +33,7 @@ export default function DevUtilsGroupRoute() {
 
 	if (isMobileWindowSize) {
 		return (
-			<NavigationMobile blocks={DEV_UTILS_BLOCKS} GridCell={DevUtilsGridCells}>
+			<NavigationMobile>
 				<Outlet />
 			</NavigationMobile>
 		)

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
+import { useUrlSharingData } from "~/utils";
 import type { MathsLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +20,7 @@ import { MATHS } from "../maths/metadata";
  **************************************************************************/
 
 export function MathsIndexContent({ className, layoutId }: { className?: string, layoutId: MathsLayoutId }) {
-	const urlSharingData = getUrlSharingData(MATHS)
+	const urlSharingData = useUrlSharingData(MATHS)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

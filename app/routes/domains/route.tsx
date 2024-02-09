@@ -33,7 +33,7 @@ export default function DomainsGroupRoute() {
 
 	if (isMobileWindowSize) {
 		return (
-			<NavigationMobile blocks={DOMAINS_BLOCKS} GridCell={DomainsGridCells}>
+			<NavigationMobile>
 				<Outlet />
 			</NavigationMobile>
 		)

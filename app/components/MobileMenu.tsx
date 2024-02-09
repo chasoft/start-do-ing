@@ -1,4 +1,4 @@
-import { Link, NavLink } from "@remix-run/react"
+import { NavLink } from "@remix-run/react"
 import { DATE_TIME_BLOCKS, DEV_UTILS_BLOCKS, DOMAINS_BLOCKS, KAHOOT_BLOCKS, LANGUAGES_BLOCKS, MATHS_BLOCKS, OTHERS_BLOCKS, RANDOM_BLOCKS, URL_SHORTENER_BLOCKS } from "~/data"
 import { Block } from "~/utils/types"
 
@@ -151,19 +151,24 @@ export function MobileMenu({ onClick }: { onClick: () => void }) {
 					</svg>
 				</a>
 			</li>
-			<li>
-				<Link to="/support" className="group">
+			<li onClick={onClick}>
+				<NavLink
+					to="/support"
+					className={({ isActive, isPending }) =>
+						isActive
+							? "active group"
+							: isPending
+								? "pending group"
+								: "group"
+					}
+				>
 					<span>
 						<svg width="18" className="w-5 h-5" height="18" viewBox="0 0 48 48" fill="#456" xmlns="http://www.w3.org/2000/svg">
 							<path d="M15 8C8.92487 8 4 12.9249 4 19C4 30 17 40 24 42.3262C31 40 44 30 44 19C44 12.9249 39.0751 8 33 8C29.2797 8 25.9907 9.8469 24 12.6738C22.0093 9.8469 18.7203 8 15 8Z" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="butt" strokeLinejoin="bevel"></path>
 						</svg>
 					</span>
 					<span>Support startdo.ing</span>
-					<svg width="12" height="12" className="transition-opacity duration-300 ease-out opacity-0 group-hover:opacity-100" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M19 11H37V29" stroke="currentColor" strokeWidth="4" strokeLinecap="butt" strokeLinejoin="bevel"></path>
-						<path d="M11.5439 36.4559L36.9997 11" stroke="currentColor" strokeWidth="4" strokeLinecap="butt" strokeLinejoin="bevel"></path>
-					</svg>
-				</Link>
+				</NavLink>
 			</li>
 		</ul>
 	)

@@ -33,7 +33,7 @@ export default function MathsGroupRoute() {
 
 	if (isMobileWindowSize) {
 		return (
-			<NavigationMobile blocks={MATHS_BLOCKS} GridCell={MathsGridCells}>
+			<NavigationMobile>
 				<Outlet />
 			</NavigationMobile>
 		)

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
+import { useUrlSharingData } from "~/utils";
 import type { UrlShortenerLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +20,7 @@ import { URL_SHORTENER } from "../url-shortener/metadata";
  **************************************************************************/
 
 export function URLShortenerIndexContent({ className, layoutId }: { className?: string, layoutId: UrlShortenerLayoutId }) {
-	const urlSharingData = getUrlSharingData(URL_SHORTENER)
+	const urlSharingData = useUrlSharingData(URL_SHORTENER)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

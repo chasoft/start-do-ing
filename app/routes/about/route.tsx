@@ -50,7 +50,7 @@ export default function AboutRoute() {
 
 	if (isMobileWindowSize) {
 		return (
-			<NavigationMobile blocks={HOME_BLOCKS} GridCell={RootGridCells}>
+			<NavigationMobile>
 				<AboutFeature layoutId={layoutId} />
 			</NavigationMobile>
 		)

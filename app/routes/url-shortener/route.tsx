@@ -5,7 +5,7 @@ import { Outlet } from "@remix-run/react";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper, NavigationGrid, NavigationMobile } from "~/components";
-import { getUrlSharingData, useIsFullscreen, useIsMobileWindowSize } from "~/utils";
+import { useIsFullscreen, useIsMobileWindowSize, useUrlSharingData } from "~/utils";
 import { UrlShortenerGridCells } from "./UrlShortenerGridCells";
 
 /* TRANSLATIONS IMPORT */
@@ -22,8 +22,8 @@ import { URL_SHORTENER_BLOCKS } from "~/data";
 
 export default function UrlShortenerRoute() {
 	const isFullScreen = useIsFullscreen()
-	const urlSharingData = getUrlSharingData(URL_SHORTENER)
 	const isMobileWindowSize = useIsMobileWindowSize();
+	const urlSharingData = useUrlSharingData(URL_SHORTENER)
 
 	if (isFullScreen) {
 		return (
@@ -35,7 +35,7 @@ export default function UrlShortenerRoute() {
 
 	if (isMobileWindowSize) {
 		return (
-			<NavigationMobile blocks={URL_SHORTENER_BLOCKS} GridCell={UrlShortenerGridCells}>
+			<NavigationMobile>
 				<Outlet />
 			</NavigationMobile>
 		)

@@ -1,18 +1,20 @@
 /* FRAMEWORK */
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import { useMatches, useSearchParams } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { getMediaBreakpoint } from ".";
-import type { CustomRouteHandle } from "./types";
+import { getMediaBreakpoint, getUrlSharingData } from ".";
+import type { Block, CustomRouteHandle } from "./types";
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
 import { DEFAULT_BLOCK } from "~/data";
 import { useMediaQuery } from "@mantine/hooks";
+import { urlSharingDataAtom } from "~/atoms/globals";
+import { useSetAtom } from "jotai";
 
 /***************************************************************************
  *
@@ -53,7 +55,22 @@ export function useIsFullscreen() {
   return isFullScreen;
 }
 
+export function useIsShowMobileButtons() {
+  const isShowMobileButtons = useMediaQuery("(max-width: 768px)");
+  return isShowMobileButtons;
+}
+
 export function useIsMobileWindowSize() {
   const isMobileWindowSize = useMediaQuery("(max-width: 1024px)");
   return isMobileWindowSize;
+}
+
+export function useUrlSharingData(block: Block<unknown>) {
+  const setUrlSharingData = useSetAtom(urlSharingDataAtom)
+	const urlSharingData = useMemo(() => getUrlSharingData(block), [block])
+	useEffect(
+    () => { setUrlSharingData(urlSharingData) },
+    [urlSharingData, setUrlSharingData]
+  )
+  return urlSharingData
 }

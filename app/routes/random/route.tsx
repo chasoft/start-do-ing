@@ -33,7 +33,7 @@ export default function RandomGroupRoute() {
 
 	if (isMobileWindowSize) {
 		return (
-			<NavigationMobile blocks={RANDOM_BLOCKS} GridCell={RandomGridCells}>
+			<NavigationMobile>
 				<Outlet />
 			</NavigationMobile>
 		)

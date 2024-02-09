@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
+import { useUrlSharingData } from "~/utils";
 import type { LanguagesLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +20,7 @@ import { LANGUAGES_100_POPULAR_CHINESE_WORDS } from "./metadata";
  **************************************************************************/
 
 export function Languages100PopularChineseWordsContent({ className, layoutId }: { className?: string, layoutId: LanguagesLayoutId }) {
-	const urlSharingData = getUrlSharingData(LANGUAGES_100_POPULAR_CHINESE_WORDS)
+	const urlSharingData = useUrlSharingData(LANGUAGES_100_POPULAR_CHINESE_WORDS)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

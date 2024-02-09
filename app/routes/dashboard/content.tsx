@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
+import { useUrlSharingData } from "~/utils";
 import type { DashboardLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +20,7 @@ import { DASHBOARD } from "./metadata";
  **************************************************************************/
 
 export function DashboardLayoutFeature({ className, layoutId }: { className?: string, layoutId: DashboardLayoutId }) {
-	const urlSharingData = getUrlSharingData(DASHBOARD)
+	const urlSharingData = useUrlSharingData(DASHBOARD)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={`${className} bg-red-500`} layoutId={layoutId}>

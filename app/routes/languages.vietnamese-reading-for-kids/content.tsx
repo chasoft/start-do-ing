@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
+import { useUrlSharingData } from "~/utils";
 import type { LanguagesLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
@@ -20,7 +20,7 @@ import { LANGUAGES_VIETNAMESE_READING_FOR_KIDS } from "./metadata";
  **************************************************************************/
 
 export function LanguagesVietnameseReadingForKidsContent({ className, layoutId }: { className?: string, layoutId: LanguagesLayoutId }) {
-	const urlSharingData = getUrlSharingData(LANGUAGES_VIETNAMESE_READING_FOR_KIDS)
+	const urlSharingData = useUrlSharingData(LANGUAGES_VIETNAMESE_READING_FOR_KIDS)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

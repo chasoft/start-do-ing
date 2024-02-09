@@ -33,7 +33,7 @@ export default function DateTimeGroupRoute() {
 
 	if (isMobileWindowSize) {
 		return (
-			<NavigationMobile blocks={DATE_TIME_BLOCKS} GridCell={DateTimeGridCells}>
+			<NavigationMobile>
 				<Outlet />
 			</NavigationMobile>
 		)
