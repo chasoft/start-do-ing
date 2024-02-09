@@ -23,7 +23,6 @@ export function RightGridCell({ className }: { className?: string }) {
 		<motion.div className={clsx("h-full", className)} layoutId={SIDE_BLOCKS[1].id}>
 			<Link to={SIDE_BLOCKS[1].to} className="block h-full bg-gray-200 rounded-lg bg-opacity-60 hover:bg-opacity-70">
 				<div className="p-2">
-					<p></p>
 				</div>
 			</Link>
 		</motion.div>
