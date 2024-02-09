@@ -10,7 +10,7 @@ import type { RandomLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { RANDOM_BY_GROUPS } from "./metadata";
 
 /***************************************************************************

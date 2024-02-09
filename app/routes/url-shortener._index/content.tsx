@@ -10,7 +10,7 @@ import type { UrlShortenerLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { URL_SHORTENER } from "../url-shortener/metadata";
 
 /***************************************************************************

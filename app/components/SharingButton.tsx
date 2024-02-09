@@ -8,7 +8,7 @@ import type { UrlSharingData } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
  * 

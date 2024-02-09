@@ -20,6 +20,7 @@ export * from "./FullScreenContentWrapper";
  ******************************************************************/
 
 export * from "./NavigationGrid";
+export * from "./NavigationMobile";
 export * from "./CellGridLeft";
 export * from "./CellGridRight";
 

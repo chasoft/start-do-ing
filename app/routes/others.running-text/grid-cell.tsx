@@ -8,7 +8,7 @@ import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { OTHERS_RUNNING_TEXT } from "./metadata";
 
 /***************************************************************************

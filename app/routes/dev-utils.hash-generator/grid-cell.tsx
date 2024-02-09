@@ -8,7 +8,7 @@ import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { DEV_UTILS_HASH_GENERATOR } from "./metadata";
 
 /***************************************************************************

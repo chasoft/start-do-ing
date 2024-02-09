@@ -3,12 +3,14 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
+import { useIsMobileWindowSize } from "~/utils";
 import { FullScreenButton, SharingButton } from ".";
 import type { UrlSharingData } from "~/utils/types";
+import clsx from "clsx";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
  * 
@@ -17,8 +19,17 @@ import type { UrlSharingData } from "~/utils/types";
  **************************************************************************/
 
 export function ContentWrapper({ urlSharingData, children }: { urlSharingData: UrlSharingData, children: React.ReactNode }) {
+	const isMobileWindowSize = useIsMobileWindowSize();
 	return (
-		<div className="relative w-full h-full p-2 bg-blue-200 bg-opacity-50 rounded-lg lg:p-4">
+		<div
+			className={clsx(
+				"relative w-full h-full",
+				{
+					// "bg-opacity-100": isMobileWindowSize,
+					"p-2 lg:p-4 bg-blue-200 bg-opacity-50 rounded-lg": !isMobileWindowSize
+				}
+			)}
+		>
 			<div className="absolute top-0 right-0 flex sm:top-1 sm:right-1">
 				<SharingButton data={urlSharingData} />
 				<FullScreenButton />

@@ -1,17 +1,17 @@
 /* FRAMEWORK */
 import React, { useState } from "react";
+import { Link } from "@remix-run/react";
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion";
-import clsx from "clsx";
 
 /* COMPONENTS & UTILS */
-import { getBlocks, getDynamicBlocks, useBreakpoint, useCurrentLayoutId, useIsMobileWindowSize } from "~/utils";
+import { getBlocks, getDynamicBlocks, useBreakpoint, useCurrentLayoutId } from "~/utils";
 import type { Block, NavigationGridCells, PageId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
  * 
@@ -29,22 +29,24 @@ export function NavigationMobile({ GridCell, blocks, children }: { GridCell: Nav
 	const breakpoint = useBreakpoint()
 	const currenLayoutId = useCurrentLayoutId()
 
-	const isMobileWindowSize = useIsMobileWindowSize();
-
-	React.useLayoutEffect(() => {
+	React.useEffect(() => {
 		updateLayouts(getBlocks(blocks as Block<PageId>[], currenLayoutId))
 	}, [currenLayoutId, updateLayouts, breakpoint, blocks])
 
 	return (
-		<motion.div
-			className="h-full col-span-4 col-start-1 overflow-hidden md:col-span-3 2xl:col-span-4 3xl:col-span-5"
-			initial={{ opacity: isMobileWindowSize ? 1 : 0 }}
-			animate={{ opacity: isMobileWindowSize ? 0 : 1 }}
-		>
-			<div className="mb-4">
-				{layouts.map((block) => block.id).join(", ")}
+		<motion.div className="p-2">
+			<div className="flex flex-wrap gap-2 mb-4">
+				{layouts.filter(l => l.id !== "empty").map((block) => (
+					<span key={block.id} className="py-1 badge badge-lg hover:badge-primary">
+						<Link to={block.to}>
+							{block.title}
+						</Link>
+					</span>
+				))}
 			</div>
-			<div>{children}</div>
+			<div>
+				{children}
+			</div>
 		</motion.div>
 	)
 }

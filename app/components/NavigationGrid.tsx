@@ -11,7 +11,7 @@ import type { Block, NavigationGridCells, PageId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { SIDE_BLOCKS } from "~/data";
 
 /***************************************************************************
@@ -33,7 +33,7 @@ export function NavigationGrid({ GridCell, blocks, children }: { GridCell: Navig
 	const breakpoint = useBreakpoint()
 	const currenLayoutId = useCurrentLayoutId()
 
-	React.useLayoutEffect(() => {
+	React.useEffect(() => {
 		updateLayouts(getBlocks(blocks as Block<PageId>[], currenLayoutId))
 	}, [currenLayoutId, updateLayouts, breakpoint, blocks])
 

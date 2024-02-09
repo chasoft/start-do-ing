@@ -8,7 +8,7 @@ import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { MATHS_EMPTY_3 } from "./metadata";
 
 /***************************************************************************

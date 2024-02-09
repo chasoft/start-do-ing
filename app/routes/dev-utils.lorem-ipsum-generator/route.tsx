@@ -12,7 +12,7 @@ import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { DEV_UTILS_BLOCKS } from "~/data";
 import { DEV_UTILS_LOREM_IPSUM_GENERATOR } from "./metadata";
 

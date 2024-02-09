@@ -9,7 +9,7 @@ import clsx from "clsx";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { SIDE_BLOCKS } from "~/data";
 
 /***************************************************************************

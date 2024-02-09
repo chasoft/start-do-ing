@@ -10,7 +10,7 @@ import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { DASHBOARD } from "./metadata";
 import { DASHBOARD_BLOCKS } from "~/data";
 

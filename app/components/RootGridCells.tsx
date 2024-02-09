@@ -21,7 +21,7 @@ import type { GridCellsProps, GroupId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { BLOCK_NOT_FOUND } from "~/data";
 
 /***************************************************************************

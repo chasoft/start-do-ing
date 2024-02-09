@@ -20,6 +20,7 @@ export type GroupId =
   | "url-shortener" //(10)
   | "others" //(11)
   | "about"
+  | "support"
   | "dashboard";
 
 export type BlogLayoutId =
@@ -105,6 +106,10 @@ export type DashboardLayoutId = "dashboard" | "settings";
 export interface GridCellProps {
   className?: string;
   blockIndex: number;
+  icon?: {
+    data: React.ReactNode,
+    color?: string
+  };
 }
 
 export interface GridCellsProps<TLayout> {
@@ -147,7 +152,10 @@ export type Block<TLayout> = {
   /**
    * introduction information of the block
    */
-  icon: string;
+  icon?: {
+    data: React.ReactNode,
+    color?: string
+  };
   title: string;
   description: string;
   image?: string;

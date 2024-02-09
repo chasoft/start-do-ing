@@ -1,4 +1,4 @@
-import { AppShell, Burger, Group, Image, ScrollArea, Skeleton, Text } from '@mantine/core';
+import { AppShell, Burger, Group, Image, ScrollArea, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Link } from '@remix-run/react';
 import Logo from '~/assets/startdoing-logo.svg'
@@ -6,7 +6,7 @@ import { useIsFullscreen, useIsMobileWindowSize } from '~/utils';
 import { MobileMenu } from './MobileMenu';
 
 export function MyAppShell({ children }: { children: React.ReactNode }) {
-	const [opened, { toggle }] = useDisclosure();
+	const [opened, { toggle, close }] = useDisclosure();
 	const isFullScreen = useIsFullscreen()
 	const isMobileWindowSize = useIsMobileWindowSize();
 
@@ -27,7 +27,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 			</AppShell.Header>
 			<AppShell.Navbar>
 				<AppShell.Section grow component={ScrollArea}>
-					<MobileMenu />
+					<MobileMenu onClick={close} />
 				</AppShell.Section>
 				<AppShell.Section className="flex justify-between p-3" hiddenFrom="md">
 					<Text size="xs">

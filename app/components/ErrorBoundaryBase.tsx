@@ -7,7 +7,7 @@ import { isRouteErrorResponse, useRouteError } from "@remix-run/react";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
  * 

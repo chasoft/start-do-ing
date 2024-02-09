@@ -12,7 +12,7 @@ import type { Block } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
  * 
@@ -28,11 +28,16 @@ type CellItemProps = {
 
 export function CellItem({ className, blockIndex, metaData }: CellItemProps) {
 	return (
-		<motion.div className={clsx("h-full", className)} layoutId={metaData.id}>
+		<motion.div className={clsx("h-full relative block overflow-hidden", className)} layoutId={metaData.id}>
 			<CellGridLink to={metaData.to}>
-				<div className="grid h-full p-2 place-content-center">
+				<div className="flex flex-col p-2">
 					<h2 className="text-base font-semibold sm:text-xl line-clamp-1">{metaData.title}</h2>
-					{metaData.description && <span className="text-sm line-clamp-2 sm:text-base">{metaData.description}</span>}
+					<div className="flex flex-col grow">
+						{metaData.description &&
+							<span className="text-sm line-clamp-2 sm:text-base">
+								{metaData.description}
+							</span>}
+					</div>
 				</div>
 				{isFirstCell(blockIndex) && <HomeLink />}
 			</CellGridLink>

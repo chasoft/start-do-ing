@@ -143,6 +143,7 @@ export function getMenuItemsFromBlocks(blocks: Block<unknown>[]) {
     .map((block) => ({
       title: block.title,
       to: block.to,
+      icon: block.icon
     }))
     .slice(1);
 }

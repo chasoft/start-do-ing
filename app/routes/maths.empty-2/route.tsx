@@ -12,7 +12,7 @@ import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { MATHS_BLOCKS } from "~/data";
 import { MATHS_EMPTY_2 } from "./metadata";
 

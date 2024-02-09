@@ -5,12 +5,12 @@ import { Outlet } from "@remix-run/react";
 
 /* COMPONENTS & UTILS */
 import { DomainsGridCells } from "./DomainsGridCells";
-import { FullScreenContentWrapper, NavigationGrid } from "~/components";
-import { useIsFullscreen } from "~/utils";
+import { FullScreenContentWrapper, NavigationGrid, NavigationMobile } from "~/components";
+import { useIsFullscreen, useIsMobileWindowSize } from "~/utils";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { DOMAINS_BLOCKS } from "~/data";
 
 /***************************************************************************
@@ -21,12 +21,21 @@ import { DOMAINS_BLOCKS } from "~/data";
 
 export default function DomainsGroupRoute() {
 	const isFullScreen = useIsFullscreen()
+	const isMobileWindowSize = useIsMobileWindowSize();
 
 	if (isFullScreen) {
 		return (
 			<FullScreenContentWrapper>
 				<Outlet />
 			</FullScreenContentWrapper>
+		)
+	}
+
+	if (isMobileWindowSize) {
+		return (
+			<NavigationMobile blocks={DOMAINS_BLOCKS} GridCell={DomainsGridCells}>
+				<Outlet />
+			</NavigationMobile>
 		)
 	}
 

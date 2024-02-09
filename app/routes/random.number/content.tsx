@@ -11,7 +11,7 @@ import { RANDOM_NUMBER } from "./metadata";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
  * 

@@ -9,7 +9,7 @@ import { IconMoreHorizontal } from "./icons"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
  * 

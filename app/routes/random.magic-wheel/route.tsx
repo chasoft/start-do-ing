@@ -12,7 +12,7 @@ import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { RANDOM_BLOCKS } from "~/data";
 import { RANDOM_MAGIC_WHEEL } from "./metadata";
 

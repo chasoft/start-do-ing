@@ -10,7 +10,7 @@ import type { CustomRouteHandle } from "./types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { DEFAULT_BLOCK } from "~/data";
 import { useMediaQuery } from "@mantine/hooks";
 

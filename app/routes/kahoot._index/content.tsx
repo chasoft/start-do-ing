@@ -10,7 +10,7 @@ import type { KahootLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { KAHOOT } from "../kahoot/metadata";
 
 /***************************************************************************

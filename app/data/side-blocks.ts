@@ -7,7 +7,7 @@ import type { Block, FeatureLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /**************************************************************************
  *
@@ -19,7 +19,7 @@ import type { Block, FeatureLayoutId } from "~/utils/types";
 export const SIDE_BLOCKS: Block<FeatureLayoutId>[] = [
   {
     id: "left",
-    icon: "/left.svg",
+    icon: undefined,
     title: "Left block",
     description: "Left block",
     to: "/",
@@ -37,7 +37,7 @@ export const SIDE_BLOCKS: Block<FeatureLayoutId>[] = [
   },
   {
     id: "right",
-    icon: "/right.svg",
+    icon: undefined,
     title: "Right block",
     description: "Right block",
     to: "/",

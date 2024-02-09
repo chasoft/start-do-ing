@@ -7,7 +7,7 @@ import type { Block, SystemLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
  *
@@ -19,7 +19,7 @@ export const BLOCK_NOT_FOUND = "404";
 
 export const EMPTY_BLOCK: Block<SystemLayoutId> = {
   id: "empty",
-  icon: "/empty.svg",
+  icon: undefined,
   title: "Empty block",
   description: "Empty block",
   to: "/",

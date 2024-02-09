@@ -4,13 +4,13 @@ import { Outlet } from "@remix-run/react";
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { FullScreenContentWrapper, NavigationGrid } from "~/components";
+import { FullScreenContentWrapper, NavigationGrid, NavigationMobile } from "~/components";
 import { LanguagesGridCells } from "./LanguagesGridCells";
-import { useIsFullscreen } from "~/utils";
+import { useIsFullscreen, useIsMobileWindowSize } from "~/utils";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { LANGUAGES_BLOCKS } from "~/data";
 
 /***************************************************************************
@@ -21,12 +21,21 @@ import { LANGUAGES_BLOCKS } from "~/data";
 
 export default function LanguagesGroupRoute() {
 	const isFullScreen = useIsFullscreen()
+	const isMobileWindowSize = useIsMobileWindowSize();
 
 	if (isFullScreen) {
 		return (
 			<FullScreenContentWrapper>
 				<Outlet />
 			</FullScreenContentWrapper>
+		)
+	}
+
+	if (isMobileWindowSize) {
+		return (
+			<NavigationMobile blocks={LANGUAGES_BLOCKS} GridCell={LanguagesGridCells}>
+				<Outlet />
+			</NavigationMobile>
 		)
 	}
 

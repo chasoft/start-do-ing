@@ -10,7 +10,7 @@ import type { DomainsLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { DOMAINS_WHOIS } from "./metadata";
 
 /***************************************************************************

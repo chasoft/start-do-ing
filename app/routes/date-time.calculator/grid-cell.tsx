@@ -9,7 +9,7 @@ import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { DATE_TIME_CALCULATOR } from "./metadata";
 import clsx from "clsx";
 

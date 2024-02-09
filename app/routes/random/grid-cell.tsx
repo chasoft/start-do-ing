@@ -10,7 +10,7 @@ import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { RANDOM } from "./metadata";
 import { RANDOM_BLOCKS } from "~/data";
 

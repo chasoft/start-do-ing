@@ -4,11 +4,11 @@ import { Link } from "@remix-run/react";
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { IconHome } from "./icons";
+import { IconHome } from '@tabler/icons-react';
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { HOME } from "~/routes/_index/metadata";
 
 /***************************************************************************

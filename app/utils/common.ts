@@ -7,7 +7,7 @@ import type { Block } from "./types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { SITE, DEFAULT_SHARING_IMAGE } from "~/data";
 
 /***************************************************************************

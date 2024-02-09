@@ -10,7 +10,7 @@ import type { MathsLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { MATHS } from "../maths/metadata";
 
 /***************************************************************************

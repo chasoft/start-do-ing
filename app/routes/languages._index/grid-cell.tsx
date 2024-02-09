@@ -9,7 +9,7 @@ import { CellGridLink } from "~/components";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { LANGUAGES } from "../languages/metadata";
 
 /***************************************************************************

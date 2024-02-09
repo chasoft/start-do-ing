@@ -12,7 +12,7 @@ import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { LANGUAGES_BLOCKS } from "~/data";
 import { LANGUAGES_CHINESE_CHARACTERS } from "./metadata";
 

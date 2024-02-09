@@ -10,7 +10,7 @@ import type { OthersLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { OTHERS } from "../others/metadata";
 
 /***************************************************************************

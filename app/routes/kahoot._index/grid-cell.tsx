@@ -9,7 +9,7 @@ import { CellGridLink } from "~/components";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { KAHOOT } from "../kahoot/metadata";
 
 /***************************************************************************

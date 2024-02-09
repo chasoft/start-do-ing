@@ -10,7 +10,7 @@ import type { GridCellProps } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { BLOG, BLOG_AI, BLOG_CHESS, BLOG_PHILOSOPHY, BLOG_PROGRAMMING, BLOG_TRAVEL } from "./metadata";
 import { BLOG_BLOCKS } from "~/data";
 

@@ -10,7 +10,7 @@ import type { LanguagesLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { LANGUAGES_VIETNAMESE_READING_FOR_KIDS } from "./metadata";
 
 /***************************************************************************

@@ -10,7 +10,7 @@ import type { DashboardLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { DASHBOARD } from "./metadata";
 
 /***************************************************************************

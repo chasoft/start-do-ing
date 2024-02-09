@@ -1,9 +1,10 @@
 /* FRAMEWORK */
+import { Link } from '@remix-run/react';
+import { useMemo } from 'react';
 
 /* THIRD-PARTY PACKAGES */
-import { Icon2fa } from '@tabler/icons-react';
 import { motion } from "framer-motion"
-import { ScrollArea, rem } from "@mantine/core"
+import { ScrollArea } from "@mantine/core"
 import { useHover } from "@mantine/hooks"
 import clsx from "clsx"
 
@@ -15,10 +16,8 @@ import type { Block } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { IconMoreHorizontal } from "./icons"
-import { Link } from '@remix-run/react';
-import { useMemo } from 'react';
 
 
 /***************************************************************************
@@ -34,8 +33,10 @@ type CellGroupProps = {
 	dropdownMenuItems?: Array<{
 		title: string;
 		to: string,
-		icon?: React.ReactNode,
-		color?: string
+		icon?: {
+			data: React.ReactNode,
+			color?: string
+		}
 	}>
 }
 
@@ -44,29 +45,26 @@ export function CellGroup({ className, blockIndex, dropdownMenuItems, metaData }
 	const { hovered: targetHovered, ref: targetRef } = useHover();
 
 	const iconLinks = useMemo(() => dropdownMenuItems?.filter(i => !!i.icon)
-		.slice(0, 3)
+		.slice(0, 4)	// max display 4 icons
 		.map(i => (
 			<Link
 				key={i.to}
 				to={i.to}
 				className="p-1 bg-blue-100 rounded-md hover:bg-blue-300"
 			>
-				{i.icon}
+				{i.icon?.data}
 			</Link>
 		)), [dropdownMenuItems]);
 
 	const childMenuItems = useMemo(() => dropdownMenuItems?.map((i, idx) => (
-		<li
-			key={i.to}
-			className={clsx("hover:bg-gray-200 px-2 py-1", {
-				"bg-gray-100": idx % 2 == 1,
-			})}
-		>
+		<li key={i.to}>
 			<Link to={i.to}>
-				{i.title}
+				{`${idx + 1}. ${i.title}`}
 			</Link>
 		</li >
 	)), [dropdownMenuItems]);
+
+	const showMoreButton = (childMenuItems?.length ?? 0) > (iconLinks?.length ?? 0)
 
 	return (
 		<motion.div className={clsx("h-full relative block overflow-hidden", className)} >
@@ -76,26 +74,24 @@ export function CellGroup({ className, blockIndex, dropdownMenuItems, metaData }
 						{metaData.title}
 					</h2>
 					<div className="flex flex-col grow">
-						<div>
-							{metaData.description &&
-								<span className="text-sm line-clamp-2 sm:text-base">
-									{metaData.description}
-								</span>}
-						</div>
-						<div className="absolute hidden gap-1 pt-3 bottom-2 left-2 lg:flex grow">
-							{/* Show IconLinks, max 4 icons */}
-							{iconLinks}
-						</div>
+						{metaData.description &&
+							<span className="text-sm line-clamp-2 sm:text-base">
+								{metaData.description}
+							</span>}
 					</div>
+				</div>
+				<div className="absolute hidden gap-1 pt-3 bottom-2 left-2 lg:flex grow">
+					{/* Show IconLinks, max 4 icons */}
+					{iconLinks}
 				</div>
 				{isFirstCell(blockIndex) && <HomeLink />}
 			</CellGridLink>
 
 			{
-				!isFirstCell(blockIndex) &&
+				!isFirstCell(blockIndex) && showMoreButton &&
 				<>
 					<motion.div
-						className="absolute inset-0 bg-white rounded-lg"
+						className="absolute inset-0 bg-yellow-200 rounded-lg"
 						initial={
 							(targetHovered || menuHovered)
 								? { x: "100%", y: "100%", opacity: 0 }
@@ -110,18 +106,18 @@ export function CellGroup({ className, blockIndex, dropdownMenuItems, metaData }
 						ref={menuRef}
 					>
 						<ScrollArea className="flex flex-col h-full gap-2">
-							<ul>{childMenuItems}</ul>
+							<ul className="menu">{childMenuItems}</ul>
 						</ScrollArea>
 					</motion.div>
 
-					<div
+					{showMoreButton && <div
 						role="button"
 						className="absolute bottom-0 right-0 hidden w-6 h-6 m-1 rounded-lg lg:h-8 lg:w-8 hover:bg-gray-300 hover:bg-opacity-50 lg:grid place-content-center"
 						title="More..."
 						ref={targetRef}
 					>
 						<IconMoreHorizontal />
-					</div>
+					</div>}
 				</>
 			}
 

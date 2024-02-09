@@ -10,7 +10,7 @@ import type { LanguagesLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { LANGUAGES_100_POPULAR_CHINESE_WORDS } from "./metadata";
 
 /***************************************************************************

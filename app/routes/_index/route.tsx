@@ -12,7 +12,7 @@ import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { HOME_BLOCKS } from "~/data";
 import { NavigationMobile } from "~/components/NavigationMobile";
 
@@ -51,7 +51,7 @@ export default function HomeRoute() {
   if (isMobileWindowSize) {
     return (
       <NavigationMobile blocks={HOME_BLOCKS} GridCell={RootGridCells}>
-        <HomeFeature layoutId={layoutId} />fsdsfd
+        <HomeFeature layoutId={layoutId} />
       </NavigationMobile>
     )
   }

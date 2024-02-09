@@ -10,7 +10,7 @@ import { useIsFullscreen } from "~/utils";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { DASHBOARD_BLOCKS } from "~/data";
 
 /***************************************************************************

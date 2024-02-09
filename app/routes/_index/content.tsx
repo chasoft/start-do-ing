@@ -9,7 +9,7 @@ import { getUrlSharingData } from "~/utils/common";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { HOME } from "./metadata";
 
 /***************************************************************************

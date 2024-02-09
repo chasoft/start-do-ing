@@ -7,7 +7,7 @@ import type { Block } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
  *
@@ -17,7 +17,7 @@ import type { Block } from "~/utils/types";
 
 export const ABOUT: Block<"about"> = {
   id: "about",
-  icon: "/about.svg",
+  icon: undefined,
   title: "About",
   description: "",
   to: "/about",

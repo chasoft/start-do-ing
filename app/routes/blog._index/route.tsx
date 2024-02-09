@@ -11,7 +11,7 @@ import type { CustomRouteHandle } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { BLOG_BLOCKS } from "~/data";
 
 /***************************************************************************

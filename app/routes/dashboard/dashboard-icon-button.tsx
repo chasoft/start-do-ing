@@ -10,7 +10,7 @@ import { IconSettingsOutline } from "~/components/icons";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 import { DASHBOARD_SETTINGS } from "../dashboard.settings._index/metadata";
 
 /***************************************************************************

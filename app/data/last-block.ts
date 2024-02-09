@@ -7,7 +7,7 @@ import type { Block, FeatureLayoutId } from "~/utils/types";
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /**************************************************************************
  *
@@ -17,7 +17,7 @@ import type { Block, FeatureLayoutId } from "~/utils/types";
 
 export const LAST_BLOCK: Block<FeatureLayoutId> = {
   id: "last",
-  icon: "/last-block.svg",
+  icon: undefined,
   title: "Manage",
   description: "Manage your blocks",
   to: "/dashboard",
