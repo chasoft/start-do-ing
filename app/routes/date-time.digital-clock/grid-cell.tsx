@@ -3,18 +3,18 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { CellItem } from "~/components";
-import type { GridCellProps } from "~/utils/types";
+import { CellItem } from "~/components"
+import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { DATE_TIME_DIGITAL_CLOCK } from "./metadata";
+import { DATE_TIME_DIGITAL_CLOCK } from "./metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 export function DateTimeDigitalClockCell({ className, blockIndex }: GridCellProps) {

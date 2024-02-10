@@ -1,25 +1,31 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
-import { useUrlSharingData } from "~/utils";
-import type { DashboardLayoutId } from "~/utils/types";
+import { ContentWrapper } from "~/components"
+import { useUrlSharingData } from "~/utils"
+import type { DashboardLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { DASHBOARD_SETTINGS } from "./metadata";
+import { DASHBOARD_SETTINGS } from "./metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function SettingsIndexFeature({ className, layoutId }: { className?: string, layoutId: DashboardLayoutId }) {
+export function SettingsIndexFeature({
+	className,
+	layoutId
+}: {
+	className?: string
+	layoutId: DashboardLayoutId
+}) {
 	const urlSharingData = useUrlSharingData(DASHBOARD_SETTINGS)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
@@ -29,6 +35,6 @@ export function SettingsIndexFeature({ className, layoutId }: { className?: stri
 					<span>Where you have some </span>
 				</div>
 			</motion.div>
-		</ContentWrapper >
+		</ContentWrapper>
 	)
 }

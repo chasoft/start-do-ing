@@ -1,25 +1,31 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
-import { useUrlSharingData } from "~/utils";
-import type { RandomLayoutId } from "~/utils/types";
+import { ContentWrapper } from "~/components"
+import { useUrlSharingData } from "~/utils"
+import type { RandomLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { RANDOM_BY_GROUPS } from "./metadata";
+import { RANDOM_BY_GROUPS } from "./metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function RandomByGroupsContent({ className, layoutId }: { className?: string, layoutId: RandomLayoutId }) {
+export function RandomByGroupsContent({
+	className,
+	layoutId
+}: {
+	className?: string
+	layoutId: RandomLayoutId
+}) {
 	const urlSharingData = useUrlSharingData(RANDOM_BY_GROUPS)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>

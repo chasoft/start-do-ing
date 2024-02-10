@@ -1,25 +1,31 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
-import { useUrlSharingData } from "~/utils";
-import type { DateTimeLayoutId } from "~/utils/types";
+import { ContentWrapper } from "~/components"
+import { useUrlSharingData } from "~/utils"
+import type { DateTimeLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { DATE_TIME } from "../date-time/metadata";
+import { DATE_TIME } from "../date-time/metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function DateTimeIndexContent({ className, layoutId }: { className?: string, layoutId: DateTimeLayoutId }) {
+export function DateTimeIndexContent({
+	className,
+	layoutId
+}: {
+	className?: string
+	layoutId: DateTimeLayoutId
+}) {
 	const urlSharingData = useUrlSharingData(DATE_TIME)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
@@ -28,6 +34,6 @@ export function DateTimeIndexContent({ className, layoutId }: { className?: stri
 					<h1 className="text-lg font-semibold sm:text-2xl">Date/Time</h1>
 				</div>
 			</motion.div>
-		</ContentWrapper >
+		</ContentWrapper>
 	)
 }

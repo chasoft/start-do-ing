@@ -9,14 +9,11 @@
 /* ASSETS & DATA IMPORT */
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 export function CellGridEmpty() {
-	return (
-		<div className="block h-full bg-gray-200 bg-opacity-20 rounded-lg">
-		</div>
-	)
+	return <div className="block h-full bg-gray-200 bg-opacity-20 rounded-lg">this is a long text</div>
 }

@@ -1,21 +1,21 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
-import clsx from "clsx";
+import { motion } from "framer-motion"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridLink } from "~/components";
+import { CellGridLink } from "~/components"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { RANDOM } from "../random/metadata";
+import { RANDOM } from "../random/metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 export function RandomIndexCell({ className }: { className?: string }) {

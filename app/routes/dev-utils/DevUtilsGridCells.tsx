@@ -1,38 +1,42 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
-import clsx from "clsx";
+import { motion } from "framer-motion"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
-import { DevUtilsBase64Cell } from "../dev-utils.base64/grid-cell";
-import { DevUtilsCurlConverterCell } from "../dev-utils.curl-converter/grid-cell";
-import { DevUtilsGroupCell } from "./grid-cell";
-import { DevUtilsHashGeneratorCell } from "../dev-utils.hash-generator/grid-cell";
-import { DevUtilsLoremIpsumGeneratorCell } from "../dev-utils.lorem-ipsum-generator/grid-cell";
-import { DevUtilsMarkdownEditorCell } from "../dev-utils.markdown-editor/grid-cell";
-import { DevUtilsSqlFormatterCell } from "../dev-utils.sql-formatter/grid-cell";
-import { DevUtilsStringConverterCell } from "../dev-utils.string-converter/grid-cell";
-import type { DevUtilsLayoutId, GridCellsProps } from "~/utils/types";
+import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components"
+import { DevUtilsBase64Cell } from "../dev-utils.base64/grid-cell"
+import { DevUtilsCurlConverterCell } from "../dev-utils.curl-converter/grid-cell"
+import { DevUtilsGroupCell } from "./grid-cell"
+import { DevUtilsHashGeneratorCell } from "../dev-utils.hash-generator/grid-cell"
+import { DevUtilsLoremIpsumGeneratorCell } from "../dev-utils.lorem-ipsum-generator/grid-cell"
+import { DevUtilsMarkdownEditorCell } from "../dev-utils.markdown-editor/grid-cell"
+import { DevUtilsSqlFormatterCell } from "../dev-utils.sql-formatter/grid-cell"
+import { DevUtilsStringConverterCell } from "../dev-utils.string-converter/grid-cell"
+import type { DevUtilsLayoutId, GridCellsProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { BLOCK_NOT_FOUND } from "~/data";
+import { BLOCK_NOT_FOUND } from "~/data"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function DevUtilsGridCells({ className, layoutId, blockIndex }: GridCellsProps<DevUtilsLayoutId>): JSX.Element {
+export function DevUtilsGridCells({
+	className,
+	layoutId,
+	blockIndex
+}: GridCellsProps<DevUtilsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
-		 * 
+		 *
 		 *  CONTENT BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "dev-utils":
 			return (
@@ -89,9 +93,9 @@ export function DevUtilsGridCells({ className, layoutId, blockIndex }: GridCells
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FEATURED BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "left":
 			return (
@@ -112,20 +116,23 @@ export function DevUtilsGridCells({ className, layoutId, blockIndex }: GridCells
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FIX BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		default:
 			return (
 				<div className={clsx(className, "h-full")}>
-					<motion.div className={clsx("h-full bg-gray-200 rounded-lg")} layoutId={BLOCK_NOT_FOUND}>
+					<motion.div
+						className={clsx("h-full bg-gray-200 rounded-lg")}
+						layoutId={BLOCK_NOT_FOUND}
+					>
 						<div className="grid h-full text-lg text-red-900 md:text-xl place-content-center">
 							BLOCK NOT FOUND
 							<p>{layoutId}</p>
 						</div>
 					</motion.div>
 				</div>
-			);
+			)
 	}
 }

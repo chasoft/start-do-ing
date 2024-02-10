@@ -3,18 +3,18 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { CellItem } from "~/components";
-import type { GridCellProps } from "~/utils/types";
+import { CellItem } from "~/components"
+import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { OTHERS_RUNNING_TEXT } from "./metadata";
+import { OTHERS_RUNNING_TEXT } from "./metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 export function OthersRunningTextCell({ className, blockIndex }: GridCellProps) {

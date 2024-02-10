@@ -1,25 +1,31 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
-import { useUrlSharingData } from "~/utils";
-import type { DateTimeLayoutId } from "~/utils/types";
+import { ContentWrapper } from "~/components"
+import { useUrlSharingData } from "~/utils"
+import type { DateTimeLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { DATE_TIME_CALCULATOR } from "./metadata";
+import { DATE_TIME_CALCULATOR } from "./metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function DateTimeCalculatorContent({ className, layoutId }: { className?: string, layoutId: DateTimeLayoutId }) {
+export function DateTimeCalculatorContent({
+	className,
+	layoutId
+}: {
+	className?: string
+	layoutId: DateTimeLayoutId
+}) {
 	const urlSharingData = useUrlSharingData(DATE_TIME_CALCULATOR)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>

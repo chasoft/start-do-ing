@@ -1,7 +1,7 @@
 /* FRAMEWORK */
 
-import { atom } from "jotai";
-import { UrlSharingData } from "~/utils/types";
+import { atom } from "jotai"
+import { UrlSharingData } from "~/utils/types"
 
 /* THIRD-PARTY PACKAGES */
 
@@ -19,7 +19,7 @@ import { UrlSharingData } from "~/utils/types";
 
 export const urlSharingDataAtom = atom<UrlSharingData>({
 	image: "",
-  title: "",
-  description: "",
-  url: ""
+	title: "",
+	description: "",
+	url: ""
 })

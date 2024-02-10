@@ -1,27 +1,27 @@
 /* FRAMEWORK */
-import { Outlet } from "@remix-run/react";
+import { Outlet } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { FullScreenContentWrapper, NavigationGrid, NavigationMobile } from "~/components";
-import { DateTimeGridCells } from "./DateTimeGridCells";
-import { useIsFullscreen, useIsMobileWindowSize } from "~/utils";
+import { FullScreenContentWrapper, NavigationGrid, NavigationMobile } from "~/components"
+import { DateTimeGridCells } from "./DateTimeGridCells"
+import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { DATE_TIME_BLOCKS } from "~/data";
+import { DATE_TIME_BLOCKS } from "~/data"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 export default function DateTimeGroupRoute() {
 	const isFullScreen = useIsFullscreen()
-	const isMobileWindowSize = useIsMobileWindowSize();
+	const isMobileWindowSize = useIsMobileWindowSize()
 
 	if (isFullScreen) {
 		return (

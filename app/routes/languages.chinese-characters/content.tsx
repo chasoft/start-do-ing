@@ -1,25 +1,31 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
-import { useUrlSharingData } from "~/utils";
-import type { LanguagesLayoutId } from "~/utils/types";
+import { ContentWrapper } from "~/components"
+import { useUrlSharingData } from "~/utils"
+import type { LanguagesLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { LANGUAGES_CHINESE_CHARACTERS } from "./metadata";
+import { LANGUAGES_CHINESE_CHARACTERS } from "./metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function LanguagesChineseCharactersContent({ className, layoutId }: { className?: string, layoutId: LanguagesLayoutId }) {
+export function LanguagesChineseCharactersContent({
+	className,
+	layoutId
+}: {
+	className?: string
+	layoutId: LanguagesLayoutId
+}) {
 	const urlSharingData = useUrlSharingData(LANGUAGES_CHINESE_CHARACTERS)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>

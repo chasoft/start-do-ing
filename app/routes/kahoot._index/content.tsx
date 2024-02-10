@@ -1,25 +1,31 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
-import { useUrlSharingData } from "~/utils";
-import type { KahootLayoutId } from "~/utils/types";
+import { ContentWrapper } from "~/components"
+import { useUrlSharingData } from "~/utils"
+import type { KahootLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { KAHOOT } from "../kahoot/metadata";
+import { KAHOOT } from "../kahoot/metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function KahootIndexContent({ className, layoutId }: { className?: string, layoutId: KahootLayoutId }) {
+export function KahootIndexContent({
+	className,
+	layoutId
+}: {
+	className?: string
+	layoutId: KahootLayoutId
+}) {
 	const urlSharingData = useUrlSharingData(KAHOOT)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
@@ -28,6 +34,6 @@ export function KahootIndexContent({ className, layoutId }: { className?: string
 					<h1 className="text-lg font-semibold sm:text-2xl">Kahoot</h1>
 				</div>
 			</motion.div>
-		</ContentWrapper >
+		</ContentWrapper>
 	)
 }

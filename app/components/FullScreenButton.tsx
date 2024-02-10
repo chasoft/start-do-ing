@@ -1,5 +1,5 @@
 /* FRAMEWORK */
-import { useSearchParams } from "@remix-run/react";
+import { useSearchParams } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 
@@ -11,9 +11,9 @@ import { IconArrowCollapse, IconArrowExpand } from "./icons"
 /* ASSETS & DATA IMPORT */
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 export function FullScreenButton() {

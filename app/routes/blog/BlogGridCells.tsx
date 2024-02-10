@@ -1,31 +1,42 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
-import clsx from "clsx";
+import { motion } from "framer-motion"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { BlogAICell, BlogChessCell, BlogGroupCell, BlogPhilosophyCell, BlogProgrammingCell, BlogTravelCell } from "./grid-cell";
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
-import type { BlogLayoutId, GridCellsProps } from "~/utils/types";
+import {
+	BlogAICell,
+	BlogChessCell,
+	BlogGroupCell,
+	BlogPhilosophyCell,
+	BlogProgrammingCell,
+	BlogTravelCell
+} from "./grid-cell"
+import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components"
+import type { BlogLayoutId, GridCellsProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { BLOCK_NOT_FOUND } from "~/data";
+import { BLOCK_NOT_FOUND } from "~/data"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function BlogGridCells({ className, layoutId, blockIndex }: GridCellsProps<BlogLayoutId>): JSX.Element {
+export function BlogGridCells({
+	className,
+	layoutId,
+	blockIndex
+}: GridCellsProps<BlogLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
-		 * 
+		 *
 		 *  CONTENT BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "blog":
 			return (
@@ -70,9 +81,9 @@ export function BlogGridCells({ className, layoutId, blockIndex }: GridCellsProp
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FEATURED BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "left":
 			return (
@@ -93,20 +104,23 @@ export function BlogGridCells({ className, layoutId, blockIndex }: GridCellsProp
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FIX BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		default:
 			return (
 				<div className={clsx(className, "h-full")}>
-					<motion.div className={clsx("h-full bg-gray-200 rounded-lg")} layoutId={BLOCK_NOT_FOUND}>
+					<motion.div
+						className={clsx("h-full bg-gray-200 rounded-lg")}
+						layoutId={BLOCK_NOT_FOUND}
+					>
 						<div className="grid h-full text-lg md:text-xl text-red-900 place-content-center">
 							BLOCK NOT FOUND
 							<p>{layoutId}</p>
 						</div>
 					</motion.div>
 				</div>
-			);
+			)
 	}
 }

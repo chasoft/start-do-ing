@@ -1,22 +1,21 @@
-
 /* FRAMEWORK */
-import { Link } from "@remix-run/react";
+import { Link } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
-import clsx from "clsx";
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { IconSettingsOutline } from "~/components/icons";
+import { IconSettingsOutline } from "~/components/icons"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { DASHBOARD_SETTINGS } from "../dashboard.settings._index/metadata";
+import { DASHBOARD_SETTINGS } from "../dashboard.settings._index/metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 export function DashboardLink({ className }: { className?: string }) {

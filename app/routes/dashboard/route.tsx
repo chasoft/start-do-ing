@@ -1,22 +1,22 @@
 /* FRAMEWORK */
-import { Outlet } from "@remix-run/react";
+import { Outlet } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { DashboardGridCells } from "./DashboardGridCells";
-import { FullScreenContentWrapper, NavigationGrid } from "~/components";
-import { useIsFullscreen } from "~/utils";
+import { DashboardGridCells } from "./DashboardGridCells"
+import { FullScreenContentWrapper, NavigationGrid } from "~/components"
+import { useIsFullscreen } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { DASHBOARD_BLOCKS } from "~/data";
+import { DASHBOARD_BLOCKS } from "~/data"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 export default function DashboardLayoutRoute() {

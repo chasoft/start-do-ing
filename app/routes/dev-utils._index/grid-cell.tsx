@@ -1,21 +1,21 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
-import clsx from "clsx";
+import { motion } from "framer-motion"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridLink } from "~/components";
+import { CellGridLink } from "~/components"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { DEV_UTILS } from "../dev-utils/metadata";
+import { DEV_UTILS } from "../dev-utils/metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 export function DevUtilsIndexCell({ className }: { className?: string }) {

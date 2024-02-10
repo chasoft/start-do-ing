@@ -1,27 +1,27 @@
 /* FRAMEWORK */
-import { Outlet } from "@remix-run/react";
+import { Outlet } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { FullScreenContentWrapper, NavigationGrid, NavigationMobile } from "~/components";
-import { MathsGridCells } from "./MathsGridCells";
+import { FullScreenContentWrapper, NavigationGrid, NavigationMobile } from "~/components"
+import { MathsGridCells } from "./MathsGridCells"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { MATHS_BLOCKS } from "~/data";
-import { useIsFullscreen, useIsMobileWindowSize } from "~/utils";
+import { MATHS_BLOCKS } from "~/data"
+import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 export default function MathsGroupRoute() {
 	const isFullScreen = useIsFullscreen()
-	const isMobileWindowSize = useIsMobileWindowSize();
+	const isMobileWindowSize = useIsMobileWindowSize()
 
 	if (isFullScreen) {
 		return (

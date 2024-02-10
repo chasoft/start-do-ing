@@ -1,25 +1,31 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
-import { useUrlSharingData } from "~/utils";
-import type { MathsLayoutId } from "~/utils/types";
+import { ContentWrapper } from "~/components"
+import { useUrlSharingData } from "~/utils"
+import type { MathsLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { MATHS } from "../maths/metadata";
+import { MATHS } from "../maths/metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function MathsIndexContent({ className, layoutId }: { className?: string, layoutId: MathsLayoutId }) {
+export function MathsIndexContent({
+	className,
+	layoutId
+}: {
+	className?: string
+	layoutId: MathsLayoutId
+}) {
 	const urlSharingData = useUrlSharingData(MATHS)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
@@ -28,6 +34,6 @@ export function MathsIndexContent({ className, layoutId }: { className?: string,
 					<h1 className="text-lg font-semibold sm:text-2xl">Maths</h1>
 				</div>
 			</motion.div>
-		</ContentWrapper >
+		</ContentWrapper>
 	)
 }

@@ -1,25 +1,31 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
-import { useUrlSharingData } from "~/utils";
-import type { DashboardLayoutId } from "~/utils/types";
+import { ContentWrapper } from "~/components"
+import { useUrlSharingData } from "~/utils"
+import type { DashboardLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { DASHBOARD } from "../dashboard/metadata";
+import { DASHBOARD } from "../dashboard/metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function DashboardIndexFeature({ className, layoutId }: { className?: string, layoutId: DashboardLayoutId }) {
+export function DashboardIndexFeature({
+	className,
+	layoutId
+}: {
+	className?: string
+	layoutId: DashboardLayoutId
+}) {
 	const urlSharingData = useUrlSharingData(DASHBOARD)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
@@ -28,6 +34,6 @@ export function DashboardIndexFeature({ className, layoutId }: { className?: str
 					<h1 className="text-lg font-semibold sm:text-2xl">Dashboard Index Page</h1>
 				</div>
 			</motion.div>
-		</ContentWrapper >
+		</ContentWrapper>
 	)
 }

@@ -1,37 +1,41 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
-import clsx from "clsx";
+import { motion } from "framer-motion"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
-import { RandomByGroupsCell } from "../random.by-groups/grid-cell";
-import { RandomGroupCell } from "./grid-cell";
-import { RandomLotteryCell } from "../random.lottery/grid-cell";
-import { RandomMagicWheelCell } from "../random.magic-wheel/grid-cell";
-import { RandomNumberCell } from "../random.number/grid-cell";
-import { RandomPasswordCell } from "../random.password/grid-cell";
-import { RandomUsernameCell } from "../random.username/grid-cell";
-import type { GridCellsProps, RandomLayoutId } from "~/utils/types";
+import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components"
+import { RandomByGroupsCell } from "../random.by-groups/grid-cell"
+import { RandomGroupCell } from "./grid-cell"
+import { RandomLotteryCell } from "../random.lottery/grid-cell"
+import { RandomMagicWheelCell } from "../random.magic-wheel/grid-cell"
+import { RandomNumberCell } from "../random.number/grid-cell"
+import { RandomPasswordCell } from "../random.password/grid-cell"
+import { RandomUsernameCell } from "../random.username/grid-cell"
+import type { GridCellsProps, RandomLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { BLOCK_NOT_FOUND } from "~/data";
+import { BLOCK_NOT_FOUND } from "~/data"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function RandomGridCells({ className, layoutId, blockIndex }: GridCellsProps<RandomLayoutId>): JSX.Element {
+export function RandomGridCells({
+	className,
+	layoutId,
+	blockIndex
+}: GridCellsProps<RandomLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
-		 * 
+		 *
 		 *  CONTENT BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "random":
 			return (
@@ -82,9 +86,9 @@ export function RandomGridCells({ className, layoutId, blockIndex }: GridCellsPr
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FEATURED BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "left":
 			return (
@@ -105,20 +109,23 @@ export function RandomGridCells({ className, layoutId, blockIndex }: GridCellsPr
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FIX BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		default:
 			return (
 				<div className={clsx(className, "h-full")}>
-					<motion.div className={clsx("h-full bg-gray-200 rounded-lg")} layoutId={BLOCK_NOT_FOUND}>
+					<motion.div
+						className={clsx("h-full bg-gray-200 rounded-lg")}
+						layoutId={BLOCK_NOT_FOUND}
+					>
 						<div className="grid h-full text-lg md:text-xl text-red-900 place-content-center">
 							BLOCK NOT FOUND
 							<p>{layoutId}</p>
 						</div>
 					</motion.div>
 				</div>
-			);
+			)
 	}
 }

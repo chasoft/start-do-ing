@@ -1,20 +1,20 @@
 /* FRAMEWORK */
-import { Link } from "@remix-run/react";
+import { Link } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { IconHome } from '@tabler/icons-react';
+import { IconHome } from "@tabler/icons-react"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { HOME } from "~/routes/_index/metadata";
+import { HOME } from "~/routes/_index/metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 export function HomeLink() {
 	return (
