@@ -1,11 +1,10 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { getMenuItemsFromBlocks } from "~/utils"
-import { CellGroup } from "~/components"
+import { CellGroup, CellIntro } from "~/components"
 import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -21,6 +20,14 @@ import { RANDOM_BLOCKS } from "~/data"
  **************************************************************************/
 
 const dropdownMenuItems = getMenuItemsFromBlocks(RANDOM_BLOCKS)
+
+export function RandomGroupCellIntro() {
+	return (
+		<CellIntro metaData={RANDOM} upTo={RANDOM.to}>
+			.... INTRO... SETTINGS...RandomGroupCell
+		</CellIntro>
+	)
+}
 
 export function RandomGroupCell({ className }: GridCellProps) {
 	return (

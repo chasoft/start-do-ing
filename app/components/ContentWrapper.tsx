@@ -1,12 +1,12 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { useIsFullscreen, useIsMobileWindowSize, useIsShowMobileButtons } from "~/utils"
 import { FullScreenButton, SharingButton } from "."
+import { useIsFullscreen, useIsMobileWindowSize, useIsShowMobileButtons } from "~/utils"
 import type { UrlSharingData } from "~/utils/types"
-import clsx from "clsx"
 
 /* TRANSLATIONS IMPORT */
 

@@ -1,11 +1,10 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { getMenuItemsFromBlocks } from "~/utils"
-import { CellGroup } from "~/components"
+import { CellGroup, CellIntro } from "~/components"
 import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -21,6 +20,14 @@ import { URL_SHORTENER_BLOCKS } from "~/data"
  **************************************************************************/
 
 const dropdownMenuItems = getMenuItemsFromBlocks(URL_SHORTENER_BLOCKS)
+
+export function UrlShortenerGroupCellIntro() {
+	return (
+		<CellIntro metaData={URL_SHORTENER} upTo={URL_SHORTENER.to}>
+			.... INTRO... SETTINGS...UrlShortenerGroupCell
+		</CellIntro>
+	)
+}
 
 export function UrlShortenerGroupCell({ className }: GridCellProps) {
 	return (

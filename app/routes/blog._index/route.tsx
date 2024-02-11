@@ -4,6 +4,7 @@ import { type MetaFunction } from "@remix-run/cloudflare"
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
+import { BLOG } from "../blog/metadata"
 import { BlogIndexContent } from "./content"
 import { ErrorBoundaryBase } from "~/components"
 import { getBlockMetaData } from "~/utils"
@@ -12,7 +13,6 @@ import type { CustomRouteHandle } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { BLOG_BLOCKS } from "~/data"
 
 /***************************************************************************
  *
@@ -23,7 +23,7 @@ import { BLOG_BLOCKS } from "~/data"
 const layoutId = "blog"
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(BLOG_BLOCKS, layoutId)
+	const { title, description } = getBlockMetaData([BLOG], layoutId)
 	return [{ title }, { name: "description", content: description }]
 }
 

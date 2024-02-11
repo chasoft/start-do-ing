@@ -1,12 +1,27 @@
+/* FRAMEWORK */
+import { Link, useLocation } from "@remix-run/react"
+
+/* THIRD-PARTY PACKAGES */
 import { AppShell, Burger, Group, Image, ScrollArea, Text } from "@mantine/core"
-import { useDisclosure } from "@mantine/hooks"
-import { Link } from "@remix-run/react"
-import Logo from "~/assets/startdoing-logo.svg"
-import { useIsFullscreen, useIsMobileWindowSize, useIsShowMobileButtons } from "~/utils"
-import { MobileMenu } from "./MobileMenu"
-import { FullScreenButton, SharingButton } from "."
-import { urlSharingDataAtom } from "~/atoms/globals"
 import { useAtomValue } from "jotai"
+import { useDisclosure } from "@mantine/hooks"
+
+/* COMPONENTS & UTILS */
+import { FullScreenButton, SharingButton } from "."
+import { MobileMenu } from "./MobileMenu"
+import { useIsFullscreen, useIsMobileWindowSize, useIsShowMobileButtons } from "~/utils"
+
+/* TRANSLATIONS IMPORT */
+
+/* ASSETS & DATA IMPORT */
+import { urlSharingDataAtom } from "~/atoms/globals"
+import Logo from "~/assets/startdoing-logo.svg"
+
+/***************************************************************************
+ *
+ *  START
+ *
+ **************************************************************************/
 
 export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const [opened, { toggle, close }] = useDisclosure()
@@ -14,6 +29,16 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const isMobileWindowSize = useIsMobileWindowSize()
 	const isShowMobileButtons = useIsShowMobileButtons()
 	const urlSharingData = useAtomValue(urlSharingDataAtom)
+
+	/**
+	 * We use completely different layout for blog
+	 */
+	const { pathname } = useLocation()
+	const isBlog = pathname.startsWith("/blog")
+	if (isBlog) {
+		return children
+	}
+
 	return (
 		<AppShell
 			header={{ height: 60 }}

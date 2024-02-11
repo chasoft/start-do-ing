@@ -27,6 +27,7 @@ function MobileMenuItem({
 			</summary>
 			<ul>
 				{blocks.slice(1).map((block) => (
+					// eslint-disable-next-line jsx-a11y/click-events-have-key-events
 					<li key={block.to} onClick={onClick}>
 						<NavLink
 							to={block.to}

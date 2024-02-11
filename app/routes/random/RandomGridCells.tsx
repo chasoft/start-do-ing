@@ -5,14 +5,25 @@ import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components"
-import { RandomByGroupsCell } from "../random.by-groups/grid-cell"
-import { RandomGroupCell } from "./grid-cell"
-import { RandomLotteryCell } from "../random.lottery/grid-cell"
-import { RandomMagicWheelCell } from "../random.magic-wheel/grid-cell"
+import {
+	CellGridEmpty,
+	CellGridLeft,
+	CellGridRight,
+	CellIntroSwitcher
+} from "~/components"
+import {
+	RandomByGroupsCell,
+	RandomByGroupsCellIntro
+} from "../random.by-groups/grid-cell"
+import { RandomGroupCell, RandomGroupCellIntro } from "./grid-cell"
+import { RandomLotteryCell, RandomLotteryCellIntro } from "../random.lottery/grid-cell"
+import {
+	RandomMagicWheelCell,
+	RandomMagicWheelCellIntro
+} from "../random.magic-wheel/grid-cell"
 import { RandomNumberCell } from "../random.number/grid-cell"
-import { RandomPasswordCell } from "../random.password/grid-cell"
-import { RandomUsernameCell } from "../random.username/grid-cell"
+import { RandomPasswordCell, RandomPasswordCellIntro } from "../random.password/grid-cell"
+import { RandomUsernameCell, RandomUsernameCellIntro } from "../random.username/grid-cell"
 import type { GridCellsProps, RandomLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -28,7 +39,8 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function RandomGridCells({
 	className,
-	layoutId
+	layoutId,
+	isIntroBlock
 }: GridCellsProps<RandomLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -38,35 +50,63 @@ export function RandomGridCells({
 		 *********************************************************************/
 		case "random":
 			return (
+				<CellIntroSwitcher
+					contentBlock={<RandomGroupCell />}
+					introBlock={<RandomGroupCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
+			)
+			return (
 				<div className={clsx(className)}>
 					<RandomGroupCell />
 				</div>
 			)
 		case "random-by-groups":
 			return (
-				<div className={clsx(className)}>
-					<RandomByGroupsCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<RandomByGroupsCell />}
+					introBlock={<RandomByGroupsCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "random-lottery":
 			return (
-				<div className={clsx(className)}>
-					<RandomLotteryCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<RandomLotteryCell />}
+					introBlock={<RandomLotteryCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "random-magic-wheel":
 			return (
-				<div className={clsx(className)}>
-					<RandomMagicWheelCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<RandomMagicWheelCell />}
+					introBlock={<RandomMagicWheelCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "random-number":
 			return (
-				<div className={clsx(className)}>
-					<RandomNumberCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<RandomNumberCell />}
+					introBlock={<RandomNumberCell />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "random-password":
+			return (
+				<CellIntroSwitcher
+					contentBlock={<RandomPasswordCell />}
+					introBlock={<RandomPasswordCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
+			)
 			return (
 				<div className={clsx(className)}>
 					<RandomPasswordCell />
@@ -74,9 +114,12 @@ export function RandomGridCells({
 			)
 		case "random-username":
 			return (
-				<div className={clsx(className)}>
-					<RandomUsernameCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<RandomUsernameCell />}
+					introBlock={<RandomUsernameCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "empty":
 			return (
@@ -98,13 +141,7 @@ export function RandomGridCells({
 		case "right":
 			return (
 				<div className={clsx(className)}>
-					<RightGridCell />
-				</div>
-			)
-		case "last":
-			return (
-				<div className={clsx(className)}>
-					<CellGridLast />
+					<CellGridRight />
 				</div>
 			)
 		/**********************************************************************

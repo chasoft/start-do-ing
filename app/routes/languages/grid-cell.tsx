@@ -1,11 +1,10 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { getMenuItemsFromBlocks } from "~/utils"
-import { CellGroup } from "~/components"
+import { CellGroup, CellIntro } from "~/components"
 import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -21,6 +20,14 @@ import { LANGUAGES_BLOCKS } from "~/data"
  **************************************************************************/
 
 const dropdownMenuItems = getMenuItemsFromBlocks(LANGUAGES_BLOCKS)
+
+export function LanguagesGroupCellIntro() {
+	return (
+		<CellIntro metaData={LANGUAGES} upTo={LANGUAGES.to}>
+			.... INTRO... SETTINGS...DateTimeAnalogClockCell
+		</CellIntro>
+	)
+}
 
 export function LanguagesGroupCell({ className }: GridCellProps) {
 	return (

@@ -5,9 +5,14 @@ import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components"
-import { KahootGroupCell } from "./grid-cell"
-import { KahootQuizCell } from "../kahoot.quiz/grid-cell"
+import {
+	CellGridEmpty,
+	CellGridLeft,
+	CellGridRight,
+	CellIntroSwitcher
+} from "~/components"
+import { KahootGroupCell, KahootGroupCellIntro } from "./grid-cell"
+import { KahootQuizCell, KahootQuizCellIntro } from "../kahoot.quiz/grid-cell"
 import type { GridCellsProps, KahootLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -23,7 +28,8 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function KahootGridCells({
 	className,
-	layoutId
+	layoutId,
+	isIntroBlock
 }: GridCellsProps<KahootLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -33,15 +39,21 @@ export function KahootGridCells({
 		 *********************************************************************/
 		case "kahoot":
 			return (
-				<div className={clsx(className)}>
-					<KahootGroupCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<KahootGroupCell />}
+					introBlock={<KahootGroupCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "kahoot-quiz":
 			return (
-				<div className={clsx(className)}>
-					<KahootQuizCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<KahootQuizCell />}
+					introBlock={<KahootQuizCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "empty":
 			return (
@@ -63,13 +75,7 @@ export function KahootGridCells({
 		case "right":
 			return (
 				<div className={clsx(className)}>
-					<RightGridCell />
-				</div>
-			)
-		case "last":
-			return (
-				<div className={clsx(className)}>
-					<CellGridLast />
+					<CellGridRight />
 				</div>
 			)
 		/**********************************************************************

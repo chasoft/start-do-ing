@@ -4,7 +4,7 @@
 
 /* COMPONENTS & UTILS */
 import { getMenuItemsFromBlocks } from "~/utils"
-import { CellGroup } from "~/components"
+import { CellGroup, CellIntro } from "~/components"
 import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -22,7 +22,11 @@ import { DEV_UTILS_BLOCKS } from "~/data"
 const dropdownMenuItems = getMenuItemsFromBlocks(DEV_UTILS_BLOCKS)
 
 export function DevUtilsGroupCellIntro() {
-	return <div>.... INTRO... SETTINGS...</div>
+	return (
+		<CellIntro metaData={DEV_UTILS} upTo={DEV_UTILS.to}>
+			.... INTRO... SETTINGS...DevUtilsGroupCell
+		</CellIntro>
+	)
 }
 
 export function DevUtilsGroupCell({ className }: GridCellProps) {

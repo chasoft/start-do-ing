@@ -3,12 +3,12 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { IconShare } from "./icons"
 import type { UrlSharingData } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { IconShare } from "./icons"
 
 /***************************************************************************
  *

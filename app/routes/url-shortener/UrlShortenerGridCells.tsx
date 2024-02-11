@@ -5,9 +5,13 @@ import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components"
-import { UrlShortenerGroupCell } from "./grid-cell"
-import { URLShortenerIndexCell } from "../url-shortener._index/grid-cell"
+import {
+	CellGridEmpty,
+	CellGridLeft,
+	CellGridRight,
+	CellIntroSwitcher
+} from "~/components"
+import { UrlShortenerGroupCell, UrlShortenerGroupCellIntro } from "./grid-cell"
 import type { GridCellsProps, UrlShortenerLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -23,7 +27,8 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function UrlShortenerGridCells({
 	className,
-	layoutId
+	layoutId,
+	isIntroBlock
 }: GridCellsProps<UrlShortenerLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -33,15 +38,21 @@ export function UrlShortenerGridCells({
 		 *********************************************************************/
 		case "url-shortener":
 			return (
-				<div className={clsx(className)}>
-					<UrlShortenerGroupCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<UrlShortenerGroupCell />}
+					introBlock={<UrlShortenerGroupCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "url-shortener-index":
 			return (
-				<div className={clsx(className)}>
-					<URLShortenerIndexCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<UrlShortenerGroupCellIntro />}
+					introBlock={<UrlShortenerGroupCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "empty":
 			return (
@@ -63,13 +74,7 @@ export function UrlShortenerGridCells({
 		case "right":
 			return (
 				<div className={clsx(className)}>
-					<RightGridCell />
-				</div>
-			)
-		case "last":
-			return (
-				<div className={clsx(className)}>
-					<CellGridLast />
+					<CellGridRight />
 				</div>
 			)
 		/**********************************************************************

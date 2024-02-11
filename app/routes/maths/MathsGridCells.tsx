@@ -5,11 +5,16 @@ import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components"
-import { MathsEmpty1Cell } from "../maths.empty-1/grid-cell"
-import { MathsEmpty2Cell } from "../maths.empty-2/grid-cell"
-import { MathsEmpty3Cell } from "../maths.empty-3/grid-cell"
-import { MathsEmpty4Cell } from "../maths.empty-4/grid-cell"
+import {
+	CellGridEmpty,
+	CellGridLeft,
+	CellGridRight,
+	CellIntroSwitcher
+} from "~/components"
+import { MathsEmpty1Cell, MathsEmpty1CellIntro } from "../maths.empty-1/grid-cell"
+import { MathsEmpty2Cell, MathsEmpty2CellIntro } from "../maths.empty-2/grid-cell"
+import { MathsEmpty3Cell, MathsEmpty3CellIntro } from "../maths.empty-3/grid-cell"
+import { MathsEmpty4Cell, MathsEmpty4CellIntro } from "../maths.empty-4/grid-cell"
 import type { GridCellsProps, MathsLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -25,7 +30,8 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function MathsGridCells({
 	className,
-	layoutId
+	layoutId,
+	isIntroBlock
 }: GridCellsProps<MathsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -35,27 +41,39 @@ export function MathsGridCells({
 		 *********************************************************************/
 		case "maths-empty-1":
 			return (
-				<div className={clsx(className)}>
-					<MathsEmpty1Cell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<MathsEmpty1Cell />}
+					introBlock={<MathsEmpty1CellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "maths-empty-2":
 			return (
-				<div className={clsx(className)}>
-					<MathsEmpty2Cell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<MathsEmpty2Cell />}
+					introBlock={<MathsEmpty2CellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "maths-empty-3":
 			return (
-				<div className={clsx(className)}>
-					<MathsEmpty3Cell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<MathsEmpty3Cell />}
+					introBlock={<MathsEmpty3CellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "maths-empty-4":
 			return (
-				<div className={clsx(className)}>
-					<MathsEmpty4Cell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<MathsEmpty4Cell />}
+					introBlock={<MathsEmpty4CellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "empty":
 			return (
@@ -77,13 +95,7 @@ export function MathsGridCells({
 		case "right":
 			return (
 				<div className={clsx(className)}>
-					<RightGridCell />
-				</div>
-			)
-		case "last":
-			return (
-				<div className={clsx(className)}>
-					<CellGridLast />
+					<CellGridRight />
 				</div>
 			)
 		/**********************************************************************

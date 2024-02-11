@@ -18,14 +18,14 @@ import { SIDE_BLOCKS } from "~/data"
  *
  **************************************************************************/
 
-export function RightGridCell({ className }: { className?: string }) {
+export function CellGridRight({ className }: { className?: string }) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={SIDE_BLOCKS[1].id}>
 			<Link
 				to={SIDE_BLOCKS[1].to}
 				className="block h-full bg-gray-200 rounded-lg bg-opacity-60 hover:bg-opacity-70"
 			>
-				<div className="p-2"></div>
+				<div className="p-2">CellGridLeft</div>
 			</Link>
 		</motion.div>
 	)

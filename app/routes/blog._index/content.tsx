@@ -26,6 +26,7 @@ export function BlogIndexContent({
 	className?: string
 	layoutId: BlogLayoutId
 }) {
+	//TODO: Blog yet implemented yet
 	const urlSharingData = useUrlSharingData(BLOG)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>

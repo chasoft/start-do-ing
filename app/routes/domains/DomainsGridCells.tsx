@@ -5,11 +5,19 @@ import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components"
-import { DomainsBuilderCell } from "../domains.builder/grid-cell"
-import { DomainsExtensionsCell } from "../domains.extensions/grid-cell"
-import { DomainsGroupCell } from "./grid-cell"
-import { DomainsWhoiCell } from "../domains.whois/grid-cell"
+import {
+	CellGridEmpty,
+	CellGridLeft,
+	CellGridRight,
+	CellIntroSwitcher
+} from "~/components"
+import { DomainsBuilderCell, DomainsBuilderCellIntro } from "../domains.builder/grid-cell"
+import {
+	DomainsExtensionsCell,
+	DomainsExtensionsCellIntro
+} from "../domains.extensions/grid-cell"
+import { DomainsGroupCell, DomainsGroupCellIntro } from "./grid-cell"
+import { DomainsWhoiCell, DomainsWhoiCellIntro } from "../domains.whois/grid-cell"
 import type { DomainsLayoutId, GridCellsProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -25,7 +33,8 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function DomainsGridCells({
 	className,
-	layoutId
+	layoutId,
+	isIntroBlock
 }: GridCellsProps<DomainsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -35,27 +44,39 @@ export function DomainsGridCells({
 		 *********************************************************************/
 		case "domains":
 			return (
-				<div className={clsx(className)}>
-					<DomainsGroupCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DomainsGroupCell />}
+					introBlock={<DomainsGroupCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "domains-builder":
 			return (
-				<div className={clsx(className)}>
-					<DomainsBuilderCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DomainsBuilderCell />}
+					introBlock={<DomainsBuilderCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "domains-extensions":
 			return (
-				<div className={clsx(className)}>
-					<DomainsExtensionsCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DomainsExtensionsCell />}
+					introBlock={<DomainsExtensionsCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "domains-whois":
 			return (
-				<div className={clsx(className)}>
-					<DomainsWhoiCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DomainsWhoiCell />}
+					introBlock={<DomainsWhoiCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "empty":
 			return (
@@ -77,13 +98,7 @@ export function DomainsGridCells({
 		case "right":
 			return (
 				<div className={clsx(className)}>
-					<RightGridCell />
-				</div>
-			)
-		case "last":
-			return (
-				<div className={clsx(className)}>
-					<CellGridLast />
+					<CellGridRight />
 				</div>
 			)
 		/**********************************************************************

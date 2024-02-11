@@ -4,9 +4,7 @@
  *
  ******************************************************************/
 
-export * from "./CellGridDropdownMenu"
 export * from "./CellGridEmpty"
-export * from "./CellGridLast"
 export * from "./CellGroup"
 export * from "./CellItem"
 export * from "./ContentWrapper"

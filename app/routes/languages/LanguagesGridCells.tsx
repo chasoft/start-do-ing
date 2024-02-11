@@ -5,11 +5,25 @@ import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components"
-import { Languages100PopularChineseWordsCell } from "../languages.100-popular-chinese-words/grid-cell"
-import { LanguagesChineseCharactersCell } from "../languages.chinese-characters/grid-cell"
-import { LanguagesGroupCell } from "./grid-cell"
-import { LanguagesVietnameseReadingForKidsCell } from "../languages.vietnamese-reading-for-kids/grid-cell"
+import {
+	CellGridEmpty,
+	CellGridLeft,
+	CellGridRight,
+	CellIntroSwitcher
+} from "~/components"
+import {
+	Languages100PopularChineseWordsCell,
+	Languages100PopularChineseWordsCellIntro
+} from "../languages.100-popular-chinese-words/grid-cell"
+import {
+	LanguagesChineseCharactersCell,
+	LanguagesChineseCharactersCellIntro
+} from "../languages.chinese-characters/grid-cell"
+import { LanguagesGroupCell, LanguagesGroupCellIntro } from "./grid-cell"
+import {
+	LanguagesVietnameseReadingForKidsCell,
+	LanguagesVietnameseReadingForKidsCellIntro
+} from "../languages.vietnamese-reading-for-kids/grid-cell"
 import type { GridCellsProps, LanguagesLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -25,7 +39,8 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function LanguagesGridCells({
 	className,
-	layoutId
+	layoutId,
+	isIntroBlock
 }: GridCellsProps<LanguagesLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -35,27 +50,39 @@ export function LanguagesGridCells({
 		 *********************************************************************/
 		case "languages":
 			return (
-				<div className={clsx(className)}>
-					<LanguagesGroupCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<LanguagesGroupCell />}
+					introBlock={<LanguagesGroupCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "100-popular-chinese-words":
 			return (
-				<div className={clsx(className)}>
-					<Languages100PopularChineseWordsCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<Languages100PopularChineseWordsCell />}
+					introBlock={<Languages100PopularChineseWordsCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "chinese-characters":
 			return (
-				<div className={clsx(className)}>
-					<LanguagesChineseCharactersCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<LanguagesChineseCharactersCell />}
+					introBlock={<LanguagesChineseCharactersCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "vietnamese-reading-for-kids":
 			return (
-				<div className={clsx(className)}>
-					<LanguagesVietnameseReadingForKidsCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<LanguagesVietnameseReadingForKidsCell />}
+					introBlock={<LanguagesVietnameseReadingForKidsCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "empty":
 			return (
@@ -77,13 +104,7 @@ export function LanguagesGridCells({
 		case "right":
 			return (
 				<div className={clsx(className)}>
-					<RightGridCell />
-				</div>
-			)
-		case "last":
-			return (
-				<div className={clsx(className)}>
-					<CellGridLast />
+					<CellGridRight />
 				</div>
 			)
 		/**********************************************************************

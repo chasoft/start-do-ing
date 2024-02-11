@@ -3,19 +3,28 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { CellItem } from "~/components"
+import { CellIntro, CellItem } from "~/components"
 import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
 import { MATHS_EMPTY_1 } from "./metadata"
+import { MATHS } from "../maths/metadata"
 
 /***************************************************************************
  *
  *  START
  *
  **************************************************************************/
+
+export function MathsEmpty1CellIntro() {
+	return (
+		<CellIntro metaData={MATHS_EMPTY_1} upTo={MATHS.to}>
+			.... INTRO... SETTINGS...MathsEmpty1Cell
+		</CellIntro>
+	)
+}
 
 export function MathsEmpty1Cell({ className }: GridCellProps) {
 	return <CellItem className={className} metaData={MATHS_EMPTY_1} />

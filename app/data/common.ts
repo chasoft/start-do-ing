@@ -4,16 +4,6 @@
 
 /* COMPONENTS & UTILS */
 import { ABOUT } from "~/routes/about/metadata"
-import {
-	BLOG,
-	BLOG_AI,
-	BLOG_CHESS,
-	BLOG_PHILOSOPHY,
-	BLOG_PROGRAMMING,
-	BLOG_TRAVEL
-} from "~/routes/blog/metadata"
-import { DASHBOARD } from "~/routes/dashboard/metadata"
-import { DASHBOARD_SETTINGS } from "~/routes/dashboard.settings._index/metadata"
 import { DATE_TIME } from "~/routes/date-time/metadata"
 import { DATE_TIME_ANALOG_CLOCK } from "~/routes/date-time.analog-clock/metadata"
 import { DATE_TIME_CALCULATOR } from "~/routes/date-time.calculator/metadata"
@@ -54,12 +44,10 @@ import { RANDOM_NUMBER } from "~/routes/random.number/metadata"
 import { RANDOM_PASSWORD } from "~/routes/random.password/metadata"
 import { RANDOM_USERNAME } from "~/routes/random.username/metadata"
 import { URL_SHORTENER } from "~/routes/url-shortener/metadata"
-import { URL_SHORTENER_INDEX } from "~/routes/url-shortener._index/metadata"
 import type {
 	Block,
-	BlogLayoutId,
+	// BlogLayoutId,
 	Breakpoint,
-	DashboardLayoutId,
 	DateTimeLayoutId,
 	DevUtilsLayoutId,
 	DomainsLayoutId,
@@ -108,14 +96,14 @@ export const HOME_BLOCKS: Block<GroupId>[] = [
 ]
 
 // 2
-export const BLOG_BLOCKS: Block<BlogLayoutId>[] = [
-	BLOG,
-	BLOG_AI,
-	BLOG_CHESS,
-	BLOG_PHILOSOPHY,
-	BLOG_PROGRAMMING,
-	BLOG_TRAVEL
-]
+// export const BLOG_BLOCKS: Block<BlogLayoutId>[] = [
+// 	BLOG,
+// 	BLOG_AI,
+// 	BLOG_CHESS,
+// 	BLOG_PHILOSOPHY,
+// 	BLOG_PROGRAMMING,
+// 	BLOG_TRAVEL
+// ]
 
 // 3
 export const DATE_TIME_BLOCKS: Block<DateTimeLayoutId>[] = [
@@ -179,18 +167,10 @@ export const RANDOM_BLOCKS: Block<RandomLayoutId>[] = [
 ]
 
 // 10
-export const URL_SHORTENER_BLOCKS: Block<UrlShortenerLayoutId>[] = [
-	URL_SHORTENER,
-	URL_SHORTENER_INDEX
-]
+export const URL_SHORTENER_BLOCKS: Block<UrlShortenerLayoutId>[] = [URL_SHORTENER]
 
 // 11
 export const OTHERS_BLOCKS: Block<OthersLayoutId>[] = [OTHERS, OTHERS_RUNNING_TEXT]
-
-export const DASHBOARD_BLOCKS: Block<DashboardLayoutId>[] = [
-	DASHBOARD,
-	DASHBOARD_SETTINGS
-]
 
 export const ABOUT_BLOCKS: Block<"about">[] = [ABOUT]
 

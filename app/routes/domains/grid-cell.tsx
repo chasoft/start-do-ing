@@ -4,7 +4,7 @@
 
 /* COMPONENTS & UTILS */
 import { getMenuItemsFromBlocks } from "~/utils"
-import { CellGroup } from "~/components"
+import { CellGroup, CellIntro } from "~/components"
 import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -22,7 +22,11 @@ import { DOMAINS_BLOCKS } from "~/data"
 const dropdownMenuItems = getMenuItemsFromBlocks(DOMAINS_BLOCKS)
 
 export function DomainsGroupCellIntro() {
-	return <div>.... INTRO... SETTINGS...</div>
+	return (
+		<CellIntro metaData={DOMAINS} upTo={DOMAINS.to}>
+			.... INTRO... SETTINGS...DomainsGroupCell
+		</CellIntro>
+	)
 }
 
 export function DomainsGroupCell({ className }: GridCellProps) {

@@ -5,9 +5,17 @@ import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components"
-import { OthersGroupCell } from "./grid-cell"
-import { OthersRunningTextCell } from "../others.running-text/grid-cell"
+import {
+	CellGridEmpty,
+	CellGridLeft,
+	CellGridRight,
+	CellIntroSwitcher
+} from "~/components"
+import { OthersGroupCell, OthersGroupCellIntro } from "./grid-cell"
+import {
+	OthersRunningTextCell,
+	OthersRunningTextCellIntro
+} from "../others.running-text/grid-cell"
 import type { GridCellsProps, OthersLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -23,7 +31,8 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function OthersGridCells({
 	className,
-	layoutId
+	layoutId,
+	isIntroBlock
 }: GridCellsProps<OthersLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -33,15 +42,21 @@ export function OthersGridCells({
 		 *********************************************************************/
 		case "others":
 			return (
-				<div className={clsx(className)}>
-					<OthersGroupCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<OthersGroupCell />}
+					introBlock={<OthersGroupCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "others-running-text":
 			return (
-				<div className={clsx(className)}>
-					<OthersRunningTextCell />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<OthersRunningTextCell />}
+					introBlock={<OthersRunningTextCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "empty":
 			return (
@@ -63,13 +78,7 @@ export function OthersGridCells({
 		case "right":
 			return (
 				<div className={clsx(className)}>
-					<RightGridCell />
-				</div>
-			)
-		case "last":
-			return (
-				<div className={clsx(className)}>
-					<CellGridLast />
+					<CellGridRight />
 				</div>
 			)
 		/**********************************************************************

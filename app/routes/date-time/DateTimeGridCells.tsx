@@ -9,7 +9,7 @@ import {
 	CellGridEmpty,
 	CellGridLeft,
 	CellIntroSwitcher,
-	RightGridCell
+	CellGridRight
 } from "~/components"
 import {
 	DateTimeAnalogClockCell,
@@ -31,13 +31,13 @@ import {
 	DateTimeDigitalClockCell,
 	DateTimeDigitalClockCellIntro
 } from "../date-time.digital-clock/grid-cell"
+import { DateTimeGroupCell, DateTimeGroupCellIntro } from "./grid-cell"
 import type { DateTimeLayoutId, GridCellsProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
 import { BLOCK_NOT_FOUND } from "~/data"
-import { DateTimeGroupCell, DateTimeGroupCellIntro } from "./grid-cell"
 
 /***************************************************************************
  *
@@ -130,7 +130,7 @@ export function DateTimeGridCells({
 		case "right":
 			return (
 				<div className={clsx(className)}>
-					<RightGridCell />
+					<CellGridRight />
 				</div>
 			)
 		/**********************************************************************

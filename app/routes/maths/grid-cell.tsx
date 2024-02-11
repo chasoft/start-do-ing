@@ -1,11 +1,10 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { getMenuItemsFromBlocks } from "~/utils"
-import { CellGroup } from "~/components"
+import { CellGroup, CellIntro } from "~/components"
 import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -21,6 +20,14 @@ import { MATHS_BLOCKS } from "~/data"
  **************************************************************************/
 
 const dropdownMenuItems = getMenuItemsFromBlocks(MATHS_BLOCKS)
+
+export function MathsGroupCellIntro() {
+	return (
+		<CellIntro metaData={MATHS} upTo={MATHS.to}>
+			.... INTRO... SETTINGS...MathsGroupCell
+		</CellIntro>
+	)
+}
 
 export function MathsGroupCell({ className }: GridCellProps) {
 	return (

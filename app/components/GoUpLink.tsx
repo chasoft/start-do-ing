@@ -4,11 +4,11 @@ import { Link } from "@remix-run/react"
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { IconArrowBackUp } from "@tabler/icons-react"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { IconArrowBackUp } from "@tabler/icons-react"
 
 /***************************************************************************
  *

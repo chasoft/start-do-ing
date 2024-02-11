@@ -4,7 +4,7 @@
 
 /* COMPONENTS & UTILS */
 import { getMenuItemsFromBlocks } from "~/utils"
-import { CellGroup } from "~/components"
+import { CellGroup, CellIntro } from "~/components"
 import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -22,7 +22,11 @@ import { KAHOOT_BLOCKS } from "~/data"
 const dropdownMenuItems = getMenuItemsFromBlocks(KAHOOT_BLOCKS)
 
 export function KahootGroupCellIntro() {
-	return <div>.... INTRO... SETTINGS...</div>
+	return (
+		<CellIntro metaData={KAHOOT} upTo={KAHOOT.to}>
+			.... INTRO... SETTINGS...KahootGroupCell
+		</CellIntro>
+	)
 }
 
 export function KahootGroupCell({ className }: GridCellProps) {

@@ -1,4 +1,19 @@
+/* FRAMEWORK */
+
+/* THIRD-PARTY PACKAGES */
 import clsx from "clsx"
+
+/* COMPONENTS & UTILS */
+
+/* TRANSLATIONS IMPORT */
+
+/* ASSETS & DATA IMPORT */
+
+/***************************************************************************
+ *
+ *  START
+ *
+ **************************************************************************/
 
 export function CellIntroSwitcher({
 	contentBlock,
