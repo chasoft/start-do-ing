@@ -17,8 +17,6 @@ import { RANDOM_USERNAME } from "./metadata"
  *
  **************************************************************************/
 
-export function RandomUsernameCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem className={className} blockIndex={blockIndex} metaData={RANDOM_USERNAME} />
-	)
+export function RandomUsernameCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={RANDOM_USERNAME} />
 }

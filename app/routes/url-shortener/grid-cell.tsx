@@ -22,11 +22,10 @@ import { URL_SHORTENER_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(URL_SHORTENER_BLOCKS)
 
-export function UrlShortenerGroupCell({ className, blockIndex }: GridCellProps) {
+export function UrlShortenerGroupCell({ className }: GridCellProps) {
 	return (
 		<CellGroup
-			blockIndex={blockIndex}
-			className={clsx(className)}
+			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={URL_SHORTENER}
 		/>

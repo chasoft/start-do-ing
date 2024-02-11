@@ -5,19 +5,39 @@ import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components"
-import { DateTimeAnalogClockCell } from "../date-time.analog-clock/grid-cell"
-import { DateTimeCalculatorCell } from "../date-time.calculator/grid-cell"
-import { DateTimeCalendarCell } from "../date-time.calendar/grid-cell"
-import { DateTimeCountDownCell } from "../date-time.count-down/grid-cell"
-import { DateTimeDigitalClockCell } from "../date-time.digital-clock/grid-cell"
-import { DateTimeIndexCell } from "../date-time._index/grid-cell"
+import {
+	CellGridEmpty,
+	CellGridLeft,
+	CellIntroSwitcher,
+	RightGridCell
+} from "~/components"
+import {
+	DateTimeAnalogClockCell,
+	DateTimeAnalogClockCellIntro
+} from "../date-time.analog-clock/grid-cell"
+import {
+	DateTimeCalculatorCell,
+	DateTimeCalculatorCellIntro
+} from "../date-time.calculator/grid-cell"
+import {
+	DateTimeCalendarCell,
+	DateTimeCalendarCellIntro
+} from "../date-time.calendar/grid-cell"
+import {
+	DateTimeCountDownCell,
+	DateTimeCountDownCellIntro
+} from "../date-time.count-down/grid-cell"
+import {
+	DateTimeDigitalClockCell,
+	DateTimeDigitalClockCellIntro
+} from "../date-time.digital-clock/grid-cell"
 import type { DateTimeLayoutId, GridCellsProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
 import { BLOCK_NOT_FOUND } from "~/data"
+import { DateTimeGroupCell, DateTimeGroupCellIntro } from "./grid-cell"
 
 /***************************************************************************
  *
@@ -28,7 +48,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 export function DateTimeGridCells({
 	className,
 	layoutId,
-	blockIndex
+	isIntroBlock
 }: GridCellsProps<DateTimeLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -38,39 +58,57 @@ export function DateTimeGridCells({
 		 *********************************************************************/
 		case "date-time":
 			return (
-				<div className={clsx(className)}>
-					<DateTimeIndexCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DateTimeGroupCell />}
+					introBlock={<DateTimeGroupCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "date-time-analog-clock":
 			return (
-				<div className={clsx(className)}>
-					<DateTimeAnalogClockCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DateTimeAnalogClockCell />}
+					introBlock={<DateTimeAnalogClockCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "date-time-calculator":
 			return (
-				<div className={clsx(className)}>
-					<DateTimeCalculatorCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DateTimeCalculatorCell />}
+					introBlock={<DateTimeCalculatorCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "date-time-calendar":
 			return (
-				<div className={clsx(className)}>
-					<DateTimeCalendarCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DateTimeCalendarCell />}
+					introBlock={<DateTimeCalendarCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "date-time-count-down":
 			return (
-				<div className={clsx(className)}>
-					<DateTimeCountDownCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DateTimeCountDownCell />}
+					introBlock={<DateTimeCountDownCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "date-time-digital-clock":
 			return (
-				<div className={clsx(className)}>
-					<DateTimeDigitalClockCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DateTimeDigitalClockCell />}
+					introBlock={<DateTimeDigitalClockCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "empty":
 			return (
@@ -93,12 +131,6 @@ export function DateTimeGridCells({
 			return (
 				<div className={clsx(className)}>
 					<RightGridCell />
-				</div>
-			)
-		case "last":
-			return (
-				<div className={clsx(className)}>
-					<CellGridLast />
 				</div>
 			)
 		/**********************************************************************

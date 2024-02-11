@@ -43,8 +43,9 @@ export function useBreakpoint() {
 export function useCurrentLayoutId() {
 	const matches = useMatches()
 	const activeHandle = matches[matches.length - 1].handle as CustomRouteHandle
-	const currenLayoutId = activeHandle.layoutId ?? DEFAULT_BLOCK.id
-	return currenLayoutId
+	const currentLayoutId = activeHandle.layoutId ?? DEFAULT_BLOCK.id
+	const isGroup = activeHandle.isGroup ?? false
+	return { currentLayoutId, isGroup }
 }
 
 export function useIsFullscreen() {
@@ -63,15 +64,12 @@ export function useIsMobileWindowSize() {
 	return isMobileWindowSize
 }
 
-export function useUrlSharingData(
-	block: Block<unknown>,
-	options: { fullscreen?: boolean } | undefined
-) {
+export function useUrlSharingData(block: Block<unknown>, fullscreen: boolean = true) {
 	const setUrlSharingData = useSetAtom(urlSharingDataAtom)
 
 	const urlSharingData = useMemo(
-		() => getUrlSharingData(block, { fullscreen: options?.fullscreen ?? true }),
-		[block, options?.fullscreen]
+		() => getUrlSharingData(block, { fullscreen }),
+		[block, fullscreen]
 	)
 
 	useEffect(() => {

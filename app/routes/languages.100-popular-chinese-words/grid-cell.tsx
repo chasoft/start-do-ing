@@ -17,15 +17,6 @@ import { LANGUAGES_100_POPULAR_CHINESE_WORDS } from "./metadata"
  *
  **************************************************************************/
 
-export function Languages100PopularChineseWordsCell({
-	className,
-	blockIndex
-}: GridCellProps) {
-	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={LANGUAGES_100_POPULAR_CHINESE_WORDS}
-		/>
-	)
+export function Languages100PopularChineseWordsCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={LANGUAGES_100_POPULAR_CHINESE_WORDS} />
 }

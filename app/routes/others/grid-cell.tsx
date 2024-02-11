@@ -22,11 +22,10 @@ import { OTHERS_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(OTHERS_BLOCKS)
 
-export function OthersGroupCell({ className, blockIndex }: GridCellProps) {
+export function OthersGroupCell({ className }: GridCellProps) {
 	return (
 		<CellGroup
-			blockIndex={blockIndex}
-			className={clsx(className)}
+			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={OTHERS}
 		/>

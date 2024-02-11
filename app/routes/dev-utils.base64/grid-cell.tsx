@@ -17,8 +17,6 @@ import { DEV_UTILS_BASE64 } from "./metadata"
  *
  **************************************************************************/
 
-export function DevUtilsBase64Cell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem className={className} blockIndex={blockIndex} metaData={DEV_UTILS_BASE64} />
-	)
+export function DevUtilsBase64Cell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={DEV_UTILS_BASE64} />
 }

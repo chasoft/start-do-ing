@@ -1,8 +1,10 @@
 /* FRAMEWORK */
+import { Link } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
+import { IconArrowBackUp } from "@tabler/icons-react"
 
 /* TRANSLATIONS IMPORT */
 
@@ -13,11 +15,10 @@
  *  START
  *
  **************************************************************************/
-
-export function CellGridEmpty() {
+export function GoUpLink({ upTo }: { upTo: string }) {
 	return (
-		<div className="block h-full bg-gray-200 bg-opacity-20 rounded-lg">
-			this is a long text
-		</div>
+		<Link to={upTo}>
+			<IconArrowBackUp className="w-6 h-6 transition-all hover:scale-125 active:text-blue-900 active:scale-110" />
+		</Link>
 	)
 }

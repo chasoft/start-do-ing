@@ -1,16 +1,14 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { CellGridEmpty, CellGridLeft, RightGridCell } from "."
-import { CellGridLast } from "./CellGridLast"
 import { DateTimeGroupCell } from "~/routes/date-time/grid-cell"
 import { DevUtilsGroupCell } from "~/routes/dev-utils/grid-cell"
 import { DomainsGroupCell } from "~/routes/domains/grid-cell"
-import { HomeGridCell } from "~/routes/_index/grid-cell"
+import { HomeGridCellIntro } from "~/routes/_index/grid-cell"
 import { KahootGroupCell } from "~/routes/kahoot/grid-cell"
 import { LanguagesGroupCell } from "~/routes/languages/grid-cell"
 import { MathsGroupCell } from "~/routes/maths/grid-cell"
@@ -22,7 +20,6 @@ import type { GridCellsProps, GroupId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { BLOCK_NOT_FOUND } from "~/data"
 
 /***************************************************************************
  *
@@ -32,8 +29,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function RootGridCells({
 	className,
-	layoutId,
-	blockIndex
+	layoutId
 }: GridCellsProps<GroupId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -44,61 +40,61 @@ export function RootGridCells({
 		case "home":
 			return (
 				<div className={clsx(className)}>
-					<HomeGridCell blockIndex={blockIndex} />
+					<HomeGridCellIntro />
 				</div>
 			)
 		case "date-time":
 			return (
 				<div className={clsx(className)}>
-					<DateTimeGroupCell blockIndex={blockIndex} />
+					<DateTimeGroupCell />
 				</div>
 			)
 		case "dev-utils":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsGroupCell blockIndex={blockIndex} />
+					<DevUtilsGroupCell />
 				</div>
 			)
 		case "domains":
 			return (
 				<div className={clsx(className)}>
-					<DomainsGroupCell blockIndex={blockIndex} />
+					<DomainsGroupCell />
 				</div>
 			)
 		case "kahoot":
 			return (
 				<div className={clsx(className)}>
-					<KahootGroupCell blockIndex={blockIndex} />
+					<KahootGroupCell />
 				</div>
 			)
 		case "languages":
 			return (
 				<div className={clsx(className)}>
-					<LanguagesGroupCell blockIndex={blockIndex} />
+					<LanguagesGroupCell />
 				</div>
 			)
 		case "maths":
 			return (
 				<div className={clsx(className)}>
-					<MathsGroupCell blockIndex={blockIndex} />
+					<MathsGroupCell />
 				</div>
 			)
 		case "random":
 			return (
 				<div className={clsx(className)}>
-					<RandomGroupCell blockIndex={blockIndex} />
+					<RandomGroupCell />
 				</div>
 			)
 		case "url-shortener":
 			return (
 				<div className={clsx(className)}>
-					<UrlShortenerGroupCell blockIndex={blockIndex} />
+					<UrlShortenerGroupCell />
 				</div>
 			)
 		case "others":
 			return (
 				<div className={clsx(className)}>
-					<OthersGroupCell blockIndex={blockIndex} />
+					<OthersGroupCell />
 				</div>
 			)
 		case "empty":
@@ -124,12 +120,6 @@ export function RootGridCells({
 					<RightGridCell />
 				</div>
 			)
-		case "last":
-			return (
-				<div className={clsx(className)}>
-					<CellGridLast />
-				</div>
-			)
 		/**********************************************************************
 		 *
 		 *  FIX BLOCKS
@@ -137,16 +127,8 @@ export function RootGridCells({
 		 *********************************************************************/
 		default:
 			return (
-				<div className={clsx(className, "h-full")}>
-					<motion.div
-						className={clsx("h-full bg-gray-200 rounded-lg")}
-						layoutId={BLOCK_NOT_FOUND}
-					>
-						<div className="grid h-full text-lg text-red-900 md:text-xl place-content-center">
-							BLOCK NOT FOUND
-							<p>{layoutId}</p>
-						</div>
-					</motion.div>
+				<div className={clsx(className)}>
+					<CellGridEmpty />
 				</div>
 			)
 	}

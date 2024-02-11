@@ -17,12 +17,6 @@ import { OTHERS_RUNNING_TEXT } from "./metadata"
  *
  **************************************************************************/
 
-export function OthersRunningTextCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={OTHERS_RUNNING_TEXT}
-		/>
-	)
+export function OthersRunningTextCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={OTHERS_RUNNING_TEXT} />
 }

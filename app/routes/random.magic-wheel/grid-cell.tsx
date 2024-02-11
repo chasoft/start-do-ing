@@ -17,12 +17,6 @@ import { RANDOM_MAGIC_WHEEL } from "./metadata"
  *
  **************************************************************************/
 
-export function RandomMagicWheelCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={RANDOM_MAGIC_WHEEL}
-		/>
-	)
+export function RandomMagicWheelCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={RANDOM_MAGIC_WHEEL} />
 }

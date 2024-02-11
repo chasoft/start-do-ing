@@ -17,8 +17,6 @@ import { RANDOM_PASSWORD } from "./metadata"
  *
  **************************************************************************/
 
-export function RandomPasswordCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem className={className} blockIndex={blockIndex} metaData={RANDOM_PASSWORD} />
-	)
+export function RandomPasswordCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={RANDOM_PASSWORD} />
 }

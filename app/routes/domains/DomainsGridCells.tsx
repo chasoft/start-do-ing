@@ -25,8 +25,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function DomainsGridCells({
 	className,
-	layoutId,
-	blockIndex
+	layoutId
 }: GridCellsProps<DomainsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -37,25 +36,25 @@ export function DomainsGridCells({
 		case "domains":
 			return (
 				<div className={clsx(className)}>
-					<DomainsGroupCell blockIndex={blockIndex} />
+					<DomainsGroupCell />
 				</div>
 			)
 		case "domains-builder":
 			return (
 				<div className={clsx(className)}>
-					<DomainsBuilderCell blockIndex={blockIndex} />
+					<DomainsBuilderCell />
 				</div>
 			)
 		case "domains-extensions":
 			return (
 				<div className={clsx(className)}>
-					<DomainsExtensionsCell blockIndex={blockIndex} />
+					<DomainsExtensionsCell />
 				</div>
 			)
 		case "domains-whois":
 			return (
 				<div className={clsx(className)}>
-					<DomainsWhoiCell blockIndex={blockIndex} />
+					<DomainsWhoiCell />
 				</div>
 			)
 		case "empty":

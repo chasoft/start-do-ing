@@ -17,12 +17,6 @@ import { DASHBOARD_SETTINGS } from "./metadata"
  *
  **************************************************************************/
 
-export function DashboardSettingsCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={DASHBOARD_SETTINGS}
-		/>
-	)
+export function DashboardSettingsCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={DASHBOARD_SETTINGS} />
 }

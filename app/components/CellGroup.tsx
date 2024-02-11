@@ -1,5 +1,5 @@
 /* FRAMEWORK */
-import { Link } from "@remix-run/react"
+import { Link, useLocation } from "@remix-run/react"
 import { useMemo } from "react"
 
 /* THIRD-PARTY PACKAGES */
@@ -10,8 +10,6 @@ import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { CellGridLink } from "."
-import { HomeLink } from "./HomeLink"
-import { isFirstCell } from "~/utils"
 import type { Block } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -27,7 +25,6 @@ import { IconMoreHorizontal } from "./icons"
 
 type CellGroupProps = {
 	className?: string
-	blockIndex: number
 	metaData: Block<string>
 	dropdownMenuItems?: Array<{
 		title: string
@@ -39,14 +36,13 @@ type CellGroupProps = {
 	}>
 }
 
-export function CellGroup({
-	className,
-	blockIndex,
-	dropdownMenuItems,
-	metaData
-}: CellGroupProps) {
+const homePathname = "/"
+
+export function CellGroup({ className, dropdownMenuItems, metaData }: CellGroupProps) {
 	const { hovered: menuHovered, ref: menuRef } = useHover()
 	const { hovered: targetHovered, ref: targetRef } = useHover()
+	const { pathname } = useLocation()
+	const isHome = pathname === homePathname
 
 	const iconLinks = useMemo(
 		() =>
@@ -92,14 +88,15 @@ export function CellGroup({
 						)}
 					</div>
 				</div>
-				<div className="absolute hidden gap-1 pt-3 bottom-2 left-2 lg:flex grow">
-					{/* Show IconLinks, max 4 icons */}
-					{iconLinks}
-				</div>
-				{isFirstCell(blockIndex) && <HomeLink />}
+				{isHome && (
+					<div className="absolute hidden gap-1 pt-3 bottom-2 left-2 lg:flex grow">
+						{/* Show IconLinks, max 4 icons */}
+						{iconLinks}
+					</div>
+				)}
 			</CellGridLink>
 
-			{!isFirstCell(blockIndex) && showMoreButton && (
+			{isHome && showMoreButton && (
 				<>
 					<motion.div
 						className="absolute inset-0 bg-yellow-200 rounded-lg"

@@ -26,7 +26,7 @@ export function HomeFeature({
 	className?: string
 	layoutId: string
 }) {
-	const urlSharingData = useUrlSharingData(HOME, { fullscreen: false })
+	const urlSharingData = useUrlSharingData(HOME, false)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

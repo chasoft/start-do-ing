@@ -17,12 +17,6 @@ import { DEV_UTILS_HASH_GENERATOR } from "./metadata"
  *
  **************************************************************************/
 
-export function DevUtilsHashGeneratorCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={DEV_UTILS_HASH_GENERATOR}
-		/>
-	)
+export function DevUtilsHashGeneratorCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={DEV_UTILS_HASH_GENERATOR} />
 }

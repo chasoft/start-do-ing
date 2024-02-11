@@ -22,11 +22,10 @@ import { DASHBOARD_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(DASHBOARD_BLOCKS)
 
-export function DashboardGroupCell({ className, blockIndex }: GridCellProps) {
+export function DashboardGroupCell({ className }: GridCellProps) {
 	return (
 		<CellGroup
-			blockIndex={blockIndex}
-			className={clsx(className)}
+			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={DASHBOARD}
 		/>

@@ -29,8 +29,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function BlogGridCells({
 	className,
-	layoutId,
-	blockIndex
+	layoutId
 }: GridCellsProps<BlogLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -41,37 +40,37 @@ export function BlogGridCells({
 		case "blog":
 			return (
 				<div className={clsx(className)}>
-					<BlogGroupCell blockIndex={blockIndex} />
+					<BlogGroupCell />
 				</div>
 			)
 		case "AI":
 			return (
 				<div className={clsx(className)}>
-					<BlogAICell blockIndex={blockIndex} />
+					<BlogAICell />
 				</div>
 			)
 		case "chess":
 			return (
 				<div className={clsx(className)}>
-					<BlogChessCell blockIndex={blockIndex} />
+					<BlogChessCell />
 				</div>
 			)
 		case "philosophy":
 			return (
 				<div className={clsx(className)}>
-					<BlogPhilosophyCell blockIndex={blockIndex} />
+					<BlogPhilosophyCell />
 				</div>
 			)
 		case "programming":
 			return (
 				<div className={clsx(className)}>
-					<BlogProgrammingCell blockIndex={blockIndex} />
+					<BlogProgrammingCell />
 				</div>
 			)
 		case "travel":
 			return (
 				<div className={clsx(className)}>
-					<BlogTravelCell blockIndex={blockIndex} />
+					<BlogTravelCell />
 				</div>
 			)
 		case "empty":

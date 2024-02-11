@@ -22,11 +22,10 @@ import { LANGUAGES_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(LANGUAGES_BLOCKS)
 
-export function LanguagesGroupCell({ className, blockIndex }: GridCellProps) {
+export function LanguagesGroupCell({ className }: GridCellProps) {
 	return (
 		<CellGroup
-			blockIndex={blockIndex}
-			className={clsx(className)}
+			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={LANGUAGES}
 		/>

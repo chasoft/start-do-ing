@@ -1,10 +1,9 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGroup } from "~/components"
+import { CellGroup, CellIntro } from "~/components"
 import { getMenuItemsFromBlocks } from "~/utils"
 import type { GridCellProps } from "~/utils/types"
 
@@ -22,10 +21,17 @@ import { HOME_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(HOME_BLOCKS)
 
-export function HomeGridCell({ className, blockIndex }: GridCellProps) {
+export function HomeGridCellIntro({ className }: { className?: string }) {
+	return (
+		<CellIntro metaData={HOME} upTo={HOME.to} className={className}>
+			Hello welcome to my website
+		</CellIntro>
+	)
+}
+
+export function HomeGridCell({ className }: GridCellProps) {
 	return (
 		<CellGroup
-			blockIndex={blockIndex}
 			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={HOME}

@@ -17,12 +17,6 @@ import { DEV_UTILS_MARKDOWN_EDITOR } from "./metadata"
  *
  **************************************************************************/
 
-export function DevUtilsMarkdownEditorCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={DEV_UTILS_MARKDOWN_EDITOR}
-		/>
-	)
+export function DevUtilsMarkdownEditorCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={DEV_UTILS_MARKDOWN_EDITOR} />
 }

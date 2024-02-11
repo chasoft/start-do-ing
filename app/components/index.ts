@@ -19,10 +19,12 @@ export * from "./FullScreenContentWrapper"
  *
  ******************************************************************/
 
-export * from "./NavigationGrid"
-export * from "./NavigationMobile"
 export * from "./CellGridLeft"
 export * from "./CellGridRight"
+export * from "./CellIntroSwitcher"
+export * from "./CellIntro"
+export * from "./NavigationGrid"
+export * from "./NavigationMobile"
 
 /******************************************************************
  *
@@ -31,5 +33,7 @@ export * from "./CellGridRight"
  ******************************************************************/
 
 export * from "./CellGridLink"
-export * from "./SharingButton"
 export * from "./FullScreenButton"
+export * from "./HomeLink"
+export * from "./GoUpLink"
+export * from "./SharingButton"

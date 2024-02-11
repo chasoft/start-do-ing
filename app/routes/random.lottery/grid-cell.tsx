@@ -17,8 +17,6 @@ import { RANDOM_LOTTERY } from "./metadata"
  *
  **************************************************************************/
 
-export function RandomLotteryCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem className={className} blockIndex={blockIndex} metaData={RANDOM_LOTTERY} />
-	)
+export function RandomLotteryCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={RANDOM_LOTTERY} />
 }

@@ -1,7 +1,6 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { getMenuItemsFromBlocks } from "~/utils"
@@ -22,11 +21,14 @@ import { KAHOOT_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(KAHOOT_BLOCKS)
 
-export function KahootGroupCell({ className, blockIndex }: GridCellProps) {
+export function KahootGroupCellIntro() {
+	return <div>.... INTRO... SETTINGS...</div>
+}
+
+export function KahootGroupCell({ className }: GridCellProps) {
 	return (
 		<CellGroup
-			blockIndex={blockIndex}
-			className={clsx(className)}
+			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={KAHOOT}
 		/>

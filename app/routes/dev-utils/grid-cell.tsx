@@ -1,7 +1,6 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { getMenuItemsFromBlocks } from "~/utils"
@@ -22,11 +21,14 @@ import { DEV_UTILS_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(DEV_UTILS_BLOCKS)
 
-export function DevUtilsGroupCell({ className, blockIndex }: GridCellProps) {
+export function DevUtilsGroupCellIntro() {
+	return <div>.... INTRO... SETTINGS...</div>
+}
+
+export function DevUtilsGroupCell({ className }: GridCellProps) {
 	return (
 		<CellGroup
-			blockIndex={blockIndex}
-			className={clsx(className)}
+			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={DEV_UTILS}
 		/>

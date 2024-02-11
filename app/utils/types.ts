@@ -1,5 +1,6 @@
 export type CustomRouteHandle = Partial<{
 	layoutId: PageId
+	isGroup: boolean
 	breadcrumb: () => JSX.Element
 }>
 
@@ -105,7 +106,6 @@ export type DashboardLayoutId = "dashboard" | "settings"
 
 export interface GridCellProps {
 	className?: string
-	blockIndex: number
 	icon?: {
 		data: React.ReactNode
 		color?: string
@@ -120,8 +120,8 @@ export interface GridCellsProps<TLayout> {
 	 * Row3: 30 -> 35
 	 * last-block: 100
 	 */
-	blockIndex: number
 	layoutId?: TLayout | FeatureLayoutId | SystemLayoutId | DashboardLayoutId
+	isIntroBlock?: boolean
 }
 
 export interface GridCellsFunction<T> {

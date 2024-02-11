@@ -17,15 +17,8 @@ import { LANGUAGES_VIETNAMESE_READING_FOR_KIDS } from "./metadata"
  *
  **************************************************************************/
 
-export function LanguagesVietnameseReadingForKidsCell({
-	className,
-	blockIndex
-}: GridCellProps) {
+export function LanguagesVietnameseReadingForKidsCell({ className }: GridCellProps) {
 	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={LANGUAGES_VIETNAMESE_READING_FOR_KIDS}
-		/>
+		<CellItem className={className} metaData={LANGUAGES_VIETNAMESE_READING_FOR_KIDS} />
 	)
 }

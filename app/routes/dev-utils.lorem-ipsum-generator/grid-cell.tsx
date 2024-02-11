@@ -17,15 +17,6 @@ import { DEV_UTILS_LOREM_IPSUM_GENERATOR } from "./metadata"
  *
  **************************************************************************/
 
-export function DevUtilsLoremIpsumGeneratorCell({
-	className,
-	blockIndex
-}: GridCellProps) {
-	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={DEV_UTILS_LOREM_IPSUM_GENERATOR}
-		/>
-	)
+export function DevUtilsLoremIpsumGeneratorCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={DEV_UTILS_LOREM_IPSUM_GENERATOR} />
 }

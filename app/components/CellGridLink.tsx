@@ -1,5 +1,6 @@
 /* FRAMEWORK */
-import { Link } from "@remix-run/react"
+import { NavLink } from "@remix-run/react"
+import clsx from "clsx"
 
 /* THIRD-PARTY PACKAGES */
 
@@ -23,11 +24,20 @@ export function CellGridLink({
 	children: React.ReactNode
 }) {
 	return (
-		<Link
+		<NavLink
 			to={to}
-			className="relative block h-full transition-all bg-pink-200 border-2 border-transparent rounded-lg bg-opacity-30 hover:bg-opacity-60 hover:outline-pink-300 outline-pink-200 hover:border-blue-300"
+			className={({ isActive, isPending }) =>
+				clsx(
+					"relative block h-full transition-all bg-pink-200 border-2 rounded-lg hover:bg-opacity-60 hover:outline-pink-300 outline-pink-200 hover:border-blue-300",
+					isActive
+						? "bg-opacity-60 border-blue-500"
+						: isPending
+							? "bg-opacity-50 border-blue-200"
+							: "bg-opacity-30 border-transparent"
+				)
+			}
 		>
 			{children}
-		</Link>
+		</NavLink>
 	)
 }

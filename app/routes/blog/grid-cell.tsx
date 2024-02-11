@@ -29,37 +29,32 @@ import { BLOG_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(BLOG_BLOCKS)
 
-export function BlogGroupCell({ className, blockIndex }: GridCellProps) {
+export function BlogGroupCell({ className }: GridCellProps) {
 	return (
 		<CellGroup
-			blockIndex={blockIndex}
-			className={clsx(className)}
+			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={BLOG}
 		/>
 	)
 }
 
-export function BlogAICell({ className, blockIndex }: GridCellProps) {
-	return <CellItem className={className} blockIndex={blockIndex} metaData={BLOG_AI} />
+export function BlogAICell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={BLOG_AI} />
 }
 
-export function BlogChessCell({ className, blockIndex }: GridCellProps) {
-	return <CellItem className={className} blockIndex={blockIndex} metaData={BLOG_CHESS} />
+export function BlogChessCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={BLOG_CHESS} />
 }
 
-export function BlogPhilosophyCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem className={className} blockIndex={blockIndex} metaData={BLOG_PHILOSOPHY} />
-	)
+export function BlogPhilosophyCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={BLOG_PHILOSOPHY} />
 }
 
-export function BlogProgrammingCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem className={className} blockIndex={blockIndex} metaData={BLOG_PROGRAMMING} />
-	)
+export function BlogProgrammingCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={BLOG_PROGRAMMING} />
 }
 
-export function BlogTravelCell({ className, blockIndex }: GridCellProps) {
-	return <CellItem className={className} blockIndex={blockIndex} metaData={BLOG_TRAVEL} />
+export function BlogTravelCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={BLOG_TRAVEL} />
 }

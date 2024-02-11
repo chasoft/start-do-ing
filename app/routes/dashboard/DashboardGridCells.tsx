@@ -23,8 +23,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function DashboardGridCells({
 	className,
-	layoutId,
-	blockIndex
+	layoutId
 }: GridCellsProps<DashboardLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -35,13 +34,13 @@ export function DashboardGridCells({
 		case "dashboard":
 			return (
 				<div className={clsx(className)}>
-					<DashboardGroupCell blockIndex={blockIndex} />
+					<DashboardGroupCell />
 				</div>
 			)
 		case "settings":
 			return (
 				<div className={clsx(className)}>
-					<DashboardSettingsCell blockIndex={blockIndex} />
+					<DashboardSettingsCell />
 				</div>
 			)
 		case "empty":

@@ -17,6 +17,6 @@ import { KAHOOT_QUIZ } from "./metadata"
  *
  **************************************************************************/
 
-export function KahootQuizCell({ className, blockIndex }: GridCellProps) {
-	return <CellItem className={className} blockIndex={blockIndex} metaData={KAHOOT_QUIZ} />
+export function KahootQuizCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={KAHOOT_QUIZ} />
 }

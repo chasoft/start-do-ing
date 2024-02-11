@@ -29,8 +29,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function DevUtilsGridCells({
 	className,
-	layoutId,
-	blockIndex
+	layoutId
 }: GridCellsProps<DevUtilsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -41,49 +40,49 @@ export function DevUtilsGridCells({
 		case "dev-utils":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsGroupCell blockIndex={blockIndex} />
+					<DevUtilsGroupCell />
 				</div>
 			)
 		case "dev-utils-base64":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsBase64Cell blockIndex={blockIndex} />
+					<DevUtilsBase64Cell />
 				</div>
 			)
 		case "dev-utils-curl-converter":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsCurlConverterCell blockIndex={blockIndex} />
+					<DevUtilsCurlConverterCell />
 				</div>
 			)
 		case "dev-utils-hash-generator":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsHashGeneratorCell blockIndex={blockIndex} />
+					<DevUtilsHashGeneratorCell />
 				</div>
 			)
 		case "dev-utils-lorem-ipsum-generator":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsLoremIpsumGeneratorCell blockIndex={blockIndex} />
+					<DevUtilsLoremIpsumGeneratorCell />
 				</div>
 			)
 		case "dev-utils-markdown-editor":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsMarkdownEditorCell blockIndex={blockIndex} />
+					<DevUtilsMarkdownEditorCell />
 				</div>
 			)
 		case "dev-utils-sql-formatter":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsSqlFormatterCell blockIndex={blockIndex} />
+					<DevUtilsSqlFormatterCell />
 				</div>
 			)
 		case "dev-utils-string-converter":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsStringConverterCell blockIndex={blockIndex} />
+					<DevUtilsStringConverterCell />
 				</div>
 			)
 		case "empty":

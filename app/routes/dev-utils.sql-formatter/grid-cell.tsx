@@ -17,12 +17,6 @@ import { DEV_UTILS_SQL_FORMATTER } from "./metadata"
  *
  **************************************************************************/
 
-export function DevUtilsSqlFormatterCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={DEV_UTILS_SQL_FORMATTER}
-		/>
-	)
+export function DevUtilsSqlFormatterCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={DEV_UTILS_SQL_FORMATTER} />
 }

@@ -212,15 +212,4 @@ export const ABOUT_BLOCKS: Block<"about">[] = [ABOUT]
 
 export const DEFAULT_BLOCK: Block<"home"> = HOME
 
-/**
- * blockIndex
- * Row1: 0 -> 5
- * Row2: 20 -> 21
- * Row3: 30 -> 35
- * last-block: 100
- */
-export const firstBlockOfRow1 = 0
-export const firstBlockOfRow2 = 20
-export const firstBlockOfRow3 = 30
-
 export const DEFAULT_SHARING_IMAGE = "https://startdo.ing/static/images/sharing.png"

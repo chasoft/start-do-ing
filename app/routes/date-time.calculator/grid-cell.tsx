@@ -4,7 +4,6 @@
 import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { CellItem } from "~/components"
 import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -12,6 +11,8 @@ import type { GridCellProps } from "~/utils/types"
 /* ASSETS & DATA IMPORT */
 import { DATE_TIME_CALCULATOR } from "./metadata"
 import clsx from "clsx"
+import { CellIntro } from "~/components"
+import { DATE_TIME } from "../date-time/metadata"
 
 /***************************************************************************
  *
@@ -19,7 +20,15 @@ import clsx from "clsx"
  *
  **************************************************************************/
 
-export function DateTimeCalculatorCell({ className, blockIndex }: GridCellProps) {
+export function DateTimeCalculatorCellIntro() {
+	return (
+		<CellIntro metaData={DATE_TIME_CALCULATOR} upTo={DATE_TIME.to}>
+			.... INTRO... SETTINGS...DateTimeCalculatorCell
+		</CellIntro>
+	)
+}
+
+export function DateTimeCalculatorCell({ className }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={DATE_TIME_CALCULATOR.id}>
 			<div className="grid grid-cols-2 gap-1 lg:gap-2 h-full">

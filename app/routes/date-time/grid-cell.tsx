@@ -1,11 +1,10 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { getMenuItemsFromBlocks } from "~/utils"
-import { CellGroup } from "~/components"
+import { CellGroup, CellIntro } from "~/components"
 import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -22,11 +21,18 @@ import { DATE_TIME_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(DATE_TIME_BLOCKS)
 
-export function DateTimeGroupCell({ className, blockIndex }: GridCellProps) {
+export function DateTimeGroupCellIntro() {
+	return (
+		<CellIntro metaData={DATE_TIME} upTo={DATE_TIME.to}>
+			.... INTRO... SETTINGS...DateTimeGroupCellIntro
+		</CellIntro>
+	)
+}
+
+export function DateTimeGroupCell({ className }: GridCellProps) {
 	return (
 		<CellGroup
-			blockIndex={blockIndex}
-			className={clsx(className)}
+			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={DATE_TIME}
 		/>

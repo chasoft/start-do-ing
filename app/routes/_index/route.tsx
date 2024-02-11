@@ -30,7 +30,8 @@ export const meta: MetaFunction = () => {
 }
 
 export const handle: CustomRouteHandle = {
-	layoutId: layoutId
+	layoutId: layoutId,
+	isGroup: true
 }
 
 export default function HomeRoute() {

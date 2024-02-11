@@ -17,8 +17,6 @@ import { RANDOM_NUMBER } from "./metadata"
  *
  **************************************************************************/
 
-export function RandomNumberCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem className={className} blockIndex={blockIndex} metaData={RANDOM_NUMBER} />
-	)
+export function RandomNumberCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={RANDOM_NUMBER} />
 }

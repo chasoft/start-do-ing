@@ -17,12 +17,6 @@ import { DOMAINS_EXTENSIONS } from "./metadata"
  *
  **************************************************************************/
 
-export function DomainsExtensionsCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={DOMAINS_EXTENSIONS}
-		/>
-	)
+export function DomainsExtensionsCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={DOMAINS_EXTENSIONS} />
 }

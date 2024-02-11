@@ -25,8 +25,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function LanguagesGridCells({
 	className,
-	layoutId,
-	blockIndex
+	layoutId
 }: GridCellsProps<LanguagesLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -37,25 +36,25 @@ export function LanguagesGridCells({
 		case "languages":
 			return (
 				<div className={clsx(className)}>
-					<LanguagesGroupCell blockIndex={blockIndex} />
+					<LanguagesGroupCell />
 				</div>
 			)
 		case "100-popular-chinese-words":
 			return (
 				<div className={clsx(className)}>
-					<Languages100PopularChineseWordsCell blockIndex={blockIndex} />
+					<Languages100PopularChineseWordsCell />
 				</div>
 			)
 		case "chinese-characters":
 			return (
 				<div className={clsx(className)}>
-					<LanguagesChineseCharactersCell blockIndex={blockIndex} />
+					<LanguagesChineseCharactersCell />
 				</div>
 			)
 		case "vietnamese-reading-for-kids":
 			return (
 				<div className={clsx(className)}>
-					<LanguagesVietnameseReadingForKidsCell blockIndex={blockIndex} />
+					<LanguagesVietnameseReadingForKidsCell />
 				</div>
 			)
 		case "empty":

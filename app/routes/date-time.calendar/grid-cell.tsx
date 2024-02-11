@@ -3,13 +3,14 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { CellItem } from "~/components"
+import { CellIntro, CellItem } from "~/components"
 import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
 import { DATE_TIME_CALENDAR } from "./metadata"
+import { DATE_TIME } from "../date-time/metadata"
 
 /***************************************************************************
  *
@@ -17,12 +18,14 @@ import { DATE_TIME_CALENDAR } from "./metadata"
  *
  **************************************************************************/
 
-export function DateTimeCalendarCell({ className, blockIndex }: GridCellProps) {
+export function DateTimeCalendarCellIntro() {
 	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={DATE_TIME_CALENDAR}
-		/>
+		<CellIntro metaData={DATE_TIME_CALENDAR} upTo={DATE_TIME.to}>
+			.... INTRO... SETTINGS...DateTimeCalendarCell
+		</CellIntro>
 	)
+}
+
+export function DateTimeCalendarCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={DATE_TIME_CALENDAR} />
 }

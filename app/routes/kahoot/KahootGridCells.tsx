@@ -23,8 +23,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 
 export function KahootGridCells({
 	className,
-	layoutId,
-	blockIndex
+	layoutId
 }: GridCellsProps<KahootLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -35,13 +34,13 @@ export function KahootGridCells({
 		case "kahoot":
 			return (
 				<div className={clsx(className)}>
-					<KahootGroupCell blockIndex={blockIndex} />
+					<KahootGroupCell />
 				</div>
 			)
 		case "kahoot-quiz":
 			return (
 				<div className={clsx(className)}>
-					<KahootQuizCell blockIndex={blockIndex} />
+					<KahootQuizCell />
 				</div>
 			)
 		case "empty":

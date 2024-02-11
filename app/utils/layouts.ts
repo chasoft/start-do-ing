@@ -1,9 +1,9 @@
 import {
 	EMPTY_BLOCK,
-	SITE,
-	firstBlockOfRow1,
-	firstBlockOfRow2,
-	firstBlockOfRow3
+	SITE
+	// firstBlockOfRow1,
+	// firstBlockOfRow2,
+	// firstBlockOfRow3
 } from "~/data"
 import type { Block, Breakpoint, PageId } from "./types"
 
@@ -137,19 +137,19 @@ export function getMenuItemsFromBlocks(blocks: Block<unknown>[]) {
 		.slice(1)
 }
 
-export const isFirstRow = (blockIndex: number) => blockIndex < firstBlockOfRow2
+// export const isFirstRow = (blockIndex: number) => blockIndex < firstBlockOfRow2
 
-export const isFirstCell = (blockIndex: number) => blockIndex === firstBlockOfRow1
+// export const isFirstCell = (blockIndex: number) => blockIndex === firstBlockOfRow1
 
-export const isFirstCellOfRow3 = (blockIndex: number) => blockIndex === firstBlockOfRow3
+// export const isFirstCellOfRow3 = (blockIndex: number) => blockIndex === firstBlockOfRow3
 
-export const getDropdownPosition = (blockIndex: number) =>
-	isFirstRow(blockIndex)
-		? "bottom-right"
-		: isFirstCellOfRow3(blockIndex)
-			? /**
-				 * `top-left` is a little tricky here.
-				 * just a way to set different dropdown positions.
-				 */
-				"top-left"
-			: "top-right"
+// export const getDropdownPosition = (blockIndex: number) =>
+// 	isFirstRow(blockIndex)
+// 		? "bottom-right"
+// 		: isFirstCellOfRow3(blockIndex)
+// 			? /**
+// 				 * `top-left` is a little tricky here.
+// 				 * just a way to set different dropdown positions.
+// 				 */
+// 				"top-left"
+// 			: "top-right"

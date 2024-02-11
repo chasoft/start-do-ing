@@ -17,8 +17,6 @@ import { DOMAINS_BUILDER } from "./metadata"
  *
  **************************************************************************/
 
-export function DomainsBuilderCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem className={className} blockIndex={blockIndex} metaData={DOMAINS_BUILDER} />
-	)
+export function DomainsBuilderCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={DOMAINS_BUILDER} />
 }

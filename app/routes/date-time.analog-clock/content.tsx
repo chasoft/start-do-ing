@@ -32,6 +32,7 @@ export function DateTimeAnalogClockContent({
 			<motion.div className={className} layoutId={layoutId}>
 				<div className="h-full p-2 sm:p-4 xl:p-6">
 					<h1 className="text-lg font-semibold sm:text-2xl">Analog Clock</h1>
+					<p>hello world</p>
 				</div>
 			</motion.div>
 		</ContentWrapper>

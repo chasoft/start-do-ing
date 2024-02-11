@@ -17,8 +17,6 @@ import { DOMAINS_WHOIS } from "./metadata"
  *
  **************************************************************************/
 
-export function DomainsWhoiCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem className={className} blockIndex={blockIndex} metaData={DOMAINS_WHOIS} />
-	)
+export function DomainsWhoiCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={DOMAINS_WHOIS} />
 }

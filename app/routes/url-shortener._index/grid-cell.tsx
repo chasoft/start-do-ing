@@ -17,8 +17,6 @@ import { URL_SHORTENER } from "../url-shortener/metadata"
  *
  **************************************************************************/
 
-export function URLShortenerIndexCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem className={className} blockIndex={blockIndex} metaData={URL_SHORTENER} />
-	)
+export function URLShortenerIndexCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={URL_SHORTENER} />
 }

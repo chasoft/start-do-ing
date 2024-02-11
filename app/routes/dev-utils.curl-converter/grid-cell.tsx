@@ -17,12 +17,6 @@ import { DEV_UTILS_CURL_CONVERTER } from "./metadata"
  *
  **************************************************************************/
 
-export function DevUtilsCurlConverterCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={DEV_UTILS_CURL_CONVERTER}
-		/>
-	)
+export function DevUtilsCurlConverterCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={DEV_UTILS_CURL_CONVERTER} />
 }

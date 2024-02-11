@@ -17,8 +17,6 @@ import { RANDOM_BY_GROUPS } from "./metadata"
  *
  **************************************************************************/
 
-export function RandomByGroupsCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem className={className} blockIndex={blockIndex} metaData={RANDOM_BY_GROUPS} />
-	)
+export function RandomByGroupsCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={RANDOM_BY_GROUPS} />
 }

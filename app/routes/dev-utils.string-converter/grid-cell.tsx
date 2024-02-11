@@ -17,12 +17,6 @@ import { DEV_UTILS_STRING_CONVERTER } from "./metadata"
  *
  **************************************************************************/
 
-export function DevUtilsStringConverterCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={DEV_UTILS_STRING_CONVERTER}
-		/>
-	)
+export function DevUtilsStringConverterCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={DEV_UTILS_STRING_CONVERTER} />
 }

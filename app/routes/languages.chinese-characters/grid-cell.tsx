@@ -17,12 +17,6 @@ import { LANGUAGES_CHINESE_CHARACTERS } from "./metadata"
  *
  **************************************************************************/
 
-export function LanguagesChineseCharactersCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={LANGUAGES_CHINESE_CHARACTERS}
-		/>
-	)
+export function LanguagesChineseCharactersCell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={LANGUAGES_CHINESE_CHARACTERS} />
 }

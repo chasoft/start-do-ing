@@ -17,8 +17,6 @@ import { MATHS_EMPTY_3 } from "./metadata"
  *
  **************************************************************************/
 
-export function MathsEmpty3Cell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellItem className={className} blockIndex={blockIndex} metaData={MATHS_EMPTY_3} />
-	)
+export function MathsEmpty3Cell({ className }: GridCellProps) {
+	return <CellItem className={className} metaData={MATHS_EMPTY_3} />
 }
