@@ -47,9 +47,9 @@ export function NavigationGrid({
 	])
 	const layoutIds = isGroup
 		? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-			(layouts.map((block) => block.id) as any[])
+		(layouts.map((block) => block.id) as any[])
 		: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-			[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
+		[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
 
 	const lastGridCellBlocks = getLastGridCellBlocks(layouts)
 
@@ -81,14 +81,14 @@ export function NavigationGrid({
 					layoutId={SIDE_BLOCKS[0].id}
 					className={clsx("aspect-h-2 aspect-w-2", { "hidden xl:block": "display" })}
 				/>
-				<div className="grid col-span-5 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5 grid-cols-subgrid">
-					<div className="h-full col-span-5 col-start-1 overflow-hidden xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
+				<div className="col-span-4 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
+					<div className="h-full overflow-hidden">
 						{children}
 					</div>
 				</div>
 				<GridCell
 					layoutId={SIDE_BLOCKS[1].id}
-					className={clsx("aspect-h-2 aspect-w-2", { "hidden xl:block": "display" })}
+					className={clsx("aspect-h-2 aspect-w-2", { "hidden lg:block": "display" })}
 				/>
 				{/* Row 3 */}
 				<GridCell layoutId={layoutIds[6]} />
