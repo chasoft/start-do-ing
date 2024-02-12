@@ -46,7 +46,6 @@ import { RANDOM_USERNAME } from "~/routes/random.username/metadata"
 import { URL_SHORTENER } from "~/routes/url-shortener/metadata"
 import type {
 	Block,
-	// BlogLayoutId,
 	Breakpoint,
 	DateTimeLayoutId,
 	DevUtilsLayoutId,
@@ -82,28 +81,19 @@ export const breakpoints: Breakpoint[] = ["xs", "sm", "md", "lg", "xl", "2xl", "
 // 1
 export const HOME_BLOCKS: Block<GroupId>[] = [
 	HOME,
-	// ABOUT,
-	// BLOG,
+	RANDOM,
 	DATE_TIME,
+	DEV_UTILS,
+	DEV_UTILS,
+	DEV_UTILS,
 	DEV_UTILS,
 	DOMAINS,
 	KAHOOT,
 	LANGUAGES,
 	MATHS,
-	RANDOM,
 	URL_SHORTENER,
 	OTHERS
 ]
-
-// 2
-// export const BLOG_BLOCKS: Block<BlogLayoutId>[] = [
-// 	BLOG,
-// 	BLOG_AI,
-// 	BLOG_CHESS,
-// 	BLOG_PHILOSOPHY,
-// 	BLOG_PROGRAMMING,
-// 	BLOG_TRAVEL
-// ]
 
 // 3
 export const DATE_TIME_BLOCKS: Block<DateTimeLayoutId>[] = [

@@ -114,14 +114,9 @@ export interface GridCellProps {
 
 export interface GridCellsProps<TLayout> {
 	className?: string
-	/**
-	 * Row1: 0 -> 5
-	 * Row2: 20 -> 21
-	 * Row3: 30 -> 35
-	 * last-block: 100
-	 */
 	layoutId?: TLayout | FeatureLayoutId | SystemLayoutId | DashboardLayoutId
 	isIntroBlock?: boolean
+	lastGridCellBlocks?: Block<PageId>[]
 }
 
 export interface GridCellsFunction<T> {
@@ -130,8 +125,6 @@ export interface GridCellsFunction<T> {
 
 export type NavigationGridCells =
 	| GridCellsFunction<GroupId>
-	| GridCellsFunction<DashboardLayoutId>
-	| GridCellsFunction<BlogLayoutId>
 	| GridCellsFunction<DateTimeLayoutId>
 	| GridCellsFunction<DevUtilsLayoutId>
 	| GridCellsFunction<DomainsLayoutId>
@@ -143,6 +136,7 @@ export type NavigationGridCells =
 	| GridCellsFunction<OthersLayoutId>
 	| GridCellsFunction<SystemLayoutId>
 	| GridCellsFunction<FeatureLayoutId>
+	| GridCellsFunction<unknown>
 
 export type Block<TLayout> = {
 	/**

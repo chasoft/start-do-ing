@@ -7,6 +7,7 @@ import clsx from "clsx"
 /* COMPONENTS & UTILS */
 import {
 	CellGridEmpty,
+	CellGridLast,
 	CellGridLeft,
 	CellGridRight,
 	CellIntroSwitcher
@@ -21,6 +22,7 @@ import type { GridCellsProps, MathsLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { BLOCK_NOT_FOUND } from "~/data"
+import { MathsGroupCell, MathsGroupCellIntro } from "./grid-cell"
 
 /***************************************************************************
  *
@@ -31,7 +33,8 @@ import { BLOCK_NOT_FOUND } from "~/data"
 export function MathsGridCells({
 	className,
 	layoutId,
-	isIntroBlock
+	isIntroBlock,
+	lastGridCellBlocks
 }: GridCellsProps<MathsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -39,6 +42,15 @@ export function MathsGridCells({
 		 *  CONTENT BLOCKS
 		 *
 		 *********************************************************************/
+		case "maths":
+			return (
+				<CellIntroSwitcher
+					contentBlock={<MathsGroupCell />}
+					introBlock={<MathsGroupCellIntro />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
+			)
 		case "maths-empty-1":
 			return (
 				<CellIntroSwitcher
@@ -96,6 +108,12 @@ export function MathsGridCells({
 			return (
 				<div className={clsx(className)}>
 					<CellGridRight />
+				</div>
+			)
+		case "last":
+			return (
+				<div className={clsx(className)}>
+					<CellGridLast blocks={lastGridCellBlocks} />
 				</div>
 			)
 		/**********************************************************************

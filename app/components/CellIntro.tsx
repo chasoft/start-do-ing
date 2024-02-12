@@ -1,5 +1,4 @@
 /* FRAMEWORK */
-import { useLocation } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
@@ -27,14 +26,13 @@ type CellIntroProps = {
 }
 
 export function CellIntro({ className, metaData, upTo, children }: CellIntroProps) {
-	const { pathname } = useLocation()
-	const isHome = pathname === metaData.to
-	const layoutId = isHome ? undefined : metaData.to
 	const showGoUpLink = metaData.to !== upTo
 	return (
 		<motion.div
-			className={clsx("h-full relative block overflow-hidden", className)}
-			layoutId={layoutId}
+			className={clsx(
+				"h-full relative block overflow-hidden bg-pink-200 border-2 rounded-lg",
+				className
+			)}
 		>
 			<div className="flex flex-col p-2">
 				<h2 className="text-base font-semibold sm:text-xl line-clamp-1">

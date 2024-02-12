@@ -9,7 +9,8 @@ import {
 	CellGridEmpty,
 	CellGridLeft,
 	CellIntroSwitcher,
-	CellGridRight
+	CellGridRight,
+	CellGridLast
 } from "~/components"
 import {
 	DateTimeAnalogClockCell,
@@ -48,7 +49,8 @@ import { BLOCK_NOT_FOUND } from "~/data"
 export function DateTimeGridCells({
 	className,
 	layoutId,
-	isIntroBlock
+	isIntroBlock,
+	lastGridCellBlocks
 }: GridCellsProps<DateTimeLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -131,6 +133,12 @@ export function DateTimeGridCells({
 			return (
 				<div className={clsx(className)}>
 					<CellGridRight />
+				</div>
+			)
+		case "last":
+			return (
+				<div className={clsx(className)}>
+					<CellGridLast blocks={lastGridCellBlocks} />
 				</div>
 			)
 		/**********************************************************************

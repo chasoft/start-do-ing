@@ -1,5 +1,5 @@
 /* FRAMEWORK */
-import React, { useMemo, useState } from "react"
+import React, { useState } from "react"
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
@@ -8,6 +8,7 @@ import clsx from "clsx"
 /* COMPONENTS & UTILS */
 import {
 	getBlocks,
+	getLastGridCellBlocks,
 	useBreakpoint,
 	useCurrentLayoutId,
 	useIsMobileWindowSize
@@ -40,19 +41,17 @@ export function NavigationGrid({
 }) {
 	const { currentLayoutId, isGroup } = useCurrentLayoutId()
 	const isMobileWindowSize = useIsMobileWindowSize()
+	const breakpoint = useBreakpoint()
 	const [layouts, updateLayouts] = useState(() => [
 		...getBlocks(blocks as Block<PageId>[])
 	])
-	const layoutIds = useMemo(
-		() =>
-			isGroup
-				? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-					(layouts.map((block) => block.id) as any[])
-				: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-					[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])],
-		[currentLayoutId, isGroup, layouts]
-	)
-	const breakpoint = useBreakpoint()
+	const layoutIds = isGroup
+		? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(layouts.map((block) => block.id) as any[])
+		: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+			[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
+
+	const lastGridCellBlocks = getLastGridCellBlocks(layouts)
 
 	React.useEffect(() => {
 		updateLayouts(getBlocks(blocks as Block<PageId>[]))
@@ -104,7 +103,7 @@ export function NavigationGrid({
 					layoutId={layoutIds[11]}
 					className={clsx({ "hidden 3xl:block": "display" })}
 				/>
-				<GridCell layoutId="last" />
+				<GridCell layoutId="last" lastGridCellBlocks={lastGridCellBlocks} />
 			</motion.div>
 		</>
 	)

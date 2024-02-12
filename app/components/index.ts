@@ -19,6 +19,7 @@ export * from "./FullScreenContentWrapper"
 
 export * from "./CellGridLeft"
 export * from "./CellGridRight"
+export * from "./CellGridLast"
 export * from "./CellIntroSwitcher"
 export * from "./CellIntro"
 export * from "./NavigationGrid"

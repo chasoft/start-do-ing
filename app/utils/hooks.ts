@@ -26,11 +26,11 @@ export const useIsomorphicLayoutEffect =
 	typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect
 
 export function useBreakpoint() {
-	const [breakpoint, setBreakpoint] = React.useState(() => getMediaBreakpoint()[0])
+	const [breakpoint, setBreakpoint] = React.useState(() => getMediaBreakpoint())
 
 	useIsomorphicLayoutEffect(() => {
 		function updateBreakpoint() {
-			setBreakpoint(getMediaBreakpoint()[0])
+			setBreakpoint(getMediaBreakpoint())
 		}
 		window.addEventListener("resize", updateBreakpoint)
 		updateBreakpoint()

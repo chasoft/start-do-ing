@@ -73,7 +73,7 @@ export function getEmptyBlocksInsertionIndexes() {
  * to ensure that Row 1 and Row 3 always have 7 blocks.
  */
 function getEmptyBlocks() {
-	const [breakpoint] = getMediaBreakpoint()
+	const breakpoint = getMediaBreakpoint()
 	switch (breakpoint) {
 		case "xs":
 		case "sm":
@@ -91,9 +91,8 @@ function getEmptyBlocks() {
 /**
  * Ensure blockList has at least 11 blocks
  */
-export function getDynamicBlocks(blocks: Block<PageId>[]) {
-	const minLength = 11
-	const numberOfMissingBlocks = minLength - blocks.length
+export function getDynamicBlocks(blocks: Block<PageId>[], requiredLength: number = 12) {
+	const numberOfMissingBlocks = requiredLength - blocks.length
 	return numberOfMissingBlocks > 0
 		? blocks.concat(new Array(numberOfMissingBlocks).fill(EMPTY_BLOCK))
 		: blocks
@@ -137,19 +136,8 @@ export function getMenuItemsFromBlocks(blocks: Block<unknown>[]) {
 		.slice(1)
 }
 
-// export const isFirstRow = (blockIndex: number) => blockIndex < firstBlockOfRow2
-
-// export const isFirstCell = (blockIndex: number) => blockIndex === firstBlockOfRow1
-
-// export const isFirstCellOfRow3 = (blockIndex: number) => blockIndex === firstBlockOfRow3
-
-// export const getDropdownPosition = (blockIndex: number) =>
-// 	isFirstRow(blockIndex)
-// 		? "bottom-right"
-// 		: isFirstCellOfRow3(blockIndex)
-// 			? /**
-// 				 * `top-left` is a little tricky here.
-// 				 * just a way to set different dropdown positions.
-// 				 */
-// 				"top-left"
-// 			: "top-right"
+export function getLastGridCellBlocks(blocks: Block<PageId>[]) {
+	const maxVisibleBlocks = 12
+	if (blocks.length > maxVisibleBlocks) return blocks.slice(maxVisibleBlocks)
+	return []
+}

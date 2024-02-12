@@ -7,6 +7,7 @@ import clsx from "clsx"
 /* COMPONENTS & UTILS */
 import {
 	CellGridEmpty,
+	CellGridLast,
 	CellGridLeft,
 	CellGridRight,
 	CellIntroSwitcher
@@ -56,7 +57,8 @@ import { BLOCK_NOT_FOUND } from "~/data"
 export function DevUtilsGridCells({
 	className,
 	layoutId,
-	isIntroBlock
+	isIntroBlock,
+	lastGridCellBlocks
 }: GridCellsProps<DevUtilsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
@@ -157,6 +159,12 @@ export function DevUtilsGridCells({
 			return (
 				<div className={clsx(className)}>
 					<CellGridRight />
+				</div>
+			)
+		case "last":
+			return (
+				<div className={clsx(className)}>
+					<CellGridLast blocks={lastGridCellBlocks} />
 				</div>
 			)
 		/**********************************************************************

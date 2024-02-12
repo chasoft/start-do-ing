@@ -40,7 +40,7 @@ export function CellItem({ className, metaData }: CellItemProps) {
 					</h2>
 					<div className="flex flex-col grow">
 						{metaData.description && (
-							<span className="text-sm line-clamp-2 sm:text-base">
+							<span className="text-sm sm:text-base line-clamp-2">
 								{metaData.description}
 							</span>
 						)}
