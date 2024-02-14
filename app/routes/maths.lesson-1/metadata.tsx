@@ -8,7 +8,7 @@ import type { Block, MathsLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconNumber1 } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -16,12 +16,12 @@ import { IconAlertTriangle } from "@tabler/icons-react"
  *
  **************************************************************************/
 
-export const MATHS_EMPTY_4: Block<MathsLayoutId> = {
-	id: "maths-empty-4",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
-	title: "Maths Empty 4",
-	description: "Fast maths for kids 4",
-	to: "/maths/empty-4",
+export const MATHS_1: Block<MathsLayoutId> = {
+	id: "maths-1",
+	icon: { data: <IconNumber1 />, color: "#000" },
+	title: "Maths 1",
+	description: "Fast maths for kids 1",
+	to: "/maths/lesson-1",
 	group: [],
 	favorite: false,
 	color: {

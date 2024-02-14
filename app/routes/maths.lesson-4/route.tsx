@@ -14,7 +14,7 @@ import type { CustomRouteHandle } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { MATHS_BLOCKS } from "~/data"
-import { MATHS_EMPTY_4 } from "./metadata"
+import { MATHS_4 } from "./metadata"
 
 /***************************************************************************
  *
@@ -22,7 +22,7 @@ import { MATHS_EMPTY_4 } from "./metadata"
  *
  **************************************************************************/
 
-const layoutId = "maths-empty-4"
+const layoutId = "maths-4"
 
 export const meta: MetaFunction = () => {
 	const { title, description } = getBlockMetaData(MATHS_BLOCKS, layoutId)
@@ -31,7 +31,7 @@ export const meta: MetaFunction = () => {
 
 export const handle: CustomRouteHandle = {
 	layoutId,
-	breadcrumb: () => <Link to={MATHS_EMPTY_4.to}>{MATHS_EMPTY_4.title}</Link>
+	breadcrumb: () => <Link to={MATHS_4.to}>{MATHS_4.title}</Link>
 }
 
 export default function MathsEmpty4Route() {

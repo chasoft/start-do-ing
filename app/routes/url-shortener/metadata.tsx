@@ -8,7 +8,7 @@ import type { Block } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconLink } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const URL_SHORTENER: Block<"url-shortener"> = {
 	id: "url-shortener",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconLink />, color: "#000" },
 	title: "URL Shortener",
 	description: "Short URLs for actions",
 	to: "/url-shortener",

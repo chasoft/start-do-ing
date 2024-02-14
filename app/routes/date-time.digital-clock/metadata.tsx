@@ -8,7 +8,7 @@ import type { Block, DateTimeLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconDeviceWatch } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const DATE_TIME_DIGITAL_CLOCK: Block<DateTimeLayoutId> = {
 	id: "date-time-digital-clock",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconDeviceWatch />, color: "#000" },
 	title: "Digital Clock",
 	description: "Modern digital clock",
 	to: "/date-time/digital-clock",

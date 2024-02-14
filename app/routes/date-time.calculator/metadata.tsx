@@ -8,7 +8,7 @@ import type { Block, DateTimeLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconCalculator } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const DATE_TIME_CALCULATOR: Block<DateTimeLayoutId> = {
 	id: "date-time-calculator",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconCalculator />, color: "#000" },
 	title: "Date/Time Calculator",
 	description: "Calculate date and time",
 	to: "/date-time/calculator",

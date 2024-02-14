@@ -8,7 +8,7 @@ import type { Block, RandomLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconPassword } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const RANDOM_PASSWORD: Block<RandomLayoutId> = {
 	id: "random-password",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconPassword />, color: "#000" },
 	title: "Password Generator",
 	description: "Strong passwords",
 	to: "/random/password",

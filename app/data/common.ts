@@ -29,10 +29,10 @@ import { LANGUAGES_100_POPULAR_CHINESE_WORDS } from "~/routes/languages.100-popu
 import { LANGUAGES_CHINESE_CHARACTERS } from "~/routes/languages.chinese-characters/metadata"
 import { LANGUAGES_VIETNAMESE_READING_FOR_KIDS } from "~/routes/languages.vietnamese-reading-for-kids/metadata"
 import { MATHS } from "~/routes/maths/metadata"
-import { MATHS_EMPTY_1 } from "~/routes/maths.empty-1/metadata"
-import { MATHS_EMPTY_2 } from "~/routes/maths.empty-2/metadata"
-import { MATHS_EMPTY_3 } from "~/routes/maths.empty-3/metadata"
-import { MATHS_EMPTY_4 } from "~/routes/maths.empty-4/metadata"
+import { MATHS_1 } from "~/routes/maths.lesson-1/metadata"
+import { MATHS_2 } from "~/routes/maths.lesson-2/metadata"
+import { MATHS_3 } from "~/routes/maths.lesson-3/metadata"
+import { MATHS_4 } from "~/routes/maths.lesson-4/metadata"
 import { OTHERS } from "~/routes/others/metadata"
 import { OTHERS_RUNNING_TEXT } from "~/routes/others.running-text/metadata"
 import { RANDOM } from "~/routes/random/metadata"
@@ -135,10 +135,10 @@ export const LANGUAGES_BLOCKS: Block<LanguagesLayoutId>[] = [
 // 8
 export const MATHS_BLOCKS: Block<MathsLayoutId>[] = [
 	MATHS,
-	MATHS_EMPTY_1,
-	MATHS_EMPTY_2,
-	MATHS_EMPTY_3,
-	MATHS_EMPTY_4
+	MATHS_1,
+	MATHS_2,
+	MATHS_3,
+	MATHS_4
 ]
 
 // 9

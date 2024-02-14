@@ -11,7 +11,7 @@ import type { MathsLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { MATHS_EMPTY_4 } from "../maths.empty-4/metadata"
+import { MATHS_4 } from "../maths.lesson-4/metadata"
 
 /***************************************************************************
  *
@@ -26,7 +26,7 @@ export function MathsEmpty4Content({
 	className?: string
 	layoutId: MathsLayoutId
 }) {
-	const urlSharingData = useUrlSharingData(MATHS_EMPTY_4)
+	const urlSharingData = useUrlSharingData(MATHS_4)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

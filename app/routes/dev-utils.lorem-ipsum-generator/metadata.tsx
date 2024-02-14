@@ -8,7 +8,7 @@ import type { Block, DevUtilsLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconLetterL } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const DEV_UTILS_LOREM_IPSUM_GENERATOR: Block<DevUtilsLayoutId> = {
 	id: "dev-utils-lorem-ipsum-generator",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconLetterL />, color: "#000" },
 	title: "Lorem Ipsum Generator",
 	description: "Dummy text for your design",
 	to: "/dev-utils/lorem-ipsum-generator",

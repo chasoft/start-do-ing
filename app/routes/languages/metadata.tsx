@@ -8,7 +8,7 @@ import type { Block } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconLanguage } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const LANGUAGES: Block<"languages"> = {
 	id: "languages",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconLanguage />, color: "#000" },
 	title: "Languages",
 	description: "Human languages",
 	to: "/languages",

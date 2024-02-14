@@ -24,7 +24,7 @@ export function HomeLinks() {
 				icon={
 					<IconShoppingCart
 						size={18}
-						className="group-hover:text-amber-600 transition-all"
+						className="transition-all group-hover:text-amber-600"
 					/>
 				}
 			>
@@ -32,15 +32,15 @@ export function HomeLinks() {
 			</ButtonLink>
 			<ButtonLink
 				to={URLS.blog.to}
-				icon={<IconRss size={18} className="group-hover:text-blue-700 transition-all" />}
+				icon={<IconRss size={18} className="transition-all group-hover:text-blue-700" />}
 			>
 				{URLS.blog.label}
 			</ButtonLink>
 			<ButtonLink
 				to={URLS.support.to}
-				icon={<IconHeart size={18} className="group-hover:fill-red-400 transition-all" />}
+				icon={<IconHeart size={18} className="transition-all group-hover:fill-red-400" />}
 			>
-				{URLS.store.label}
+				{URLS.support.label.split(" ")[0]}
 			</ButtonLink>
 		</div>
 	)

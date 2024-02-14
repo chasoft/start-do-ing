@@ -8,7 +8,7 @@ import type { Block, DomainsLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconReportSearch } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const DOMAINS_WHOIS: Block<DomainsLayoutId> = {
 	id: "domains-whois",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconReportSearch />, color: "#000" },
 	title: "Domains Whois",
 	description: "Fastest whois lookup",
 	to: "/domains/whois",

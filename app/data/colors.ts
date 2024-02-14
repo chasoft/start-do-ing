@@ -77,33 +77,21 @@ export const GRAY: TColor = {
 }
 
 export const DEFAULT_COLORS: TColor = GRAY
-export const COLORS: TColor[] = []
 
-// export const COLORS: TColor[] = [
-// 	BLUE,
-// 	SKY,
-// 	CYAN,
-// 	TEAL,
-// 	EMERALD,
-// 	GREEN,
-// 	LIME,
-// 	INDIGO,
-// 	VIOLET,
-// 	PURPLE,
-// 	FUCHSIA,
-// 	ROSE,
-// 	PINK,
-// 	DEFAULT_COLORS,
-// 	DEFAULT_COLORS,
-// 	DEFAULT_COLORS,
-// 	DEFAULT_COLORS,
-// 	DEFAULT_COLORS,
-// 	DEFAULT_COLORS,
-// 	DEFAULT_COLORS,
-// 	DEFAULT_COLORS,
-// 	DEFAULT_COLORS,
-// 	DEFAULT_COLORS,
-// 	DEFAULT_COLORS,
-// 	DEFAULT_COLORS,
-// 	DEFAULT_COLORS
-// ]
+// export const COLORS: TColor[] = []
+
+export const COLORS: TColor[] = [
+	BLUE,
+	SKY,
+	CYAN,
+	TEAL,
+	EMERALD,
+	GREEN,
+	LIME,
+	INDIGO,
+	VIOLET,
+	PURPLE,
+	FUCHSIA,
+	ROSE,
+	PINK
+]

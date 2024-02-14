@@ -24,6 +24,16 @@ import Logo from "~/assets/startdoing-logo.svg"
  *
  **************************************************************************/
 
+/**
+ * This block creates overly effect for menu items in the bottom
+ * when scrolling down.
+ */
+function OverlayMobileMenu() {
+	return (
+		<div className="pointer-events-none sticky bottom-0 flex h-40 bg-base-100 [mask-image:linear-gradient(transparent,#000000)]"></div>
+	)
+}
+
 export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const [opened, { toggle, close }] = useDisclosure()
 	const isFullScreen = useIsFullscreen()
@@ -64,6 +74,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 			<AppShell.Navbar>
 				<AppShell.Section grow component={ScrollArea}>
 					<MobileMenu onClick={close} />
+					<OverlayMobileMenu />
 				</AppShell.Section>
 				<AppShell.Section className="flex justify-between p-3" hiddenFrom="md">
 					<Text size="xs">hi@startdo.ing</Text>

@@ -7,14 +7,14 @@ import { type MetaFunction } from "@remix-run/cloudflare"
 /* COMPONENTS & UTILS */
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase"
 import { getBlockMetaData } from "~/utils"
-import { MathsEmpty1Content } from "./content"
+import { MathsEmpty2Content } from "./content"
 import type { CustomRouteHandle } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
 import { MATHS_BLOCKS } from "~/data"
-import { MATHS_EMPTY_1 } from "./metadata"
+import { MATHS_2 } from "./metadata"
 
 /***************************************************************************
  *
@@ -22,7 +22,7 @@ import { MATHS_EMPTY_1 } from "./metadata"
  *
  **************************************************************************/
 
-const layoutId = "maths-empty-1"
+const layoutId = "maths-2"
 
 export const meta: MetaFunction = () => {
 	const { title, description } = getBlockMetaData(MATHS_BLOCKS, layoutId)
@@ -31,11 +31,11 @@ export const meta: MetaFunction = () => {
 
 export const handle: CustomRouteHandle = {
 	layoutId,
-	breadcrumb: () => <Link to={MATHS_EMPTY_1.to}>{MATHS_EMPTY_1.title}</Link>
+	breadcrumb: () => <Link to={MATHS_2.to}>{MATHS_2.title}</Link>
 }
 
-export default function MathsEmpty1Route() {
-	return <MathsEmpty1Content layoutId={layoutId} />
+export default function MathsEmpty2Route() {
+	return <MathsEmpty2Content layoutId={layoutId} />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

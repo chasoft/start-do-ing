@@ -8,7 +8,7 @@ import type { Block, DevUtilsLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconLetterB } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const DEV_UTILS_BASE64: Block<DevUtilsLayoutId> = {
 	id: "dev-utils-base64",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconLetterB />, color: "#000" },
 	title: "Base64",
 	description: "Base64 converter",
 	to: "/dev-utils/base64",

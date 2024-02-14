@@ -8,7 +8,7 @@ import type { Block, RandomLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconMoodHappy } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const RANDOM_LOTTERY: Block<RandomLayoutId> = {
 	id: "random-lottery",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconMoodHappy />, color: "#000" },
 	title: "Lottery Generator",
 	description: "Find your lucky numbers",
 	to: "/random/lottery",

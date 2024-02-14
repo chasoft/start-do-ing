@@ -33,10 +33,13 @@ export function ContentWrapper({
 
 	return (
 		<div
-			className={clsx("relative h-full w-full", {
-				"rounded-lg p-2 lg:p-4": !isMobileWindowSize,
+			className={clsx(
+				"relative h-full w-full border-2 rounded-lg transition-all border-gray-100",
+				{
+					"rounded-lg p-2 lg:p-4": !isMobileWindowSize
+				},
 				className
-			})}
+			)}
 		>
 			{(!isShowMobileButtons || isFullScreen) && (
 				<div className="absolute top-0 right-0 flex sm:top-1 sm:right-1">

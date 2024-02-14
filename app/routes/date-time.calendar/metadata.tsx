@@ -8,7 +8,7 @@ import type { Block, DateTimeLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconCalendarMonth } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const DATE_TIME_CALENDAR: Block<DateTimeLayoutId> = {
 	id: "date-time-calendar",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconCalendarMonth />, color: "#000" },
 	title: "Calendar",
 	description: "Lunar date and public events",
 	to: "/date-time/calendar",

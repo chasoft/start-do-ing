@@ -8,7 +8,7 @@ import type { Block, KahootLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconPlayerPlay } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const KAHOOT_QUIZ: Block<KahootLayoutId> = {
 	id: "kahoot-quiz",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconPlayerPlay />, color: "#000" },
 	title: "Kahoot Quiz",
 	description: "Play online quiz with friends",
 	to: "/kahoot/quiz",

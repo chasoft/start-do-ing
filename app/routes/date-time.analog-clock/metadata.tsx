@@ -8,7 +8,7 @@ import type { Block, DateTimeLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconClock2 } from "@tabler/icons-react"
+import { IconClock } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconClock2 } from "@tabler/icons-react"
 
 export const DATE_TIME_ANALOG_CLOCK: Block<DateTimeLayoutId> = {
 	id: "date-time-analog-clock",
-	icon: { data: <IconClock2 />, color: "text-gray-500" },
+	icon: { data: <IconClock />, color: "text-gray-500" },
 	title: "Analog Clock",
 	description: "Just a traditional clock",
 	to: "/date-time/analog-clock",

@@ -8,7 +8,7 @@ import type { Block, DomainsLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconCategory2 } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const DOMAINS_EXTENSIONS: Block<DomainsLayoutId> = {
 	id: "domains-extensions",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconCategory2 />, color: "#000" },
 	title: "Domains Extensions",
 	description: "Explore world of domain extensions",
 	to: "/domains/extensions",

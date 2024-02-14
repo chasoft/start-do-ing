@@ -2,6 +2,7 @@
 import { NavLink } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { Block } from "~/utils/types"
@@ -36,23 +37,44 @@ function MobileMenuItem({
 	blocks: Block<unknown>[]
 	onClick: () => void
 }) {
+	if (blocks.length === 0) return null
+
+	if (blocks.length === 1) {
+		return (
+			<li onClick={onClick} aria-hidden>
+				<NavLink
+					to={blocks[0].to}
+					className={({ isActive, isPending }) =>
+						clsx("group", isActive ? "active" : isPending ? "pending" : "")
+					}
+				>
+					<span>{blocks[0].title}</span>
+					{blocks[0].tag && (
+						<span className="font-mono badge badge-sm">{blocks[0].tag}</span>
+					)}
+				</NavLink>
+			</li>
+		)
+	}
+
 	return (
 		<details open>
 			<summary className="group">
-				<span>{blocks[0].icon?.data}</span>
+				{blocks[0].icon && <span>{blocks[0].icon.data}</span>}
 				{blocks[0].title}
 			</summary>
 			<ul>
 				{blocks.slice(1).map((block) => {
 					const key = block.id === "empty" ? Math.random() : (block.id as string)
 					return (
-						<li key={key} onClick={onClick} aria-hidden="true">
+						<li key={key} onClick={onClick} aria-hidden>
 							<NavLink
 								to={block.to}
 								className={({ isActive, isPending }) =>
-									isActive ? "active group" : isPending ? "pending group" : "group"
+									clsx("group", isActive ? "active" : isPending ? "pending" : "")
 								}
 							>
+								{block.icon && block.icon.data}
 								<span>{block.title}</span>
 								{block.tag && (
 									<span className="font-mono badge badge-sm">{block.tag}</span>
@@ -66,61 +88,59 @@ function MobileMenuItem({
 	)
 }
 
+const menuBlocks = [
+	DATE_TIME_BLOCKS,
+	DEV_UTILS_BLOCKS,
+	DOMAINS_BLOCKS,
+	KAHOOT_BLOCKS,
+	LANGUAGES_BLOCKS,
+	MATHS_BLOCKS,
+	RANDOM_BLOCKS,
+	URL_SHORTENER_BLOCKS,
+	OTHERS_BLOCKS
+]
+
+const extraMenuItems = [
+	{
+		icon: <IconShoppingCart size={18} />,
+		urlData: URLS.store,
+		badge: <span className="font-mono badge badge-sm badge-primary">new</span>
+	},
+	{
+		icon: <IconRss size={18} />,
+		urlData: URLS.blog,
+		badge: null
+	},
+	{
+		icon: <IconHeart size={18} />,
+		urlData: URLS.support,
+		badge: null
+	}
+]
+
 export function MobileMenu({ onClick }: { onClick: () => void }) {
 	return (
 		<ul className="py-3 menu">
-			<li>
-				<MobileMenuItem blocks={DATE_TIME_BLOCKS} onClick={onClick} />
-			</li>
-			<li>
-				<MobileMenuItem blocks={DEV_UTILS_BLOCKS} onClick={onClick} />
-			</li>
-			<li>
-				<MobileMenuItem blocks={DOMAINS_BLOCKS} onClick={onClick} />
-			</li>
-			<li>
-				<MobileMenuItem blocks={KAHOOT_BLOCKS} onClick={onClick} />
-			</li>
-			<li>
-				<MobileMenuItem blocks={LANGUAGES_BLOCKS} onClick={onClick} />
-			</li>
-			<li>
-				<MobileMenuItem blocks={MATHS_BLOCKS} onClick={onClick} />
-			</li>
-			<li>
-				<MobileMenuItem blocks={RANDOM_BLOCKS} onClick={onClick} />
-			</li>
-			<li>
-				<MobileMenuItem blocks={URL_SHORTENER_BLOCKS} onClick={onClick} />
-			</li>
-			<li>
-				<MobileMenuItem blocks={OTHERS_BLOCKS} onClick={onClick} />
-			</li>
-			<li></li>
-			<li onClick={onClick} aria-hidden="true">
-				<a href={URLS.store.to} className="group">
-					<IconShoppingCart size={18} />
-					<span>{URLS.store.label}</span>{" "}
-					<span className="font-mono badge badge-sm badge-primary">new</span>
-				</a>
-			</li>
-			<li onClick={onClick} aria-hidden="true">
-				<a href={URLS.blog.to} className="group">
-					<IconRss size={18} />
-					<span>{URLS.blog.label}</span>
-				</a>
-			</li>
-			<li onClick={onClick} aria-hidden="true">
-				<NavLink
-					to={URLS.support.to}
-					className={({ isActive, isPending }) =>
-						isActive ? "active group" : isPending ? "pending group" : "group"
-					}
-				>
-					<IconHeart size={18} />
-					<span>{URLS.support.label} startdo.ing</span>
-				</NavLink>
-			</li>
+			{menuBlocks.map((blocks, idx) => (
+				<li key={idx}>
+					<MobileMenuItem blocks={blocks} onClick={onClick} />
+				</li>
+			))}
+			<li>{/* line separator */}</li>
+			{extraMenuItems.map((i, idx) => (
+				<li key={idx} onClick={onClick} aria-hidden>
+					<NavLink
+						to={i.urlData.to}
+						className={({ isActive, isPending }) =>
+							clsx("group", isActive ? "active" : isPending ? "pending" : "")
+						}
+					>
+						{i.icon}
+						<span>{i.urlData.label} </span>
+						{i.badge && i.badge}
+					</NavLink>
+				</li>
+			))}
 		</ul>
 	)
 }

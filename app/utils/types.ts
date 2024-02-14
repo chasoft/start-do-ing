@@ -63,12 +63,7 @@ export type LanguagesLayoutId =
 	| "chinese-characters"
 	| "vietnamese-reading-for-kids"
 
-export type MathsLayoutId =
-	| "maths"
-	| "maths-empty-1"
-	| "maths-empty-2"
-	| "maths-empty-3"
-	| "maths-empty-4"
+export type MathsLayoutId = "maths" | "maths-1" | "maths-2" | "maths-3" | "maths-4"
 
 export type RandomLayoutId =
 	| "random"

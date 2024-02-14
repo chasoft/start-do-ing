@@ -4,7 +4,7 @@ import { useMemo } from "react"
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
-import { ScrollArea } from "@mantine/core"
+import { ScrollArea, Tooltip } from "@mantine/core"
 import { useHover } from "@mantine/hooks"
 import clsx from "clsx"
 
@@ -56,13 +56,14 @@ export function CellGroup({
 				.filter((i) => !!i.icon)
 				.slice(0, iconDisplayLimit)
 				.map((i) => (
-					<Link
-						key={i.to}
-						to={i.to}
-						className="p-2 text-gray-500 bg-white bg-opacity-0 rounded-md hover:bg-opacity-40 hover:text-gray-800 active:bg-opacity-80"
-					>
-						{i.icon?.data}
-					</Link>
+					<Tooltip key={i.to} label={i.title}>
+						<Link
+							to={i.to}
+							className="p-2 text-gray-500 bg-white bg-opacity-0 rounded-md hover:bg-opacity-40 hover:text-gray-800 active:bg-opacity-80"
+						>
+							{i.icon?.data}
+						</Link>
+					</Tooltip>
 				)),
 		[dropdownMenuItems]
 	)
@@ -83,8 +84,9 @@ export function CellGroup({
 		<motion.div className={clsx("relative block h-full overflow-hidden", className)}>
 			<CellGridLink to={metaData.to} blockIndex={blockIndex}>
 				<div className="flex flex-col p-2">
-					<h2 className="text-base font-semibold sm:text-xl line-clamp-1">
-						{metaData.title}
+					<h2 className="flex gap-2 items-start text-base font-semibold sm:text-xl line-clamp-1">
+						{metaData.icon && <span>{metaData.icon.data}</span>}{" "}
+						<span>{metaData.title}</span>
 					</h2>
 					<div className="flex flex-col grow">
 						{metaData.description && (

@@ -8,7 +8,7 @@ import type { Block, DevUtilsLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconLetterC } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const DEV_UTILS_CURL_CONVERTER: Block<DevUtilsLayoutId> = {
 	id: "dev-utils-curl-converter",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconLetterC />, color: "#000" },
 	title: "cURL Converter",
 	description: "cURL commands to code",
 	to: "/dev-utils/curl-converter",

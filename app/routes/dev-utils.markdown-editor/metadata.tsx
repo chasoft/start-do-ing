@@ -8,7 +8,7 @@ import type { Block, DevUtilsLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconLetterM } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const DEV_UTILS_MARKDOWN_EDITOR: Block<DevUtilsLayoutId> = {
 	id: "dev-utils-markdown-editor",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconLetterM />, color: "#000" },
 	title: "Markdown Editor",
 	description: "Quick editor your web-browser",
 	to: "/dev-utils/markdown-editor",

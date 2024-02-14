@@ -8,7 +8,7 @@ import type { Block, DomainsLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconTractor } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const DOMAINS_BUILDER: Block<DomainsLayoutId> = {
 	id: "domains-builder",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconTractor />, color: "#000" },
 	title: "Domains Builder",
 	description: "Find your desired domain names",
 	to: "/domains/builder",

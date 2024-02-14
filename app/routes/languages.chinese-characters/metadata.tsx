@@ -8,7 +8,7 @@ import type { Block, LanguagesLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconLetterC } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const LANGUAGES_CHINESE_CHARACTERS: Block<LanguagesLayoutId> = {
 	id: "chinese-characters",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconLetterC />, color: "#000" },
 	title: "Chinese Characters",
 	description: "Basic Chinese-Vietnamese dictionary",
 	to: "/languages/chinese-characters",

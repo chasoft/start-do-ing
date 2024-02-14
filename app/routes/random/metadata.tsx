@@ -8,7 +8,7 @@ import type { Block } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconArrowsRandom } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const RANDOM: Block<"random"> = {
 	id: "random",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconArrowsRandom />, color: "#000" },
 	title: "Random",
 	description: "From numbers to everything",
 	to: "/random",

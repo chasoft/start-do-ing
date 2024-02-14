@@ -8,7 +8,7 @@ import type { Block, OthersLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconRun } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const OTHERS_RUNNING_TEXT: Block<OthersLayoutId> = {
 	id: "others-running-text",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconRun />, color: "#000" },
 	title: "Running Text",
 	description: "",
 	to: "/others/running-text",

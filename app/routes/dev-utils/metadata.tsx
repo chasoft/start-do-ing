@@ -8,7 +8,7 @@ import type { Block } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconDevices } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const DEV_UTILS: Block<"dev-utils"> = {
 	id: "dev-utils",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconDevices />, color: "#000" },
 	title: "Dev Utils",
 	description: "Utils for web development",
 	to: "/dev-utils",

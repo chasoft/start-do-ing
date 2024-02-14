@@ -12,10 +12,10 @@ import {
 	CellGridRight,
 	CellIntroSwitcher
 } from "~/components"
-import { MathsEmpty1Cell, MathsEmpty1CellIntro } from "../maths.empty-1/grid-cell"
-import { MathsEmpty2Cell, MathsEmpty2CellIntro } from "../maths.empty-2/grid-cell"
-import { MathsEmpty3Cell, MathsEmpty3CellIntro } from "../maths.empty-3/grid-cell"
-import { MathsEmpty4Cell, MathsEmpty4CellIntro } from "../maths.empty-4/grid-cell"
+import { MathsEmpty1Cell, MathsEmpty1CellIntro } from "../maths.lesson-1/grid-cell"
+import { MathsEmpty2Cell, MathsEmpty2CellIntro } from "../maths.lesson-2/grid-cell"
+import { MathsEmpty3Cell, MathsEmpty3CellIntro } from "../maths.lesson-3/grid-cell"
+import { MathsEmpty4Cell, MathsEmpty4CellIntro } from "../maths.lesson-4/grid-cell"
 import type { GridCellsProps, MathsLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -52,7 +52,7 @@ export function MathsGridCells({
 					className={className}
 				/>
 			)
-		case "maths-empty-1":
+		case "maths-1":
 			return (
 				<CellIntroSwitcher
 					contentBlock={<MathsEmpty1Cell blockIndex={blockIndex} />}
@@ -61,7 +61,7 @@ export function MathsGridCells({
 					className={className}
 				/>
 			)
-		case "maths-empty-2":
+		case "maths-2":
 			return (
 				<CellIntroSwitcher
 					contentBlock={<MathsEmpty2Cell blockIndex={blockIndex} />}
@@ -70,7 +70,7 @@ export function MathsGridCells({
 					className={className}
 				/>
 			)
-		case "maths-empty-3":
+		case "maths-3":
 			return (
 				<CellIntroSwitcher
 					contentBlock={<MathsEmpty3Cell blockIndex={blockIndex} />}
@@ -79,7 +79,7 @@ export function MathsGridCells({
 					className={className}
 				/>
 			)
-		case "maths-empty-4":
+		case "maths-4":
 			return (
 				<CellIntroSwitcher
 					contentBlock={<MathsEmpty4Cell blockIndex={blockIndex} />}

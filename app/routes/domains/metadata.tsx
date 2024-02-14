@@ -8,7 +8,7 @@ import type { Block } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconAlertTriangle } from "@tabler/icons-react"
+import { IconCloud } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -18,7 +18,7 @@ import { IconAlertTriangle } from "@tabler/icons-react"
 
 export const DOMAINS: Block<"domains"> = {
 	id: "domains",
-	icon: { data: <IconAlertTriangle />, color: "#000" },
+	icon: { data: <IconCloud />, color: "#000" },
 	title: "Domains",
 	description: "Your domain assistants",
 	to: "/domains",
