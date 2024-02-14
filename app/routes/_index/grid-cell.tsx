@@ -1,32 +1,54 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import clsx from "clsx";
+import { Text } from "@mantine/core"
 
 /* COMPONENTS & UTILS */
-import { CellGroup } from "~/components";
-import { getMenuItemsFromBlocks } from "~/utils";
-import type { GridCellProps } from "~/utils/types";
+import { CellGroup, CellIntro } from "~/components"
+import { getMenuItemsFromBlocks } from "~/utils"
+import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { HOME } from "./metadata";
-import { HOME_BLOCKS } from "~/data";
+/* ASSETS & DATA IMPORT */
+import { HOME } from "./metadata"
+import { HOME_BLOCKS } from "~/data"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 const dropdownMenuItems = getMenuItemsFromBlocks(HOME_BLOCKS)
+
+export function HomeGridCellIntro({
+	className,
+	blockIndex
+}: {
+	className?: string
+	blockIndex: number
+}) {
+	return (
+		<CellIntro
+			metaData={HOME}
+			upTo={HOME.to}
+			className={className}
+			blockIndex={blockIndex}
+		>
+			<Text lineClamp={2}>
+				Hello welcome to my website Hello welcome to my website Hello welcome to my
+				website Hello welcome to my website Hello welcome to my website
+			</Text>
+		</CellIntro>
+	)
+}
 
 export function HomeGridCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<CellGroup
 			blockIndex={blockIndex}
-			className={clsx(className)}
+			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={HOME}
 		/>

@@ -1,26 +1,32 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
-import type { RandomLayoutId } from "~/utils/types";
+import { ContentWrapper } from "~/components"
+import { useUrlSharingData } from "~/utils"
+import type { RandomLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { RANDOM } from "../random/metadata";
+/* ASSETS & DATA IMPORT */
+import { RANDOM } from "../random/metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function RandomIndexContent({ className, layoutId }: { className?: string, layoutId: RandomLayoutId }) {
-	const urlSharingData = getUrlSharingData(RANDOM)
+export function RandomIndexContent({
+	className,
+	layoutId
+}: {
+	className?: string
+	layoutId: RandomLayoutId
+}) {
+	const urlSharingData = useUrlSharingData(RANDOM)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>
@@ -28,6 +34,6 @@ export function RandomIndexContent({ className, layoutId }: { className?: string
 					<h1 className="text-lg font-semibold sm:text-2xl">Random Number</h1>
 				</div>
 			</motion.div>
-		</ContentWrapper >
+		</ContentWrapper>
 	)
 }

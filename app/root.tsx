@@ -1,28 +1,40 @@
 /* FRAMEWORK */
-import React from "react";
+import React from "react"
 import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useNavigation,
-} from "@remix-run/react";
-import { cssBundleHref } from "@remix-run/css-bundle";
-import type { LinksFunction } from "@remix-run/cloudflare";
+	Links,
+	LiveReload,
+	Meta,
+	Outlet,
+	Scripts,
+	ScrollRestoration,
+	useNavigation
+} from "@remix-run/react"
+import { cssBundleHref } from "@remix-run/css-bundle"
+import type { LinksFunction } from "@remix-run/cloudflare"
 
 /* THIRD-PARTY PACKAGES */
-import { Provider } from "jotai";
-import NProgress from "nprogress"
-import nProgressStyles from "nprogress/nprogress.css"
+import { Provider as JotaiProvider } from "jotai"
+import { ColorSchemeScript, MantineProvider } from "@mantine/core"
+import { Notifications } from "@mantine/notifications"
+import { nprogress, NavigationProgress } from "@mantine/nprogress"
 
-/* COMPONENTS & UTILS */
-import stylesheet from "~/tailwind.css";
+/* STYLING */
+import stylesheet from "~/tailwind.css"
+import "@mantine/core/styles.css"
+import "@mantine/carousel/styles.css"
+import "@mantine/notifications/styles.css"
+import "@mantine/nprogress/styles.css"
+import { theme } from "./utils"
+import { MyAppShell } from "./components/MyAppShell"
+import "@mantine/core/styles/Text.css"
 
-/* TRANSLATIONS IMPORT */
+/* COMPONENTS */
 
-/* DATA IMPORT */
+/* UTILS */
+
+/* TRANSLATIONS */
+
+/* DATA */
 
 /***************************************************************************
  *
@@ -31,52 +43,54 @@ import stylesheet from "~/tailwind.css";
  **************************************************************************/
 
 interface DocumentProps {
-  children: React.ReactNode
+	children: React.ReactNode
 }
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
-  { rel: "stylesheet", href: stylesheet },
-  { rel: "stylesheet", href: nProgressStyles },
-];
+	...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+	{ rel: "stylesheet", href: stylesheet }
+]
 
 function Document({ children }: DocumentProps) {
-  const transition = useNavigation()
+	const transition = useNavigation()
 
-  React.useEffect(() => {
-    // when the state is idle then we can to complete the progress bar
-    if (transition.state === "idle") NProgress.done()
-    // and when it's something else it means it's either submitting a form or
-    // waiting for the loaders of the next location so we start it
-    else NProgress.start()
-  }, [transition.state])
+	React.useEffect(() => {
+		// when the state is idle then we can to complete the progress bar
+		if (transition.state === "idle") nprogress.complete()
+		// and when it's something else it means it's either submitting a form or
+		// waiting for the loaders of the next location so we start it
+		else nprogress.start()
+	}, [transition.state])
 
-  return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Provider>
-          <div className="w-full min-h-svh bg-[url('https://images.unsplash.com/photo-1531219572328-a0171b4448a3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover">
-            {children}
-          </div>
-        </Provider>
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
-  )
+	return (
+		<html lang="en">
+			<head>
+				<meta charSet="utf-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<Meta />
+				<Links />
+				<ColorSchemeScript />
+			</head>
+			<body>
+				<MantineProvider theme={theme}>
+					<NavigationProgress />
+					<Notifications />
+					<JotaiProvider>
+						<MyAppShell>{children}</MyAppShell>
+					</JotaiProvider>
+					<ScrollRestoration />
+					<Scripts />
+					<LiveReload />
+				</MantineProvider>
+			</body>
+		</html>
+	)
 }
 
 export default function App() {
-  return (
-    <Document>
-      <Outlet />
-    </Document>
-  );
+	return (
+		<Document>
+			<Outlet />
+		</Document>
+	)
 }

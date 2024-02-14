@@ -1,42 +1,47 @@
 /* FRAMEWORK */
-import { Outlet } from "@remix-run/react";
+import { Outlet } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper, NavigationGrid } from "~/components";
-import { getUrlSharingData, useIsFullscreen } from "~/utils";
-import { UrlShortenerGridCells } from "./UrlShortenerGridCells";
+import { FullScreenContentWrapper, NavigationGrid, NavigationMobile } from "~/components"
+import { UrlShortenerGridCells } from "./UrlShortenerGridCells"
+import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { URL_SHORTENER } from "./metadata";
-import { URL_SHORTENER_BLOCKS } from "~/data";
+/* ASSETS & DATA IMPORT */
+import { URL_SHORTENER_BLOCKS } from "~/data"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 export default function UrlShortenerRoute() {
 	const isFullScreen = useIsFullscreen()
-	const urlSharingData = getUrlSharingData(URL_SHORTENER)
+	const isMobileWindowSize = useIsMobileWindowSize()
 
 	if (isFullScreen) {
 		return (
-			<ContentWrapper urlSharingData={urlSharingData}>
+			<FullScreenContentWrapper>
 				<Outlet />
-			</ContentWrapper>
+			</FullScreenContentWrapper>
+		)
+	}
+
+	if (isMobileWindowSize) {
+		return (
+			<NavigationMobile>
+				<Outlet />
+			</NavigationMobile>
 		)
 	}
 
 	return (
 		<NavigationGrid blocks={URL_SHORTENER_BLOCKS} GridCell={UrlShortenerGridCells}>
-			<ContentWrapper urlSharingData={urlSharingData}>
-				<Outlet />
-			</ContentWrapper>
+			<Outlet />
 		</NavigationGrid>
 	)
 }

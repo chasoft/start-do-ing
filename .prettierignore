@@ -1,0 +1,5 @@
+package-lock.json
+.cache
+.wrangler
+node_modules
+public

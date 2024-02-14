@@ -6,18 +6,14 @@
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 export function FullScreenContentWrapper({ children }: { children: React.ReactNode }) {
-	return (
-		<div className="p-2 sm:p-4">
-			{children}
-		</div>
-	)
+	return <div className="p-2 sm:p-4">{children}</div>
 }

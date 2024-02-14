@@ -1,86 +1,143 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
-import clsx from "clsx";
+import { motion } from "framer-motion"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
-import { DevUtilsBase64Cell } from "../dev-utils.base64/grid-cell";
-import { DevUtilsCurlConverterCell } from "../dev-utils.curl-converter/grid-cell";
-import { DevUtilsGroupCell } from "./grid-cell";
-import { DevUtilsHashGeneratorCell } from "../dev-utils.hash-generator/grid-cell";
-import { DevUtilsLoremIpsumGeneratorCell } from "../dev-utils.lorem-ipsum-generator/grid-cell";
-import { DevUtilsMarkdownEditorCell } from "../dev-utils.markdown-editor/grid-cell";
-import { DevUtilsSqlFormatterCell } from "../dev-utils.sql-formatter/grid-cell";
-import { DevUtilsStringConverterCell } from "../dev-utils.string-converter/grid-cell";
-import type { DevUtilsLayoutId, GridCellsProps } from "~/utils/types";
+import {
+	CellGridEmpty,
+	CellGridLast,
+	CellGridLeft,
+	CellGridRight,
+	CellIntroSwitcher
+} from "~/components"
+import {
+	DevUtilsBase64Cell,
+	DevUtilsBase64CellIntro
+} from "../dev-utils.base64/grid-cell"
+import {
+	DevUtilsCurlConverterCell,
+	DevUtilsCurlConverterCellIntro
+} from "../dev-utils.curl-converter/grid-cell"
+import { DevUtilsGroupCell, DevUtilsGroupCellIntro } from "./grid-cell"
+import {
+	DevUtilsHashGeneratorCell,
+	DevUtilsHashGeneratorCellIntro
+} from "../dev-utils.hash-generator/grid-cell"
+import {
+	DevUtilsLoremIpsumGeneratorCell,
+	DevUtilsLoremIpsumGeneratorCellIntro
+} from "../dev-utils.lorem-ipsum-generator/grid-cell"
+import {
+	DevUtilsMarkdownEditorCell,
+	DevUtilsMarkdownEditorCellIntro
+} from "../dev-utils.markdown-editor/grid-cell"
+import {
+	DevUtilsSqlFormatterCell,
+	DevUtilsSqlFormatterCellIntro
+} from "../dev-utils.sql-formatter/grid-cell"
+import {
+	DevUtilsStringConverterCell,
+	DevUtilsStringConverterCellIntro
+} from "../dev-utils.string-converter/grid-cell"
+import type { DevUtilsLayoutId, GridCellsProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { BLOCK_NOT_FOUND } from "~/data";
+/* ASSETS & DATA IMPORT */
+import { BLOCK_NOT_FOUND } from "~/data"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function DevUtilsGridCells({ className, layoutId, blockIndex }: GridCellsProps<DevUtilsLayoutId>): JSX.Element {
+export function DevUtilsGridCells({
+	className,
+	layoutId,
+	blockIndex,
+	isIntroBlock,
+	lastGridCellBlocks
+}: GridCellsProps<DevUtilsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
-		 * 
+		 *
 		 *  CONTENT BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "dev-utils":
 			return (
-				<div className={clsx(className)}>
-					<DevUtilsGroupCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DevUtilsGroupCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsGroupCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "dev-utils-base64":
 			return (
-				<div className={clsx(className)}>
-					<DevUtilsBase64Cell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DevUtilsBase64Cell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsBase64CellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "dev-utils-curl-converter":
 			return (
-				<div className={clsx(className)}>
-					<DevUtilsCurlConverterCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DevUtilsCurlConverterCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsCurlConverterCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "dev-utils-hash-generator":
 			return (
-				<div className={clsx(className)}>
-					<DevUtilsHashGeneratorCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DevUtilsHashGeneratorCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsHashGeneratorCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "dev-utils-lorem-ipsum-generator":
 			return (
-				<div className={clsx(className)}>
-					<DevUtilsLoremIpsumGeneratorCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DevUtilsLoremIpsumGeneratorCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsLoremIpsumGeneratorCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "dev-utils-markdown-editor":
 			return (
-				<div className={clsx(className)}>
-					<DevUtilsMarkdownEditorCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DevUtilsMarkdownEditorCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsMarkdownEditorCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "dev-utils-sql-formatter":
 			return (
-				<div className={clsx(className)}>
-					<DevUtilsSqlFormatterCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DevUtilsSqlFormatterCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsSqlFormatterCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "dev-utils-string-converter":
 			return (
-				<div className={clsx(className)}>
-					<DevUtilsStringConverterCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DevUtilsStringConverterCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsStringConverterCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "empty":
 			return (
@@ -89,9 +146,9 @@ export function DevUtilsGridCells({ className, layoutId, blockIndex }: GridCells
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FEATURED BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "left":
 			return (
@@ -102,30 +159,33 @@ export function DevUtilsGridCells({ className, layoutId, blockIndex }: GridCells
 		case "right":
 			return (
 				<div className={clsx(className)}>
-					<RightGridCell />
+					<CellGridRight />
 				</div>
 			)
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FIX BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		default:
 			return (
 				<div className={clsx(className, "h-full")}>
-					<motion.div className={clsx("h-full bg-gray-200 rounded-lg")} layoutId={BLOCK_NOT_FOUND}>
+					<motion.div
+						className={clsx("h-full bg-gray-200 rounded-lg")}
+						layoutId={BLOCK_NOT_FOUND}
+					>
 						<div className="grid h-full text-lg text-red-900 md:text-xl place-content-center">
 							BLOCK NOT FOUND
 							<p>{layoutId}</p>
 						</div>
 					</motion.div>
 				</div>
-			);
+			)
 	}
 }

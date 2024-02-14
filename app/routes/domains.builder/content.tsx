@@ -1,26 +1,32 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
-import type { DomainsLayoutId } from "~/utils/types";
+import { ContentWrapper } from "~/components"
+import { useUrlSharingData } from "~/utils"
+import type { DomainsLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { DOMAINS_BUILDER } from "./metadata";
+/* ASSETS & DATA IMPORT */
+import { DOMAINS_BUILDER } from "./metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function DomainsBuilderContent({ className, layoutId }: { className?: string, layoutId: DomainsLayoutId }) {
-	const urlSharingData = getUrlSharingData(DOMAINS_BUILDER)
+export function DomainsBuilderContent({
+	className,
+	layoutId
+}: {
+	className?: string
+	layoutId: DomainsLayoutId
+}) {
+	const urlSharingData = useUrlSharingData(DOMAINS_BUILDER)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

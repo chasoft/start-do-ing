@@ -1,38 +1,29 @@
 /* FRAMEWORK */
-import { Outlet } from "@remix-run/react";
+import { Outlet } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { BlogGridCells } from "./BlogGridCells";
-import { FullScreenContentWrapper, NavigationGrid } from "~/components";
-import { useIsFullscreen } from "~/utils";
+import { BlogHeader } from "./components/BlogHeader"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { BLOG_BLOCKS } from "~/data";
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
+//TODO: Blog section is just dummy layout
 export default function BlogGroupRoute() {
-	const isFullScreen = useIsFullscreen()
-
-	if (isFullScreen) {
-		return (
-			<FullScreenContentWrapper>
-				<Outlet />
-			</FullScreenContentWrapper>
-		)
-	}
-
 	return (
-		<NavigationGrid blocks={BLOG_BLOCKS} GridCell={BlogGridCells}>
-			<Outlet />
-		</NavigationGrid>
+		<>
+			<BlogHeader />
+			<div>
+				<Outlet />
+			</div>
+		</>
 	)
 }

@@ -1,36 +1,116 @@
 /* FRAMEWORK */
+import { Link } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
-import clsx from "clsx";
+import { motion } from "framer-motion"
+import { ScrollArea } from "@mantine/core"
+import { useHover } from "@mantine/hooks"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { DashboardLink } from "~/routes/dashboard/dashboard-icon-button";
+import { CellGridEmpty } from "."
+import { getBlockColor, getDynamicBlocks } from "~/utils"
+import type { Block, PageId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { LAST_BLOCK } from "~/data";
-import { CellGridLink } from ".";
+/* ASSETS & DATA IMPORT */
+import { IconMoreHorizontal } from "./icons"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function CellGridLast({ className }: { className?: string }) {
+type CellGridLastProps = {
+	className?: string
+	blocks?: Block<PageId>[]
+	blockIndex: number
+}
+
+//TODO: refactor... CellGridLast & CellGroup has the same behavior (more..)
+// - extract the logic to commonize the logic
+export function CellGridLast({ className, blocks, blockIndex }: CellGridLastProps) {
+	const { hovered: menuHovered, ref: menuRef } = useHover()
+	const { hovered: targetHovered, ref: targetRef } = useHover()
+
+	if (!blocks || blocks.length === 0) {
+		return <CellGridEmpty />
+	}
+
+	const showMoreButton = blocks.length > 4
+
+	const childMenuItems = blocks.map((block, idx) => {
+		const key = block.id === "empty" ? Math.random() : block.id
+		return (
+			<li key={key}>
+				<Link to={block.to}>{`${idx + 1}. ${block.title}`}</Link>
+			</li>
+		)
+	})
+
+	const { bgColor } = getBlockColor(blockIndex)
+
 	return (
-		<motion.div className={clsx("relative block h-full rounded-lg", className)} layoutId={LAST_BLOCK.id}>
-			<CellGridLink to={LAST_BLOCK.to}>
-				<div className="grid h-full p-2 place-content-center">
-					<h2 className="text-base font-semibold sm:text-xl line-clamp-1">{LAST_BLOCK.title}</h2>
-					<span className="text-sm line-clamp-2">{LAST_BLOCK.description}</span>
-				</div>
-				<div className="absolute bottom-0 right-2 sm:bottom-3 sm:right-3">
-					<DashboardLink className="w-6 h-6 text-gray-700 transition-all hover:scale-125 active:text-blue-900 active:scale-110" />
-				</div>
-			</CellGridLink>
-		</motion.div>
+		<div className="relative h-full overflow-hidden">
+			<div className={clsx("grid h-full grid-cols-2 grid-rows-2 gap-2", className)}>
+				{getDynamicBlocks(blocks, 4)
+					.slice(0, 4)
+					.map((block, idx) => {
+						if (block.id === "empty") {
+							return <CellGridEmpty key={Math.random()} />
+						}
+						const { bgColor } = getBlockColor(blockIndex + idx)
+						return (
+							<Link
+								key={block.to}
+								to={block.to}
+								className={clsx(
+									"grid place-content-center rounded-lg border-2 p-1",
+									"transition-all bg-opacity-60 hover:bg-opacity-100",
+									bgColor
+								)}
+							>
+								{block.title}
+							</Link>
+						)
+					})}
+			</div>
+			<motion.div
+				className={clsx("absolute inset-0 rounded-lg bg-opacity-60", bgColor, {
+					"!hidden": !showMoreButton
+				})}
+				initial={
+					targetHovered || menuHovered
+						? { x: "100%", y: "100%", opacity: 0 }
+						: { x: 0, y: 0, opacity: 1 }
+				}
+				animate={
+					targetHovered || menuHovered
+						? { x: 0, y: 0, opacity: 1 }
+						: { x: "100%", y: "100%", opacity: 0 }
+				}
+				transition={{ type: "just" }}
+				ref={menuRef}
+			>
+				<ScrollArea className="flex flex-col h-full gap-2">
+					<ul className="menu">{childMenuItems}</ul>
+				</ScrollArea>
+			</motion.div>
+
+			<div
+				role="button"
+				className={clsx(
+					"absolute bottom-0 right-0 m-1 hidden h-6 w-6 place-content-center rounded-lg bg-opacity-60 hover:bg-opacity-100 lg:grid lg:h-8 lg:w-8",
+					bgColor,
+					{ "!hidden": showMoreButton === false }
+				)}
+				title="More..."
+				ref={targetRef}
+			>
+				<IconMoreHorizontal />
+			</div>
+		</div>
 	)
 }

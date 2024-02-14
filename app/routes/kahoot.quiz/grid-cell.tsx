@@ -3,26 +3,29 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { CellItem } from "~/components";
-import type { GridCellProps } from "~/utils/types";
+import { CellIntro, CellItem } from "~/components"
+import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { KAHOOT_QUIZ } from "./metadata";
+/* ASSETS & DATA IMPORT */
+import { KAHOOT_QUIZ } from "./metadata"
+import { KAHOOT } from "../kahoot/metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function KahootQuizCell({ className, blockIndex }: GridCellProps) {
+export function KahootQuizCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellItem
-			className={className}
-			blockIndex={blockIndex}
-			metaData={KAHOOT_QUIZ}
-		/>
+		<CellIntro metaData={KAHOOT_QUIZ} upTo={KAHOOT.to} blockIndex={blockIndex}>
+			.... INTRO... SETTINGS...DateTimeAnalogClockCell
+		</CellIntro>
 	)
+}
+
+export function KahootQuizCell({ className, blockIndex }: GridCellProps) {
+	return <CellItem className={className} metaData={KAHOOT_QUIZ} blockIndex={blockIndex} />
 }

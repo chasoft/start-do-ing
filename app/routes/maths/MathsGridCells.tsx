@@ -1,58 +1,92 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
-import clsx from "clsx";
+import { motion } from "framer-motion"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
-import { MathsEmpty1Cell } from "../maths.empty-1/grid-cell";
-import { MathsEmpty2Cell } from "../maths.empty-2/grid-cell";
-import { MathsEmpty3Cell } from "../maths.empty-3/grid-cell";
-import { MathsEmpty4Cell } from "../maths.empty-4/grid-cell";
-import type { GridCellsProps, MathsLayoutId } from "~/utils/types";
+import {
+	CellGridEmpty,
+	CellGridLast,
+	CellGridLeft,
+	CellGridRight,
+	CellIntroSwitcher
+} from "~/components"
+import { MathsEmpty1Cell, MathsEmpty1CellIntro } from "../maths.lesson-1/grid-cell"
+import { MathsEmpty2Cell, MathsEmpty2CellIntro } from "../maths.lesson-2/grid-cell"
+import { MathsEmpty3Cell, MathsEmpty3CellIntro } from "../maths.lesson-3/grid-cell"
+import { MathsEmpty4Cell, MathsEmpty4CellIntro } from "../maths.lesson-4/grid-cell"
+import type { GridCellsProps, MathsLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { BLOCK_NOT_FOUND } from "~/data";
+/* ASSETS & DATA IMPORT */
+import { BLOCK_NOT_FOUND } from "~/data"
+import { MathsGroupCell, MathsGroupCellIntro } from "./grid-cell"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function MathsGridCells({ className, layoutId, blockIndex }: GridCellsProps<MathsLayoutId>): JSX.Element {
+export function MathsGridCells({
+	className,
+	layoutId,
+	blockIndex,
+	isIntroBlock,
+	lastGridCellBlocks
+}: GridCellsProps<MathsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
-		 * 
+		 *
 		 *  CONTENT BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
-		case "maths-empty-1":
+		case "maths":
 			return (
-				<div className={clsx(className)}>
-					<MathsEmpty1Cell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<MathsGroupCell blockIndex={blockIndex} />}
+					introBlock={<MathsGroupCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
-		case "maths-empty-2":
+		case "maths-1":
 			return (
-				<div className={clsx(className)}>
-					<MathsEmpty2Cell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<MathsEmpty1Cell blockIndex={blockIndex} />}
+					introBlock={<MathsEmpty1CellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
-		case "maths-empty-3":
+		case "maths-2":
 			return (
-				<div className={clsx(className)}>
-					<MathsEmpty3Cell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<MathsEmpty2Cell blockIndex={blockIndex} />}
+					introBlock={<MathsEmpty2CellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
-		case "maths-empty-4":
+		case "maths-3":
 			return (
-				<div className={clsx(className)}>
-					<MathsEmpty4Cell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<MathsEmpty3Cell blockIndex={blockIndex} />}
+					introBlock={<MathsEmpty3CellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
+			)
+		case "maths-4":
+			return (
+				<CellIntroSwitcher
+					contentBlock={<MathsEmpty4Cell blockIndex={blockIndex} />}
+					introBlock={<MathsEmpty4CellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "empty":
 			return (
@@ -61,9 +95,9 @@ export function MathsGridCells({ className, layoutId, blockIndex }: GridCellsPro
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FEATURED BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "left":
 			return (
@@ -74,30 +108,33 @@ export function MathsGridCells({ className, layoutId, blockIndex }: GridCellsPro
 		case "right":
 			return (
 				<div className={clsx(className)}>
-					<RightGridCell />
+					<CellGridRight />
 				</div>
 			)
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FIX BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		default:
 			return (
 				<div className={clsx(className, "h-full")}>
-					<motion.div className={clsx("h-full bg-gray-200 rounded-lg")} layoutId={BLOCK_NOT_FOUND}>
+					<motion.div
+						className={clsx("h-full bg-gray-200 rounded-lg")}
+						layoutId={BLOCK_NOT_FOUND}
+					>
 						<div className="grid h-full text-lg md:text-xl text-red-900 place-content-center">
 							BLOCK NOT FOUND
 							<p>{layoutId}</p>
 						</div>
 					</motion.div>
 				</div>
-			);
+			)
 	}
 }

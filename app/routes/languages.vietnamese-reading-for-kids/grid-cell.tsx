@@ -3,26 +3,46 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { CellItem } from "~/components";
-import type { GridCellProps } from "~/utils/types";
+import { CellIntro, CellItem } from "~/components"
+import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { LANGUAGES_VIETNAMESE_READING_FOR_KIDS } from "./metadata";
+/* ASSETS & DATA IMPORT */
+import { LANGUAGES_VIETNAMESE_READING_FOR_KIDS } from "./metadata"
+import { LANGUAGES } from "../languages/metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function LanguagesVietnameseReadingForKidsCell({ className, blockIndex }: GridCellProps) {
+export function LanguagesVietnameseReadingForKidsCellIntro({
+	blockIndex
+}: {
+	blockIndex: number
+}) {
+	return (
+		<CellIntro
+			metaData={LANGUAGES_VIETNAMESE_READING_FOR_KIDS}
+			upTo={LANGUAGES.to}
+			blockIndex={blockIndex}
+		>
+			.... INTRO... SETTINGS...LanguagesVietnameseReadingForKidsCell
+		</CellIntro>
+	)
+}
+
+export function LanguagesVietnameseReadingForKidsCell({
+	className,
+	blockIndex
+}: GridCellProps) {
 	return (
 		<CellItem
 			className={className}
-			blockIndex={blockIndex}
 			metaData={LANGUAGES_VIETNAMESE_READING_FOR_KIDS}
+			blockIndex={blockIndex}
 		/>
 	)
 }

@@ -1,76 +1,122 @@
 /* FRAMEWORK */
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 /* THIRD-PARTY PACKAGES */
-import { AnimatePresence } from "framer-motion";
-import clsx from "clsx";
+import { motion } from "framer-motion"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { getBlocks, getDynamicBlocks, useBreakpoint, useCurrentLayoutId } from "~/utils";
-import type { Block, NavigationGridCells, PageId } from "~/utils/types";
+import {
+	getBlocks,
+	getLastGridCellBlocks,
+	useBreakpoint,
+	useCurrentLayoutId,
+	useIsMobileWindowSize
+} from "~/utils"
+import type { Block, NavigationGridCells, PageId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { SIDE_BLOCKS } from "~/data";
+/* ASSETS & DATA IMPORT */
+import { SIDE_BLOCKS } from "~/data"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
-
 
 /**
  * NavigationGrid is used in `nested routes`,
  * it will persists the state for the whole branch.
  */
-export function NavigationGrid({ GridCell, blocks, children }: { GridCell: NavigationGridCells, blocks: Block<unknown>[], children: React.ReactNode }) {
-	const [layouts, updateLayouts] = useState(() => [...getDynamicBlocks(blocks as Block<PageId>[])])
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const layoutIds = layouts.map((block) => block.id) as any[]
+export function NavigationGrid({
+	GridCell,
+	blocks,
+	children
+}: {
+	GridCell: NavigationGridCells
+	blocks: Block<unknown>[]
+	children: React.ReactNode
+}) {
+	const { currentLayoutId, isGroup } = useCurrentLayoutId()
+	const isMobileWindowSize = useIsMobileWindowSize()
 	const breakpoint = useBreakpoint()
-	const currenLayoutId = useCurrentLayoutId()
+	const [layouts, updateLayouts] = useState(() => [
+		...getBlocks(blocks as Block<PageId>[])
+	])
+	const layoutIds = isGroup
+		? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(layouts.map((block) => block.id) as any[])
+		: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+			[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
 
-	React.useLayoutEffect(() => {
-		updateLayouts(getBlocks(blocks as Block<PageId>[], currenLayoutId))
-	}, [currenLayoutId, updateLayouts, breakpoint, blocks])
+	const lastGridCellBlocks = getLastGridCellBlocks(layouts)
+	const activeBlockIndex = layouts.findIndex(({ id }) => id === currentLayoutId)
+
+	React.useEffect(() => {
+		updateLayouts(getBlocks(blocks as Block<PageId>[]))
+	}, [updateLayouts, breakpoint, blocks])
 
 	return (
-		<AnimatePresence initial={false}>
-			<div
+		<>
+			<motion.div
 				className={clsx(
-					"grid grid-cols-4 md:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7",
-					"gap-2 xl:gap-3 p-2 xl:p-3", "min-h-svh 2xl:max-h-dvh",
-					"grid-rows-[minmax(80px,100px)_minmax(300px,1fr)_minmax(80px,120px)]",
-					"sm:grid-rows-[minmax(100px,150px)_minmax(300px,1fr)_minmax(80px,120px)]",
-					"md:grid-rows-[minmax(100px,200px)_minmax(300px,1fr)_minmax(50px,150px)]",
+					"grid grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7",
+					"gap-3 p-2 2xl:p-3",
+					"min-h-svh 2xl:max-h-dvh",
+					"grid-rows-[150px_minmax(300px,1fr)_150px]"
 				)}
+				initial={{ opacity: isMobileWindowSize ? 1 : 0 }}
+				animate={{ opacity: isMobileWindowSize ? 0 : 1 }}
 			>
 				{/* Row 1 */}
-				<GridCell layoutId={layoutIds[0]} blockIndex={0} className="col-span-2" />
-				<GridCell layoutId={layoutIds[1]} blockIndex={1} />
-				<GridCell layoutId={layoutIds[2]} blockIndex={2} />
-				<GridCell layoutId={layoutIds[3]} blockIndex={3} className="hidden md:block" />
-				<GridCell layoutId={layoutIds[4]} blockIndex={4} className="hidden 2xl:block" />
-				<GridCell layoutId={layoutIds[5]} blockIndex={5} className="hidden 3xl:block" />
+				<GridCell
+					blockIndex={activeBlockIndex}
+					layoutId={layoutIds[0]}
+					className="col-span-2"
+					isIntroBlock={true}
+				/>
+				<GridCell blockIndex={1} layoutId={layoutIds[1]} />
+				<GridCell blockIndex={2} layoutId={layoutIds[2]} />
+				<GridCell blockIndex={3} layoutId={layoutIds[3]} />
+				<GridCell blockIndex={4} layoutId={layoutIds[4]} className="hidden 2xl:block" />
+				<GridCell blockIndex={5} layoutId={layoutIds[5]} className="hidden 3xl:block" />
 				{/* Row 2 */}
-				<GridCell layoutId={SIDE_BLOCKS[0].id} blockIndex={20} className={clsx("aspect-h-2 aspect-w-2", { "hidden md:block": "display" })} />
-				<div className="grid col-span-4 gap-4 md:col-span-3 2xl:col-span-4 3xl:col-span-5 grid-cols-subgrid">
-					<div className="h-full col-span-4 col-start-1 overflow-hidden md:col-span-3 2xl:col-span-4 3xl:col-span-5">
-						{children}
-					</div>
+				<GridCell
+					layoutId={SIDE_BLOCKS[0].id}
+					blockIndex={6}
+					className={clsx("aspect-h-2 aspect-w-2", { "hidden xl:block": "display" })}
+				/>
+				<div className="col-span-4 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
+					<div className="h-full overflow-hidden">{children}</div>
 				</div>
-				<GridCell layoutId={SIDE_BLOCKS[1].id} blockIndex={21} className={clsx("aspect-h-2 aspect-w-2", { "hidden md:block": "display" })} />
+				<GridCell
+					layoutId={SIDE_BLOCKS[1].id}
+					blockIndex={7}
+					className={clsx("aspect-h-2 aspect-w-2", { "hidden lg:block": "display" })}
+				/>
 				{/* Row 3 */}
-				<GridCell layoutId={layoutIds[6]} blockIndex={30} />
-				<GridCell layoutId={layoutIds[7]} blockIndex={31} />
-				<GridCell layoutId={layoutIds[8]} blockIndex={32} />
-				<GridCell layoutId={layoutIds[9]} blockIndex={33} className={clsx({ "hidden md:block": "display" })} />
-				<GridCell layoutId={layoutIds[10]} blockIndex={34} className={clsx({ "hidden 2xl:block": "display" })} />
-				<GridCell layoutId={layoutIds[11]} blockIndex={35} className={clsx({ "hidden 3xl:block": "display" })} />
-				<GridCell layoutId="last" blockIndex={100} />
-			</div>
-		</AnimatePresence>
+				<GridCell blockIndex={6} layoutId={layoutIds[6]} />
+				<GridCell blockIndex={7} layoutId={layoutIds[7]} />
+				<GridCell blockIndex={8} layoutId={layoutIds[8]} />
+				<GridCell blockIndex={9} layoutId={layoutIds[9]} />
+				<GridCell
+					blockIndex={10}
+					layoutId={layoutIds[10]}
+					className={clsx({ "hidden 2xl:block": "display" })}
+				/>
+				<GridCell
+					blockIndex={11}
+					layoutId={layoutIds[11]}
+					className={clsx({ "hidden 3xl:block": "display" })}
+				/>
+				<GridCell
+					blockIndex={12}
+					layoutId="last"
+					lastGridCellBlocks={lastGridCellBlocks}
+				/>
+			</motion.div>
+		</>
 	)
 }

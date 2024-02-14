@@ -1,43 +1,39 @@
 /* FRAMEWORK */
-import { type MetaFunction } from "@remix-run/cloudflare";
+import { type MetaFunction } from "@remix-run/cloudflare"
 
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { ErrorBoundaryBase } from "~/components";
-import { getBlockMetaData } from "~/utils";
-import { OthersIndexContent } from "./content";
-import type { CustomRouteHandle } from "~/utils/types";
+import { ErrorBoundaryBase } from "~/components"
+import { getBlockMetaData } from "~/utils"
+import { OthersIndexContent } from "./content"
+import type { CustomRouteHandle } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { OTHERS_BLOCKS } from "~/data";
+/* ASSETS & DATA IMPORT */
+import { OTHERS_BLOCKS } from "~/data"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 const layoutId = "others"
 
 export const meta: MetaFunction = () => {
-	const { title, description } = getBlockMetaData(OTHERS_BLOCKS, layoutId);
-	return [
-		{ title },
-		{ name: "description", content: description },
-	];
-};
+	const { title, description } = getBlockMetaData(OTHERS_BLOCKS, layoutId)
+	return [{ title }, { name: "description", content: description }]
+}
 
 export const handle: CustomRouteHandle = {
-	layoutId
-};
+	layoutId,
+	isGroup: true
+}
 
 export default function OthersIndexRoute() {
-	return (
-		<OthersIndexContent layoutId={layoutId} />
-	)
+	return <OthersIndexContent layoutId={layoutId} />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

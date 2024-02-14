@@ -1,24 +1,45 @@
 /* FRAMEWORK */
-import { Link } from "@remix-run/react";
+import { NavLink } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
+import { getBlockColor } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function CellGridLink({ to, children }: { to: string, children: React.ReactNode }) {
+export function CellGridLink({
+	to,
+	blockIndex,
+	children
+}: {
+	to: string
+	blockIndex: number
+	children: React.ReactNode
+}) {
+	const { bgColor, borderColor } = getBlockColor(blockIndex)
 	return (
-		<Link to={to} className="relative block h-full transition-all bg-pink-200 border-2 border-transparent rounded-lg bg-opacity-30 hover:bg-opacity-60 hover:outline-pink-300 outline-pink-200 hover:border-blue-300">
+		<NavLink
+			to={to}
+			className={({ isActive, isPending }) =>
+				clsx(
+					"relative block h-full border-2 rounded-lg transition-all",
+					bgColor,
+					`hover:bg-opacity-100`,
+					isActive ? `${borderColor}` : isPending ? "bg-opacity-30" : "bg-opacity-60"
+				)
+			}
+		>
 			{children}
-		</Link>
+		</NavLink>
 	)
 }

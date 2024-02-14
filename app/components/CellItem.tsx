@@ -1,4 +1,5 @@
 /* FRAMEWORK */
+import { useLocation } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
@@ -6,35 +7,44 @@ import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { CellGridLink } from "."
-import { HomeLink } from "./HomeLink"
-import { isFirstCell } from "~/utils"
 import type { Block } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 type CellItemProps = {
 	className?: string
-	blockIndex: number
 	metaData: Block<string>
+	blockIndex: number
 }
 
-export function CellItem({ className, blockIndex, metaData }: CellItemProps) {
+export function CellItem({ className, metaData, blockIndex }: CellItemProps) {
+	const { pathname } = useLocation()
+	const isHome = pathname === metaData.to
+	const layoutId = isHome ? undefined : metaData.to
 	return (
-		<motion.div className={clsx("h-full", className)} layoutId={metaData.id}>
-			<CellGridLink to={metaData.to}>
-				<div className="grid h-full p-2 place-content-center">
-					<h2 className="text-base font-semibold sm:text-xl line-clamp-1">{metaData.title}</h2>
-					{metaData.description && <span className="text-sm line-clamp-2 sm:text-base">{metaData.description}</span>}
+		<motion.div className={clsx("h-full relative block", className)} layoutId={layoutId}>
+			<CellGridLink to={metaData.to} blockIndex={blockIndex}>
+				<div className="flex flex-col p-2">
+					<h2 className="flex items-start gap-2 text-base font-semibold sm:text-xl line-clamp-1">
+						{metaData.icon && <span>{metaData.icon.data}</span>}{" "}
+						<span>{metaData.title}</span>
+					</h2>
+					<div className="flex flex-col grow">
+						{metaData.description && (
+							<span className="text-sm sm:text-base line-clamp-2">
+								{metaData.description}
+							</span>
+						)}
+					</div>
 				</div>
-				{isFirstCell(blockIndex) && <HomeLink />}
 			</CellGridLink>
 		</motion.div>
 	)

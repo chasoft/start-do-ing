@@ -3,37 +3,39 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { IconShare } from "./icons"
-import type { UrlSharingData } from "~/utils/types";
+import type { UrlSharingData } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
+/* ASSETS & DATA IMPORT */
+import { IconShare } from "./icons"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
 export function SharingButton({ data }: { data: UrlSharingData }) {
 	const onClick = async () => {
 		try {
-			const response = await fetch(data.image);
-			const blob = await response.blob();
-			const file = new File([blob], `${Math.random().toString(32).slice(2)}.jpg`, { type: blob.type });
+			const response = await fetch(data.image)
+			const blob = await response.blob()
+			const file = new File([blob], `${Math.random().toString(32).slice(2)}.jpg`, {
+				type: blob.type
+			})
 			await navigator.share({
 				url: data.url,
 				title: data.title,
 				text: data.description,
 				files: [file]
-			});
+			})
 		} catch (e) {
-			console.error(`Fail to share: ${e}`);
+			console.error(`Fail to share: ${e}`)
 		}
 	}
 
-	if ('canShare' in navigator) {
+	if ("canShare" in navigator) {
 		return (
 			<div className="p-2">
 				<IconShare

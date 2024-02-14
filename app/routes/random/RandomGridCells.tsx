@@ -1,79 +1,118 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
-import clsx from "clsx";
+import { motion } from "framer-motion"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
-import { RandomByGroupsCell } from "../random.by-groups/grid-cell";
-import { RandomGroupCell } from "./grid-cell";
-import { RandomLotteryCell } from "../random.lottery/grid-cell";
-import { RandomMagicWheelCell } from "../random.magic-wheel/grid-cell";
-import { RandomNumberCell } from "../random.number/grid-cell";
-import { RandomPasswordCell } from "../random.password/grid-cell";
-import { RandomUsernameCell } from "../random.username/grid-cell";
-import type { GridCellsProps, RandomLayoutId } from "~/utils/types";
+import {
+	CellGridEmpty,
+	CellGridLast,
+	CellGridLeft,
+	CellGridRight,
+	CellIntroSwitcher
+} from "~/components"
+import {
+	RandomByGroupsCell,
+	RandomByGroupsCellIntro
+} from "../random.by-groups/grid-cell"
+import { RandomGroupCell, RandomGroupCellIntro } from "./grid-cell"
+import { RandomLotteryCell, RandomLotteryCellIntro } from "../random.lottery/grid-cell"
+import {
+	RandomMagicWheelCell,
+	RandomMagicWheelCellIntro
+} from "../random.magic-wheel/grid-cell"
+import { RandomNumberCell } from "../random.number/grid-cell"
+import { RandomPasswordCell, RandomPasswordCellIntro } from "../random.password/grid-cell"
+import { RandomUsernameCell, RandomUsernameCellIntro } from "../random.username/grid-cell"
+import type { GridCellsProps, RandomLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { BLOCK_NOT_FOUND } from "~/data";
+/* ASSETS & DATA IMPORT */
+import { BLOCK_NOT_FOUND } from "~/data"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function RandomGridCells({ className, layoutId, blockIndex }: GridCellsProps<RandomLayoutId>): JSX.Element {
+export function RandomGridCells({
+	className,
+	layoutId,
+	blockIndex,
+	isIntroBlock,
+	lastGridCellBlocks
+}: GridCellsProps<RandomLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
-		 * 
+		 *
 		 *  CONTENT BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "random":
 			return (
-				<div className={clsx(className)}>
-					<RandomGroupCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<RandomGroupCell blockIndex={blockIndex} />}
+					introBlock={<RandomGroupCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "random-by-groups":
 			return (
-				<div className={clsx(className)}>
-					<RandomByGroupsCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<RandomByGroupsCell blockIndex={blockIndex} />}
+					introBlock={<RandomByGroupsCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "random-lottery":
 			return (
-				<div className={clsx(className)}>
-					<RandomLotteryCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<RandomLotteryCell blockIndex={blockIndex} />}
+					introBlock={<RandomLotteryCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "random-magic-wheel":
 			return (
-				<div className={clsx(className)}>
-					<RandomMagicWheelCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<RandomMagicWheelCell blockIndex={blockIndex} />}
+					introBlock={<RandomMagicWheelCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "random-number":
 			return (
-				<div className={clsx(className)}>
-					<RandomNumberCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<RandomNumberCell blockIndex={blockIndex} />}
+					introBlock={<RandomNumberCell blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "random-password":
 			return (
-				<div className={clsx(className)}>
-					<RandomPasswordCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<RandomPasswordCell blockIndex={blockIndex} />}
+					introBlock={<RandomPasswordCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "random-username":
 			return (
-				<div className={clsx(className)}>
-					<RandomUsernameCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<RandomUsernameCell blockIndex={blockIndex} />}
+					introBlock={<RandomUsernameCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "empty":
 			return (
@@ -82,9 +121,9 @@ export function RandomGridCells({ className, layoutId, blockIndex }: GridCellsPr
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FEATURED BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "left":
 			return (
@@ -95,30 +134,33 @@ export function RandomGridCells({ className, layoutId, blockIndex }: GridCellsPr
 		case "right":
 			return (
 				<div className={clsx(className)}>
-					<RightGridCell />
+					<CellGridRight />
 				</div>
 			)
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FIX BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		default:
 			return (
 				<div className={clsx(className, "h-full")}>
-					<motion.div className={clsx("h-full bg-gray-200 rounded-lg")} layoutId={BLOCK_NOT_FOUND}>
+					<motion.div
+						className={clsx("h-full bg-gray-200 rounded-lg")}
+						layoutId={BLOCK_NOT_FOUND}
+					>
 						<div className="grid h-full text-lg md:text-xl text-red-900 place-content-center">
 							BLOCK NOT FOUND
 							<p>{layoutId}</p>
 						</div>
 					</motion.div>
 				</div>
-			);
+			)
 	}
 }

@@ -1,5 +1,5 @@
 // icon:share-2 | Feathericons https://feathericons.com/ | Cole Bemis
-import * as React from "react";
+import * as React from "react"
 
 export function IconShare(props: React.SVGProps<SVGSVGElement>) {
 	return (
@@ -19,5 +19,5 @@ export function IconShare(props: React.SVGProps<SVGSVGElement>) {
 			<path d="M21 19 A3 3 0 0 1 18 22 A3 3 0 0 1 15 19 A3 3 0 0 1 21 19 z" />
 			<path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98" />
 		</svg>
-	);
+	)
 }

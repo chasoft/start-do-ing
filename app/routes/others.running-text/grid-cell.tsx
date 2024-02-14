@@ -3,26 +3,35 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { CellItem } from "~/components";
-import type { GridCellProps } from "~/utils/types";
+import { CellIntro, CellItem } from "~/components"
+import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { OTHERS_RUNNING_TEXT } from "./metadata";
+/* ASSETS & DATA IMPORT */
+import { OTHERS_RUNNING_TEXT } from "./metadata"
+import { OTHERS } from "../others/metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
+
+export function OthersRunningTextCellIntro({ blockIndex }: { blockIndex: number }) {
+	return (
+		<CellIntro metaData={OTHERS_RUNNING_TEXT} upTo={OTHERS.to} blockIndex={blockIndex}>
+			.... INTRO... SETTINGS...OthersRunningTextCell
+		</CellIntro>
+	)
+}
 
 export function OthersRunningTextCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<CellItem
 			className={className}
-			blockIndex={blockIndex}
 			metaData={OTHERS_RUNNING_TEXT}
+			blockIndex={blockIndex}
 		/>
 	)
 }

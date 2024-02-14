@@ -1,26 +1,32 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
-import type { DateTimeLayoutId } from "~/utils/types";
+import { ContentWrapper } from "~/components"
+import { useUrlSharingData } from "~/utils"
+import type { DateTimeLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { DATE_TIME_COUNT_DOWN } from "./metadata";
+/* ASSETS & DATA IMPORT */
+import { DATE_TIME_COUNT_DOWN } from "./metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function DateTimeCountDownContent({ className, layoutId }: { className?: string, layoutId: DateTimeLayoutId }) {
-	const urlSharingData = getUrlSharingData(DATE_TIME_COUNT_DOWN)
+export function DateTimeCountDownContent({
+	className,
+	layoutId
+}: {
+	className?: string
+	layoutId: DateTimeLayoutId
+}) {
+	const urlSharingData = useUrlSharingData(DATE_TIME_COUNT_DOWN)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>

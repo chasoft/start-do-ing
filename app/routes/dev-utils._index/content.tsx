@@ -1,26 +1,32 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components";
-import { getUrlSharingData } from "~/utils";
-import type { DevUtilsLayoutId } from "~/utils/types";
+import { ContentWrapper } from "~/components"
+import { useUrlSharingData } from "~/utils"
+import type { DevUtilsLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { DEV_UTILS } from "../dev-utils/metadata";
+/* ASSETS & DATA IMPORT */
+import { DEV_UTILS } from "../dev-utils/metadata"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function DevUtilsIndexContent({ className, layoutId }: { className?: string, layoutId: DevUtilsLayoutId }) {
-	const urlSharingData = getUrlSharingData(DEV_UTILS)
+export function DevUtilsIndexContent({
+	className,
+	layoutId
+}: {
+	className?: string
+	layoutId: DevUtilsLayoutId
+}) {
+	const urlSharingData = useUrlSharingData(DEV_UTILS)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={className} layoutId={layoutId}>
@@ -28,6 +34,6 @@ export function DevUtilsIndexContent({ className, layoutId }: { className?: stri
 					<h1 className="text-lg font-semibold sm:text-2xl">Dev Utils</h1>
 				</div>
 			</motion.div>
-		</ContentWrapper >
+		</ContentWrapper>
 	)
 }

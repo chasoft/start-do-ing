@@ -1,5 +1,5 @@
 // icon:more-horizontal | Teeny Icons https://teenyicons.com/ | Anja van Staden
-import * as React from "react";
+import * as React from "react"
 
 export function IconMoreHorizontal(props: React.SVGProps<SVGSVGElement>) {
 	return (
@@ -9,5 +9,5 @@ export function IconMoreHorizontal(props: React.SVGProps<SVGSVGElement>) {
 				d="M3 7.5a.5.5 0 11-1 0 .5.5 0 011 0zM8 7.5a.5.5 0 11-1 0 .5.5 0 011 0zM13 7.5a.5.5 0 11-1 0 .5.5 0 011 0z"
 			/>
 		</svg>
-	);
+	)
 }

@@ -1,58 +1,85 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
-import clsx from "clsx";
+import { motion } from "framer-motion"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, RightGridCell } from "~/components";
-import { DomainsBuilderCell } from "../domains.builder/grid-cell";
-import { DomainsExtensionsCell } from "../domains.extensions/grid-cell";
-import { DomainsGroupCell } from "./grid-cell";
-import { DomainsWhoiCell } from "../domains.whois/grid-cell";
-import type { DomainsLayoutId, GridCellsProps } from "~/utils/types";
+import {
+	CellGridEmpty,
+	CellGridLast,
+	CellGridLeft,
+	CellGridRight,
+	CellIntroSwitcher
+} from "~/components"
+import { DomainsBuilderCell, DomainsBuilderCellIntro } from "../domains.builder/grid-cell"
+import {
+	DomainsExtensionsCell,
+	DomainsExtensionsCellIntro
+} from "../domains.extensions/grid-cell"
+import { DomainsGroupCell, DomainsGroupCellIntro } from "./grid-cell"
+import { DomainsWhoiCell, DomainsWhoiCellIntro } from "../domains.whois/grid-cell"
+import type { DomainsLayoutId, GridCellsProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { BLOCK_NOT_FOUND } from "~/data";
+/* ASSETS & DATA IMPORT */
+import { BLOCK_NOT_FOUND } from "~/data"
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function DomainsGridCells({ className, layoutId, blockIndex }: GridCellsProps<DomainsLayoutId>): JSX.Element {
+export function DomainsGridCells({
+	className,
+	layoutId,
+	blockIndex,
+	isIntroBlock,
+	lastGridCellBlocks
+}: GridCellsProps<DomainsLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
-		 * 
+		 *
 		 *  CONTENT BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "domains":
 			return (
-				<div className={clsx(className)}>
-					<DomainsGroupCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DomainsGroupCell blockIndex={blockIndex} />}
+					introBlock={<DomainsGroupCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "domains-builder":
 			return (
-				<div className={clsx(className)}>
-					<DomainsBuilderCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DomainsBuilderCell blockIndex={blockIndex} />}
+					introBlock={<DomainsBuilderCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "domains-extensions":
 			return (
-				<div className={clsx(className)}>
-					<DomainsExtensionsCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DomainsExtensionsCell blockIndex={blockIndex} />}
+					introBlock={<DomainsExtensionsCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "domains-whois":
 			return (
-				<div className={clsx(className)}>
-					<DomainsWhoiCell blockIndex={blockIndex} />
-				</div>
+				<CellIntroSwitcher
+					contentBlock={<DomainsWhoiCell blockIndex={blockIndex} />}
+					introBlock={<DomainsWhoiCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
 			)
 		case "empty":
 			return (
@@ -61,9 +88,9 @@ export function DomainsGridCells({ className, layoutId, blockIndex }: GridCellsP
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FEATURED BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "left":
 			return (
@@ -74,30 +101,33 @@ export function DomainsGridCells({ className, layoutId, blockIndex }: GridCellsP
 		case "right":
 			return (
 				<div className={clsx(className)}>
-					<RightGridCell />
+					<CellGridRight />
 				</div>
 			)
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FIX BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		default:
 			return (
 				<div className={clsx(className, "h-full")}>
-					<motion.div className={clsx("h-full bg-gray-200 rounded-lg")} layoutId={BLOCK_NOT_FOUND}>
+					<motion.div
+						className={clsx("h-full bg-gray-200 rounded-lg")}
+						layoutId={BLOCK_NOT_FOUND}
+					>
 						<div className="grid h-full text-lg md:text-xl text-red-900 place-content-center">
 							BLOCK NOT FOUND
 							<p>{layoutId}</p>
 						</div>
 					</motion.div>
 				</div>
-			);
+			)
 	}
 }

@@ -1,46 +1,49 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion";
-import clsx from "clsx";
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLeft, RightGridCell } from ".";
-import { CellGridLast } from "./CellGridLast";
-import { DateTimeGroupCell } from "~/routes/date-time/grid-cell";
-import { DevUtilsGroupCell } from "~/routes/dev-utils/grid-cell";
-import { DomainsGroupCell } from "~/routes/domains/grid-cell";
-import { HomeGridCell } from "~/routes/_index/grid-cell";
-import { KahootGroupCell } from "~/routes/kahoot/grid-cell";
-import { LanguagesGroupCell } from "~/routes/languages/grid-cell";
-import { MathsGroupCell } from "~/routes/maths/grid-cell";
-import { OthersGroupCell } from "~/routes/others/grid-cell";
-import { RandomGroupCell } from "~/routes/random/grid-cell";
-import { UrlShortenerGroupCell } from "~/routes/url-shortener/grid-cell";
-import type { GridCellsProps, GroupId } from "~/utils/types";
+import { CellGridEmpty, CellGridLast, CellGridLeft, CellGridRight } from "."
+import { DateTimeGroupCell } from "~/routes/date-time/grid-cell"
+import { DevUtilsGroupCell } from "~/routes/dev-utils/grid-cell"
+import { DomainsGroupCell } from "~/routes/domains/grid-cell"
+import { HomeGridCellIntro } from "~/routes/_index/grid-cell"
+import { KahootGroupCell } from "~/routes/kahoot/grid-cell"
+import { LanguagesGroupCell } from "~/routes/languages/grid-cell"
+import { MathsGroupCell } from "~/routes/maths/grid-cell"
+import { OthersGroupCell } from "~/routes/others/grid-cell"
+import { RandomGroupCell } from "~/routes/random/grid-cell"
+import { UrlShortenerGroupCell } from "~/routes/url-shortener/grid-cell"
+import type { GridCellsProps, GroupId } from "~/utils/types"
+import { SupportGridCellIntro } from "~/routes/support/grid-cell"
 
 /* TRANSLATIONS IMPORT */
 
-/* DATA IMPORT */
-import { BLOCK_NOT_FOUND } from "~/data";
+/* ASSETS & DATA IMPORT */
 
 /***************************************************************************
- * 
+ *
  *  START
- * 
+ *
  **************************************************************************/
 
-export function RootGridCells({ className, layoutId, blockIndex }: GridCellsProps<GroupId>): JSX.Element {
+export function RootGridCells({
+	className,
+	layoutId,
+	blockIndex,
+	lastGridCellBlocks
+}: GridCellsProps<GroupId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
-		 * 
+		 *
 		 *  CONTENT BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "home":
 			return (
 				<div className={clsx(className)}>
-					<HomeGridCell blockIndex={blockIndex} />
+					<HomeGridCellIntro blockIndex={blockIndex} />
 				</div>
 			)
 		case "date-time":
@@ -104,9 +107,9 @@ export function RootGridCells({ className, layoutId, blockIndex }: GridCellsProp
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
 		 *  FEATURED BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		case "left":
 			return (
@@ -117,30 +120,36 @@ export function RootGridCells({ className, layoutId, blockIndex }: GridCellsProp
 		case "right":
 			return (
 				<div className={clsx(className)}>
-					<RightGridCell />
+					<CellGridRight />
 				</div>
 			)
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************
-		 * 
+		 *
+		 *  ROOT BLOCKS
+		 *
+		 *********************************************************************/
+		case "support":
+			return (
+				<div className={clsx(className)}>
+					<SupportGridCellIntro blockIndex={blockIndex} />
+				</div>
+			)
+		/**********************************************************************
+		 *
 		 *  FIX BLOCKS
-		 * 
+		 *
 		 *********************************************************************/
 		default:
 			return (
-				<div className={clsx(className, "h-full")}>
-					<motion.div className={clsx("h-full bg-gray-200 rounded-lg")} layoutId={BLOCK_NOT_FOUND}>
-						<div className="grid h-full text-lg text-red-900 md:text-xl place-content-center">
-							BLOCK NOT FOUND
-							<p>{layoutId}</p>
-						</div>
-					</motion.div>
+				<div className={clsx(className)}>
+					<CellGridEmpty />
 				</div>
-			);
+			)
 	}
 }
