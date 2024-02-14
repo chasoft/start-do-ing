@@ -26,7 +26,9 @@ export const DOMAINS: Block<"domains"> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-amber-200",
+		bgLighter: "bg-amber-100",
+		bgDarker: "bg-amber-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

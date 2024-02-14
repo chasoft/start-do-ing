@@ -20,7 +20,6 @@ export type GroupId =
 	| "random" //(9)
 	| "url-shortener" //(10)
 	| "others" //(11)
-	| "about"
 	| "support"
 	| "dashboard"
 
@@ -106,6 +105,7 @@ export type DashboardLayoutId = "dashboard" | "settings"
 
 export interface GridCellProps {
 	className?: string
+	blockIndex: number
 	icon?: {
 		data: React.ReactNode
 		color?: string
@@ -116,6 +116,7 @@ export interface GridCellsProps<TLayout> {
 	className?: string
 	layoutId?: TLayout | FeatureLayoutId | SystemLayoutId | DashboardLayoutId
 	isIntroBlock?: boolean
+	blockIndex: number
 	lastGridCellBlocks?: Block<PageId>[]
 }
 
@@ -169,7 +170,9 @@ export type Block<TLayout> = {
 	 */
 	color: {
 		text: string
-		primaryBg: string
+		bgNormal: string
+		bgLighter: string
+		bgDarker: string
 	}
 	/**
 	 * versioning is required to keep track of the changes made to the block
@@ -186,4 +189,9 @@ export type UrlSharingData = {
 	title: string
 	description: string
 	url: string
+}
+
+export type TColor = {
+	bgColor: string
+	borderColor: string
 }

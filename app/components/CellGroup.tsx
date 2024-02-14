@@ -16,6 +16,7 @@ import type { Block } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconMoreHorizontal } from "./icons"
+import { URLS } from "~/data/urls"
 
 /***************************************************************************
  *
@@ -26,7 +27,8 @@ import { IconMoreHorizontal } from "./icons"
 type CellGroupProps = {
 	className?: string
 	metaData: Block<string>
-	dropdownMenuItems?: Array<{
+	blockIndex: number
+	dropdownMenuItems: Array<{
 		title: string
 		to: string
 		icon?: {
@@ -36,24 +38,28 @@ type CellGroupProps = {
 	}>
 }
 
-const homePathname = "/"
+const iconDisplayLimit = 4
 
-export function CellGroup({ className, dropdownMenuItems, metaData }: CellGroupProps) {
+export function CellGroup({
+	className,
+	dropdownMenuItems,
+	metaData,
+	blockIndex
+}: CellGroupProps) {
 	const { hovered: menuHovered, ref: menuRef } = useHover()
 	const { hovered: targetHovered, ref: targetRef } = useHover()
 	const { pathname } = useLocation()
-	const isHome = pathname === homePathname
-
+	const isHome = pathname === URLS.home.to
 	const iconLinks = useMemo(
 		() =>
 			dropdownMenuItems
-				?.filter((i) => !!i.icon)
-				.slice(0, 4) // max display 4 icons
+				.filter((i) => !!i.icon)
+				.slice(0, iconDisplayLimit)
 				.map((i) => (
 					<Link
 						key={i.to}
 						to={i.to}
-						className="p-1 bg-blue-100 rounded-md hover:bg-blue-300"
+						className="p-2 text-gray-500 bg-white bg-opacity-0 rounded-md hover:bg-opacity-40 hover:text-gray-800 active:bg-opacity-80"
 					>
 						{i.icon?.data}
 					</Link>
@@ -63,7 +69,7 @@ export function CellGroup({ className, dropdownMenuItems, metaData }: CellGroupP
 
 	const childMenuItems = useMemo(
 		() =>
-			dropdownMenuItems?.map((i, idx) => (
+			dropdownMenuItems.map((i, idx) => (
 				<li key={i.to}>
 					<Link to={i.to}>{`${idx + 1}. ${i.title}`}</Link>
 				</li>
@@ -71,11 +77,11 @@ export function CellGroup({ className, dropdownMenuItems, metaData }: CellGroupP
 		[dropdownMenuItems]
 	)
 
-	const showMoreButton = (childMenuItems?.length ?? 0) > (iconLinks?.length ?? 0)
+	const showMoreButton = childMenuItems.length > iconLinks.length
 
 	return (
-		<motion.div className={clsx("h-full relative block overflow-hidden", className)}>
-			<CellGridLink to={metaData.to}>
+		<motion.div className={clsx("relative block h-full overflow-hidden", className)}>
+			<CellGridLink to={metaData.to} blockIndex={blockIndex}>
 				<div className="flex flex-col p-2">
 					<h2 className="text-base font-semibold sm:text-xl line-clamp-1">
 						{metaData.title}
@@ -88,13 +94,10 @@ export function CellGroup({ className, dropdownMenuItems, metaData }: CellGroupP
 						)}
 					</div>
 				</div>
-				{isHome && (
-					<div className="absolute hidden gap-1 pt-3 bottom-2 left-2 lg:flex grow">
-						{/* Show IconLinks, max 4 icons */}
-						{iconLinks}
-					</div>
-				)}
 			</CellGridLink>
+			{isHome && (
+				<div className="absolute hidden bottom-2 left-2 grow lg:flex">{iconLinks}</div>
+			)}
 
 			{isHome && showMoreButton && (
 				<>

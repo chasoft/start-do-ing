@@ -26,7 +26,9 @@ export const MATHS: Block<"maths"> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-green-200",
+		bgLighter: "bg-green-100",
+		bgDarker: "bg-green-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

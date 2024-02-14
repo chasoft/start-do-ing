@@ -18,14 +18,31 @@ import { LANGUAGES } from "../languages/metadata"
  *
  **************************************************************************/
 
-export function Languages100PopularChineseWordsCellIntro() {
+export function Languages100PopularChineseWordsCellIntro({
+	blockIndex
+}: {
+	blockIndex: number
+}) {
 	return (
-		<CellIntro metaData={LANGUAGES_100_POPULAR_CHINESE_WORDS} upTo={LANGUAGES.to}>
+		<CellIntro
+			metaData={LANGUAGES_100_POPULAR_CHINESE_WORDS}
+			upTo={LANGUAGES.to}
+			blockIndex={blockIndex}
+		>
 			.... INTRO... SETTINGS...Languages100PopularChineseWordsCell
 		</CellIntro>
 	)
 }
 
-export function Languages100PopularChineseWordsCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={LANGUAGES_100_POPULAR_CHINESE_WORDS} />
+export function Languages100PopularChineseWordsCell({
+	className,
+	blockIndex
+}: GridCellProps) {
+	return (
+		<CellItem
+			className={className}
+			metaData={LANGUAGES_100_POPULAR_CHINESE_WORDS}
+			blockIndex={blockIndex}
+		/>
+	)
 }

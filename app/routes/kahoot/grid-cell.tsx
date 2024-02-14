@@ -21,17 +21,18 @@ import { KAHOOT_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(KAHOOT_BLOCKS)
 
-export function KahootGroupCellIntro() {
+export function KahootGroupCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={KAHOOT} upTo={KAHOOT.to}>
+		<CellIntro metaData={KAHOOT} upTo={KAHOOT.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...KahootGroupCell
 		</CellIntro>
 	)
 }
 
-export function KahootGroupCell({ className }: GridCellProps) {
+export function KahootGroupCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<CellGroup
+			blockIndex={blockIndex}
 			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={KAHOOT}

@@ -41,6 +41,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 export function LanguagesGridCells({
 	className,
 	layoutId,
+	blockIndex,
 	isIntroBlock,
 	lastGridCellBlocks
 }: GridCellsProps<LanguagesLayoutId>): JSX.Element {
@@ -53,8 +54,8 @@ export function LanguagesGridCells({
 		case "languages":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<LanguagesGroupCell />}
-					introBlock={<LanguagesGroupCellIntro />}
+					contentBlock={<LanguagesGroupCell blockIndex={blockIndex} />}
+					introBlock={<LanguagesGroupCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -62,8 +63,10 @@ export function LanguagesGridCells({
 		case "100-popular-chinese-words":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<Languages100PopularChineseWordsCell />}
-					introBlock={<Languages100PopularChineseWordsCellIntro />}
+					contentBlock={<Languages100PopularChineseWordsCell blockIndex={blockIndex} />}
+					introBlock={
+						<Languages100PopularChineseWordsCellIntro blockIndex={blockIndex} />
+					}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -71,8 +74,8 @@ export function LanguagesGridCells({
 		case "chinese-characters":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<LanguagesChineseCharactersCell />}
-					introBlock={<LanguagesChineseCharactersCellIntro />}
+					contentBlock={<LanguagesChineseCharactersCell blockIndex={blockIndex} />}
+					introBlock={<LanguagesChineseCharactersCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -80,8 +83,10 @@ export function LanguagesGridCells({
 		case "vietnamese-reading-for-kids":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<LanguagesVietnameseReadingForKidsCell />}
-					introBlock={<LanguagesVietnameseReadingForKidsCellIntro />}
+					contentBlock={<LanguagesVietnameseReadingForKidsCell blockIndex={blockIndex} />}
+					introBlock={
+						<LanguagesVietnameseReadingForKidsCellIntro blockIndex={blockIndex} />
+					}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -112,7 +117,7 @@ export function LanguagesGridCells({
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast blocks={lastGridCellBlocks} />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************

@@ -21,19 +21,20 @@ import { RANDOM_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(RANDOM_BLOCKS)
 
-export function RandomGroupCellIntro() {
+export function RandomGroupCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={RANDOM} upTo={RANDOM.to}>
+		<CellIntro metaData={RANDOM} upTo={RANDOM.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...RandomGroupCell
 		</CellIntro>
 	)
 }
 
-export function RandomGroupCell({ className }: GridCellProps) {
+export function RandomGroupCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<CellGroup
 			className={className}
 			dropdownMenuItems={dropdownMenuItems}
+			blockIndex={blockIndex}
 			metaData={RANDOM}
 		/>
 	)

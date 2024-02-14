@@ -18,14 +18,14 @@ import { KAHOOT } from "../kahoot/metadata"
  *
  **************************************************************************/
 
-export function KahootQuizCellIntro() {
+export function KahootQuizCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={KAHOOT_QUIZ} upTo={KAHOOT.to}>
+		<CellIntro metaData={KAHOOT_QUIZ} upTo={KAHOOT.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...DateTimeAnalogClockCell
 		</CellIntro>
 	)
 }
 
-export function KahootQuizCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={KAHOOT_QUIZ} />
+export function KahootQuizCell({ className, blockIndex }: GridCellProps) {
+	return <CellItem className={className} metaData={KAHOOT_QUIZ} blockIndex={blockIndex} />
 }

@@ -18,14 +18,16 @@ import { RANDOM } from "../random/metadata"
  *
  **************************************************************************/
 
-export function RandomByGroupsCellIntro() {
+export function RandomByGroupsCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={RANDOM_BY_GROUPS} upTo={RANDOM.to}>
+		<CellIntro metaData={RANDOM_BY_GROUPS} upTo={RANDOM.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...RandomByGroupsCell
 		</CellIntro>
 	)
 }
 
-export function RandomByGroupsCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={RANDOM_BY_GROUPS} />
+export function RandomByGroupsCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem className={className} metaData={RANDOM_BY_GROUPS} blockIndex={blockIndex} />
+	)
 }

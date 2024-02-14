@@ -21,19 +21,20 @@ import { OTHERS_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(OTHERS_BLOCKS)
 
-export function OthersGroupCellIntro() {
+export function OthersGroupCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={OTHERS} upTo={OTHERS.to}>
+		<CellIntro metaData={OTHERS} upTo={OTHERS.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...OthersGroupCell
 		</CellIntro>
 	)
 }
 
-export function OthersGroupCell({ className }: GridCellProps) {
+export function OthersGroupCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<CellGroup
 			className={className}
 			dropdownMenuItems={dropdownMenuItems}
+			blockIndex={blockIndex}
 			metaData={OTHERS}
 		/>
 	)

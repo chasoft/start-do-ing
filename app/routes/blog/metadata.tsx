@@ -9,6 +9,7 @@ import type { Block, BlogLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconArticle } from "@tabler/icons-react"
+import { URLS } from "~/data/urls"
 
 /***************************************************************************
  *
@@ -21,12 +22,14 @@ export const BLOG: Block<"blog"> = {
 	icon: { data: <IconArticle />, color: "#000" },
 	title: "Blog",
 	description: "Blogging",
-	to: "/blog",
+	to: URLS.blog.to,
 	group: [],
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-fuchsia-200",
+		bgLighter: "bg-fuchsia-100",
+		bgDarker: "bg-fuchsia-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),
@@ -45,7 +48,9 @@ export const BLOG_AI: Block<BlogLayoutId> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-fuchsia-200",
+		bgLighter: "bg-fuchsia-100",
+		bgDarker: "bg-fuchsia-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),
@@ -64,7 +69,9 @@ export const BLOG_CHESS: Block<BlogLayoutId> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-fuchsia-200",
+		bgLighter: "bg-fuchsia-100",
+		bgDarker: "bg-fuchsia-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),
@@ -83,7 +90,9 @@ export const BLOG_PHILOSOPHY: Block<BlogLayoutId> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-fuchsia-200",
+		bgLighter: "bg-fuchsia-100",
+		bgDarker: "bg-fuchsia-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),
@@ -102,7 +111,9 @@ export const BLOG_PROGRAMMING: Block<BlogLayoutId> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-fuchsia-200",
+		bgLighter: "bg-fuchsia-100",
+		bgDarker: "bg-fuchsia-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),
@@ -121,7 +132,9 @@ export const BLOG_TRAVEL: Block<BlogLayoutId> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-fuchsia-200",
+		bgLighter: "bg-fuchsia-100",
+		bgDarker: "bg-fuchsia-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

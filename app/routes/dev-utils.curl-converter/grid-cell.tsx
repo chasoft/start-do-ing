@@ -18,14 +18,24 @@ import { DEV_UTILS } from "../dev-utils/metadata"
  *
  **************************************************************************/
 
-export function DevUtilsCurlConverterCellIntro() {
+export function DevUtilsCurlConverterCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DEV_UTILS_CURL_CONVERTER} upTo={DEV_UTILS.to}>
+		<CellIntro
+			metaData={DEV_UTILS_CURL_CONVERTER}
+			upTo={DEV_UTILS.to}
+			blockIndex={blockIndex}
+		>
 			.... INTRO... SETTINGS...DevUtilsCurlConverterCell
 		</CellIntro>
 	)
 }
 
-export function DevUtilsCurlConverterCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={DEV_UTILS_CURL_CONVERTER} />
+export function DevUtilsCurlConverterCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem
+			className={className}
+			metaData={DEV_UTILS_CURL_CONVERTER}
+			blockIndex={blockIndex}
+		/>
+	)
 }

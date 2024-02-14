@@ -29,6 +29,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 export function UrlShortenerGridCells({
 	className,
 	layoutId,
+	blockIndex,
 	isIntroBlock,
 	lastGridCellBlocks
 }: GridCellsProps<UrlShortenerLayoutId>): JSX.Element {
@@ -41,8 +42,8 @@ export function UrlShortenerGridCells({
 		case "url-shortener":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<UrlShortenerGroupCell />}
-					introBlock={<UrlShortenerGroupCellIntro />}
+					contentBlock={<UrlShortenerGroupCell blockIndex={blockIndex} />}
+					introBlock={<UrlShortenerGroupCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -50,8 +51,8 @@ export function UrlShortenerGridCells({
 		case "url-shortener-index":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<UrlShortenerGroupCellIntro />}
-					introBlock={<UrlShortenerGroupCellIntro />}
+					contentBlock={<UrlShortenerGroupCellIntro blockIndex={blockIndex} />}
+					introBlock={<UrlShortenerGroupCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -82,7 +83,7 @@ export function UrlShortenerGridCells({
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast blocks={lastGridCellBlocks} />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************

@@ -11,6 +11,7 @@ import { motion } from "framer-motion"
 /* ASSETS & DATA IMPORT */
 import { HOME } from "~/routes/_index/metadata"
 import { IconHome } from "@tabler/icons-react"
+import { URLS } from "~/data/urls"
 
 /***************************************************************************
  *
@@ -19,13 +20,11 @@ import { IconHome } from "@tabler/icons-react"
  **************************************************************************/
 export function HomeLink() {
 	const { pathname } = useLocation()
-	const isHome = pathname === "/"
+	const isHome = pathname === URLS.home.to
 
 	return (
 		<motion.div layoutId="homeLink">
-			{isHome ? (
-				<IconHome className="w-24 h-24 text-pink-50" />
-			) : (
+			{!isHome && (
 				<Link to={HOME.to}>
 					<IconHome className="w-6 h-6 transition-all hover:scale-125 active:text-blue-900 active:scale-110" />
 				</Link>

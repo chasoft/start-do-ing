@@ -8,6 +8,7 @@ import type { Block, FeatureLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { URLS } from "./urls"
 
 /**************************************************************************
  *
@@ -22,12 +23,14 @@ export const SIDE_BLOCKS: Block<FeatureLayoutId>[] = [
 		icon: undefined,
 		title: "Left block",
 		description: "Left block",
-		to: "/",
+		to: URLS.home.to,
 		group: [],
 		favorite: false,
 		color: {
 			text: "#000",
-			primaryBg: "bg-red-300"
+			bgNormal: "bg-red-300",
+			bgLighter: "bg-red-100",
+			bgDarker: "bg-red-300"
 		},
 		versioning: {
 			releaseDate: new Date(),
@@ -40,12 +43,14 @@ export const SIDE_BLOCKS: Block<FeatureLayoutId>[] = [
 		icon: undefined,
 		title: "Right block",
 		description: "Right block",
-		to: "/",
+		to: URLS.home.to,
 		group: [],
 		favorite: false,
 		color: {
 			text: "#000",
-			primaryBg: "bg-yellow-300"
+			bgNormal: "bg-yellow-300",
+			bgLighter: "bg-yellow-100",
+			bgDarker: "bg-yellow-300"
 		},
 		versioning: {
 			releaseDate: new Date(),

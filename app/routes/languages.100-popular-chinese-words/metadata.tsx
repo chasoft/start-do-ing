@@ -26,7 +26,9 @@ export const LANGUAGES_100_POPULAR_CHINESE_WORDS: Block<LanguagesLayoutId> = {
 	favorite: false,
 	color: {
 		text: "#000",
-		primaryBg: "bg-rose-200"
+		bgNormal: "bg-rose-200",
+		bgLighter: "bg-rose-100",
+		bgDarker: "bg-rose-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

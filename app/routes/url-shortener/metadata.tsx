@@ -26,7 +26,9 @@ export const URL_SHORTENER: Block<"url-shortener"> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-cyan-200",
+		bgLighter: "bg-cyan-100",
+		bgDarker: "bg-cyan-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

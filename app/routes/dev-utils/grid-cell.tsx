@@ -21,17 +21,18 @@ import { DEV_UTILS_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(DEV_UTILS_BLOCKS)
 
-export function DevUtilsGroupCellIntro() {
+export function DevUtilsGroupCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DEV_UTILS} upTo={DEV_UTILS.to}>
+		<CellIntro metaData={DEV_UTILS} upTo={DEV_UTILS.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...DevUtilsGroupCell
 		</CellIntro>
 	)
 }
 
-export function DevUtilsGroupCell({ className }: GridCellProps) {
+export function DevUtilsGroupCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<CellGroup
+			blockIndex={blockIndex}
 			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={DEV_UTILS}

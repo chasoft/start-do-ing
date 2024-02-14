@@ -18,14 +18,20 @@ import { DATE_TIME } from "../date-time/metadata"
  *
  **************************************************************************/
 
-export function DateTimeCalendarCellIntro() {
+export function DateTimeCalendarCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DATE_TIME_CALENDAR} upTo={DATE_TIME.to}>
+		<CellIntro metaData={DATE_TIME_CALENDAR} upTo={DATE_TIME.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...DateTimeCalendarCell
 		</CellIntro>
 	)
 }
 
-export function DateTimeCalendarCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={DATE_TIME_CALENDAR} />
+export function DateTimeCalendarCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem
+			className={className}
+			metaData={DATE_TIME_CALENDAR}
+			blockIndex={blockIndex}
+		/>
+	)
 }

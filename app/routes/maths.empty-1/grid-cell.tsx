@@ -18,14 +18,16 @@ import { MATHS } from "../maths/metadata"
  *
  **************************************************************************/
 
-export function MathsEmpty1CellIntro() {
+export function MathsEmpty1CellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={MATHS_EMPTY_1} upTo={MATHS.to}>
+		<CellIntro metaData={MATHS_EMPTY_1} upTo={MATHS.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...MathsEmpty1Cell
 		</CellIntro>
 	)
 }
 
-export function MathsEmpty1Cell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={MATHS_EMPTY_1} />
+export function MathsEmpty1Cell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem className={className} metaData={MATHS_EMPTY_1} blockIndex={blockIndex} />
+	)
 }

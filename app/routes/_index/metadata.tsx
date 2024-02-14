@@ -9,6 +9,7 @@ import type { Block } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconHome } from "@tabler/icons-react"
+import { URLS } from "~/data/urls"
 
 /***************************************************************************
  *
@@ -23,12 +24,14 @@ export const HOME: Block<"home"> = {
 	},
 	title: "Home",
 	description: "",
-	to: "/",
+	to: URLS.home.to,
 	group: [],
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-pink-200"
+		bgNormal: "bg-gray-200",
+		bgLighter: "bg-gray-100",
+		bgDarker: "bg-gray-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

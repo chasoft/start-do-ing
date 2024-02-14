@@ -21,17 +21,18 @@ import { LANGUAGES_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(LANGUAGES_BLOCKS)
 
-export function LanguagesGroupCellIntro() {
+export function LanguagesGroupCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={LANGUAGES} upTo={LANGUAGES.to}>
+		<CellIntro metaData={LANGUAGES} upTo={LANGUAGES.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...DateTimeAnalogClockCell
 		</CellIntro>
 	)
 }
 
-export function LanguagesGroupCell({ className }: GridCellProps) {
+export function LanguagesGroupCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<CellGroup
+			blockIndex={blockIndex}
 			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={LANGUAGES}

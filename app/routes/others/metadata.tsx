@@ -26,7 +26,9 @@ export const OTHERS: Block<"others"> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-emerald-200",
+		bgLighter: "bg-emerald-100",
+		bgDarker: "bg-emerald-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

@@ -33,6 +33,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 export function OthersGridCells({
 	className,
 	layoutId,
+	blockIndex,
 	isIntroBlock,
 	lastGridCellBlocks
 }: GridCellsProps<OthersLayoutId>): JSX.Element {
@@ -45,8 +46,8 @@ export function OthersGridCells({
 		case "others":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<OthersGroupCell />}
-					introBlock={<OthersGroupCellIntro />}
+					contentBlock={<OthersGroupCell blockIndex={blockIndex} />}
+					introBlock={<OthersGroupCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -54,8 +55,8 @@ export function OthersGridCells({
 		case "others-running-text":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<OthersRunningTextCell />}
-					introBlock={<OthersRunningTextCellIntro />}
+					contentBlock={<OthersRunningTextCell blockIndex={blockIndex} />}
+					introBlock={<OthersRunningTextCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -86,7 +87,7 @@ export function OthersGridCells({
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast blocks={lastGridCellBlocks} />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************

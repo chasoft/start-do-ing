@@ -30,6 +30,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 export function KahootGridCells({
 	className,
 	layoutId,
+	blockIndex,
 	isIntroBlock,
 	lastGridCellBlocks
 }: GridCellsProps<KahootLayoutId>): JSX.Element {
@@ -42,8 +43,8 @@ export function KahootGridCells({
 		case "kahoot":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<KahootGroupCell />}
-					introBlock={<KahootGroupCellIntro />}
+					contentBlock={<KahootGroupCell blockIndex={blockIndex} />}
+					introBlock={<KahootGroupCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -51,8 +52,8 @@ export function KahootGridCells({
 		case "kahoot-quiz":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<KahootQuizCell />}
-					introBlock={<KahootQuizCellIntro />}
+					contentBlock={<KahootQuizCell blockIndex={blockIndex} />}
+					introBlock={<KahootQuizCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -83,7 +84,7 @@ export function KahootGridCells({
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast blocks={lastGridCellBlocks} />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************

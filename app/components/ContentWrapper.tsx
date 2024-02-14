@@ -20,10 +20,12 @@ import type { UrlSharingData } from "~/utils/types"
 
 export function ContentWrapper({
 	urlSharingData,
-	children
+	children,
+	className
 }: {
 	urlSharingData: UrlSharingData
 	children: React.ReactNode
+	className?: string
 }) {
 	const isFullScreen = useIsFullscreen()
 	const isMobileWindowSize = useIsMobileWindowSize()
@@ -31,9 +33,9 @@ export function ContentWrapper({
 
 	return (
 		<div
-			className={clsx("relative w-full h-full", {
-				// "bg-opacity-100": isMobileWindowSize,
-				"p-2 lg:p-4 bg-blue-200 bg-opacity-50 rounded-lg": !isMobileWindowSize
+			className={clsx("relative h-full w-full", {
+				"rounded-lg p-2 lg:p-4": !isMobileWindowSize,
+				className
 			})}
 		>
 			{(!isShowMobileButtons || isFullScreen) && (

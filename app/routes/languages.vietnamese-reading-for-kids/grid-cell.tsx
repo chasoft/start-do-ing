@@ -18,16 +18,31 @@ import { LANGUAGES } from "../languages/metadata"
  *
  **************************************************************************/
 
-export function LanguagesVietnameseReadingForKidsCellIntro() {
+export function LanguagesVietnameseReadingForKidsCellIntro({
+	blockIndex
+}: {
+	blockIndex: number
+}) {
 	return (
-		<CellIntro metaData={LANGUAGES_VIETNAMESE_READING_FOR_KIDS} upTo={LANGUAGES.to}>
+		<CellIntro
+			metaData={LANGUAGES_VIETNAMESE_READING_FOR_KIDS}
+			upTo={LANGUAGES.to}
+			blockIndex={blockIndex}
+		>
 			.... INTRO... SETTINGS...LanguagesVietnameseReadingForKidsCell
 		</CellIntro>
 	)
 }
 
-export function LanguagesVietnameseReadingForKidsCell({ className }: GridCellProps) {
+export function LanguagesVietnameseReadingForKidsCell({
+	className,
+	blockIndex
+}: GridCellProps) {
 	return (
-		<CellItem className={className} metaData={LANGUAGES_VIETNAMESE_READING_FOR_KIDS} />
+		<CellItem
+			className={className}
+			metaData={LANGUAGES_VIETNAMESE_READING_FOR_KIDS}
+			blockIndex={blockIndex}
+		/>
 	)
 }

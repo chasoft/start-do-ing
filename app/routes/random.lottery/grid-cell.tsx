@@ -18,14 +18,16 @@ import { RANDOM } from "../random/metadata"
  *
  **************************************************************************/
 
-export function RandomLotteryCellIntro() {
+export function RandomLotteryCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={RANDOM_LOTTERY} upTo={RANDOM.to}>
+		<CellIntro metaData={RANDOM_LOTTERY} upTo={RANDOM.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...RandomLotteryCell
 		</CellIntro>
 	)
 }
 
-export function RandomLotteryCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={RANDOM_LOTTERY} />
+export function RandomLotteryCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem className={className} metaData={RANDOM_LOTTERY} blockIndex={blockIndex} />
+	)
 }

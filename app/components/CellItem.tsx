@@ -22,18 +22,16 @@ import type { Block } from "~/utils/types"
 type CellItemProps = {
 	className?: string
 	metaData: Block<string>
+	blockIndex: number
 }
 
-export function CellItem({ className, metaData }: CellItemProps) {
+export function CellItem({ className, metaData, blockIndex }: CellItemProps) {
 	const { pathname } = useLocation()
 	const isHome = pathname === metaData.to
 	const layoutId = isHome ? undefined : metaData.to
 	return (
-		<motion.div
-			className={clsx("h-full relative block overflow-hidden", className)}
-			layoutId={layoutId}
-		>
-			<CellGridLink to={metaData.to}>
+		<motion.div className={clsx("h-full relative block", className)} layoutId={layoutId}>
+			<CellGridLink to={metaData.to} blockIndex={blockIndex}>
 				<div className="flex flex-col p-2">
 					<h2 className="text-base font-semibold sm:text-xl line-clamp-1">
 						{metaData.title}

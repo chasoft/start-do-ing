@@ -33,6 +33,7 @@ import { MathsGroupCell, MathsGroupCellIntro } from "./grid-cell"
 export function MathsGridCells({
 	className,
 	layoutId,
+	blockIndex,
 	isIntroBlock,
 	lastGridCellBlocks
 }: GridCellsProps<MathsLayoutId>): JSX.Element {
@@ -45,8 +46,8 @@ export function MathsGridCells({
 		case "maths":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<MathsGroupCell />}
-					introBlock={<MathsGroupCellIntro />}
+					contentBlock={<MathsGroupCell blockIndex={blockIndex} />}
+					introBlock={<MathsGroupCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -54,8 +55,8 @@ export function MathsGridCells({
 		case "maths-empty-1":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<MathsEmpty1Cell />}
-					introBlock={<MathsEmpty1CellIntro />}
+					contentBlock={<MathsEmpty1Cell blockIndex={blockIndex} />}
+					introBlock={<MathsEmpty1CellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -63,8 +64,8 @@ export function MathsGridCells({
 		case "maths-empty-2":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<MathsEmpty2Cell />}
-					introBlock={<MathsEmpty2CellIntro />}
+					contentBlock={<MathsEmpty2Cell blockIndex={blockIndex} />}
+					introBlock={<MathsEmpty2CellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -72,8 +73,8 @@ export function MathsGridCells({
 		case "maths-empty-3":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<MathsEmpty3Cell />}
-					introBlock={<MathsEmpty3CellIntro />}
+					contentBlock={<MathsEmpty3Cell blockIndex={blockIndex} />}
+					introBlock={<MathsEmpty3CellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -81,8 +82,8 @@ export function MathsGridCells({
 		case "maths-empty-4":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<MathsEmpty4Cell />}
-					introBlock={<MathsEmpty4CellIntro />}
+					contentBlock={<MathsEmpty4Cell blockIndex={blockIndex} />}
+					introBlock={<MathsEmpty4CellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -113,7 +114,7 @@ export function MathsGridCells({
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast blocks={lastGridCellBlocks} />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************

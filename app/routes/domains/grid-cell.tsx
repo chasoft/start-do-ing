@@ -21,17 +21,18 @@ import { DOMAINS_BLOCKS } from "~/data"
 
 const dropdownMenuItems = getMenuItemsFromBlocks(DOMAINS_BLOCKS)
 
-export function DomainsGroupCellIntro() {
+export function DomainsGroupCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DOMAINS} upTo={DOMAINS.to}>
+		<CellIntro metaData={DOMAINS} upTo={DOMAINS.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...DomainsGroupCell
 		</CellIntro>
 	)
 }
 
-export function DomainsGroupCell({ className }: GridCellProps) {
+export function DomainsGroupCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<CellGroup
+			blockIndex={blockIndex}
 			className={className}
 			dropdownMenuItems={dropdownMenuItems}
 			metaData={DOMAINS}

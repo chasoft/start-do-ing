@@ -18,14 +18,16 @@ import { RANDOM } from "../random/metadata"
  *
  **************************************************************************/
 
-export function RandomNumberCellIntro() {
+export function RandomNumberCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={RANDOM_NUMBER} upTo={RANDOM.to}>
+		<CellIntro metaData={RANDOM_NUMBER} upTo={RANDOM.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...RandomNumberCell
 		</CellIntro>
 	)
 }
 
-export function RandomNumberCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={RANDOM_NUMBER} />
+export function RandomNumberCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem className={className} metaData={RANDOM_NUMBER} blockIndex={blockIndex} />
+	)
 }

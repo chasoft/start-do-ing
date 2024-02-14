@@ -18,14 +18,24 @@ import { DEV_UTILS } from "../dev-utils/metadata"
  *
  **************************************************************************/
 
-export function DevUtilsHashGeneratorCellIntro() {
+export function DevUtilsHashGeneratorCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DEV_UTILS_HASH_GENERATOR} upTo={DEV_UTILS.to}>
+		<CellIntro
+			metaData={DEV_UTILS_HASH_GENERATOR}
+			upTo={DEV_UTILS.to}
+			blockIndex={blockIndex}
+		>
 			.... INTRO... SETTINGS...DevUtilsHashGeneratorCell
 		</CellIntro>
 	)
 }
 
-export function DevUtilsHashGeneratorCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={DEV_UTILS_HASH_GENERATOR} />
+export function DevUtilsHashGeneratorCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem
+			className={className}
+			metaData={DEV_UTILS_HASH_GENERATOR}
+			blockIndex={blockIndex}
+		/>
+	)
 }

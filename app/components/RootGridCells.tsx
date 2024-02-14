@@ -16,6 +16,7 @@ import { OthersGroupCell } from "~/routes/others/grid-cell"
 import { RandomGroupCell } from "~/routes/random/grid-cell"
 import { UrlShortenerGroupCell } from "~/routes/url-shortener/grid-cell"
 import type { GridCellsProps, GroupId } from "~/utils/types"
+import { SupportGridCellIntro } from "~/routes/support/grid-cell"
 
 /* TRANSLATIONS IMPORT */
 
@@ -30,6 +31,7 @@ import type { GridCellsProps, GroupId } from "~/utils/types"
 export function RootGridCells({
 	className,
 	layoutId,
+	blockIndex,
 	lastGridCellBlocks
 }: GridCellsProps<GroupId>): JSX.Element {
 	switch (layoutId) {
@@ -41,61 +43,61 @@ export function RootGridCells({
 		case "home":
 			return (
 				<div className={clsx(className)}>
-					<HomeGridCellIntro />
+					<HomeGridCellIntro blockIndex={blockIndex} />
 				</div>
 			)
 		case "date-time":
 			return (
 				<div className={clsx(className)}>
-					<DateTimeGroupCell />
+					<DateTimeGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "dev-utils":
 			return (
 				<div className={clsx(className)}>
-					<DevUtilsGroupCell />
+					<DevUtilsGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "domains":
 			return (
 				<div className={clsx(className)}>
-					<DomainsGroupCell />
+					<DomainsGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "kahoot":
 			return (
 				<div className={clsx(className)}>
-					<KahootGroupCell />
+					<KahootGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "languages":
 			return (
 				<div className={clsx(className)}>
-					<LanguagesGroupCell />
+					<LanguagesGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "maths":
 			return (
 				<div className={clsx(className)}>
-					<MathsGroupCell />
+					<MathsGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "random":
 			return (
 				<div className={clsx(className)}>
-					<RandomGroupCell />
+					<RandomGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "url-shortener":
 			return (
 				<div className={clsx(className)}>
-					<UrlShortenerGroupCell />
+					<UrlShortenerGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "others":
 			return (
 				<div className={clsx(className)}>
-					<OthersGroupCell />
+					<OthersGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "empty":
@@ -124,7 +126,18 @@ export function RootGridCells({
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast blocks={lastGridCellBlocks} />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
+				</div>
+			)
+		/**********************************************************************
+		 *
+		 *  ROOT BLOCKS
+		 *
+		 *********************************************************************/
+		case "support":
+			return (
+				<div className={clsx(className)}>
+					<SupportGridCellIntro blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************

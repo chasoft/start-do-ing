@@ -18,14 +18,24 @@ import { DEV_UTILS } from "../dev-utils/metadata"
  *
  **************************************************************************/
 
-export function DevUtilsSqlFormatterCellIntro() {
+export function DevUtilsSqlFormatterCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DEV_UTILS_SQL_FORMATTER} upTo={DEV_UTILS.to}>
+		<CellIntro
+			metaData={DEV_UTILS_SQL_FORMATTER}
+			upTo={DEV_UTILS.to}
+			blockIndex={blockIndex}
+		>
 			.... INTRO... SETTINGS...DevUtilsSqlFormatterCell
 		</CellIntro>
 	)
 }
 
-export function DevUtilsSqlFormatterCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={DEV_UTILS_SQL_FORMATTER} />
+export function DevUtilsSqlFormatterCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem
+			className={className}
+			metaData={DEV_UTILS_SQL_FORMATTER}
+			blockIndex={blockIndex}
+		/>
+	)
 }

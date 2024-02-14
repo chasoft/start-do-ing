@@ -18,14 +18,20 @@ import { OTHERS } from "../others/metadata"
  *
  **************************************************************************/
 
-export function OthersRunningTextCellIntro() {
+export function OthersRunningTextCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={OTHERS_RUNNING_TEXT} upTo={OTHERS.to}>
+		<CellIntro metaData={OTHERS_RUNNING_TEXT} upTo={OTHERS.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...OthersRunningTextCell
 		</CellIntro>
 	)
 }
 
-export function OthersRunningTextCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={OTHERS_RUNNING_TEXT} />
+export function OthersRunningTextCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem
+			className={className}
+			metaData={OTHERS_RUNNING_TEXT}
+			blockIndex={blockIndex}
+		/>
+	)
 }

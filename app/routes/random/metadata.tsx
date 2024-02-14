@@ -26,7 +26,9 @@ export const RANDOM: Block<"random"> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-teal-200",
+		bgLighter: "bg-teal-100",
+		bgDarker: "bg-teal-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

@@ -18,14 +18,28 @@ import { LANGUAGES } from "../languages/metadata"
  *
  **************************************************************************/
 
-export function LanguagesChineseCharactersCellIntro() {
+export function LanguagesChineseCharactersCellIntro({
+	blockIndex
+}: {
+	blockIndex: number
+}) {
 	return (
-		<CellIntro metaData={LANGUAGES_CHINESE_CHARACTERS} upTo={LANGUAGES.to}>
+		<CellIntro
+			metaData={LANGUAGES_CHINESE_CHARACTERS}
+			upTo={LANGUAGES.to}
+			blockIndex={blockIndex}
+		>
 			.... INTRO... SETTINGS...LanguagesChineseCharactersCell
 		</CellIntro>
 	)
 }
 
-export function LanguagesChineseCharactersCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={LANGUAGES_CHINESE_CHARACTERS} />
+export function LanguagesChineseCharactersCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem
+			className={className}
+			metaData={LANGUAGES_CHINESE_CHARACTERS}
+			blockIndex={blockIndex}
+		/>
+	)
 }

@@ -47,11 +47,12 @@ export function NavigationGrid({
 	])
 	const layoutIds = isGroup
 		? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-		(layouts.map((block) => block.id) as any[])
+			(layouts.map((block) => block.id) as any[])
 		: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-		[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
+			[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
 
 	const lastGridCellBlocks = getLastGridCellBlocks(layouts)
+	const activeBlockIndex = layouts.findIndex(({ id }) => id === currentLayoutId)
 
 	React.useEffect(() => {
 		updateLayouts(getBlocks(blocks as Block<PageId>[]))
@@ -70,40 +71,51 @@ export function NavigationGrid({
 				animate={{ opacity: isMobileWindowSize ? 0 : 1 }}
 			>
 				{/* Row 1 */}
-				<GridCell layoutId={layoutIds[0]} className="col-span-2" isIntroBlock={true} />
-				<GridCell layoutId={layoutIds[1]} />
-				<GridCell layoutId={layoutIds[2]} />
-				<GridCell layoutId={layoutIds[3]} />
-				<GridCell layoutId={layoutIds[4]} className="hidden 2xl:block" />
-				<GridCell layoutId={layoutIds[5]} className="hidden 3xl:block" />
+				<GridCell
+					blockIndex={activeBlockIndex}
+					layoutId={layoutIds[0]}
+					className="col-span-2"
+					isIntroBlock={true}
+				/>
+				<GridCell blockIndex={1} layoutId={layoutIds[1]} />
+				<GridCell blockIndex={2} layoutId={layoutIds[2]} />
+				<GridCell blockIndex={3} layoutId={layoutIds[3]} />
+				<GridCell blockIndex={4} layoutId={layoutIds[4]} className="hidden 2xl:block" />
+				<GridCell blockIndex={5} layoutId={layoutIds[5]} className="hidden 3xl:block" />
 				{/* Row 2 */}
 				<GridCell
 					layoutId={SIDE_BLOCKS[0].id}
+					blockIndex={6}
 					className={clsx("aspect-h-2 aspect-w-2", { "hidden xl:block": "display" })}
 				/>
 				<div className="col-span-4 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
-					<div className="h-full overflow-hidden">
-						{children}
-					</div>
+					<div className="h-full overflow-hidden">{children}</div>
 				</div>
 				<GridCell
 					layoutId={SIDE_BLOCKS[1].id}
+					blockIndex={7}
 					className={clsx("aspect-h-2 aspect-w-2", { "hidden lg:block": "display" })}
 				/>
 				{/* Row 3 */}
-				<GridCell layoutId={layoutIds[6]} />
-				<GridCell layoutId={layoutIds[7]} />
-				<GridCell layoutId={layoutIds[8]} />
-				<GridCell layoutId={layoutIds[9]} />
+				<GridCell blockIndex={6} layoutId={layoutIds[6]} />
+				<GridCell blockIndex={7} layoutId={layoutIds[7]} />
+				<GridCell blockIndex={8} layoutId={layoutIds[8]} />
+				<GridCell blockIndex={9} layoutId={layoutIds[9]} />
 				<GridCell
+					blockIndex={10}
 					layoutId={layoutIds[10]}
 					className={clsx({ "hidden 2xl:block": "display" })}
 				/>
 				<GridCell
+					blockIndex={11}
 					layoutId={layoutIds[11]}
 					className={clsx({ "hidden 3xl:block": "display" })}
 				/>
-				<GridCell layoutId="last" lastGridCellBlocks={lastGridCellBlocks} />
+				<GridCell
+					blockIndex={12}
+					layoutId="last"
+					lastGridCellBlocks={lastGridCellBlocks}
+				/>
 			</motion.div>
 		</>
 	)

@@ -57,6 +57,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 export function DevUtilsGridCells({
 	className,
 	layoutId,
+	blockIndex,
 	isIntroBlock,
 	lastGridCellBlocks
 }: GridCellsProps<DevUtilsLayoutId>): JSX.Element {
@@ -69,8 +70,8 @@ export function DevUtilsGridCells({
 		case "dev-utils":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<DevUtilsGroupCell />}
-					introBlock={<DevUtilsGroupCellIntro />}
+					contentBlock={<DevUtilsGroupCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsGroupCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -78,8 +79,8 @@ export function DevUtilsGridCells({
 		case "dev-utils-base64":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<DevUtilsBase64Cell />}
-					introBlock={<DevUtilsBase64CellIntro />}
+					contentBlock={<DevUtilsBase64Cell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsBase64CellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -87,8 +88,8 @@ export function DevUtilsGridCells({
 		case "dev-utils-curl-converter":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<DevUtilsCurlConverterCell />}
-					introBlock={<DevUtilsCurlConverterCellIntro />}
+					contentBlock={<DevUtilsCurlConverterCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsCurlConverterCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -96,8 +97,8 @@ export function DevUtilsGridCells({
 		case "dev-utils-hash-generator":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<DevUtilsHashGeneratorCell />}
-					introBlock={<DevUtilsHashGeneratorCellIntro />}
+					contentBlock={<DevUtilsHashGeneratorCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsHashGeneratorCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -105,8 +106,8 @@ export function DevUtilsGridCells({
 		case "dev-utils-lorem-ipsum-generator":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<DevUtilsLoremIpsumGeneratorCell />}
-					introBlock={<DevUtilsLoremIpsumGeneratorCellIntro />}
+					contentBlock={<DevUtilsLoremIpsumGeneratorCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsLoremIpsumGeneratorCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -114,8 +115,8 @@ export function DevUtilsGridCells({
 		case "dev-utils-markdown-editor":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<DevUtilsMarkdownEditorCell />}
-					introBlock={<DevUtilsMarkdownEditorCellIntro />}
+					contentBlock={<DevUtilsMarkdownEditorCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsMarkdownEditorCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -123,8 +124,8 @@ export function DevUtilsGridCells({
 		case "dev-utils-sql-formatter":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<DevUtilsSqlFormatterCell />}
-					introBlock={<DevUtilsSqlFormatterCellIntro />}
+					contentBlock={<DevUtilsSqlFormatterCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsSqlFormatterCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -132,8 +133,8 @@ export function DevUtilsGridCells({
 		case "dev-utils-string-converter":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<DevUtilsStringConverterCell />}
-					introBlock={<DevUtilsStringConverterCellIntro />}
+					contentBlock={<DevUtilsStringConverterCell blockIndex={blockIndex} />}
+					introBlock={<DevUtilsStringConverterCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -164,7 +165,7 @@ export function DevUtilsGridCells({
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast blocks={lastGridCellBlocks} />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************

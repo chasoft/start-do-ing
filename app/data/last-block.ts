@@ -25,7 +25,9 @@ export const LAST_BLOCK: Block<FeatureLayoutId> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-gray-300"
+		bgNormal: "bg-gray-300",
+		bgLighter: "bg-gray-100",
+		bgDarker: "bg-gray-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

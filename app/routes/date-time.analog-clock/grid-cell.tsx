@@ -18,14 +18,24 @@ import { DATE_TIME } from "../date-time/metadata"
  *
  **************************************************************************/
 
-export function DateTimeAnalogClockCellIntro() {
+export function DateTimeAnalogClockCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DATE_TIME_ANALOG_CLOCK} upTo={DATE_TIME.to}>
+		<CellIntro
+			metaData={DATE_TIME_ANALOG_CLOCK}
+			upTo={DATE_TIME.to}
+			blockIndex={blockIndex}
+		>
 			.... INTRO... SETTINGS...DateTimeAnalogClockCell
 		</CellIntro>
 	)
 }
 
-export function DateTimeAnalogClockCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={DATE_TIME_ANALOG_CLOCK} />
+export function DateTimeAnalogClockCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem
+			className={className}
+			metaData={DATE_TIME_ANALOG_CLOCK}
+			blockIndex={blockIndex}
+		/>
+	)
 }

@@ -18,14 +18,20 @@ import { DOMAINS } from "../domains/metadata"
  *
  **************************************************************************/
 
-export function DomainsExtensionsCellIntro() {
+export function DomainsExtensionsCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DOMAINS_EXTENSIONS} upTo={DOMAINS.to}>
+		<CellIntro metaData={DOMAINS_EXTENSIONS} upTo={DOMAINS.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...DomainsExtensionsCell
 		</CellIntro>
 	)
 }
 
-export function DomainsExtensionsCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={DOMAINS_EXTENSIONS} />
+export function DomainsExtensionsCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem
+			className={className}
+			metaData={DOMAINS_EXTENSIONS}
+			blockIndex={blockIndex}
+		/>
+	)
 }

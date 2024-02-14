@@ -3,7 +3,6 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { ABOUT } from "~/routes/about/metadata"
 import { DATE_TIME } from "~/routes/date-time/metadata"
 import { DATE_TIME_ANALOG_CLOCK } from "~/routes/date-time.analog-clock/metadata"
 import { DATE_TIME_CALCULATOR } from "~/routes/date-time.calculator/metadata"
@@ -84,9 +83,6 @@ export const HOME_BLOCKS: Block<GroupId>[] = [
 	RANDOM,
 	DATE_TIME,
 	DEV_UTILS,
-	DEV_UTILS,
-	DEV_UTILS,
-	DEV_UTILS,
 	DOMAINS,
 	KAHOOT,
 	LANGUAGES,
@@ -162,8 +158,6 @@ export const URL_SHORTENER_BLOCKS: Block<UrlShortenerLayoutId>[] = [URL_SHORTENE
 // 11
 export const OTHERS_BLOCKS: Block<OthersLayoutId>[] = [OTHERS, OTHERS_RUNNING_TEXT]
 
-export const ABOUT_BLOCKS: Block<"about">[] = [ABOUT]
-
 // export const blocks: Record<GroupId, Block<PageId>[]> = {
 //   home: HOME_BLOCKS, //(1)
 //   blog: BLOG_BLOCKS, //(2)
@@ -176,7 +170,6 @@ export const ABOUT_BLOCKS: Block<"about">[] = [ABOUT]
 //   random: RANDOM_BLOCKS, //(9)
 //   "url-shortener": URL_SHORTENER_BLOCKS, //(10)
 //   others: OTHERS_BLOCKS, //(11)
-//   about: ABOUT_BLOCKS,
 //   dashboard: DASH_BLOCKS,
 // };
 

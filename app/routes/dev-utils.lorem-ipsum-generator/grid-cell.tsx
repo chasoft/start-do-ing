@@ -18,14 +18,31 @@ import { DEV_UTILS } from "../dev-utils/metadata"
  *
  **************************************************************************/
 
-export function DevUtilsLoremIpsumGeneratorCellIntro() {
+export function DevUtilsLoremIpsumGeneratorCellIntro({
+	blockIndex
+}: {
+	blockIndex: number
+}) {
 	return (
-		<CellIntro metaData={DEV_UTILS_LOREM_IPSUM_GENERATOR} upTo={DEV_UTILS.to}>
+		<CellIntro
+			metaData={DEV_UTILS_LOREM_IPSUM_GENERATOR}
+			upTo={DEV_UTILS.to}
+			blockIndex={blockIndex}
+		>
 			.... INTRO... SETTINGS...DevUtilsLoremIpsumGeneratorCell
 		</CellIntro>
 	)
 }
 
-export function DevUtilsLoremIpsumGeneratorCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={DEV_UTILS_LOREM_IPSUM_GENERATOR} />
+export function DevUtilsLoremIpsumGeneratorCell({
+	className,
+	blockIndex
+}: GridCellProps) {
+	return (
+		<CellItem
+			className={className}
+			metaData={DEV_UTILS_LOREM_IPSUM_GENERATOR}
+			blockIndex={blockIndex}
+		/>
+	)
 }

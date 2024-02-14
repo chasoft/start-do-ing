@@ -8,6 +8,7 @@ import type { Block, SystemLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { URLS } from "./urls"
 
 /***************************************************************************
  *
@@ -22,12 +23,14 @@ export const EMPTY_BLOCK: Block<SystemLayoutId> = {
 	icon: undefined,
 	title: "Empty block",
 	description: "Empty block",
-	to: "/",
+	to: URLS.home.to,
 	group: [],
 	favorite: false,
 	color: {
 		text: "#000",
-		primaryBg: "bg-gray-300"
+		bgNormal: "bg-gray-300",
+		bgLighter: "bg-gray-100",
+		bgDarker: "bg-gray-300"
 	},
 	versioning: {
 		releaseDate: new Date(),

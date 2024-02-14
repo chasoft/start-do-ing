@@ -1,4 +1,5 @@
 /* FRAMEWORK */
+import { Link } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 
@@ -39,8 +40,8 @@ import {
 	IconCoin,
 	IconChevronDown
 } from "@tabler/icons-react"
+import { URLS } from "~/data/urls"
 import Logo from "~/assets/startdoing-logo.svg"
-import { Link } from "@remix-run/react"
 
 /***************************************************************************
  *
@@ -113,22 +114,22 @@ export function BlogHeader() {
 			<header className={classes.header}>
 				<Group justify="space-between" h="100%">
 					<div className="flex font-bold text-xl">
-						<Link to={"/"}>
+						<Link to={URLS.home.to}>
 							<Image src={Logo} className="w-7 h-7" />
 						</Link>
 						<span className="text-gray-400 mx-2">/</span>
-						<Link to="/blog" className="">
-							Blog
+						<Link to={URLS.blog.to} className="">
+							{URLS.blog.label}
 						</Link>
 					</div>
 
 					<Group h="100%" gap={0} visibleFrom="sm">
-						<a href="#" className={classes.link}>
-							Home
-						</a>
+						<Link to={URLS.home.to} className={classes.link}>
+							{URLS.home.label}
+						</Link>
 						<HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
 							<HoverCard.Target>
-								<a href="#" className={classes.link}>
+								<Link to="#" className={classes.link}>
 									<Center inline>
 										<Box component="span" mr={5}>
 											Features
@@ -138,7 +139,7 @@ export function BlogHeader() {
 											color={theme.colors.blue[6]}
 										/>
 									</Center>
-								</a>
+								</Link>
 							</HoverCard.Target>
 
 							<HoverCard.Dropdown style={{ overflow: "hidden" }}>
@@ -170,12 +171,12 @@ export function BlogHeader() {
 								</div>
 							</HoverCard.Dropdown>
 						</HoverCard>
-						<a href="#" className={classes.link}>
+						<Link to="#" className={classes.link}>
 							Learn
-						</a>
-						<a href="#" className={classes.link}>
+						</Link>
+						<Link to="#" className={classes.link}>
 							Academy
-						</a>
+						</Link>
 					</Group>
 
 					<Group visibleFrom="sm">
@@ -198,9 +199,9 @@ export function BlogHeader() {
 			>
 				<ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
 					<Divider my="sm" />
-					<a href="#" className={classes.link}>
-						Home
-					</a>
+					<Link to={URLS.home.to} className={classes.link}>
+						{URLS.home.label}
+					</Link>
 					<UnstyledButton className={classes.link} onClick={toggleLinks}>
 						<Center inline>
 							<Box component="span" mr={5}>
@@ -213,12 +214,12 @@ export function BlogHeader() {
 						</Center>
 					</UnstyledButton>
 					<Collapse in={linksOpened}>{links}</Collapse>
-					<a href="#" className={classes.link}>
+					<Link to="#" className={classes.link}>
 						Learn
-					</a>
-					<a href="#" className={classes.link}>
+					</Link>
+					<Link to="#" className={classes.link}>
 						Academy
-					</a>
+					</Link>
 
 					<Divider my="sm" />
 

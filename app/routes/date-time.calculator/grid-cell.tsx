@@ -20,15 +20,19 @@ import { DATE_TIME } from "../date-time/metadata"
  *
  **************************************************************************/
 
-export function DateTimeCalculatorCellIntro() {
+export function DateTimeCalculatorCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DATE_TIME_CALCULATOR} upTo={DATE_TIME.to}>
+		<CellIntro
+			metaData={DATE_TIME_CALCULATOR}
+			upTo={DATE_TIME.to}
+			blockIndex={blockIndex}
+		>
 			.... INTRO... SETTINGS...DateTimeCalculatorCell
 		</CellIntro>
 	)
 }
 
-export function DateTimeCalculatorCell({ className }: GridCellProps) {
+export function DateTimeCalculatorCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={DATE_TIME_CALCULATOR.id}>
 			<div className="grid grid-cols-2 gap-1 lg:gap-2 h-full">

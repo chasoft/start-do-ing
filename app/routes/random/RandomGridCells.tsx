@@ -41,6 +41,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 export function RandomGridCells({
 	className,
 	layoutId,
+	blockIndex,
 	isIntroBlock,
 	lastGridCellBlocks
 }: GridCellsProps<RandomLayoutId>): JSX.Element {
@@ -53,22 +54,17 @@ export function RandomGridCells({
 		case "random":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<RandomGroupCell />}
-					introBlock={<RandomGroupCellIntro />}
+					contentBlock={<RandomGroupCell blockIndex={blockIndex} />}
+					introBlock={<RandomGroupCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
 			)
-			return (
-				<div className={clsx(className)}>
-					<RandomGroupCell />
-				</div>
-			)
 		case "random-by-groups":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<RandomByGroupsCell />}
-					introBlock={<RandomByGroupsCellIntro />}
+					contentBlock={<RandomByGroupsCell blockIndex={blockIndex} />}
+					introBlock={<RandomByGroupsCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -76,8 +72,8 @@ export function RandomGridCells({
 		case "random-lottery":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<RandomLotteryCell />}
-					introBlock={<RandomLotteryCellIntro />}
+					contentBlock={<RandomLotteryCell blockIndex={blockIndex} />}
+					introBlock={<RandomLotteryCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -85,8 +81,8 @@ export function RandomGridCells({
 		case "random-magic-wheel":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<RandomMagicWheelCell />}
-					introBlock={<RandomMagicWheelCellIntro />}
+					contentBlock={<RandomMagicWheelCell blockIndex={blockIndex} />}
+					introBlock={<RandomMagicWheelCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -94,8 +90,8 @@ export function RandomGridCells({
 		case "random-number":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<RandomNumberCell />}
-					introBlock={<RandomNumberCell />}
+					contentBlock={<RandomNumberCell blockIndex={blockIndex} />}
+					introBlock={<RandomNumberCell blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -103,22 +99,17 @@ export function RandomGridCells({
 		case "random-password":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<RandomPasswordCell />}
-					introBlock={<RandomPasswordCellIntro />}
+					contentBlock={<RandomPasswordCell blockIndex={blockIndex} />}
+					introBlock={<RandomPasswordCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
 			)
-			return (
-				<div className={clsx(className)}>
-					<RandomPasswordCell />
-				</div>
-			)
 		case "random-username":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<RandomUsernameCell />}
-					introBlock={<RandomUsernameCellIntro />}
+					contentBlock={<RandomUsernameCell blockIndex={blockIndex} />}
+					introBlock={<RandomUsernameCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -149,7 +140,7 @@ export function RandomGridCells({
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast blocks={lastGridCellBlocks} />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************

@@ -18,14 +18,16 @@ import { RANDOM } from "../random/metadata"
  *
  **************************************************************************/
 
-export function RandomPasswordCellIntro() {
+export function RandomPasswordCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={RANDOM_PASSWORD} upTo={RANDOM.to}>
+		<CellIntro metaData={RANDOM_PASSWORD} upTo={RANDOM.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...RandomPasswordCell
 		</CellIntro>
 	)
 }
 
-export function RandomPasswordCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={RANDOM_PASSWORD} />
+export function RandomPasswordCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem className={className} metaData={RANDOM_PASSWORD} blockIndex={blockIndex} />
+	)
 }

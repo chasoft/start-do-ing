@@ -26,7 +26,9 @@ export const DATE_TIME_CALCULATOR: Block<DateTimeLayoutId> = {
 	favorite: false,
 	color: {
 		text: "#000",
-		primaryBg: "bg-rose-200"
+		bgNormal: "bg-rose-200",
+		bgLighter: "bg-rose-100",
+		bgDarker: "bg-rose-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

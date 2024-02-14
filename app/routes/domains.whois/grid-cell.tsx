@@ -18,14 +18,16 @@ import { DOMAINS } from "../domains/metadata"
  *
  **************************************************************************/
 
-export function DomainsWhoiCellIntro() {
+export function DomainsWhoiCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DOMAINS_WHOIS} upTo={DOMAINS.to}>
+		<CellIntro metaData={DOMAINS_WHOIS} upTo={DOMAINS.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...DomainsWhoiCell
 		</CellIntro>
 	)
 }
 
-export function DomainsWhoiCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={DOMAINS_WHOIS} />
+export function DomainsWhoiCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem className={className} metaData={DOMAINS_WHOIS} blockIndex={blockIndex} />
+	)
 }

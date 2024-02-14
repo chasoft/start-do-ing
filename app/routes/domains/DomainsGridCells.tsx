@@ -35,6 +35,7 @@ import { BLOCK_NOT_FOUND } from "~/data"
 export function DomainsGridCells({
 	className,
 	layoutId,
+	blockIndex,
 	isIntroBlock,
 	lastGridCellBlocks
 }: GridCellsProps<DomainsLayoutId>): JSX.Element {
@@ -47,8 +48,8 @@ export function DomainsGridCells({
 		case "domains":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<DomainsGroupCell />}
-					introBlock={<DomainsGroupCellIntro />}
+					contentBlock={<DomainsGroupCell blockIndex={blockIndex} />}
+					introBlock={<DomainsGroupCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -56,8 +57,8 @@ export function DomainsGridCells({
 		case "domains-builder":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<DomainsBuilderCell />}
-					introBlock={<DomainsBuilderCellIntro />}
+					contentBlock={<DomainsBuilderCell blockIndex={blockIndex} />}
+					introBlock={<DomainsBuilderCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -65,8 +66,8 @@ export function DomainsGridCells({
 		case "domains-extensions":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<DomainsExtensionsCell />}
-					introBlock={<DomainsExtensionsCellIntro />}
+					contentBlock={<DomainsExtensionsCell blockIndex={blockIndex} />}
+					introBlock={<DomainsExtensionsCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -74,8 +75,8 @@ export function DomainsGridCells({
 		case "domains-whois":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<DomainsWhoiCell />}
-					introBlock={<DomainsWhoiCellIntro />}
+					contentBlock={<DomainsWhoiCell blockIndex={blockIndex} />}
+					introBlock={<DomainsWhoiCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -106,7 +107,7 @@ export function DomainsGridCells({
 		case "last":
 			return (
 				<div className={clsx(className)}>
-					<CellGridLast blocks={lastGridCellBlocks} />
+					<CellGridLast blocks={lastGridCellBlocks} blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************

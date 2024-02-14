@@ -9,6 +9,7 @@ import type { Block } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconAlertTriangle } from "@tabler/icons-react"
+import { URLS } from "~/data/urls"
 
 /***************************************************************************
  *
@@ -21,12 +22,14 @@ export const SUPPORT: Block<"support"> = {
 	icon: { data: <IconAlertTriangle />, color: "#000" },
 	title: "Support",
 	description: "Support my work",
-	to: "/support",
+	to: URLS.support.to,
 	group: [],
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-fuchsia-200",
+		bgLighter: "bg-rose-100",
+		bgDarker: "bg-rose-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

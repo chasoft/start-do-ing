@@ -9,13 +9,13 @@ import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { CellGridEmpty } from "."
+import { getBlockColor, getDynamicBlocks } from "~/utils"
 import type { Block, PageId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
 import { IconMoreHorizontal } from "./icons"
-import { getDynamicBlocks } from "~/utils"
 
 /***************************************************************************
  *
@@ -26,11 +26,12 @@ import { getDynamicBlocks } from "~/utils"
 type CellGridLastProps = {
 	className?: string
 	blocks?: Block<PageId>[]
+	blockIndex: number
 }
 
 //TODO: refactor... CellGridLast & CellGroup has the same behavior (more..)
 // - extract the logic to commonize the logic
-export function CellGridLast({ className, blocks }: CellGridLastProps) {
+export function CellGridLast({ className, blocks, blockIndex }: CellGridLastProps) {
 	const { hovered: menuHovered, ref: menuRef } = useHover()
 	const { hovered: targetHovered, ref: targetRef } = useHover()
 
@@ -40,32 +41,35 @@ export function CellGridLast({ className, blocks }: CellGridLastProps) {
 
 	const showMoreButton = blocks.length > 4
 
-	console.log("logger", blocks.length, showMoreButton)
+	const childMenuItems = blocks.map((block, idx) => {
+		const key = block.id === "empty" ? Math.random() : block.id
+		return (
+			<li key={key}>
+				<Link to={block.to}>{`${idx + 1}. ${block.title}`}</Link>
+			</li>
+		)
+	})
 
-	const childMenuItems = blocks.map((i, idx) => (
-		<li key={i.to}>
-			<Link to={i.to}>{`${idx + 1}. ${i.title}`}</Link>
-		</li>
-	))
+	const { bgColor } = getBlockColor(blockIndex)
 
 	return (
-		<div className="relative overflow-hidden h-full">
-			<div className={clsx("grid grid-cols-2 grid-rows-2 h-full gap-2", className)}>
+		<div className="relative h-full overflow-hidden">
+			<div className={clsx("grid h-full grid-cols-2 grid-rows-2 gap-2", className)}>
 				{getDynamicBlocks(blocks, 4)
 					.slice(0, 4)
-					.map((block) => {
+					.map((block, idx) => {
 						if (block.id === "empty") {
 							return <CellGridEmpty key={Math.random()} />
 						}
+						const { bgColor } = getBlockColor(blockIndex + idx)
 						return (
 							<Link
 								key={block.to}
 								to={block.to}
 								className={clsx(
-									"grid place-content-center p-1",
-									clsx(
-										"transition-all bg-pink-200 border-2 rounded-lg hover:bg-opacity-60 hover:outline-pink-300 outline-pink-200 hover:border-blue-300"
-									)
+									"grid place-content-center rounded-lg border-2 p-1",
+									"transition-all bg-opacity-60 hover:bg-opacity-100",
+									bgColor
 								)}
 							>
 								{block.title}
@@ -74,7 +78,7 @@ export function CellGridLast({ className, blocks }: CellGridLastProps) {
 					})}
 			</div>
 			<motion.div
-				className={clsx("absolute inset-0 bg-yellow-200 rounded-lg", {
+				className={clsx("absolute inset-0 rounded-lg bg-opacity-60", bgColor, {
 					"!hidden": !showMoreButton
 				})}
 				initial={
@@ -98,7 +102,8 @@ export function CellGridLast({ className, blocks }: CellGridLastProps) {
 			<div
 				role="button"
 				className={clsx(
-					"absolute bottom-0 right-0 hidden w-6 h-6 m-1 rounded-lg lg:h-8 lg:w-8 hover:bg-gray-300 hover:bg-opacity-50 lg:grid place-content-center",
+					"absolute bottom-0 right-0 m-1 hidden h-6 w-6 place-content-center rounded-lg bg-opacity-60 hover:bg-opacity-100 lg:grid lg:h-8 lg:w-8",
+					bgColor,
 					{ "!hidden": showMoreButton === false }
 				)}
 				title="More..."

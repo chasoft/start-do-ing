@@ -26,7 +26,9 @@ export const KAHOOT: Block<"kahoot"> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-yellow-200",
+		bgLighter: "bg-yellow-100",
+		bgDarker: "bg-yellow-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

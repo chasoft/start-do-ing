@@ -26,7 +26,9 @@ export const LANGUAGES: Block<"languages"> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-lime-200",
+		bgLighter: "bg-lime-100",
+		bgDarker: "bg-lime-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

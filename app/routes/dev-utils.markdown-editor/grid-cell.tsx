@@ -18,14 +18,24 @@ import { DEV_UTILS } from "../dev-utils/metadata"
  *
  **************************************************************************/
 
-export function DevUtilsMarkdownEditorCellIntro() {
+export function DevUtilsMarkdownEditorCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DEV_UTILS_MARKDOWN_EDITOR} upTo={DEV_UTILS.to}>
+		<CellIntro
+			metaData={DEV_UTILS_MARKDOWN_EDITOR}
+			upTo={DEV_UTILS.to}
+			blockIndex={blockIndex}
+		>
 			.... INTRO... SETTINGS...DevUtilsMarkdownEditorCell
 		</CellIntro>
 	)
 }
 
-export function DevUtilsMarkdownEditorCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={DEV_UTILS_MARKDOWN_EDITOR} />
+export function DevUtilsMarkdownEditorCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem
+			className={className}
+			metaData={DEV_UTILS_MARKDOWN_EDITOR}
+			blockIndex={blockIndex}
+		/>
+	)
 }

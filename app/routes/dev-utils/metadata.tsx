@@ -26,7 +26,9 @@ export const DEV_UTILS: Block<"dev-utils"> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-orange-200",
+		bgLighter: "bg-orange-100",
+		bgDarker: "bg-orange-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

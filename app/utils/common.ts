@@ -3,12 +3,12 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import type { Block } from "./types"
+import type { Block, TColor } from "./types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { SITE, DEFAULT_SHARING_IMAGE } from "~/data"
+import { SITE, DEFAULT_SHARING_IMAGE, COLORS, DEFAULT_COLORS } from "~/data"
 
 /***************************************************************************
  *
@@ -29,4 +29,9 @@ export function getUrlSharingData(
 		url: SITE.url + block.to + `${fullscreen ? "?full=true" : ""}`,
 		image: block.image ?? DEFAULT_SHARING_IMAGE
 	}
+}
+
+export function getBlockColor(blockIndex: number, defaultColor: TColor = DEFAULT_COLORS) {
+	const color = COLORS[blockIndex] ?? defaultColor
+	return color
 }

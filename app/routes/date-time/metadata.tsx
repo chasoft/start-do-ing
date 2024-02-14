@@ -26,7 +26,9 @@ export const DATE_TIME: Block<"date-time"> = {
 	favorite: true,
 	color: {
 		text: "#000",
-		primaryBg: "bg-fuchsia-200"
+		bgNormal: "bg-red-200",
+		bgLighter: "bg-red-100",
+		bgDarker: "bg-red-300"
 	},
 	versioning: {
 		releaseDate: new Date("2023/01/17"),

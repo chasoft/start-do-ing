@@ -14,6 +14,7 @@ import { useIsFullscreen, useIsMobileWindowSize, useIsShowMobileButtons } from "
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { URLS } from "~/data/urls"
 import { urlSharingDataAtom } from "~/atoms/globals"
 import Logo from "~/assets/startdoing-logo.svg"
 
@@ -34,7 +35,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 	 * We use completely different layout for blog
 	 */
 	const { pathname } = useLocation()
-	const isBlog = pathname.startsWith("/blog")
+	const isBlog = pathname.startsWith(URLS.blog.to)
 	if (isBlog) {
 		return children
 	}
@@ -42,13 +43,13 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 	return (
 		<AppShell
 			header={{ height: 60 }}
-			navbar={{ width: 300, breakpoint: "md", collapsed: { mobile: !opened } }}
+			navbar={{ width: 300, breakpoint: "lg", collapsed: { mobile: !opened } }}
 			disabled={isFullScreen || !isMobileWindowSize}
 		>
 			<AppShell.Header>
 				<Group h="100%" px="md">
-					<Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
-					<Link to={"/"} className="flex gap-2">
+					<Burger opened={opened} onClick={toggle} hiddenFrom="lg" size="sm" />
+					<Link to={URLS.home.to} className="flex gap-2">
 						<Image src={Logo} className="w-7 h-7" />
 						<Text fw={700}>Startdo.ing</Text>
 					</Link>

@@ -18,14 +18,20 @@ import { RANDOM } from "../random/metadata"
  *
  **************************************************************************/
 
-export function RandomMagicWheelCellIntro() {
+export function RandomMagicWheelCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={RANDOM_MAGIC_WHEEL} upTo={RANDOM.to}>
+		<CellIntro metaData={RANDOM_MAGIC_WHEEL} upTo={RANDOM.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...RandomMagicWheelCell
 		</CellIntro>
 	)
 }
 
-export function RandomMagicWheelCell({ className }: GridCellProps) {
-	return <CellItem className={className} metaData={RANDOM_MAGIC_WHEEL} />
+export function RandomMagicWheelCell({ className, blockIndex }: GridCellProps) {
+	return (
+		<CellItem
+			className={className}
+			metaData={RANDOM_MAGIC_WHEEL}
+			blockIndex={blockIndex}
+		/>
+	)
 }
