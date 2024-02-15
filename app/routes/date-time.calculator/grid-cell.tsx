@@ -2,17 +2,17 @@
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
+import { CellIntro } from "~/components"
 import type { GridCellProps } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { DATE_TIME_CALCULATOR } from "./metadata"
-import clsx from "clsx"
-import { CellIntro } from "~/components"
 import { DATE_TIME } from "../date-time/metadata"
+import { DATE_TIME_CALCULATOR } from "./metadata"
 
 /***************************************************************************
  *

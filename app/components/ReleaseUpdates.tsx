@@ -1,17 +1,17 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { Tabs, Text } from "@mantine/core"
+import { Text } from "@mantine/core"
 import clsx from "clsx"
+import HeatMap from "@uiw/react-heat-map"
 
 /* COMPONENTS & UTILS */
-import { getRelativeDateString } from "~/utils"
 import { ReleaseWithMetadata } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { allReleases } from "~/data"
+import { allReleaseUpdatesForHeatMap, latestReleaseUpdates } from "~/data"
 import { IconCheck } from "@tabler/icons-react"
 
 /***************************************************************************
@@ -20,7 +20,14 @@ import { IconCheck } from "@tabler/icons-react"
  *
  **************************************************************************/
 
-export function ReleaseTimeline({ releases }: { releases: Array<ReleaseWithMetadata> }) {
+export function ReleaseTimeline({
+	releases
+}: {
+	releases: Array<[string, Array<ReleaseWithMetadata>]>
+}) {
+	if (!releases) {
+		return <div>There is no updates!</div>
+	}
 	return (
 		<ul className="timeline timeline-snap-icon timeline-compact timeline-vertical">
 			{releases.map((release, idx) => (
@@ -29,11 +36,15 @@ export function ReleaseTimeline({ releases }: { releases: Array<ReleaseWithMetad
 						<IconCheck />
 					</div>
 					<div className="timeline-end mb-5">
-						<time className="font-mono italic">{release.date}</time>
-						<div className="text-lg font-semibold">
-							{release.icon && release.icon.data} {release.title}
-						</div>
-						<Text>{release.description}</Text>
+						<time className="font-mono italic">{release[0]}</time>
+						{release[1].map((releaseDetail, idx) => (
+							<div key={`${release[0]}-${idx}`}>
+								<div className="flex items-center gap-2 text-lg font-semibold">
+									{releaseDetail.icon && releaseDetail.icon.data} {releaseDetail.title}
+								</div>
+								<Text>{releaseDetail.description}</Text>
+							</div>
+						))}
 					</div>
 					<hr />
 				</li>
@@ -42,49 +53,34 @@ export function ReleaseTimeline({ releases }: { releases: Array<ReleaseWithMetad
 	)
 }
 
-const releaseTabs = [
-	{
-		groupBy: "month",
-		queryStr: "this-month",
-		title: "This month"
-	},
-	{
-		groupBy: "month",
-		queryStr: "last-month",
-		title: "Last month"
-	},
-	{
-		title: "This year",
-		queryStr: "this-year",
-		groupBy: "year"
-	}
-] as const
+export function LatestReleases() {
+	return (
+		<>
+			<h2 className="font-semibold">Latest</h2>
+			<ReleaseTimeline releases={latestReleaseUpdates} />
+		</>
+	)
+}
+
+export function ReleasesHeatMap() {
+	return (
+		<>
+			<h2 className="font-semibold">Heatmap</h2>
+			<HeatMap
+				value={allReleaseUpdatesForHeatMap}
+				weekLabels={["", "Mon", "", "Wed", "", "Fri", ""]}
+				startDate={new Date("2024/01/01")}
+			/>
+		</>
+	)
+}
 
 export function ReleaseUpdates({ className }: { className?: string }) {
 	return (
 		<div className={clsx("h-full", className)}>
 			<h1 className="text-xl mb-2 font-semibold lg:text-2xl lg:mb-4">Release updates</h1>
-			<Tabs color="teal" defaultValue={releaseTabs[0].queryStr}>
-				<Tabs.List>
-					{releaseTabs.map((releaseTab) => (
-						<Tabs.Tab key={releaseTab.queryStr} value={releaseTab.queryStr}>
-							{releaseTab.title}
-						</Tabs.Tab>
-					))}
-				</Tabs.List>
-
-				{releaseTabs.map((releaseTab) => (
-					<Tabs.Panel key={releaseTab.queryStr} value={releaseTab.queryStr} pt="xs">
-						<ReleaseTimeline
-							releases={
-								allReleases[releaseTab.groupBy][
-									getRelativeDateString(releaseTab.queryStr)
-								]
-							}
-						/>
-					</Tabs.Panel>
-				))}
-			</Tabs>
+			<LatestReleases />
+			<ReleasesHeatMap />
 		</div>
 	)
 }

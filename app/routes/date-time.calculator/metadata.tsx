@@ -30,5 +30,30 @@ export const DATE_TIME_CALCULATOR: Block<DateTimeLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: null
+	updates: [
+		{
+			date: new Date(2024, 1, 1).getTime(),
+			codeName: "calculator-1",
+			description: "update feature",
+			version: "1.0.0"
+		},
+		{
+			date: new Date(2024, 0, 15).getTime(),
+			codeName: "calculator-2",
+			description: "fix bug",
+			version: "1.0.1"
+		},
+		{
+			date: new Date(2024, 0, 15).getTime(),
+			codeName: "calculator-3",
+			description: "fix bug 2",
+			version: "1.0.2"
+		},
+		{
+			date: new Date(2024, 0, 15).getTime(),
+			codeName: "calculator-2",
+			description: "fix bug",
+			version: "1.0.3"
+		}
+	]
 }
