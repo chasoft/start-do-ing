@@ -30,9 +30,5 @@ export const DOMAINS: Block<"domains"> = {
 		bgLighter: "bg-amber-100",
 		bgDarker: "bg-amber-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }

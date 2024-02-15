@@ -30,9 +30,5 @@ export const RANDOM: Block<"random"> = {
 		bgLighter: "bg-teal-100",
 		bgDarker: "bg-teal-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }

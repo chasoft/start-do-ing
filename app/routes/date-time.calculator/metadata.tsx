@@ -30,9 +30,5 @@ export const DATE_TIME_CALCULATOR: Block<DateTimeLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }

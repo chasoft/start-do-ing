@@ -31,11 +31,7 @@ export const BLOG: Block<"blog"> = {
 		bgLighter: "bg-fuchsia-100",
 		bgDarker: "bg-fuchsia-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }
 
 export const BLOG_AI: Block<BlogLayoutId> = {
@@ -52,11 +48,7 @@ export const BLOG_AI: Block<BlogLayoutId> = {
 		bgLighter: "bg-fuchsia-100",
 		bgDarker: "bg-fuchsia-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }
 
 export const BLOG_CHESS: Block<BlogLayoutId> = {
@@ -73,11 +65,7 @@ export const BLOG_CHESS: Block<BlogLayoutId> = {
 		bgLighter: "bg-fuchsia-100",
 		bgDarker: "bg-fuchsia-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }
 
 export const BLOG_PHILOSOPHY: Block<BlogLayoutId> = {
@@ -94,11 +82,7 @@ export const BLOG_PHILOSOPHY: Block<BlogLayoutId> = {
 		bgLighter: "bg-fuchsia-100",
 		bgDarker: "bg-fuchsia-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }
 
 export const BLOG_PROGRAMMING: Block<BlogLayoutId> = {
@@ -115,11 +99,7 @@ export const BLOG_PROGRAMMING: Block<BlogLayoutId> = {
 		bgLighter: "bg-fuchsia-100",
 		bgDarker: "bg-fuchsia-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }
 
 export const BLOG_TRAVEL: Block<BlogLayoutId> = {
@@ -136,9 +116,5 @@ export const BLOG_TRAVEL: Block<BlogLayoutId> = {
 		bgLighter: "bg-fuchsia-100",
 		bgDarker: "bg-fuchsia-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }

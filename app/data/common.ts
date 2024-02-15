@@ -57,6 +57,7 @@ import type {
 	RandomLayoutId,
 	UrlShortenerLayoutId
 } from "~/utils/types"
+import { getAllReleaseUpdates } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -69,15 +70,13 @@ import type {
  **************************************************************************/
 
 export const SITE = {
-	title: "Start-Do-Ing",
-	description:
-		"Welcome to Startdo.ing! Where you can find useful and interesting resources to help you get started.",
+	title: "Startdo.ing",
+	description: `Unleash your creativity with Startdo.ing's collection of engaging online tools, called "blocks". Explore, have fun, and share the joy with your friends!`,
 	url: "https://startdo.ing"
 }
 
 export const breakpoints: Breakpoint[] = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"]
 
-// 1
 export const HOME_BLOCKS: Block<GroupId>[] = [
 	HOME,
 	RANDOM,
@@ -91,7 +90,9 @@ export const HOME_BLOCKS: Block<GroupId>[] = [
 	OTHERS
 ]
 
-// 3
+/**
+ * 1. Note that, the first item is "group", not "block feature"
+ */
 export const DATE_TIME_BLOCKS: Block<DateTimeLayoutId>[] = [
 	DATE_TIME,
 	DATE_TIME_ANALOG_CLOCK,
@@ -101,7 +102,9 @@ export const DATE_TIME_BLOCKS: Block<DateTimeLayoutId>[] = [
 	DATE_TIME_DIGITAL_CLOCK
 ]
 
-// 4
+/**
+ * 2. Note that, the first item is "group", not "block feature"
+ */
 export const DEV_UTILS_BLOCKS: Block<DevUtilsLayoutId>[] = [
 	DEV_UTILS,
 	DEV_UTILS_BASE64,
@@ -113,7 +116,9 @@ export const DEV_UTILS_BLOCKS: Block<DevUtilsLayoutId>[] = [
 	DEV_UTILS_STRING_CONVERTER
 ]
 
-// 5
+/**
+ * 3. Note that, the first item is "group", not "block feature"
+ */
 export const DOMAINS_BLOCKS: Block<DomainsLayoutId>[] = [
 	DOMAINS,
 	DOMAINS_BUILDER,
@@ -121,10 +126,14 @@ export const DOMAINS_BLOCKS: Block<DomainsLayoutId>[] = [
 	DOMAINS_WHOIS
 ]
 
-// 6
+/**
+ * 4. Note that, the first item is "group", not "block feature"
+ */
 export const KAHOOT_BLOCKS: Block<KahootLayoutId>[] = [KAHOOT, KAHOOT_QUIZ]
 
-// 7
+/**
+ * 5. Note that, the first item is "group", not "block feature"
+ */
 export const LANGUAGES_BLOCKS: Block<LanguagesLayoutId>[] = [
 	LANGUAGES,
 	LANGUAGES_100_POPULAR_CHINESE_WORDS,
@@ -132,7 +141,9 @@ export const LANGUAGES_BLOCKS: Block<LanguagesLayoutId>[] = [
 	LANGUAGES_VIETNAMESE_READING_FOR_KIDS
 ]
 
-// 8
+/**
+ * 6. Note that, the first item is "group", not "block feature"
+ */
 export const MATHS_BLOCKS: Block<MathsLayoutId>[] = [
 	MATHS,
 	MATHS_1,
@@ -141,7 +152,9 @@ export const MATHS_BLOCKS: Block<MathsLayoutId>[] = [
 	MATHS_4
 ]
 
-// 9
+/**
+ * 7. Note that, the first item is "group", not "block feature"
+ */
 export const RANDOM_BLOCKS: Block<RandomLayoutId>[] = [
 	RANDOM,
 	RANDOM_BY_GROUPS,
@@ -152,27 +165,34 @@ export const RANDOM_BLOCKS: Block<RandomLayoutId>[] = [
 	RANDOM_USERNAME
 ]
 
-// 10
+/**
+ * 8. Note that, the first item is "group", not "block feature"
+ */
 export const URL_SHORTENER_BLOCKS: Block<UrlShortenerLayoutId>[] = [URL_SHORTENER]
 
-// 11
+/**
+ * 9. Note that, the first item is "group", not "block feature"
+ */
 export const OTHERS_BLOCKS: Block<OthersLayoutId>[] = [OTHERS, OTHERS_RUNNING_TEXT]
 
-// export const blocks: Record<GroupId, Block<PageId>[]> = {
-//   home: HOME_BLOCKS, //(1)
-//   blog: BLOG_BLOCKS, //(2)
-//   "date-time": DATE_TIME_BLOCKS, //(3)
-//   "dev-utils": DEV_UTILS_BLOCKS, //(4)
-//   domains: DOMAINS_BLOCKS, //(5)
-//   kahoot: KAHOOT_BLOCKS, //(6)
-//   languages: LANGUAGES_BLOCKS, //(7)
-//   maths: MATHS_BLOCKS, //(8)
-//   random: RANDOM_BLOCKS, //(9)
-//   "url-shortener": URL_SHORTENER_BLOCKS, //(10)
-//   others: OTHERS_BLOCKS, //(11)
-//   dashboard: DASH_BLOCKS,
-// };
+export const allBlocks = [
+	...DATE_TIME_BLOCKS.slice(1),
+	...DEV_UTILS_BLOCKS.slice(1),
+	...DOMAINS_BLOCKS.slice(1),
+	...KAHOOT_BLOCKS.slice(1),
+	...LANGUAGES_BLOCKS.slice(1),
+	...MATHS_BLOCKS.slice(1),
+	...RANDOM_BLOCKS.slice(1),
+	...URL_SHORTENER_BLOCKS.slice(1),
+	...OTHERS_BLOCKS.slice(1)
+]
 
 export const DEFAULT_BLOCK: Block<"home"> = HOME
 
 export const DEFAULT_SHARING_IMAGE = "https://startdo.ing/static/images/sharing.png"
+
+export const allReleases = {
+	year: getAllReleaseUpdates(allBlocks, "year"),
+	month: getAllReleaseUpdates(allBlocks, "month")
+	// date: getAllReleaseUpdates(allBlocks, "date"),
+}

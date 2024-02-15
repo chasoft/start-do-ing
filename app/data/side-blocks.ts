@@ -32,11 +32,7 @@ export const SIDE_BLOCKS: Block<FeatureLayoutId>[] = [
 			bgLighter: "bg-red-100",
 			bgDarker: "bg-red-300"
 		},
-		versioning: {
-			releaseDate: new Date(),
-			major: 0,
-			minor: 1
-		}
+		updates: null
 	},
 	{
 		id: "right",
@@ -52,10 +48,6 @@ export const SIDE_BLOCKS: Block<FeatureLayoutId>[] = [
 			bgLighter: "bg-yellow-100",
 			bgDarker: "bg-yellow-300"
 		},
-		versioning: {
-			releaseDate: new Date(),
-			major: 0,
-			minor: 1
-		}
+		updates: null
 	}
 ]

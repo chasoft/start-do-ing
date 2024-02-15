@@ -30,9 +30,5 @@ export const KAHOOT: Block<"kahoot"> = {
 		bgLighter: "bg-yellow-100",
 		bgDarker: "bg-yellow-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }

@@ -34,9 +34,10 @@ export function ContentWrapper({
 	return (
 		<div
 			className={clsx(
-				"relative h-full w-full border-2 rounded-lg transition-all border-gray-100",
+				"relative h-full w-full transition-all",
 				{
-					"rounded-lg p-2 lg:p-4": !isMobileWindowSize
+					"border-2 rounded-lg border-gray-100 p-2 lg:p-4":
+						!isMobileWindowSize && !isFullScreen
 				},
 				className
 			)}

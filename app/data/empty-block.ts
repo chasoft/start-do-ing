@@ -32,9 +32,5 @@ export const EMPTY_BLOCK: Block<SystemLayoutId> = {
 		bgLighter: "bg-gray-100",
 		bgDarker: "bg-gray-300"
 	},
-	versioning: {
-		releaseDate: new Date(),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }

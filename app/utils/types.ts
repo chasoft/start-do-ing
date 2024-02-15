@@ -134,6 +134,24 @@ export type NavigationGridCells =
 	| GridCellsFunction<FeatureLayoutId>
 	| GridCellsFunction<unknown>
 
+export type Release = {
+	date: number
+	codeName?: string
+	description: string
+	version: string
+}
+
+export type ReleaseWithMetadata = Release & {
+	title: string
+	to: string
+	icon?: BlockIcon
+}
+
+export type BlockIcon = {
+	data: React.ReactNode
+	color?: string
+}
+
 export type Block<TLayout> = {
 	/**
 	 * layout animation based on id
@@ -142,10 +160,7 @@ export type Block<TLayout> = {
 	/**
 	 * introduction information of the block
 	 */
-	icon?: {
-		data: React.ReactNode
-		color?: string
-	}
+	icon?: BlockIcon
 	title: string
 	description: string
 	image?: string
@@ -170,13 +185,9 @@ export type Block<TLayout> = {
 		bgDarker: string
 	}
 	/**
-	 * versioning is required to keep track of the changes made to the block
+	 * keep track of the changes made to the block
 	 */
-	versioning: {
-		releaseDate: Date
-		major: number
-		minor: number
-	}
+	updates: Array<Release> | null
 }
 
 export type UrlSharingData = {

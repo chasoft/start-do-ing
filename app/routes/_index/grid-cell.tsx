@@ -37,8 +37,7 @@ export function HomeGridCellIntro({
 			blockIndex={blockIndex}
 		>
 			<Text lineClamp={2}>
-				Hello welcome to my website Hello welcome to my website Hello welcome to my
-				website Hello welcome to my website Hello welcome to my website
+				{`Unleash your creativity with engaging online tools, called "blocks". Explore, have fun, and share the joy with your friends!`}
 			</Text>
 		</CellIntro>
 	)

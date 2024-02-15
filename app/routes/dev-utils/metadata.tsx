@@ -30,9 +30,5 @@ export const DEV_UTILS: Block<"dev-utils"> = {
 		bgLighter: "bg-orange-100",
 		bgDarker: "bg-orange-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }

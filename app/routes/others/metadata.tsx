@@ -30,9 +30,5 @@ export const OTHERS: Block<"others"> = {
 		bgLighter: "bg-emerald-100",
 		bgDarker: "bg-emerald-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }

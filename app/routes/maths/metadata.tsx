@@ -30,9 +30,5 @@ export const MATHS: Block<"maths"> = {
 		bgLighter: "bg-green-100",
 		bgDarker: "bg-green-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: null
 }

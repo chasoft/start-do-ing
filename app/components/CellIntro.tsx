@@ -12,6 +12,8 @@ import type { Block } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { homeLabel } from "~/routes/_index/metadata"
+import { SITE } from "~/data"
 
 /***************************************************************************
  *
@@ -46,7 +48,7 @@ export function CellIntro({
 		>
 			<div className="flex flex-col p-2">
 				<h2 className="text-base font-semibold sm:text-xl line-clamp-1">
-					{metaData.title}
+					{metaData.title == homeLabel ? SITE.title : metaData.title}
 				</h2>
 				<div className="flex flex-col grow">
 					{metaData.description && (
