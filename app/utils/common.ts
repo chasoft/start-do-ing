@@ -1,6 +1,7 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
+import dayjs from "dayjs"
 import groupByFunc from "lodash.groupby"
 
 /* COMPONENTS & UTILS */
@@ -37,11 +38,6 @@ export function getBlockColor(blockIndex: number, defaultColor: TColor = DEFAULT
 	return color
 }
 
-const formatReleaseDate = (date: number) => {
-	const d = new Date(date)
-	return `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`
-}
-
 /**
  * get all release updates grouped by released date
  */
@@ -51,7 +47,7 @@ export function getAllReleaseUpdates(blocks: Array<Block<unknown>>) {
 			const blockUpdates = block.updates
 				? block.updates.map((update) => ({
 						...update,
-						date: formatReleaseDate(update.date),
+						date: dayjs(update.date).format("YYYY/MM/DD"),
 						title: block.title,
 						to: block.to,
 						icon: block.icon

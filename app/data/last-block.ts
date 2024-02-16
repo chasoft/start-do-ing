@@ -29,5 +29,5 @@ export const LAST_BLOCK: Block<FeatureLayoutId> = {
 		bgLighter: "bg-gray-100",
 		bgDarker: "bg-gray-300"
 	},
-	updates: null
+	updates: []
 }

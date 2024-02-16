@@ -30,5 +30,5 @@ export const DEV_UTILS: Block<"dev-utils"> = {
 		bgLighter: "bg-orange-100",
 		bgDarker: "bg-orange-300"
 	},
-	updates: null
+	updates: []
 }

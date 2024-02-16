@@ -30,5 +30,5 @@ export const RANDOM: Block<"random"> = {
 		bgLighter: "bg-teal-100",
 		bgDarker: "bg-teal-300"
 	},
-	updates: null
+	updates: []
 }

@@ -30,5 +30,5 @@ export const OTHERS: Block<"others"> = {
 		bgLighter: "bg-emerald-100",
 		bgDarker: "bg-emerald-300"
 	},
-	updates: null
+	updates: []
 }

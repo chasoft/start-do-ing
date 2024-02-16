@@ -187,7 +187,7 @@ export type Block<TLayout> = {
 	/**
 	 * keep track of the changes made to the block
 	 */
-	updates: Array<Release> | null
+	updates: Array<Release>
 }
 
 export type UrlSharingData = {

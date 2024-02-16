@@ -30,5 +30,5 @@ export const URL_SHORTENER: Block<"url-shortener"> = {
 		bgLighter: "bg-cyan-100",
 		bgDarker: "bg-cyan-300"
 	},
-	updates: null
+	updates: []
 }

@@ -31,7 +31,7 @@ export const BLOG: Block<"blog"> = {
 		bgLighter: "bg-fuchsia-100",
 		bgDarker: "bg-fuchsia-300"
 	},
-	updates: null
+	updates: []
 }
 
 export const BLOG_AI: Block<BlogLayoutId> = {
@@ -48,7 +48,7 @@ export const BLOG_AI: Block<BlogLayoutId> = {
 		bgLighter: "bg-fuchsia-100",
 		bgDarker: "bg-fuchsia-300"
 	},
-	updates: null
+	updates: []
 }
 
 export const BLOG_CHESS: Block<BlogLayoutId> = {
@@ -65,7 +65,7 @@ export const BLOG_CHESS: Block<BlogLayoutId> = {
 		bgLighter: "bg-fuchsia-100",
 		bgDarker: "bg-fuchsia-300"
 	},
-	updates: null
+	updates: []
 }
 
 export const BLOG_PHILOSOPHY: Block<BlogLayoutId> = {
@@ -82,7 +82,7 @@ export const BLOG_PHILOSOPHY: Block<BlogLayoutId> = {
 		bgLighter: "bg-fuchsia-100",
 		bgDarker: "bg-fuchsia-300"
 	},
-	updates: null
+	updates: []
 }
 
 export const BLOG_PROGRAMMING: Block<BlogLayoutId> = {
@@ -99,7 +99,7 @@ export const BLOG_PROGRAMMING: Block<BlogLayoutId> = {
 		bgLighter: "bg-fuchsia-100",
 		bgDarker: "bg-fuchsia-300"
 	},
-	updates: null
+	updates: []
 }
 
 export const BLOG_TRAVEL: Block<BlogLayoutId> = {
@@ -116,5 +116,5 @@ export const BLOG_TRAVEL: Block<BlogLayoutId> = {
 		bgLighter: "bg-fuchsia-100",
 		bgDarker: "bg-fuchsia-300"
 	},
-	updates: null
+	updates: []
 }

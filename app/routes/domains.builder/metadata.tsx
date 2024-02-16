@@ -30,5 +30,5 @@ export const DOMAINS_BUILDER: Block<DomainsLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: null
+	updates: []
 }

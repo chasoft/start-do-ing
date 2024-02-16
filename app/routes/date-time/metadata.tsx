@@ -30,5 +30,5 @@ export const DATE_TIME: Block<"date-time"> = {
 		bgLighter: "bg-red-100",
 		bgDarker: "bg-red-300"
 	},
-	updates: null
+	updates: []
 }

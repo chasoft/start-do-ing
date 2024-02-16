@@ -30,5 +30,5 @@ export const OTHERS_RUNNING_TEXT: Block<OthersLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: null
+	updates: []
 }

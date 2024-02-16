@@ -30,5 +30,5 @@ export const LANGUAGES_CHINESE_CHARACTERS: Block<LanguagesLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: null
+	updates: []
 }

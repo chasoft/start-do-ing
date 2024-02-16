@@ -54,20 +54,22 @@ export function ReleaseTimeline({
 }
 
 export function LatestReleases() {
+	const releases = latestReleaseUpdates()
 	return (
 		<>
 			<h2 className="font-semibold">Latest</h2>
-			<ReleaseTimeline releases={latestReleaseUpdates} />
+			<ReleaseTimeline releases={releases} />
 		</>
 	)
 }
 
 export function ReleasesHeatMap() {
+	const data = allReleaseUpdatesForHeatMap()
 	return (
 		<>
 			<h2 className="font-semibold">Heatmap</h2>
 			<HeatMap
-				value={allReleaseUpdatesForHeatMap}
+				value={data}
 				weekLabels={["", "Mon", "", "Wed", "", "Fri", ""]}
 				startDate={new Date("2024/01/01")}
 			/>

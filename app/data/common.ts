@@ -191,15 +191,16 @@ export const DEFAULT_BLOCK: Block<"home"> = HOME
 
 export const DEFAULT_SHARING_IMAGE = "https://startdo.ing/static/images/sharing.png"
 
-export const allReleaseUpdates = getAllReleaseUpdates(allBlocks)
-export const allReleaseUpdatesForHeatMap = Object.entries(allReleaseUpdates).map(
-	([key, value]) => ({
+export const allReleaseUpdates = () => getAllReleaseUpdates([])
+
+export const allReleaseUpdatesForHeatMap = () =>
+	Object.entries(getAllReleaseUpdates([])).map(([key, value]) => ({
 		date: key,
 		count: value.length
-	})
-)
+	}))
 
 /**
  * Latest release updates are the 3 most recent update groups
  */
-export const latestReleaseUpdates = Object.entries(allReleaseUpdates).slice(0, 3)
+export const latestReleaseUpdates = () =>
+	Object.entries(getAllReleaseUpdates([])).slice(0, 3)

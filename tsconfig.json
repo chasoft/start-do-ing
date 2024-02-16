@@ -4,6 +4,7 @@
 		"lib": ["DOM", "DOM.Iterable", "ES2022"],
 		"isolatedModules": true,
 		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
 		"jsx": "react-jsx",
 		"moduleResolution": "Bundler",
 		"resolveJsonModule": true,
@@ -16,8 +17,6 @@
 			"~/*": ["./app/*"]
 		},
 		"skipLibCheck": true,
-
-		// Remix takes care of building everything in `remix build`.
 		"noEmit": true
 	}
 }

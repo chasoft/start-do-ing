@@ -30,5 +30,5 @@ export const MATHS: Block<"maths"> = {
 		bgLighter: "bg-green-100",
 		bgDarker: "bg-green-300"
 	},
-	updates: null
+	updates: []
 }

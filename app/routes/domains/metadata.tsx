@@ -30,5 +30,5 @@ export const DOMAINS: Block<"domains"> = {
 		bgLighter: "bg-amber-100",
 		bgDarker: "bg-amber-300"
 	},
-	updates: null
+	updates: []
 }

@@ -31,5 +31,5 @@ export const SUPPORT: Block<"support"> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: null
+	updates: []
 }

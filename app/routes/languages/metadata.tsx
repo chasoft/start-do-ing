@@ -30,5 +30,5 @@ export const LANGUAGES: Block<"languages"> = {
 		bgLighter: "bg-lime-100",
 		bgDarker: "bg-lime-300"
 	},
-	updates: null
+	updates: []
 }

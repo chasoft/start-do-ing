@@ -30,5 +30,5 @@ export const DATE_TIME_COUNT_DOWN: Block<DateTimeLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: null
+	updates: []
 }

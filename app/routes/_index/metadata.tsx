@@ -35,5 +35,5 @@ export const HOME: Block<"home"> = {
 		bgLighter: "bg-gray-100",
 		bgDarker: "bg-gray-300"
 	},
-	updates: null
+	updates: []
 }

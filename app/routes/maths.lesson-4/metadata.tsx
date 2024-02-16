@@ -30,5 +30,5 @@ export const MATHS_4: Block<MathsLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: null
+	updates: []
 }
