@@ -18,7 +18,7 @@ import { IconDevices } from "@tabler/icons-react"
 
 export const DEV_UTILS: Block<"dev-utils"> = {
 	id: "dev-utils",
-	icon: { data: <IconDevices />, color: "#000" },
+	icon: { data: IconDevices, color: "#000" },
 	title: "Dev Utils",
 	description: "Utils for web development",
 	to: "/dev-utils",
@@ -30,9 +30,5 @@ export const DEV_UTILS: Block<"dev-utils"> = {
 		bgLighter: "bg-orange-100",
 		bgDarker: "bg-orange-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

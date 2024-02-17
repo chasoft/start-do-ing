@@ -18,7 +18,7 @@ import { IconCloud } from "@tabler/icons-react"
 
 export const DOMAINS: Block<"domains"> = {
 	id: "domains",
-	icon: { data: <IconCloud />, color: "#000" },
+	icon: { data: IconCloud, color: "#000" },
 	title: "Domains",
 	description: "Your domain assistants",
 	to: "/domains",
@@ -30,9 +30,5 @@ export const DOMAINS: Block<"domains"> = {
 		bgLighter: "bg-amber-100",
 		bgDarker: "bg-amber-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

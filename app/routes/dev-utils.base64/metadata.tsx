@@ -18,7 +18,7 @@ import { IconLetterB } from "@tabler/icons-react"
 
 export const DEV_UTILS_BASE64: Block<DevUtilsLayoutId> = {
 	id: "dev-utils-base64",
-	icon: { data: <IconLetterB />, color: "#000" },
+	icon: { data: IconLetterB, color: "#000" },
 	title: "Base64",
 	description: "Base64 converter",
 	to: "/dev-utils/base64",
@@ -30,9 +30,5 @@ export const DEV_UTILS_BASE64: Block<DevUtilsLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

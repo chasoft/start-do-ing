@@ -18,7 +18,7 @@ import { IconCalendarTime } from "@tabler/icons-react"
 
 export const DATE_TIME: Block<"date-time"> = {
 	id: "date-time",
-	icon: { data: <IconCalendarTime />, color: "#000" },
+	icon: { data: IconCalendarTime, color: "#000" },
 	title: "Date/Time",
 	description: "Tools for date/time manipulation",
 	to: "/date-time",
@@ -30,9 +30,5 @@ export const DATE_TIME: Block<"date-time"> = {
 		bgLighter: "bg-red-100",
 		bgDarker: "bg-red-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

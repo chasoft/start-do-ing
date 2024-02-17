@@ -18,7 +18,7 @@ import { IconSquareRoot2 } from "@tabler/icons-react"
 
 export const MATHS: Block<"maths"> = {
 	id: "maths",
-	icon: { data: <IconSquareRoot2 />, color: "#000" },
+	icon: { data: IconSquareRoot2, color: "#000" },
 	title: "Maths",
 	description: "Maths for kids",
 	to: "/maths",
@@ -30,9 +30,5 @@ export const MATHS: Block<"maths"> = {
 		bgLighter: "bg-green-100",
 		bgDarker: "bg-green-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

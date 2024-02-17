@@ -18,7 +18,7 @@ import { IconLetterL } from "@tabler/icons-react"
 
 export const DEV_UTILS_LOREM_IPSUM_GENERATOR: Block<DevUtilsLayoutId> = {
 	id: "dev-utils-lorem-ipsum-generator",
-	icon: { data: <IconLetterL />, color: "#000" },
+	icon: { data: IconLetterL, color: "#000" },
 	title: "Lorem Ipsum Generator",
 	description: "Dummy text for your design",
 	to: "/dev-utils/lorem-ipsum-generator",
@@ -30,9 +30,5 @@ export const DEV_UTILS_LOREM_IPSUM_GENERATOR: Block<DevUtilsLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

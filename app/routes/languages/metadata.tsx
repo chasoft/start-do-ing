@@ -18,7 +18,7 @@ import { IconLanguage } from "@tabler/icons-react"
 
 export const LANGUAGES: Block<"languages"> = {
 	id: "languages",
-	icon: { data: <IconLanguage />, color: "#000" },
+	icon: { data: IconLanguage, color: "#000" },
 	title: "Languages",
 	description: "Human languages",
 	to: "/languages",
@@ -30,9 +30,5 @@ export const LANGUAGES: Block<"languages"> = {
 		bgLighter: "bg-lime-100",
 		bgDarker: "bg-lime-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

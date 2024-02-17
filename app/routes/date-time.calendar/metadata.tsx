@@ -18,7 +18,7 @@ import { IconCalendarMonth } from "@tabler/icons-react"
 
 export const DATE_TIME_CALENDAR: Block<DateTimeLayoutId> = {
 	id: "date-time-calendar",
-	icon: { data: <IconCalendarMonth />, color: "#000" },
+	icon: { data: IconCalendarMonth, color: "#000" },
 	title: "Calendar",
 	description: "Lunar date and public events",
 	to: "/date-time/calendar",
@@ -30,9 +30,5 @@ export const DATE_TIME_CALENDAR: Block<DateTimeLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

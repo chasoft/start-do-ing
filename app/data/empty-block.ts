@@ -17,9 +17,10 @@ import { URLS } from "./urls"
  **************************************************************************/
 
 export const BLOCK_NOT_FOUND = "404"
+export const EMPTY_LAYOUT_ID = "empty"
 
 export const EMPTY_BLOCK: Block<SystemLayoutId> = {
-	id: "empty",
+	id: EMPTY_LAYOUT_ID,
 	icon: undefined,
 	title: "Empty block",
 	description: "Empty block",
@@ -32,9 +33,5 @@ export const EMPTY_BLOCK: Block<SystemLayoutId> = {
 		bgLighter: "bg-gray-100",
 		bgDarker: "bg-gray-300"
 	},
-	versioning: {
-		releaseDate: new Date(),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

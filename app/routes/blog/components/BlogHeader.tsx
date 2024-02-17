@@ -2,7 +2,6 @@
 import { Link } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
-
 import {
 	HoverCard,
 	Group,
@@ -40,6 +39,7 @@ import {
 	IconCoin,
 	IconChevronDown
 } from "@tabler/icons-react"
+import { FW } from "~/data"
 import { URLS } from "~/data/urls"
 import Logo from "~/assets/startdoing-logo.svg"
 
@@ -98,7 +98,7 @@ export function BlogHeader() {
 					/>
 				</ThemeIcon>
 				<div>
-					<Text size="sm" fw={500}>
+					<Text size="sm" fw={FW.SEMI_BOLD}>
 						{item.title}
 					</Text>
 					<Text size="xs" c="dimmed">
@@ -144,7 +144,7 @@ export function BlogHeader() {
 
 							<HoverCard.Dropdown style={{ overflow: "hidden" }}>
 								<Group justify="space-between" px="md">
-									<Text fw={500}>Features</Text>
+									<Text fw={FW.SEMI_BOLD}>Features</Text>
 									<Anchor href="#" fz="xs">
 										View all
 									</Anchor>
@@ -159,7 +159,7 @@ export function BlogHeader() {
 								<div className={classes.dropdownFooter}>
 									<Group justify="space-between">
 										<div>
-											<Text fw={500} fz="sm">
+											<Text fw={FW.SEMI_BOLD} fz="sm">
 												Get started
 											</Text>
 											<Text size="xs" c="dimmed">

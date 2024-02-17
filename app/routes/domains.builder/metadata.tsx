@@ -18,7 +18,7 @@ import { IconTractor } from "@tabler/icons-react"
 
 export const DOMAINS_BUILDER: Block<DomainsLayoutId> = {
 	id: "domains-builder",
-	icon: { data: <IconTractor />, color: "#000" },
+	icon: { data: IconTractor, color: "#000" },
 	title: "Domains Builder",
 	description: "Find your desired domain names",
 	to: "/domains/builder",
@@ -30,9 +30,5 @@ export const DOMAINS_BUILDER: Block<DomainsLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

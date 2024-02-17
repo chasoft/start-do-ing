@@ -18,7 +18,7 @@ import { IconRun } from "@tabler/icons-react"
 
 export const OTHERS_RUNNING_TEXT: Block<OthersLayoutId> = {
 	id: "others-running-text",
-	icon: { data: <IconRun />, color: "#000" },
+	icon: { data: IconRun, color: "#000" },
 	title: "Running Text",
 	description: "",
 	to: "/others/running-text",
@@ -30,9 +30,5 @@ export const OTHERS_RUNNING_TEXT: Block<OthersLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

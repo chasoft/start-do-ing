@@ -19,7 +19,7 @@ import { URLS } from "~/data/urls"
 
 export const SUPPORT: Block<"support"> = {
 	id: "support",
-	icon: { data: <IconHeart />, color: "#000" },
+	icon: { data: IconHeart, color: "#000" },
 	title: "Support",
 	description: "Support my work",
 	to: URLS.support.to,
@@ -31,9 +31,5 @@ export const SUPPORT: Block<"support"> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

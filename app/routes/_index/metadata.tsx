@@ -17,12 +17,14 @@ import { URLS } from "~/data/urls"
  *
  **************************************************************************/
 
+export const homeLabel = "Home"
+
 export const HOME: Block<"home"> = {
 	id: "home",
 	icon: {
-		data: <IconHome />
+		data: IconHome
 	},
-	title: "Home",
+	title: homeLabel,
 	description: "",
 	to: URLS.home.to,
 	group: [],
@@ -33,9 +35,5 @@ export const HOME: Block<"home"> = {
 		bgLighter: "bg-gray-100",
 		bgDarker: "bg-gray-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

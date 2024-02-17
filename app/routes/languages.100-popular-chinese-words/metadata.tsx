@@ -18,7 +18,7 @@ import { IconLetterP } from "@tabler/icons-react"
 
 export const LANGUAGES_100_POPULAR_CHINESE_WORDS: Block<LanguagesLayoutId> = {
 	id: "100-popular-chinese-words",
-	icon: { data: <IconLetterP />, color: "#000" },
+	icon: { data: IconLetterP, color: "#000" },
 	title: "100 Popular Chinese Words",
 	description: "Pinyin, Meaning, Strokes...",
 	to: "/languages/100-popular-chinese-words",
@@ -30,9 +30,5 @@ export const LANGUAGES_100_POPULAR_CHINESE_WORDS: Block<LanguagesLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

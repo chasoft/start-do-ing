@@ -14,6 +14,7 @@ import { useIsFullscreen, useIsMobileWindowSize, useIsShowMobileButtons } from "
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { FW, SITE } from "~/data"
 import { URLS } from "~/data/urls"
 import { urlSharingDataAtom } from "~/atoms/globals"
 import Logo from "~/assets/startdoing-logo.svg"
@@ -23,6 +24,9 @@ import Logo from "~/assets/startdoing-logo.svg"
  *  START
  *
  **************************************************************************/
+
+const HEADER_HEIGHT = 60
+const NAVBAR_WIDTH = 300
 
 /**
  * This block creates overly effect for menu items in the bottom
@@ -42,7 +46,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const urlSharingData = useAtomValue(urlSharingDataAtom)
 
 	/**
-	 * We use completely different layout for blog
+	 * We use completely different layout for blog 😉
 	 */
 	const { pathname } = useLocation()
 	const isBlog = pathname.startsWith(URLS.blog.to)
@@ -52,8 +56,8 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 
 	return (
 		<AppShell
-			header={{ height: 60 }}
-			navbar={{ width: 300, breakpoint: "lg", collapsed: { mobile: !opened } }}
+			header={{ height: HEADER_HEIGHT }}
+			navbar={{ width: NAVBAR_WIDTH, breakpoint: "lg", collapsed: { mobile: !opened } }}
 			disabled={isFullScreen || !isMobileWindowSize}
 		>
 			<AppShell.Header>
@@ -61,7 +65,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 					<Burger opened={opened} onClick={toggle} hiddenFrom="lg" size="sm" />
 					<Link to={URLS.home.to} className="flex gap-2">
 						<Image src={Logo} className="w-7 h-7" />
-						<Text fw={700}>Startdo.ing</Text>
+						<Text fw={FW.EXTRA_BOLD}>{SITE.title}</Text>
 					</Link>
 					{isShowMobileButtons && (
 						<div className="flex gap-1 ml-auto">
@@ -77,8 +81,8 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 					<OverlayMobileMenu />
 				</AppShell.Section>
 				<AppShell.Section className="flex justify-between p-3" hiddenFrom="md">
-					<Text size="xs">hi@startdo.ing</Text>
-					<Text size="xs">Make with 💖 by Brian Cao</Text>
+					<Text size="xs">{SITE.email}</Text>
+					<Text size="xs">{SITE.makeWithLove}</Text>
 				</AppShell.Section>
 			</AppShell.Navbar>
 			<AppShell.Main>{children}</AppShell.Main>

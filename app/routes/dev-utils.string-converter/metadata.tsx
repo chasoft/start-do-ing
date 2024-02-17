@@ -18,7 +18,7 @@ import { IconLetterS } from "@tabler/icons-react"
 
 export const DEV_UTILS_STRING_CONVERTER: Block<DevUtilsLayoutId> = {
 	id: "dev-utils-string-converter",
-	icon: { data: <IconLetterS />, color: "#000" },
+	icon: { data: IconLetterS, color: "#000" },
 	title: "String Converter",
 	description: "String utils",
 	to: "/dev-utils/string-converter",
@@ -30,9 +30,5 @@ export const DEV_UTILS_STRING_CONVERTER: Block<DevUtilsLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

@@ -18,7 +18,7 @@ import { IconMoodHappy } from "@tabler/icons-react"
 
 export const RANDOM_LOTTERY: Block<RandomLayoutId> = {
 	id: "random-lottery",
-	icon: { data: <IconMoodHappy />, color: "#000" },
+	icon: { data: IconMoodHappy, color: "#000" },
 	title: "Lottery Generator",
 	description: "Find your lucky numbers",
 	to: "/random/lottery",
@@ -30,9 +30,5 @@ export const RANDOM_LOTTERY: Block<RandomLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

@@ -14,3 +14,12 @@ Open up [http://127.0.0.1:8788](http://127.0.0.1:8788) and you should be ready t
 ## Production Deployment
 
 Deployed via Cloudflare Pages.
+
+### Note
+
+Installing Jest to do some testing. Ref: [ts-jest](https://kulshekhar.github.io/ts-jest/docs/getting-started/installation)
+
+```bash
+npm install --save-dev jest typescript ts-jest ts-node @types/jest
+npx ts-jest config:init
+```

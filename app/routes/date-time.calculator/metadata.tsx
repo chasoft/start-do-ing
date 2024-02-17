@@ -18,7 +18,7 @@ import { IconCalculator } from "@tabler/icons-react"
 
 export const DATE_TIME_CALCULATOR: Block<DateTimeLayoutId> = {
 	id: "date-time-calculator",
-	icon: { data: <IconCalculator />, color: "#000" },
+	icon: { data: IconCalculator, color: "#000" },
 	title: "Date/Time Calculator",
 	description: "Calculate date and time",
 	to: "/date-time/calculator",
@@ -30,9 +30,34 @@ export const DATE_TIME_CALCULATOR: Block<DateTimeLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: [
+		{
+			date: new Date(2024, 1, 1).getTime(),
+			codeName: "calculator-1",
+			description: "update feature",
+			version: "1.0.0"
+		},
+		{
+			date: new Date(2024, 0, 15).getTime(),
+			codeName: "calculator-2",
+			description: "fix bug",
+			version: "1.0.1"
+		},
+		{
+			date: new Date(2024, 0, 15).getTime(),
+			codeName: "calculator-3",
+			description: `
+Fix **bug 2** ~Fix bug~ 2 Fix bug  Fix bug 2 Fix bug 2 Fix bug 2
+ * Fix bug 2
+ * Fix bug 2 Fix bug 2"
+`,
+			version: "1.0.2"
+		},
+		{
+			date: new Date(2025, 0, 15).getTime(),
+			codeName: "calculator-2",
+			description: "fix bug",
+			version: "1.0.3"
+		}
+	]
 }

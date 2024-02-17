@@ -1,3 +1,14 @@
+import { TablerIconsProps } from "@tabler/icons-react"
+
+/**
+ * To mark some properties as markdown supported
+ */
+export type MarkdownString = string
+
+/**
+ * Feel free to add more properties here
+ * when we want to personalize the routes
+ */
 export type CustomRouteHandle = Partial<{
 	layoutId: PageId
 	isGroup: boolean
@@ -5,8 +16,6 @@ export type CustomRouteHandle = Partial<{
 }>
 
 export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
-
-export type EmptyLayoutId = "404"
 
 export type GroupId =
 	| "home" //(1)
@@ -134,6 +143,26 @@ export type NavigationGridCells =
 	| GridCellsFunction<FeatureLayoutId>
 	| GridCellsFunction<unknown>
 
+export type Release = {
+	date: number
+	codeName?: string
+	description: MarkdownString
+	version: string
+}
+
+export type ReleaseWithMetadata = Release & {
+	title: string
+	to: string
+	icon?: BlockIcon
+}
+
+export type TablerIconComponent = (props: TablerIconsProps) => JSX.Element
+
+export type BlockIcon = {
+	data: TablerIconComponent
+	color?: string
+}
+
 export type Block<TLayout> = {
 	/**
 	 * layout animation based on id
@@ -142,10 +171,7 @@ export type Block<TLayout> = {
 	/**
 	 * introduction information of the block
 	 */
-	icon?: {
-		data: React.ReactNode
-		color?: string
-	}
+	icon?: BlockIcon
 	title: string
 	description: string
 	image?: string
@@ -170,13 +196,9 @@ export type Block<TLayout> = {
 		bgDarker: string
 	}
 	/**
-	 * versioning is required to keep track of the changes made to the block
+	 * keep track of the changes made to the block
 	 */
-	versioning: {
-		releaseDate: Date
-		major: number
-		minor: number
-	}
+	updates: Array<Release>
 }
 
 export type UrlSharingData = {

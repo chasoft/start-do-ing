@@ -18,7 +18,7 @@ import { IconNumber1 } from "@tabler/icons-react"
 
 export const MATHS_1: Block<MathsLayoutId> = {
 	id: "maths-1",
-	icon: { data: <IconNumber1 />, color: "#000" },
+	icon: { data: IconNumber1, color: "#000" },
 	title: "Maths 1",
 	description: "Fast maths for kids 1",
 	to: "/maths/lesson-1",
@@ -30,9 +30,5 @@ export const MATHS_1: Block<MathsLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: []
 }

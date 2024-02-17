@@ -9,6 +9,7 @@ import type { Block, DateTimeLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconClock } from "@tabler/icons-react"
+import dayjs from "dayjs"
 
 /***************************************************************************
  *
@@ -18,7 +19,7 @@ import { IconClock } from "@tabler/icons-react"
 
 export const DATE_TIME_ANALOG_CLOCK: Block<DateTimeLayoutId> = {
 	id: "date-time-analog-clock",
-	icon: { data: <IconClock />, color: "text-gray-500" },
+	icon: { data: IconClock, color: "text-gray-500" },
 	title: "Analog Clock",
 	description: "Just a traditional clock",
 	to: "/date-time/analog-clock",
@@ -30,9 +31,12 @@ export const DATE_TIME_ANALOG_CLOCK: Block<DateTimeLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	versioning: {
-		releaseDate: new Date("2023/01/17"),
-		major: 0,
-		minor: 1
-	}
+	updates: [
+		{
+			date: dayjs("2024/02/16").valueOf(),
+			codeName: "",
+			description: "string",
+			version: "1.0.0"
+		}
+	]
 }

@@ -14,13 +14,14 @@ import { LanguagesGroupCell } from "~/routes/languages/grid-cell"
 import { MathsGroupCell } from "~/routes/maths/grid-cell"
 import { OthersGroupCell } from "~/routes/others/grid-cell"
 import { RandomGroupCell } from "~/routes/random/grid-cell"
+import { SupportGridCellIntro } from "~/routes/support/grid-cell"
 import { UrlShortenerGroupCell } from "~/routes/url-shortener/grid-cell"
 import type { GridCellsProps, GroupId } from "~/utils/types"
-import { SupportGridCellIntro } from "~/routes/support/grid-cell"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { EMPTY_LAYOUT_ID } from "~/data"
 
 /***************************************************************************
  *
@@ -100,7 +101,7 @@ export function RootGridCells({
 					<OthersGroupCell blockIndex={blockIndex} />
 				</div>
 			)
-		case "empty":
+		case EMPTY_LAYOUT_ID:
 			return (
 				<div className={clsx(className)}>
 					<CellGridEmpty />

@@ -4,17 +4,19 @@ import { useMemo } from "react"
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
-import { ScrollArea, Tooltip } from "@mantine/core"
+import { ScrollArea, Text, Tooltip } from "@mantine/core"
 import { useHover } from "@mantine/hooks"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { CellGridLink } from "."
-import type { Block } from "~/utils/types"
+import { getIcon } from "~/utils"
+import type { Block, TablerIconComponent } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { FW } from "~/data"
 import { IconMoreHorizontal } from "./icons"
 import { URLS } from "~/data/urls"
 
@@ -32,7 +34,7 @@ type CellGroupProps = {
 		title: string
 		to: string
 		icon?: {
-			data: React.ReactNode
+			data: TablerIconComponent
 			color?: string
 		}
 	}>
@@ -55,16 +57,19 @@ export function CellGroup({
 			dropdownMenuItems
 				.filter((i) => !!i.icon)
 				.slice(0, iconDisplayLimit)
-				.map((i) => (
-					<Tooltip key={i.to} label={i.title}>
-						<Link
-							to={i.to}
-							className="p-2 text-gray-500 bg-white bg-opacity-0 rounded-md hover:bg-opacity-40 hover:text-gray-800 active:bg-opacity-80"
-						>
-							{i.icon?.data}
-						</Link>
-					</Tooltip>
-				)),
+				.map((i) => {
+					const Icon = getIcon(i.icon?.data)
+					return (
+						<Tooltip key={i.to} label={i.title}>
+							<Link
+								to={i.to}
+								className="p-2 text-gray-500 bg-white bg-opacity-0 rounded-md hover:bg-opacity-40 hover:text-gray-800 active:bg-opacity-80"
+							>
+								<Icon size={24} />
+							</Link>
+						</Tooltip>
+					)
+				}),
 		[dropdownMenuItems]
 	)
 
@@ -79,20 +84,23 @@ export function CellGroup({
 	)
 
 	const showMoreButton = childMenuItems.length > iconLinks.length
+	const Icon = getIcon(metaData.icon?.data)
 
 	return (
 		<motion.div className={clsx("relative block h-full overflow-hidden", className)}>
 			<CellGridLink to={metaData.to} blockIndex={blockIndex}>
 				<div className="flex flex-col p-2">
-					<h2 className="flex gap-2 items-start text-base font-semibold sm:text-xl line-clamp-1">
-						{metaData.icon && <span>{metaData.icon.data}</span>}{" "}
-						<span>{metaData.title}</span>
+					<h2 className="flex items-start gap-2">
+						{metaData.icon && <Icon size={24} className="mt-[2px]" />}{" "}
+						<Text size="lg" fw={FW.SEMI_BOLD}>
+							{metaData.title}
+						</Text>
 					</h2>
 					<div className="flex flex-col grow">
 						{metaData.description && (
-							<span className="text-sm line-clamp-2 sm:text-base">
+							<Text size="md" lineClamp={2}>
 								{metaData.description}
-							</span>
+							</Text>
 						)}
 					</div>
 				</div>
