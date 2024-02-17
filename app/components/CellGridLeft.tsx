@@ -20,9 +20,9 @@ import { SIDE_BLOCKS } from "~/data"
 
 export function CellGridLeft({ className }: { className?: string }) {
 	return (
-		<motion.div className={clsx("h-full", className)} layoutId={SIDE_BLOCKS[0].id}>
+		<motion.div className={clsx("h-full", className)} layoutId={SIDE_BLOCKS.LEFT.id}>
 			<Link
-				to={SIDE_BLOCKS[0].to}
+				to={SIDE_BLOCKS.LEFT.to}
 				className="block h-full bg-gray-200 rounded-lg bg-opacity-60 hover:bg-opacity-70"
 			>
 				<div className="p-2">CellGridLeft</div>

@@ -18,7 +18,7 @@ import { IconCloud } from "@tabler/icons-react"
 
 export const DOMAINS: Block<"domains"> = {
 	id: "domains",
-	icon: { data: <IconCloud />, color: "#000" },
+	icon: { data: IconCloud, color: "#000" },
 	title: "Domains",
 	description: "Your domain assistants",
 	to: "/domains",

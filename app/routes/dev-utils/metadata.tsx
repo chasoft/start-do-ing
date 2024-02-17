@@ -18,7 +18,7 @@ import { IconDevices } from "@tabler/icons-react"
 
 export const DEV_UTILS: Block<"dev-utils"> = {
 	id: "dev-utils",
-	icon: { data: <IconDevices />, color: "#000" },
+	icon: { data: IconDevices, color: "#000" },
 	title: "Dev Utils",
 	description: "Utils for web development",
 	to: "/dev-utils",

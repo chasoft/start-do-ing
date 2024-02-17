@@ -18,7 +18,7 @@ import { IconGoGame } from "@tabler/icons-react"
 
 export const KAHOOT: Block<"kahoot"> = {
 	id: "kahoot",
-	icon: { data: <IconGoGame />, color: "#000" },
+	icon: { data: IconGoGame, color: "#000" },
 	title: "Kahoot",
 	description: "Play online quiz games",
 	to: "/kahoot",

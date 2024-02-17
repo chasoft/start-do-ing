@@ -84,33 +84,25 @@ export function NavigationGrid({
 				<GridCell blockIndex={5} layoutId={layoutIds[5]} className="hidden 3xl:block" />
 				{/* Row 2 */}
 				<GridCell
-					layoutId={SIDE_BLOCKS[0].id}
+					layoutId={SIDE_BLOCKS.LEFT.id}
 					blockIndex={6}
-					className={clsx("aspect-h-2 aspect-w-2", { "hidden xl:block": "display" })}
+					className="hidden aspect-h-2 aspect-w-2 xl:block"
 				/>
 				<div className="col-span-4 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
 					<div className="h-full overflow-hidden">{children}</div>
 				</div>
 				<GridCell
-					layoutId={SIDE_BLOCKS[1].id}
+					layoutId={SIDE_BLOCKS.RIGHT.id}
 					blockIndex={7}
-					className={clsx("aspect-h-2 aspect-w-2", { "hidden lg:block": "display" })}
+					className="hidden aspect-h-2 aspect-w-2 lg:block"
 				/>
 				{/* Row 3 */}
 				<GridCell blockIndex={6} layoutId={layoutIds[6]} />
 				<GridCell blockIndex={7} layoutId={layoutIds[7]} />
 				<GridCell blockIndex={8} layoutId={layoutIds[8]} />
 				<GridCell blockIndex={9} layoutId={layoutIds[9]} />
-				<GridCell
-					blockIndex={10}
-					layoutId={layoutIds[10]}
-					className={clsx({ "hidden 2xl:block": "display" })}
-				/>
-				<GridCell
-					blockIndex={11}
-					layoutId={layoutIds[11]}
-					className={clsx({ "hidden 3xl:block": "display" })}
-				/>
+				<GridCell blockIndex={10} layoutId={layoutIds[10]} className="hidden 2xl:block" />
+				<GridCell blockIndex={11} layoutId={layoutIds[11]} className="hidden 3xl:block" />
 				<GridCell
 					blockIndex={12}
 					layoutId="last"

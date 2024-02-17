@@ -18,7 +18,7 @@ import { IconWheel } from "@tabler/icons-react"
 
 export const RANDOM_MAGIC_WHEEL: Block<RandomLayoutId> = {
 	id: "random-magic-wheel",
-	icon: { data: <IconWheel />, color: "#000" },
+	icon: { data: IconWheel, color: "#000" },
 	title: "Magic Wheel",
 	description: "Playing with friends",
 	to: "/random/magic-wheel",

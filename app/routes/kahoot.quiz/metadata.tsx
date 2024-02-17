@@ -18,7 +18,7 @@ import { IconPlayerPlay } from "@tabler/icons-react"
 
 export const KAHOOT_QUIZ: Block<KahootLayoutId> = {
 	id: "kahoot-quiz",
-	icon: { data: <IconPlayerPlay />, color: "#000" },
+	icon: { data: IconPlayerPlay, color: "#000" },
 	title: "Kahoot Quiz",
 	description: "Play online quiz with friends",
 	to: "/kahoot/quiz",

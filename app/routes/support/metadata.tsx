@@ -19,7 +19,7 @@ import { URLS } from "~/data/urls"
 
 export const SUPPORT: Block<"support"> = {
 	id: "support",
-	icon: { data: <IconHeart />, color: "#000" },
+	icon: { data: IconHeart, color: "#000" },
 	title: "Support",
 	description: "Support my work",
 	to: URLS.support.to,

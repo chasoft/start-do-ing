@@ -18,7 +18,7 @@ import { IconLetterM } from "@tabler/icons-react"
 
 export const DEV_UTILS_MARKDOWN_EDITOR: Block<DevUtilsLayoutId> = {
 	id: "dev-utils-markdown-editor",
-	icon: { data: <IconLetterM />, color: "#000" },
+	icon: { data: IconLetterM, color: "#000" },
 	title: "Markdown Editor",
 	description: "Quick editor your web-browser",
 	to: "/dev-utils/markdown-editor",

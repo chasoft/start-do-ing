@@ -18,7 +18,7 @@ import { IconTractor } from "@tabler/icons-react"
 
 export const DOMAINS_BUILDER: Block<DomainsLayoutId> = {
 	id: "domains-builder",
-	icon: { data: <IconTractor />, color: "#000" },
+	icon: { data: IconTractor, color: "#000" },
 	title: "Domains Builder",
 	description: "Find your desired domain names",
 	to: "/domains/builder",

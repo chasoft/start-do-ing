@@ -1,3 +1,14 @@
+import { TablerIconsProps } from "@tabler/icons-react"
+
+/**
+ * To mark some properties as markdown supported
+ */
+export type MarkdownString = string
+
+/**
+ * Feel free to add more properties here
+ * when we want to personalize the routes
+ */
 export type CustomRouteHandle = Partial<{
 	layoutId: PageId
 	isGroup: boolean
@@ -5,8 +16,6 @@ export type CustomRouteHandle = Partial<{
 }>
 
 export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
-
-export type EmptyLayoutId = "404"
 
 export type GroupId =
 	| "home" //(1)
@@ -137,7 +146,7 @@ export type NavigationGridCells =
 export type Release = {
 	date: number
 	codeName?: string
-	description: string
+	description: MarkdownString
 	version: string
 }
 
@@ -147,8 +156,10 @@ export type ReleaseWithMetadata = Release & {
 	icon?: BlockIcon
 }
 
+export type TablerIconComponent = (props: TablerIconsProps) => JSX.Element
+
 export type BlockIcon = {
-	data: React.ReactNode
+	data: TablerIconComponent
 	color?: string
 }
 

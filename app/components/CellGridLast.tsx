@@ -15,6 +15,7 @@ import type { Block, PageId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { EMPTY_LAYOUT_ID } from "~/data"
 import { IconMoreHorizontal } from "./icons"
 
 /***************************************************************************
@@ -42,7 +43,7 @@ export function CellGridLast({ className, blocks, blockIndex }: CellGridLastProp
 	const showMoreButton = blocks.length > 4
 
 	const childMenuItems = blocks.map((block, idx) => {
-		const key = block.id === "empty" ? Math.random() : block.id
+		const key = block.id === EMPTY_LAYOUT_ID ? Math.random() : block.id
 		return (
 			<li key={key}>
 				<Link to={block.to}>{`${idx + 1}. ${block.title}`}</Link>
@@ -58,7 +59,7 @@ export function CellGridLast({ className, blocks, blockIndex }: CellGridLastProp
 				{getDynamicBlocks(blocks, 4)
 					.slice(0, 4)
 					.map((block, idx) => {
-						if (block.id === "empty") {
+						if (block.id === EMPTY_LAYOUT_ID) {
 							return <CellGridEmpty key={Math.random()} />
 						}
 						const { bgColor } = getBlockColor(blockIndex + idx)

@@ -22,7 +22,7 @@ export const homeLabel = "Home"
 export const HOME: Block<"home"> = {
 	id: "home",
 	icon: {
-		data: <IconHome />
+		data: IconHome
 	},
 	title: homeLabel,
 	description: "",

@@ -18,7 +18,7 @@ import { IconLanguage } from "@tabler/icons-react"
 
 export const LANGUAGES: Block<"languages"> = {
 	id: "languages",
-	icon: { data: <IconLanguage />, color: "#000" },
+	icon: { data: IconLanguage, color: "#000" },
 	title: "Languages",
 	description: "Human languages",
 	to: "/languages",

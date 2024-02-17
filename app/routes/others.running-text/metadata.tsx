@@ -18,7 +18,7 @@ import { IconRun } from "@tabler/icons-react"
 
 export const OTHERS_RUNNING_TEXT: Block<OthersLayoutId> = {
 	id: "others-running-text",
-	icon: { data: <IconRun />, color: "#000" },
+	icon: { data: IconRun, color: "#000" },
 	title: "Running Text",
 	description: "",
 	to: "/others/running-text",

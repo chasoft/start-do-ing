@@ -18,7 +18,7 @@ import { IconArrowsRandom } from "@tabler/icons-react"
 
 export const RANDOM: Block<"random"> = {
 	id: "random",
-	icon: { data: <IconArrowsRandom />, color: "#000" },
+	icon: { data: IconArrowsRandom, color: "#000" },
 	title: "Random",
 	description: "From numbers to everything",
 	to: "/random",

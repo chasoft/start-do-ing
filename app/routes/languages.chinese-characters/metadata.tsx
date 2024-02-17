@@ -18,7 +18,7 @@ import { IconLetterC } from "@tabler/icons-react"
 
 export const LANGUAGES_CHINESE_CHARACTERS: Block<LanguagesLayoutId> = {
 	id: "chinese-characters",
-	icon: { data: <IconLetterC />, color: "#000" },
+	icon: { data: IconLetterC, color: "#000" },
 	title: "Chinese Characters",
 	description: "Basic Chinese-Vietnamese dictionary",
 	to: "/languages/chinese-characters",

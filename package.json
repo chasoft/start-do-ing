@@ -9,9 +9,10 @@
 		"lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
 		"start": "wrangler pages dev --compatibility-date=2023-06-21 ./public",
 		"typecheck": "tsc",
-		"format": "prettier . --check",
-		"format:fix": "prettier . --write",
-		"test": "jest"
+		"format": "prettier . --write",
+		"format:view": "prettier . --check",
+		"test": "jest",
+		"check-all": "npm run lint & npm run typecheck & npm run format"
 	},
 	"dependencies": {
 		"@mantine/carousel": "^7.5.1",
@@ -47,6 +48,7 @@
 		"lodash.groupby": "^4.6.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"react-markdown": "^9.0.1",
 		"recharts": "^2.11.0",
 		"ts-node": "^10.9.2"
 	},

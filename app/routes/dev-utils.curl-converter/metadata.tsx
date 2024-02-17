@@ -18,7 +18,7 @@ import { IconLetterC } from "@tabler/icons-react"
 
 export const DEV_UTILS_CURL_CONVERTER: Block<DevUtilsLayoutId> = {
 	id: "dev-utils-curl-converter",
-	icon: { data: <IconLetterC />, color: "#000" },
+	icon: { data: IconLetterC, color: "#000" },
 	title: "cURL Converter",
 	description: "cURL commands to code",
 	to: "/dev-utils/curl-converter",

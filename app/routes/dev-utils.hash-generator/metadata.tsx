@@ -18,7 +18,7 @@ import { IconLetterH } from "@tabler/icons-react"
 
 export const DEV_UTILS_HASH_GENERATOR: Block<DevUtilsLayoutId> = {
 	id: "dev-utils-hash-generator",
-	icon: { data: <IconLetterH />, color: "#000" },
+	icon: { data: IconLetterH, color: "#000" },
 	title: "Hash Generator",
 	description: "Calculate has (MD5, SHA-1, SHA-256, SHA-512)",
 	to: "/dev-utils/hash-generator",

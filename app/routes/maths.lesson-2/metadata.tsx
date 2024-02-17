@@ -18,7 +18,7 @@ import { IconNumber2 } from "@tabler/icons-react"
 
 export const MATHS_2: Block<MathsLayoutId> = {
 	id: "maths-2",
-	icon: { data: <IconNumber2 />, color: "#000" },
+	icon: { data: IconNumber2, color: "#000" },
 	title: "Maths 2",
 	description: "Fast maths for kids 2",
 	to: "/maths/lesson-2",

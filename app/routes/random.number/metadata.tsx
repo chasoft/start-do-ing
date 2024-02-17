@@ -18,7 +18,7 @@ import { IconNumbers } from "@tabler/icons-react"
 
 export const RANDOM_NUMBER: Block<RandomLayoutId> = {
 	id: "random-number",
-	icon: { data: <IconNumbers />, color: "#000" },
+	icon: { data: IconNumbers, color: "#000" },
 	title: "Number Generator",
 	description: "Random for any purposes",
 	to: "/random/number",

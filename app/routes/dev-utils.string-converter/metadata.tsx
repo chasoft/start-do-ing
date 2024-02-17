@@ -18,7 +18,7 @@ import { IconLetterS } from "@tabler/icons-react"
 
 export const DEV_UTILS_STRING_CONVERTER: Block<DevUtilsLayoutId> = {
 	id: "dev-utils-string-converter",
-	icon: { data: <IconLetterS />, color: "#000" },
+	icon: { data: IconLetterS, color: "#000" },
 	title: "String Converter",
 	description: "String utils",
 	to: "/dev-utils/string-converter",

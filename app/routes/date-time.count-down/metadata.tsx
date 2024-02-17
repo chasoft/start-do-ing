@@ -18,7 +18,7 @@ import { IconClockDown } from "@tabler/icons-react"
 
 export const DATE_TIME_COUNT_DOWN: Block<DateTimeLayoutId> = {
 	id: "date-time-count-down",
-	icon: { data: <IconClockDown />, color: "#000" },
+	icon: { data: IconClockDown, color: "#000" },
 	title: "Count Down",
 	description: "Everything counting down",
 	to: "/date-time/count-down",

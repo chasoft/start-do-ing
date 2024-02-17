@@ -18,7 +18,7 @@ import { IconLetterV } from "@tabler/icons-react"
 
 export const LANGUAGES_VIETNAMESE_READING_FOR_KIDS: Block<LanguagesLayoutId> = {
 	id: "vietnamese-reading-for-kids",
-	icon: { data: <IconLetterV />, color: "#000" },
+	icon: { data: IconLetterV, color: "#000" },
 	title: "Vietnamese Reading for Kids",
 	description: "Helps your kids to read Vietnamese words",
 	to: "/languages/vietnamese-reading-for-kids",

@@ -38,7 +38,7 @@ import type { DateTimeLayoutId, GridCellsProps } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { BLOCK_NOT_FOUND } from "~/data"
+import { BLOCK_NOT_FOUND, EMPTY_LAYOUT_ID } from "~/data"
 
 /***************************************************************************
  *
@@ -113,7 +113,7 @@ export function DateTimeGridCells({
 					className={className}
 				/>
 			)
-		case "empty":
+		case EMPTY_LAYOUT_ID:
 			return (
 				<div className={clsx(className)}>
 					<CellGridEmpty />

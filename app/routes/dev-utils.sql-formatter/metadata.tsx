@@ -18,7 +18,7 @@ import { IconLetterS } from "@tabler/icons-react"
 
 export const DEV_UTILS_SQL_FORMATTER: Block<DevUtilsLayoutId> = {
 	id: "dev-utils-sql-formatter",
-	icon: { data: <IconLetterS />, color: "#000" },
+	icon: { data: IconLetterS, color: "#000" },
 	title: "SQL Formatter",
 	description: "Beautify your SQL queries",
 	to: "/dev-utils/sql-formatter",

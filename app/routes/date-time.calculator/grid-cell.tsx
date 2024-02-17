@@ -32,7 +32,7 @@ export function DateTimeCalculatorCellIntro({ blockIndex }: { blockIndex: number
 	)
 }
 
-export function DateTimeCalculatorCell({ className, blockIndex }: GridCellProps) {
+export function DateTimeCalculatorCell({ className }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={DATE_TIME_CALCULATOR.id}>
 			<div className="grid grid-cols-2 gap-1 lg:gap-2 h-full">

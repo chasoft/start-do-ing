@@ -2,7 +2,6 @@
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
-import { ScrollArea } from "@mantine/core"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
@@ -32,9 +31,7 @@ export function HomeFeature({
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={clsx("h-full", className)} layoutId={layoutId}>
-				<ScrollArea className="h-full p-2 sm:p-4 xl:p-6">
-					<ReleaseUpdates />
-				</ScrollArea>
+				<ReleaseUpdates />
 			</motion.div>
 		</ContentWrapper>
 	)

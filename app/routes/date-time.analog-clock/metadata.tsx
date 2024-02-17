@@ -19,7 +19,7 @@ import dayjs from "dayjs"
 
 export const DATE_TIME_ANALOG_CLOCK: Block<DateTimeLayoutId> = {
 	id: "date-time-analog-clock",
-	icon: { data: <IconClock />, color: "text-gray-500" },
+	icon: { data: IconClock, color: "text-gray-500" },
 	title: "Analog Clock",
 	description: "Just a traditional clock",
 	to: "/date-time/analog-clock",
@@ -36,7 +36,7 @@ export const DATE_TIME_ANALOG_CLOCK: Block<DateTimeLayoutId> = {
 			date: dayjs("2024/02/16").valueOf(),
 			codeName: "",
 			description: "string",
-			version: "1.0.0",
+			version: "1.0.0"
 		}
 	]
 }

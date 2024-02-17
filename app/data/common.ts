@@ -57,7 +57,6 @@ import type {
 	RandomLayoutId,
 	UrlShortenerLayoutId
 } from "~/utils/types"
-import { getAllReleaseUpdates } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -72,8 +71,10 @@ import { getAllReleaseUpdates } from "~/utils"
 export const SITE = {
 	title: "Startdo.ing",
 	description: `Unleash your creativity with Startdo.ing's collection of engaging online tools, called "blocks". Explore, have fun, and share the joy with your friends!`,
-	url: "https://startdo.ing"
-}
+	url: "https://startdo.ing",
+	email: "hi@startdo.ing",
+	makeWithLove: "Make with 💖 by Brian Cao"
+} as const
 
 export const breakpoints: Breakpoint[] = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"]
 
@@ -191,16 +192,15 @@ export const DEFAULT_BLOCK: Block<"home"> = HOME
 
 export const DEFAULT_SHARING_IMAGE = "https://startdo.ing/static/images/sharing.png"
 
-export const allReleaseUpdates = () => getAllReleaseUpdates([])
-
-export const allReleaseUpdatesForHeatMap = () =>
-	Object.entries(getAllReleaseUpdates([])).map(([key, value]) => ({
-		date: key,
-		count: value.length
-	}))
-
 /**
- * Latest release updates are the 3 most recent update groups
+ * STYLING CONSTANTS
  */
-export const latestReleaseUpdates = () =>
-	Object.entries(getAllReleaseUpdates([])).slice(0, 3)
+
+// FW - Font Weight
+export const FW = {
+	NORMAL: 400,
+	SEMI_BOLD: 500,
+	BOLD: 600,
+	EXTRA_BOLD: 700,
+	BLACK: 900
+} as const

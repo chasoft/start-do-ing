@@ -5,12 +5,13 @@ import dayjs from "dayjs"
 import groupByFunc from "lodash.groupby"
 
 /* COMPONENTS & UTILS */
-import type { Block, ReleaseWithMetadata, TColor } from "./types"
+import type { Block, ReleaseWithMetadata, TColor, TablerIconComponent } from "./types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { SITE, DEFAULT_SHARING_IMAGE, COLORS, DEFAULT_COLORS } from "~/data"
+import { SITE, DEFAULT_SHARING_IMAGE, COLORS, DEFAULT_COLORS, allBlocks } from "~/data"
+import { IconBlank } from "~/components/icons"
 
 /***************************************************************************
  *
@@ -58,3 +59,20 @@ export function getAllReleaseUpdates(blocks: Array<Block<unknown>>) {
 		.sort((release1, release2) => release1.date - release2.date)
 	return groupByFunc(releases, (release: ReleaseWithMetadata) => release.date)
 }
+
+export const getIcon = (iconData?: TablerIconComponent) =>
+	(iconData ?? IconBlank) as TablerIconComponent
+
+export const allReleaseUpdates = getAllReleaseUpdates(allBlocks)
+
+export const allReleaseUpdatesForHeatMap = () =>
+	Object.entries(allReleaseUpdates).map(([key, value]) => ({
+		date: key,
+		count: value.length
+	}))
+
+/**
+ * Latest release updates, default limit = 3
+ */
+export const latestReleaseUpdates = (limit: number = 3) =>
+	Object.entries(allReleaseUpdates).slice(0, limit)

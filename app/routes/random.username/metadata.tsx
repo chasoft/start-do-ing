@@ -18,7 +18,7 @@ import { IconUserHexagon } from "@tabler/icons-react"
 
 export const RANDOM_USERNAME: Block<RandomLayoutId> = {
 	id: "random-username",
-	icon: { data: <IconUserHexagon />, color: "#000" },
+	icon: { data: IconUserHexagon, color: "#000" },
 	title: "Username Generator",
 	description: "Give me a name!",
 	to: "/random/username",

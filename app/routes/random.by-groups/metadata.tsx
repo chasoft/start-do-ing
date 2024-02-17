@@ -18,7 +18,7 @@ import { IconUsersGroup } from "@tabler/icons-react"
 
 export const RANDOM_BY_GROUPS: Block<RandomLayoutId> = {
 	id: "random-by-groups",
-	icon: { data: <IconUsersGroup />, color: "#000" },
+	icon: { data: IconUsersGroup, color: "#000" },
 	title: "Random by Groups",
 	description: "Split into groups",
 	to: "/random/by-groups",

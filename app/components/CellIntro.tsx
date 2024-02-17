@@ -2,6 +2,7 @@
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
+import { Text } from "@mantine/core"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
@@ -13,7 +14,7 @@ import type { Block } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { homeLabel } from "~/routes/_index/metadata"
-import { SITE } from "~/data"
+import { FW, SITE } from "~/data"
 
 /***************************************************************************
  *
@@ -47,14 +48,14 @@ export function CellIntro({
 			)}
 		>
 			<div className="flex flex-col p-2">
-				<h2 className="text-base font-semibold sm:text-xl line-clamp-1">
-					{metaData.title == homeLabel ? SITE.title : metaData.title}
-				</h2>
+				<Text component="h2" size="lg" fw={FW.SEMI_BOLD} lineClamp={1}>
+					{metaData.title == homeLabel ? `Welcome to ${SITE.title}` : metaData.title}
+				</Text>
 				<div className="flex flex-col grow">
 					{metaData.description && (
-						<span className="text-sm line-clamp-2 sm:text-base">
+						<Text size="md" lineClamp={2}>
 							{metaData.description}
-						</span>
+						</Text>
 					)}
 				</div>
 				<div>{children}</div>

@@ -17,8 +17,11 @@ import { URLS } from "./urls"
  *
  *************************************************************************/
 
-export const SIDE_BLOCKS: Block<FeatureLayoutId>[] = [
-	{
+export const SIDE_BLOCKS: {
+	LEFT: Block<FeatureLayoutId>
+	RIGHT: Block<FeatureLayoutId>
+} = {
+	LEFT: {
 		id: "left",
 		icon: undefined,
 		title: "Left block",
@@ -34,7 +37,7 @@ export const SIDE_BLOCKS: Block<FeatureLayoutId>[] = [
 		},
 		updates: []
 	},
-	{
+	RIGHT: {
 		id: "right",
 		icon: undefined,
 		title: "Right block",
@@ -50,4 +53,4 @@ export const SIDE_BLOCKS: Block<FeatureLayoutId>[] = [
 		},
 		updates: []
 	}
-]
+}

@@ -18,7 +18,7 @@ import { IconMist } from "@tabler/icons-react"
 
 export const OTHERS: Block<"others"> = {
 	id: "others",
-	icon: { data: <IconMist />, color: "#000" },
+	icon: { data: IconMist, color: "#000" },
 	title: "Others",
 	description: "Interesting things",
 	to: "/others",

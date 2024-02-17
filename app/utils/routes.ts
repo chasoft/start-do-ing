@@ -18,11 +18,7 @@ export function hasHandle<Handle extends string, Value>(
 	valuePredicate?: (v: unknown) => v is Value
 ) {
 	return (
-		route:
-			| {
-					handle: unknown
-			  }
-			| RouteWithHandle<Handle, Value>
+		route: { handle: unknown } | RouteWithHandle<Handle, Value>
 	): route is RouteWithHandle<Handle, Value> => {
 		return (
 			!!route.handle &&

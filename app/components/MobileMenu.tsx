@@ -6,6 +6,7 @@ import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { Block } from "~/utils/types"
+import { getIcon } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -14,6 +15,7 @@ import {
 	DATE_TIME_BLOCKS,
 	DEV_UTILS_BLOCKS,
 	DOMAINS_BLOCKS,
+	EMPTY_LAYOUT_ID,
 	KAHOOT_BLOCKS,
 	LANGUAGES_BLOCKS,
 	MATHS_BLOCKS,
@@ -57,15 +59,18 @@ function MobileMenuItem({
 		)
 	}
 
+	const Icon = getIcon(blocks[0]?.icon?.data)
+
 	return (
 		<details open>
 			<summary className="group">
-				{blocks[0].icon && <span>{blocks[0].icon.data}</span>}
+				{blocks[0].icon && <Icon size={16} />}
 				{blocks[0].title}
 			</summary>
 			<ul>
 				{blocks.slice(1).map((block) => {
-					const key = block.id === "empty" ? Math.random() : (block.id as string)
+					const key = block.id === EMPTY_LAYOUT_ID ? Math.random() : (block.id as string)
+					const Icon = getIcon(block.icon?.data)
 					return (
 						<li key={key} onClick={onClick} aria-hidden>
 							<NavLink
@@ -74,7 +79,7 @@ function MobileMenuItem({
 									clsx("group", isActive ? "active" : isPending ? "pending" : "")
 								}
 							>
-								{block.icon && block.icon.data}
+								{block.icon && <Icon size={16} />}
 								<span>{block.title}</span>
 								{block.tag && (
 									<span className="font-mono badge badge-sm">{block.tag}</span>

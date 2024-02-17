@@ -6,6 +6,7 @@ import { describe, expect, test } from "@jest/globals"
 /* COMPONENTS & UTILS */
 import { getAllReleaseUpdates } from "./common"
 import { Block } from "./types"
+import { IconBlank } from "~/components/icons"
 
 /* ASSETS & DATA IMPORT */
 
@@ -17,7 +18,7 @@ import { Block } from "./types"
 
 const dummyRepeatedData = {
 	id: "string",
-	icon: { data: null, color: "string" },
+	icon: { data: IconBlank, color: "string" },
 	description: "string",
 	group: [],
 	favorite: false,

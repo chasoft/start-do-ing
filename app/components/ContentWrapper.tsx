@@ -36,14 +36,13 @@ export function ContentWrapper({
 			className={clsx(
 				"relative h-full w-full transition-all",
 				{
-					"border-2 rounded-lg border-gray-100 p-2 lg:p-4":
-						!isMobileWindowSize && !isFullScreen
+					"border-2 rounded-lg border-gray-100 p-2": !isMobileWindowSize && !isFullScreen
 				},
 				className
 			)}
 		>
 			{(!isShowMobileButtons || isFullScreen) && (
-				<div className="absolute top-0 right-0 flex sm:top-1 sm:right-1">
+				<div className="absolute top-0 right-0 flex sm:top-1 sm:right-1 z-[9999]">
 					<SharingButton data={urlSharingData} />
 					<FullScreenButton />
 				</div>
