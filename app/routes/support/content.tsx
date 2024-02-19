@@ -1,7 +1,9 @@
 /* FRAMEWORK */
+import { Link } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
+import { Text } from "@mantine/core"
 import clsx from "clsx"
 import Markdown from "react-markdown"
 
@@ -13,7 +15,6 @@ import { useUrlSharingData } from "~/utils"
 
 /* ASSETS & DATA IMPORT */
 import { SUPPORT } from "./metadata"
-import { Text } from "@mantine/core"
 
 /***************************************************************************
  *
@@ -26,9 +27,9 @@ Feeling grateful you used our tools to simplify your day! Did they save you valu
 `
 
 const buyMeACoffee = [
-	{ data: "https://www.buymeacoffee.com/chasoft", label: "Buy me a coffee" },
-	{ data: "https://www.buymeacoffee.com/chasoft", label: "Buy me a coffee" },
-	{ data: "https://www.buymeacoffee.com/chasoft", label: "Buy me a coffee" }
+	{ url: "https://me.momo.vn/blackCoffee", title: "Momo" },
+	{ url: "https://paypal.me/chasoft", title: "Paypal" },
+	{ url: "https://www.buymeacoffee.com/startdo.ing", title: "BuyMeACoffee" }
 ]
 
 export function SupportFeature({
@@ -47,19 +48,23 @@ export function SupportFeature({
 			>
 				<h1 className="mb-4 text-lg font-semibold sm:text-2xl">Support my work</h1>
 				<Markdown className="max-w-3xl prose prose-base">{sponsorText}</Markdown>
-				<div className="flex gap-3 my-4 xl:gap-6">
+				<div className="grid grid-cols-2 xs:grid-cols-3 gap-3 my-4 xl:gap-5 w-full max-w-96">
 					{buyMeACoffee.map((item, idx) => {
 						return (
 							<div
 								key={idx}
-								className="grid bg-gray-200 border border-gray-300 rounded-lg cursor-pointer aspect-1 place-content-center bg-opacity-40 hover:bg-opacity-60"
+								className="aspect-[1/1] flex justify-center items-center bg-gray-200 border border-gray-300 rounded-lg cursor-pointer place-content-center bg-opacity-40 hover:bg-opacity-70"
 							>
-								{item.label}
+								<Link to={item.url} target="_blank" rel="noreferrer" className="w-full h-full flex flex-col justify-center items-center">
+									<Text>Buy me</Text>
+									<Text>a ☕️ via</Text>
+									<Text className="font-semibold">{item.title}</Text>
+								</Link>
 							</div>
 						)
 					})}
 				</div>
-				<Text size="md">Thanks for being awesome! ☕️</Text>
+				<Text size="md">Thanks for being awesome! 🤟</Text>
 			</motion.div>
 		</ContentWrapper>
 	)
