@@ -23,7 +23,7 @@ export type GroupId =
 	| "date-time" //(3)
 	| "dev-utils" //(4)
 	| "domains" //(5)
-	| "kahoot" //(6)
+	| "quiz" //(6)
 	| "languages" //(7)
 	| "maths" //(8)
 	| "random" //(9)
@@ -64,7 +64,7 @@ export type DomainsLayoutId =
 	| "domains-extensions"
 	| "domains-whois"
 
-export type KahootLayoutId = "kahoot" | "kahoot-quiz"
+export type QuizLayoutId = "quiz" | "kahoot-quiz" | "vietnam-traffic-law"
 
 export type LanguagesLayoutId =
 	| "languages"
@@ -94,7 +94,7 @@ export type PageId =
 	| DateTimeLayoutId
 	| DevUtilsLayoutId
 	| DomainsLayoutId
-	| KahootLayoutId
+	| QuizLayoutId
 	| LanguagesLayoutId
 	| MathsLayoutId
 	| RandomLayoutId
@@ -133,7 +133,7 @@ export type NavigationGridCells =
 	| GridCellsFunction<DateTimeLayoutId>
 	| GridCellsFunction<DevUtilsLayoutId>
 	| GridCellsFunction<DomainsLayoutId>
-	| GridCellsFunction<KahootLayoutId>
+	| GridCellsFunction<QuizLayoutId>
 	| GridCellsFunction<LanguagesLayoutId>
 	| GridCellsFunction<MathsLayoutId>
 	| GridCellsFunction<RandomLayoutId>

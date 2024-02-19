@@ -27,7 +27,7 @@ type CellIntroProps = {
 	metaData: Block<string>
 	upTo: string
 	blockIndex: number
-	children: React.ReactNode
+	children?: React.ReactNode
 }
 
 export function CellIntro({
@@ -58,7 +58,7 @@ export function CellIntro({
 						</Text>
 					)}
 				</div>
-				<div>{children}</div>
+				{children && <div>{children}</div>}
 			</div>
 			<div className="absolute top-0 right-0 flex gap-2 p-2">
 				<HomeLink />

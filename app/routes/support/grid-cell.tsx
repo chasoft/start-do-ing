@@ -2,7 +2,6 @@
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
-import { Text } from "@mantine/core"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
@@ -20,11 +19,7 @@ import { SUPPORT } from "./metadata"
  **************************************************************************/
 
 export function SupportGridCellIntro({ blockIndex }: { blockIndex: number }) {
-	return (
-		<CellIntro metaData={SUPPORT} upTo={SUPPORT.to} blockIndex={blockIndex}>
-			<Text>Support my work</Text>
-		</CellIntro>
-	)
+	return <CellIntro metaData={SUPPORT} upTo={SUPPORT.to} blockIndex={blockIndex} />
 }
 
 export function SupportGridCell({ className }: { className?: string }) {

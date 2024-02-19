@@ -5,13 +5,13 @@ import { Outlet } from "@remix-run/react"
 
 /* COMPONENTS & UTILS */
 import { FullScreenContentWrapper, NavigationGrid, NavigationMobile } from "~/components"
-import { KahootGridCells } from "./KahootGridCells"
+import { QuizGridCells } from "./QuizGridCells"
 import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { KAHOOT_BLOCKS } from "~/data"
+import { QUIZ_BLOCKS } from "~/data"
 
 /***************************************************************************
  *
@@ -19,7 +19,7 @@ import { KAHOOT_BLOCKS } from "~/data"
  *
  **************************************************************************/
 
-export default function KahootGroupRoute() {
+export default function QuizGroupRoute() {
 	const isFullScreen = useIsFullscreen()
 	const isMobileWindowSize = useIsMobileWindowSize()
 
@@ -40,7 +40,7 @@ export default function KahootGroupRoute() {
 	}
 
 	return (
-		<NavigationGrid blocks={KAHOOT_BLOCKS} GridCell={KahootGridCells}>
+		<NavigationGrid blocks={QUIZ_BLOCKS} GridCell={QuizGridCells}>
 			<Outlet />
 		</NavigationGrid>
 	)

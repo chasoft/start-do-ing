@@ -82,7 +82,11 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 				</AppShell.Section>
 				<AppShell.Section className="flex justify-between p-3" hiddenFrom="md">
 					<Text size="xs">{SITE.email}</Text>
-					<Text size="xs">{SITE.makeWithLove}</Text>
+					<Link to={URLS.support.to}>
+						<Text size="xs" onClick={close}>
+							{SITE.makeWithLove}
+						</Text>
+					</Link>
 				</AppShell.Section>
 			</AppShell.Navbar>
 			<AppShell.Main>{children}</AppShell.Main>

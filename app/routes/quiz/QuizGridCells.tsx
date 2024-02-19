@@ -12,9 +12,13 @@ import {
 	CellGridRight,
 	CellIntroSwitcher
 } from "~/components"
-import { KahootGroupCell, KahootGroupCellIntro } from "./grid-cell"
-import { KahootQuizCell, KahootQuizCellIntro } from "../kahoot.quiz/grid-cell"
-import type { GridCellsProps, KahootLayoutId } from "~/utils/types"
+import { KahootQuizCell, KahootQuizCellIntro } from "../quiz.kahoot/grid-cell"
+import { QuizGroupCell, QuizGroupCellIntro } from "./grid-cell"
+import {
+	VietnamTrafficLawCell,
+	VietnamTrafficLawCellIntro
+} from "../quiz.vietnam-traffic-law/grid-cell"
+import type { GridCellsProps, QuizLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
@@ -27,24 +31,24 @@ import { BLOCK_NOT_FOUND, EMPTY_LAYOUT_ID } from "~/data"
  *
  **************************************************************************/
 
-export function KahootGridCells({
+export function QuizGridCells({
 	className,
 	layoutId,
 	blockIndex,
 	isIntroBlock,
 	lastGridCellBlocks
-}: GridCellsProps<KahootLayoutId>): JSX.Element {
+}: GridCellsProps<QuizLayoutId>): JSX.Element {
 	switch (layoutId) {
 		/**********************************************************************
 		 *
 		 *  CONTENT BLOCKS
 		 *
 		 *********************************************************************/
-		case "kahoot":
+		case "quiz":
 			return (
 				<CellIntroSwitcher
-					contentBlock={<KahootGroupCell blockIndex={blockIndex} />}
-					introBlock={<KahootGroupCellIntro blockIndex={blockIndex} />}
+					contentBlock={<QuizGroupCell blockIndex={blockIndex} />}
+					introBlock={<QuizGroupCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -54,6 +58,15 @@ export function KahootGridCells({
 				<CellIntroSwitcher
 					contentBlock={<KahootQuizCell blockIndex={blockIndex} />}
 					introBlock={<KahootQuizCellIntro blockIndex={blockIndex} />}
+					isIntroBlock={isIntroBlock}
+					className={className}
+				/>
+			)
+		case "vietnam-traffic-law":
+			return (
+				<CellIntroSwitcher
+					contentBlock={<VietnamTrafficLawCell blockIndex={blockIndex} />}
+					introBlock={<VietnamTrafficLawCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>

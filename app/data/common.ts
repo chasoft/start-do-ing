@@ -22,8 +22,8 @@ import { DOMAINS_BUILDER } from "~/routes/domains.builder/metadata"
 import { DOMAINS_EXTENSIONS } from "~/routes/domains.extensions/metadata"
 import { DOMAINS_WHOIS } from "~/routes/domains.whois/metadata"
 import { HOME } from "~/routes/_index/metadata"
-import { KAHOOT } from "~/routes/kahoot/metadata"
-import { KAHOOT_QUIZ } from "~/routes/kahoot.quiz/metadata"
+import { QUIZ } from "~/routes/quiz/metadata"
+import { KAHOOT_QUIZ } from "~/routes/quiz.kahoot/metadata"
 import { LANGUAGES } from "~/routes/languages/metadata"
 import { LANGUAGES_100_POPULAR_CHINESE_WORDS } from "~/routes/languages.100-popular-chinese-words/metadata"
 import { LANGUAGES_CHINESE_CHARACTERS } from "~/routes/languages.chinese-characters/metadata"
@@ -50,13 +50,14 @@ import type {
 	DevUtilsLayoutId,
 	DomainsLayoutId,
 	GroupId,
-	KahootLayoutId,
+	QuizLayoutId,
 	LanguagesLayoutId,
 	MathsLayoutId,
 	OthersLayoutId,
 	RandomLayoutId,
 	UrlShortenerLayoutId
 } from "~/utils/types"
+import { VIETNAM_TRAFFIC_LAW } from "~/routes/quiz.vietnam-traffic-law/metadata"
 
 /* TRANSLATIONS IMPORT */
 
@@ -84,7 +85,7 @@ export const HOME_BLOCKS: Block<GroupId>[] = [
 	DATE_TIME,
 	DEV_UTILS,
 	DOMAINS,
-	KAHOOT,
+	QUIZ,
 	LANGUAGES,
 	MATHS,
 	URL_SHORTENER,
@@ -130,7 +131,7 @@ export const DOMAINS_BLOCKS: Block<DomainsLayoutId>[] = [
 /**
  * 4. Note that, the first item is "group", not "block feature"
  */
-export const KAHOOT_BLOCKS: Block<KahootLayoutId>[] = [KAHOOT, KAHOOT_QUIZ]
+export const QUIZ_BLOCKS: Block<QuizLayoutId>[] = [QUIZ, VIETNAM_TRAFFIC_LAW, KAHOOT_QUIZ]
 
 /**
  * 5. Note that, the first item is "group", not "block feature"
@@ -180,7 +181,7 @@ export const allBlocks = [
 	...DATE_TIME_BLOCKS.slice(1),
 	...DEV_UTILS_BLOCKS.slice(1),
 	...DOMAINS_BLOCKS.slice(1),
-	...KAHOOT_BLOCKS.slice(1),
+	...QUIZ_BLOCKS.slice(1),
 	...LANGUAGES_BLOCKS.slice(1),
 	...MATHS_BLOCKS.slice(1),
 	...RANDOM_BLOCKS.slice(1),

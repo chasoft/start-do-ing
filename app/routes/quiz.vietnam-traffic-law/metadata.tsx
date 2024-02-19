@@ -3,12 +3,12 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import type { Block, KahootLayoutId } from "~/utils/types"
+import type { Block, QuizLayoutId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconPlayerPlay } from "@tabler/icons-react"
+import { IconCar } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -16,12 +16,12 @@ import { IconPlayerPlay } from "@tabler/icons-react"
  *
  **************************************************************************/
 
-export const KAHOOT_QUIZ: Block<KahootLayoutId> = {
-	id: "kahoot-quiz",
-	icon: { data: IconPlayerPlay, color: "#000" },
-	title: "Kahoot Quiz",
-	description: "Play online quiz with friends",
-	to: "/kahoot/quiz",
+export const VIETNAM_TRAFFIC_LAW: Block<QuizLayoutId> = {
+	id: "vietnam-traffic-law",
+	icon: { data: IconCar, color: "#000" },
+	title: "Vietname Traffic Law",
+	description: "Explore the Vietnam Traffic Law",
+	to: "/quiz/vietnam-traffic-law",
 	group: [],
 	favorite: false,
 	color: {

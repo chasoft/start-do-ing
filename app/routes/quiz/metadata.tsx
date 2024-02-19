@@ -16,12 +16,12 @@ import { IconGoGame } from "@tabler/icons-react"
  *
  **************************************************************************/
 
-export const KAHOOT: Block<"kahoot"> = {
-	id: "kahoot",
+export const QUIZ: Block<"quiz"> = {
+	id: "quiz",
 	icon: { data: IconGoGame, color: "#000" },
-	title: "Kahoot",
+	title: "Online Quiz Games",
 	description: "Play online quiz games",
-	to: "/kahoot",
+	to: "/quiz",
 	group: [],
 	favorite: true,
 	color: {
