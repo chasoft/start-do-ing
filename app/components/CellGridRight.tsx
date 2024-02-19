@@ -26,6 +26,16 @@ export function CellGridRight({ className }: { className?: string }) {
 				className="block h-full bg-gray-200 rounded-lg bg-opacity-60 hover:bg-opacity-70"
 			>
 				<div className="p-2">CellGridRight</div>
+				https://vuejs.org
+
+				Special sponsors
+				...
+				platinum sponsors
+				...
+				gold sponsors
+
+				https://vuejs.org/sponsor
+
 			</Link>
 		</motion.div>
 	)
