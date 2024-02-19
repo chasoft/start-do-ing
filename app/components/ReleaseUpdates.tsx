@@ -47,7 +47,7 @@ export function ReleaseTimeline({
 	releases: Array<[string, Array<ReleaseWithMetadata>]>
 }) {
 	return (
-		<ul className="timeline timeline-snap-icon timeline-compact timeline-vertical">
+		<ul className="timeline timeline-snap-icon timeline-compact timeline-vertical mb-10 lg:mb-0">
 			{releases.map((release, idx) => (
 				<li key={idx} className="w-full">
 					<div className="timeline-middle">

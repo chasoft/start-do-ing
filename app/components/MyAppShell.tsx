@@ -63,7 +63,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 			<AppShell.Header>
 				<Group h="100%" px="md">
 					<Burger opened={opened} onClick={toggle} hiddenFrom="lg" size="sm" />
-					<Link to={URLS.home.to} className="flex gap-2">
+					<Link to={URLS.home.to} className="flex gap-2" onClick={close}>
 						<Image src={Logo} className="w-7 h-7" />
 						<Text fw={FW.EXTRA_BOLD}>{SITE.title}</Text>
 					</Link>

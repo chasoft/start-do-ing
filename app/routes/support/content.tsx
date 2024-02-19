@@ -23,7 +23,7 @@ import { SUPPORT } from "./metadata"
  **************************************************************************/
 
 const sponsorText = `
-Feeling grateful you used our tools to simplify your day! Did they save you valuable time or tackle a tricky task with ease? If so, consider buying me a coffee (or tea, smoothie, hot chocolate - your choice!) to fuel my mission of creating even more helpful tools. Every contribution, big or small, goes a long way in supporting this website and keeping it free for everyone to use.
+Buying me a coffee *(or tea, smoothie, hot chocolate - your choice!)* to fuel my mission of creating even more **helpful tools**. Every contribution, **big or small**, goes a long way in supporting this website and keeping it **FREE** for everyone to use.
 `
 
 const buyMeACoffee = [
@@ -64,7 +64,7 @@ export function SupportFeature({
 						)
 					})}
 				</div>
-				<Text size="md">Thanks for being awesome! 🤟</Text>
+				<Text size="md" className="mb-10 lg:mb-0">Thanks for being awesome! 🤟</Text>
 			</motion.div>
 		</ContentWrapper>
 	)
