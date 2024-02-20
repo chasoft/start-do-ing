@@ -47,9 +47,9 @@ export function NavigationGrid({
 	])
 	const layoutIds = isGroup
 		? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-		(layouts.map((block) => block.id) as any[])
+			(layouts.map((block) => block.id) as any[])
 		: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-		[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
+			[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
 
 	const lastGridCellBlocks = getLastGridCellBlocks(layouts)
 	const activeBlockIndex = layouts.findIndex(({ id }) => id === currentLayoutId)
@@ -64,7 +64,7 @@ export function NavigationGrid({
 				className={clsx(
 					"grid grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7",
 					"gap-3 p-2 2xl:p-3",
-					"min-h-svh 2xl:max-h-dvh",
+					"min-h-svh lg:max-h-dvh",
 					"grid-rows-[150px_minmax(300px,1fr)_150px]"
 				)}
 				initial={{ opacity: isMobileWindowSize ? 1 : 0 }}
@@ -112,6 +112,3 @@ export function NavigationGrid({
 		</>
 	)
 }
-
-
-//TODO: fix bug, layout not keep stable height when resize the windows.

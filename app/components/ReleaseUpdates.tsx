@@ -47,11 +47,11 @@ export function ReleaseTimeline({
 	releases: Array<[string, Array<ReleaseWithMetadata>]>
 }) {
 	return (
-		<ul className="timeline timeline-snap-icon timeline-compact timeline-vertical mb-10 lg:mb-0">
+		<ul className="mb-10 timeline timeline-snap-icon timeline-compact timeline-vertical lg:mb-0">
 			{releases.map((release, idx) => (
 				<li key={idx} className="w-full">
 					<div className="timeline-middle">
-						<IconTag size={18} className="-mt-1 mb-1" />
+						<IconTag size={18} className="mb-1 -mt-1" />
 					</div>
 					<div className="lg:min-w-[640px] mb-3 timeline-end">
 						<time>
@@ -260,7 +260,6 @@ export function ReleaseUpdates({ className }: { className?: string }) {
 					<ScrollArea className="h-full px-4 py-2">
 						<LatestReleases />
 					</ScrollArea>
-					{/* BUG: the height of the Latest release block is not as expected */}
 				</Tabs.Panel>
 
 				<Tabs.Panel pt="xs" className="h-[calc(100%-50px)]" value={TABS.HEATMAP.key}>

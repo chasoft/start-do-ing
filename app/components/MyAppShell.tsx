@@ -9,7 +9,7 @@ import { useDisclosure } from "@mantine/hooks"
 /* COMPONENTS & UTILS */
 import { FullScreenButton, SharingButton } from "."
 import { MobileMenu } from "./MobileMenu"
-import { useIsFullscreen, useIsMobileWindowSize, useIsShowMobileButtons } from "~/utils"
+import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -42,7 +42,6 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const [opened, { toggle, close }] = useDisclosure()
 	const isFullScreen = useIsFullscreen()
 	const isMobileWindowSize = useIsMobileWindowSize()
-	const isShowMobileButtons = useIsShowMobileButtons()
 	const urlSharingData = useAtomValue(urlSharingDataAtom)
 
 	/**
@@ -67,12 +66,10 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 						<Image src={Logo} className="w-7 h-7" />
 						<Text fw={FW.EXTRA_BOLD}>{SITE.title}</Text>
 					</Link>
-					{isShowMobileButtons && (
-						<div className="flex gap-1 ml-auto">
-							{urlSharingData.url !== "" && <SharingButton data={urlSharingData} />}
-							<FullScreenButton />
-						</div>
-					)}
+					<div className="flex gap-1 ml-auto lg:hidden">
+						{urlSharingData.url !== "" && <SharingButton data={urlSharingData} />}
+						<FullScreenButton />
+					</div>
 				</Group>
 			</AppShell.Header>
 			<AppShell.Navbar>

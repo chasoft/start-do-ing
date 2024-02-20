@@ -8,6 +8,7 @@ import type { Block, FeatureLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { IconBooks } from "@tabler/icons-react"
 import { URLS } from "./urls"
 
 /**************************************************************************
@@ -39,9 +40,10 @@ export const SIDE_BLOCKS: {
 	},
 	RIGHT: {
 		id: "right",
-		icon: undefined,
-		title: "Right block",
-		description: "Right block",
+		icon: { data: IconBooks },
+		title: "Books",
+		description:
+			"Expand your knowledge. Explore the frontiers of science, computers, math...",
 		to: URLS.home.to,
 		group: [],
 		favorite: false,

@@ -54,11 +54,6 @@ export function useIsFullscreen() {
 	return isFullScreen
 }
 
-export function useIsShowMobileButtons() {
-	const isShowMobileButtons = useMediaQuery("(max-width: 768px)")
-	return isShowMobileButtons
-}
-
 export function useIsMobileWindowSize() {
 	const isMobileWindowSize = useMediaQuery("(max-width: 1024px)")
 	return isMobileWindowSize
