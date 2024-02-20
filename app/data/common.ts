@@ -197,11 +197,24 @@ export const DEFAULT_SHARING_IMAGE = "https://startdo.ing/static/images/sharing.
  * STYLING CONSTANTS
  */
 
-// FW - Font Weight
+// FW -> Font Weight
 export const FW = {
 	NORMAL: 400,
 	SEMI_BOLD: 500,
 	BOLD: 600,
 	EXTRA_BOLD: 700,
 	BLACK: 900
+} as const
+
+export const LIMIT_LATEST_RELEASE_DATES = 6
+
+export const DATE_FORMAT = {
+	forSearchParam: "YYYY-MM-DD",
+	/**
+	 * Heatmap component only support format `YYYY/MM/DD`
+	 * Other that that would cause the component to not work as expected.
+	 * Eg: `YYYY-MM-DD` is not a valid date format.
+	 */
+	forHeatmap: "YYYY/MM/DD",
+	forDisplay: "MMM DD, YYYY"
 } as const

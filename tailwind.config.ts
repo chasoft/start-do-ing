@@ -13,6 +13,11 @@ export default {
 			"3xl": "1920px"
 		}
 	},
+	extend: {
+		backgroundImage: {
+			'leftBlock1': "url('./app/assets/climbing.jpg')",
+		}
+	},
 	plugins: [
 		require("@tailwindcss/typography"),
 		require("@tailwindcss/aspect-ratio"),

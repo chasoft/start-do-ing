@@ -1,5 +1,4 @@
 /* FRAMEWORK */
-import { Link } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
@@ -18,16 +17,14 @@ import { SIDE_BLOCKS } from "~/data"
  *
  **************************************************************************/
 
+const demoBackgroundImageUrl = `url("https://images.unsplash.com/photo-1597698063932-9450882bb1be")`
+
 export function CellGridLeft({ className }: { className?: string }) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={SIDE_BLOCKS.LEFT.id}>
-			<Link
-				to={SIDE_BLOCKS.LEFT.to}
-				className="block h-full bg-gray-200 rounded-lg bg-opacity-60 hover:bg-opacity-70"
-			>
-				<div className="p-2">CellGridLeft</div>
-			</Link>
+			<div className="w-full h-full rounded-lg border border-red-500 bg-leftBlock1 bg-cover">
+				something
+			</div>
 		</motion.div>
 	)
 }
-//TODO: bg https://unsplash.com/photos/person-standing-on-gray-rock-Pf5Pj7A5ddA
