@@ -20,10 +20,12 @@ import { getBlockColor } from "~/utils"
 export function CellGridLink({
 	to,
 	blockIndex,
+	className,
 	children
 }: {
 	to: string
 	blockIndex: number
+	className?: string
 	children: React.ReactNode
 }) {
 	const { bgColor, borderColor } = getBlockColor(blockIndex)
@@ -35,7 +37,8 @@ export function CellGridLink({
 					"relative block h-full border-2 rounded-lg transition-all",
 					bgColor,
 					`hover:bg-opacity-100`,
-					isActive ? `${borderColor}` : isPending ? "bg-opacity-30" : "bg-opacity-60"
+					isActive ? `${borderColor}` : isPending ? "bg-opacity-30" : "bg-opacity-60",
+					className
 				)
 			}
 		>

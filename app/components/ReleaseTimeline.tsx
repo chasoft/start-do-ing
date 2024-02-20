@@ -50,7 +50,10 @@ export function ReleaseTimeline({
 										</span>
 									)}
 									<div>
-										<Link to={releaseDetail.to} className="flex items-center gap-1">
+										<Link
+											to={releaseDetail.to}
+											className="flex items-center gap-1 hover:text-blue-600"
+										>
 											<Text size="sm" fw={FW.SEMI_BOLD}>
 												{releaseDetail.title}
 											</Text>

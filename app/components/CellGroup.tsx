@@ -63,7 +63,7 @@ export function CellGroup({
 						<Tooltip key={i.to} label={i.title}>
 							<Link
 								to={i.to}
-								className="p-2 text-gray-500 bg-white bg-opacity-0 rounded-md hover:bg-opacity-40 hover:text-gray-800 active:bg-opacity-80"
+								className="p-2 text-gray-500 bg-white bg-opacity-0 rounded-md hover:bg-opacity-40 hover:text-blue-600 active:bg-opacity-80"
 							>
 								<Icon size={24} />
 							</Link>

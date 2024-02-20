@@ -19,6 +19,7 @@ import type { Block, NavigationGridCells, PageId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { SIDE_BLOCKS } from "~/data"
+import { BooksGridCell } from "~/routes/books/grid-cell"
 
 /***************************************************************************
  *
@@ -91,11 +92,12 @@ export function NavigationGrid({
 				<div className="col-span-4 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
 					<div className="h-full overflow-hidden">{children}</div>
 				</div>
-				<GridCell
+				{/* <GridCell
 					layoutId={SIDE_BLOCKS.RIGHT.id}
 					blockIndex={7}
-					className="hidden aspect-h-2 aspect-w-2 lg:block"
-				/>
+					
+				/> */}
+				<BooksGridCell className="hidden aspect-h-2 aspect-w-2 lg:block" />
 				{/* Row 3 */}
 				<GridCell blockIndex={6} layoutId={layoutIds[6]} />
 				<GridCell blockIndex={7} layoutId={layoutIds[7]} />

@@ -177,6 +177,8 @@ export const URL_SHORTENER_BLOCKS: Block<UrlShortenerLayoutId>[] = [URL_SHORTENE
  */
 export const OTHERS_BLOCKS: Block<OthersLayoutId>[] = [OTHERS, OTHERS_RUNNING_TEXT]
 
+export const BOOKS_BLOCKS: Block<GroupId>[] = []
+
 export const allBlocks = [
 	...DATE_TIME_BLOCKS.slice(1),
 	...DEV_UTILS_BLOCKS.slice(1),

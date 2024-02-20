@@ -22,6 +22,7 @@ import type { GridCellsProps, GroupId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { EMPTY_LAYOUT_ID } from "~/data"
+import { BooksGridCellIntro } from "~/routes/books/grid-cell"
 
 /***************************************************************************
  *
@@ -139,6 +140,12 @@ export function RootGridCells({
 			return (
 				<div className={clsx(className)}>
 					<SupportGridCellIntro blockIndex={blockIndex} />
+				</div>
+			)
+		case "books":
+			return (
+				<div className={clsx(className)}>
+					<BooksGridCellIntro blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************

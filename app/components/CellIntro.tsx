@@ -2,11 +2,11 @@
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
-import { Text } from "@mantine/core"
+import { Image, Text } from "@mantine/core"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { getBlockColor } from "~/utils"
+import { getBlockColor, getIcon } from "~/utils"
 import { GoUpLink, HomeLink, HomeLinks } from "."
 import type { Block } from "~/utils/types"
 
@@ -39,6 +39,7 @@ export function CellIntro({
 }: CellIntroProps) {
 	const showGoUpLink = metaData.to !== upTo
 	const { bgColor } = getBlockColor(blockIndex)
+	const Icon = getIcon(metaData.icon?.data)
 	return (
 		<motion.div
 			className={clsx(
@@ -49,7 +50,16 @@ export function CellIntro({
 		>
 			<div className="flex flex-col p-2">
 				<Text component="h2" size="lg" fw={FW.SEMI_BOLD} lineClamp={1}>
-					{metaData.title == homeLabel ? `Welcome to ${SITE.title}` : metaData.title}
+					<div className="flex items-center gap-2">
+						{metaData.icon?.logo ? (
+							<Image src={metaData.icon?.logo} className="w-8 h-8" />
+						) : (
+							<Icon size={24} />
+						)}
+						<span>
+							{metaData.title == homeLabel ? `Welcome to ${SITE.title}` : metaData.title}
+						</span>
+					</div>
 				</Text>
 				<div className="flex flex-col grow">
 					{metaData.description && (

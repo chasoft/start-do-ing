@@ -15,7 +15,7 @@ export default {
 	},
 	extend: {
 		backgroundImage: {
-			'leftBlock1': "url('./app/assets/climbing.jpg')",
+			leftBlock1: "url('./app/assets/climbing.jpg')"
 		}
 	},
 	plugins: [

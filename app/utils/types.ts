@@ -29,6 +29,7 @@ export type GroupId =
 	| "random" //(9)
 	| "url-shortener" //(10)
 	| "others" //(11)
+	| "books"
 	| "support"
 	| "dashboard"
 
@@ -103,7 +104,7 @@ export type PageId =
 	| SystemLayoutId
 	| FeatureLayoutId
 
-export type FeatureLayoutId = "left" | "right" | "last"
+export type FeatureLayoutId = "left" | "right" | "last" | "books"
 export type SystemLayoutId = "empty" | "404"
 export type DashboardLayoutId = "dashboard" | "settings"
 
@@ -160,6 +161,7 @@ export type TablerIconComponent = (props: TablerIconsProps) => JSX.Element
 
 export type BlockIcon = {
 	data: TablerIconComponent
+	logo?: string
 	color?: string
 }
 

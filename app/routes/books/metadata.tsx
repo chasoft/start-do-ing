@@ -8,7 +8,8 @@ import type { Block } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconArrowsRandom } from "@tabler/icons-react"
+import { IconBooks } from "@tabler/icons-react"
+import { URLS } from "~/data/urls"
 
 /***************************************************************************
  *
@@ -16,19 +17,20 @@ import { IconArrowsRandom } from "@tabler/icons-react"
  *
  **************************************************************************/
 
-export const RANDOM: Block<"random"> = {
-	id: "random",
-	icon: { data: IconArrowsRandom, color: "#000" },
-	title: "Random",
-	description: "From numbers to everything",
-	to: "/random",
+export const BOOKS: Block<"books"> = {
+	id: "books",
+	icon: { data: IconBooks },
+	title: "Books",
+	description:
+		"Expand your horizons with books on computers, programming, math, and the mind. Find the perfect resource to ignite your curiosity and fuel your journey.",
+	to: URLS.books.to,
 	group: [],
-	favorite: true,
+	favorite: false,
 	color: {
 		text: "#000",
-		bgNormal: "bg-teal-200",
-		bgLighter: "bg-teal-100",
-		bgDarker: "bg-teal-300"
+		bgNormal: "bg-yellow-300",
+		bgLighter: "bg-yellow-100",
+		bgDarker: "bg-yellow-300"
 	},
 	updates: []
 }

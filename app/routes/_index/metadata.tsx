@@ -10,6 +10,7 @@ import type { Block } from "~/utils/types"
 /* ASSETS & DATA IMPORT */
 import { IconHome } from "@tabler/icons-react"
 import { URLS } from "~/data/urls"
+import Logo from "~/assets/startdoing-logo.svg"
 
 /***************************************************************************
  *
@@ -22,7 +23,8 @@ export const homeLabel = "Home"
 export const HOME: Block<"home"> = {
 	id: "home",
 	icon: {
-		data: IconHome
+		data: IconHome,
+		logo: Logo
 	},
 	title: homeLabel,
 	description: "",

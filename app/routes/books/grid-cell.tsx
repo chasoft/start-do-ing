@@ -1,17 +1,15 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { getMenuItemsFromBlocks } from "~/utils"
-import { CellGroup, CellIntro } from "~/components"
-import type { GridCellProps } from "~/utils/types"
+import { CellGridRight, CellIntro } from "~/components"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { RANDOM } from "./metadata"
-import { RANDOM_BLOCKS } from "~/data"
+import { BOOKS } from "./metadata"
 
 /***************************************************************************
  *
@@ -19,23 +17,10 @@ import { RANDOM_BLOCKS } from "~/data"
  *
  **************************************************************************/
 
-const dropdownMenuItems = getMenuItemsFromBlocks(RANDOM_BLOCKS)
-
-export function RandomGroupCellIntro({ blockIndex }: { blockIndex: number }) {
-	return (
-		<CellIntro metaData={RANDOM} upTo={RANDOM.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...RandomGroupCell
-		</CellIntro>
-	)
+export function BooksGridCellIntro({ blockIndex }: { blockIndex: number }) {
+	return <CellIntro metaData={BOOKS} upTo={BOOKS.to} blockIndex={blockIndex} />
 }
 
-export function RandomGroupCell({ className, blockIndex }: GridCellProps) {
-	return (
-		<CellGroup
-			className={className}
-			dropdownMenuItems={dropdownMenuItems}
-			blockIndex={blockIndex}
-			metaData={RANDOM}
-		/>
-	)
+export function BooksGridCell({ className }: { className?: string }) {
+	return <CellGridRight className={clsx(className)} />
 }
