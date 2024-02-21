@@ -63,10 +63,10 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 				<Group h="100%" px="md">
 					<Burger opened={opened} onClick={toggle} hiddenFrom="lg" size="sm" />
 					<Link to={URLS.home.to} className="flex gap-2" onClick={close}>
-						<Image src={Logo} className="w-7 h-7" />
+						<Image src={Logo} className="h-7 w-7" />
 						<Text fw={FW.EXTRA_BOLD}>{SITE.title}</Text>
 					</Link>
-					<div className="flex gap-1 ml-auto lg:hidden">
+					<div className="ml-auto flex gap-1 lg:hidden">
 						{urlSharingData.url !== "" && <SharingButton data={urlSharingData} />}
 						<FullScreenButton />
 					</div>

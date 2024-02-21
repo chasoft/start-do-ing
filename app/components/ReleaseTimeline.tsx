@@ -27,13 +27,13 @@ export function ReleaseTimeline({
 	releases: Array<[string, Array<ReleaseWithMetadata>]>
 }) {
 	return (
-		<ul className="mb-10 timeline timeline-snap-icon timeline-compact timeline-vertical lg:mb-0">
+		<ul className="timeline timeline-vertical timeline-compact timeline-snap-icon mb-10 lg:mb-0">
 			{releases.map((release, idx) => (
 				<li key={idx} className="w-full">
 					<div className="timeline-middle">
-						<IconTag size={18} className="mb-1 -mt-1" />
+						<IconTag size={18} className="-mt-1 mb-1" />
 					</div>
-					<div className="lg:min-w-[640px] mb-3 timeline-end">
+					<div className="timeline-end mb-3 lg:min-w-[640px]">
 						<time>
 							<Text size="sm">{release[0]}</Text>
 						</time>
@@ -42,7 +42,7 @@ export function ReleaseTimeline({
 							return (
 								<div
 									key={`${release[0]}-${idx}`}
-									className="flex gap-1 p-2 bg-opacity-50 rounded-lg hover:bg-gray-200"
+									className="flex gap-1 rounded-lg bg-opacity-50 p-2 hover:bg-gray-200"
 								>
 									{releaseDetail.icon && (
 										<span>
@@ -58,7 +58,7 @@ export function ReleaseTimeline({
 												{releaseDetail.title}
 											</Text>
 										</Link>
-										<Markdown className="prose-sm prose prose-p:mb-0 prose-li:my-0 prose-li:pl-0 prose-ul:mt-0">
+										<Markdown className="prose prose-sm prose-p:mb-0 prose-ul:mt-0 prose-li:my-0 prose-li:pl-0">
 											{releaseDetail.description}
 										</Markdown>
 									</div>

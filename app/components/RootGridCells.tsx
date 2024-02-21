@@ -4,7 +4,7 @@
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, CellGridRight } from "."
+import { CellGridEmpty, CellGridLast, CellGridLeft } from "."
 import { DateTimeGroupCell } from "~/routes/date-time/grid-cell"
 import { DevUtilsGroupCell } from "~/routes/dev-utils/grid-cell"
 import { DomainsGroupCell } from "~/routes/domains/grid-cell"
@@ -119,12 +119,12 @@ export function RootGridCells({
 					<CellGridLeft />
 				</div>
 			)
-		case "right":
-			return (
-				<div className={clsx(className)}>
-					<CellGridRight />
-				</div>
-			)
+		// case "right":
+		// 	return (
+		// 		<div className={clsx(className)}>
+		// 			<CellGridRight />
+		// 		</div>
+		// 	)
 		case "last":
 			return (
 				<div className={clsx(className)}>

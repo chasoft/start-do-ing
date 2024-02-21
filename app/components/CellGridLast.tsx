@@ -69,7 +69,7 @@ export function CellGridLast({ className, blocks, blockIndex }: CellGridLastProp
 								to={block.to}
 								className={clsx(
 									"grid place-content-center rounded-lg border-2 p-1",
-									"transition-all bg-opacity-60 hover:bg-opacity-100",
+									"bg-opacity-60 transition-all hover:bg-opacity-100",
 									bgColor
 								)}
 							>
@@ -95,7 +95,7 @@ export function CellGridLast({ className, blocks, blockIndex }: CellGridLastProp
 				transition={{ type: "just" }}
 				ref={menuRef}
 			>
-				<ScrollArea className="flex flex-col h-full gap-2">
+				<ScrollArea className="flex h-full flex-col gap-2">
 					<ul className="menu">{childMenuItems}</ul>
 				</ScrollArea>
 			</motion.div>

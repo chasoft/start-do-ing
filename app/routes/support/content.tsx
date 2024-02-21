@@ -68,12 +68,12 @@ function BankIcon() {
 					onMouseEnter={open}
 					onMouseLeave={close}
 					variant="transparent"
-					className="w-12 h-12 p-1 transition-all duration-200 border-2 border-gray-200 rounded-lg bg-slate-100 hover:-translate-y-1"
+					className="h-12 w-12 rounded-lg border-2 border-gray-200 bg-slate-100 p-1 transition-all duration-200 hover:-translate-y-1"
 				>
 					<IconBuildingBank size={48} />
 				</Button>
 			</Popover.Target>
-			<Popover.Dropdown className="p-0 rounded-lg cursor-none">
+			<Popover.Dropdown className="cursor-none rounded-lg p-0">
 				<Image src={bankTransferring.img} />
 			</Popover.Dropdown>
 		</Popover>
@@ -94,13 +94,13 @@ export function SupportFeature({
 				className={clsx("h-full p-2 sm:p-4 xl:p-6", className)}
 				layoutId={layoutId}
 			>
-				<h1 className="flex items-center gap-2 mb-4 text-lg font-semibold sm:text-2xl">
+				<h1 className="mb-4 flex items-center gap-2 text-lg font-semibold sm:text-2xl">
 					<IconHeart size={24} className="fill-red-400" />
 					<span>Support my work</span>
 				</h1>
 				<ScrollArea className="h-[calc(100%-30px)]" offsetScrollbars>
-					<Markdown className="max-w-3xl prose prose-base">{sponsorText}</Markdown>
-					<div className="flex flex-wrap gap-6 lg:gap-3 my-6 max-w-[768px] justify-center">
+					<Markdown className="prose prose-base max-w-3xl">{sponsorText}</Markdown>
+					<div className="my-6 flex max-w-[768px] flex-wrap justify-center gap-6 lg:gap-3">
 						{buyMeCoffee.map((item, idx) => {
 							return (
 								<Link
@@ -111,7 +111,7 @@ export function SupportFeature({
 									className="transition-all duration-200 hover:-translate-y-1"
 								>
 									<Image
-										className={clsx("rounded-lg h-12 w-auto", item.bgColor)}
+										className={clsx("h-12 w-auto rounded-lg", item.bgColor)}
 										src={item.img}
 									/>
 								</Link>

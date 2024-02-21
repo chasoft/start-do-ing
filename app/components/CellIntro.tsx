@@ -52,7 +52,7 @@ export function CellIntro({
 				<Text component="h2" size="lg" fw={FW.SEMI_BOLD} lineClamp={1}>
 					<div className="flex items-center gap-2">
 						{metaData.icon?.logo ? (
-							<Image src={metaData.icon?.logo} className="w-8 h-8" />
+							<Image src={metaData.icon?.logo} className="h-8 w-8" />
 						) : (
 							<Icon size={24} />
 						)}
@@ -61,7 +61,7 @@ export function CellIntro({
 						</span>
 					</div>
 				</Text>
-				<div className="flex flex-col grow">
+				<div className="flex grow flex-col">
 					{metaData.description && (
 						<Text size="md" lineClamp={2}>
 							{metaData.description}
@@ -70,7 +70,7 @@ export function CellIntro({
 				</div>
 				{children && <div>{children}</div>}
 			</div>
-			<div className="absolute top-0 right-0 flex gap-2 p-2">
+			<div className="absolute right-0 top-0 flex gap-2 p-2">
 				<HomeLink />
 				{showGoUpLink && <GoUpLink upTo={upTo} />}
 			</div>

@@ -113,11 +113,11 @@ export function BlogHeader() {
 		<Box pb={120}>
 			<header className={classes.header}>
 				<Group justify="space-between" h="100%">
-					<div className="flex font-bold text-xl">
+					<div className="flex text-xl font-bold">
 						<Link to={URLS.home.to}>
-							<Image src={Logo} className="w-7 h-7" />
+							<Image src={Logo} className="h-7 w-7" />
 						</Link>
-						<span className="text-gray-400 mx-2">/</span>
+						<span className="mx-2 text-gray-400">/</span>
 						<Link to={URLS.blog.to} className="">
 							{URLS.blog.label}
 						</Link>

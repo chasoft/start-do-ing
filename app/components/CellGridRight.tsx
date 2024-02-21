@@ -3,7 +3,6 @@ import { Link } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 import { Badge, Image, ScrollArea, Text } from "@mantine/core"
-import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
@@ -12,7 +11,7 @@ import { getIcon } from "~/utils"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { FW, GRAY, SIDE_BLOCKS } from "~/data"
+import { FW, GRAY, SIDE_BLOCKS, SITE } from "~/data"
 import { URLS } from "~/data/urls"
 import bc1 from "~/assets/books/book-cover-1.png"
 import bc2 from "~/assets/books/book-cover-2.png"
@@ -64,18 +63,26 @@ const books = [
 	bc20
 ]
 
-export function CellGridRight({ className }: { className?: string }) {
+//TODO: Fix CSS layout, why cannot use `flex flex-col` and then the first cell use `grow`
+export function CellGridRight({
+	className,
+	isLastGridCellBlocksEmpty
+}: {
+	className?: string
+	isLastGridCellBlocksEmpty: boolean
+}) {
 	const Icon = getIcon(SIDE_BLOCKS.RIGHT.icon?.data)
 	return (
-		<motion.div className={clsx("h-full", className)} layoutId={SIDE_BLOCKS.RIGHT.id}>
+		<div className={clsx("h-full flex-col border-red-600", className)}>
 			<div
 				className={clsx(
-					"block h-full rounded-lg bg-opacity-60 hover:bg-opacity-70 border-2 transition-all",
+					"rounded-lg border-2 bg-opacity-60 transition-all hover:bg-opacity-70",
 					GRAY.bgColor,
-					GRAY.borderColor
+					GRAY.borderColor,
+					isLastGridCellBlocksEmpty ? "h-[calc(100%-30px)]" : "h-full"
 				)}
 			>
-				<div className="flex flex-col h-full p-2 overflow-hidden">
+				<div className="flex h-full flex-col overflow-hidden p-2">
 					<h2 className="flex items-start gap-2">
 						<Link to={URLS.books.to} className="flex gap-2 hover:text-blue-600">
 							{SIDE_BLOCKS.RIGHT.icon && <Icon size={24} className="mt-[2px]" />}{" "}
@@ -90,17 +97,17 @@ export function CellGridRight({ className }: { className?: string }) {
 						</Text>
 					</div>
 					<ScrollArea className="grow">
-						<div className="grid w-full grid-cols-3 gap-2 mt-2">
+						<div className="mt-2 grid w-full grid-cols-3 gap-2">
 							{books.map((book, idx) => (
-								<div key={idx} className="relative group">
+								<div key={idx} className="group relative">
 									<Image
 										src={book}
-										className="border border-transparent rounded-md cursor-pointer hover:border-blue-400"
+										className="cursor-pointer rounded-md border border-transparent hover:border-blue-400"
 									/>
 									<Badge
 										size="md"
 										circle
-										className="absolute items-center justify-center hidden transition-all group-hover:flex top-1 left-1 xl:top-2 xl:left-2"
+										className="absolute left-1 top-1 hidden items-center justify-center transition-all group-hover:flex xl:left-2 xl:top-2"
 									>
 										{idx}
 									</Badge>
@@ -110,6 +117,11 @@ export function CellGridRight({ className }: { className?: string }) {
 					</ScrollArea>
 				</div>
 			</div>
-		</motion.div>
+			{isLastGridCellBlocksEmpty && (
+				<div className="flex h-full w-full items-end justify-center text-xs hover:fill-blue-500 hover:text-blue-500">
+					<Link to={URLS.support.to}>{SITE.makeWithLove}</Link>
+				</div>
+			)}
+		</div>
 	)
 }

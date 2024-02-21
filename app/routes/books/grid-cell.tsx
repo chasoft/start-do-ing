@@ -21,6 +21,17 @@ export function BooksGridCellIntro({ blockIndex }: { blockIndex: number }) {
 	return <CellIntro metaData={BOOKS} upTo={BOOKS.to} blockIndex={blockIndex} />
 }
 
-export function BooksGridCell({ className }: { className?: string }) {
-	return <CellGridRight className={clsx(className)} />
+export function BooksGridCell({
+	className,
+	isLastGridCellBlocksEmpty
+}: {
+	className?: string
+	isLastGridCellBlocksEmpty: boolean
+}) {
+	return (
+		<CellGridRight
+			className={clsx(className)}
+			isLastGridCellBlocksEmpty={isLastGridCellBlocksEmpty}
+		/>
+	)
 }

@@ -63,7 +63,7 @@ export function CellGroup({
 						<Tooltip key={i.to} label={i.title}>
 							<Link
 								to={i.to}
-								className="p-2 text-gray-500 bg-white bg-opacity-0 rounded-md hover:bg-opacity-40 hover:text-blue-600 active:bg-opacity-80"
+								className="rounded-md bg-white bg-opacity-0 p-2 text-gray-500 hover:bg-opacity-40 hover:text-blue-600 active:bg-opacity-80"
 							>
 								<Icon size={24} />
 							</Link>
@@ -96,7 +96,7 @@ export function CellGroup({
 							{metaData.title}
 						</Text>
 					</h2>
-					<div className="flex flex-col grow">
+					<div className="flex grow flex-col">
 						{metaData.description && (
 							<Text size="md" lineClamp={2}>
 								{metaData.description}
@@ -106,13 +106,13 @@ export function CellGroup({
 				</div>
 			</CellGridLink>
 			{isHome && (
-				<div className="absolute hidden bottom-2 left-2 grow lg:flex">{iconLinks}</div>
+				<div className="absolute bottom-2 left-2 hidden grow lg:flex">{iconLinks}</div>
 			)}
 
 			{isHome && showMoreButton && (
 				<>
 					<motion.div
-						className="absolute inset-0 bg-yellow-200 rounded-lg"
+						className="absolute inset-0 rounded-lg bg-yellow-200"
 						initial={
 							targetHovered || menuHovered
 								? { x: "100%", y: "100%", opacity: 0 }
@@ -126,7 +126,7 @@ export function CellGroup({
 						transition={{ type: "just" }}
 						ref={menuRef}
 					>
-						<ScrollArea className="flex flex-col h-full gap-2">
+						<ScrollArea className="flex h-full flex-col gap-2">
 							<ul className="menu">{childMenuItems}</ul>
 						</ScrollArea>
 					</motion.div>
@@ -134,7 +134,7 @@ export function CellGroup({
 					{showMoreButton && (
 						<div
 							role="button"
-							className="absolute bottom-0 right-0 hidden w-6 h-6 m-1 rounded-lg lg:h-8 lg:w-8 hover:bg-gray-300 hover:bg-opacity-50 lg:grid place-content-center"
+							className="absolute bottom-0 right-0 m-1 hidden h-6 w-6 place-content-center rounded-lg hover:bg-gray-300 hover:bg-opacity-50 lg:grid lg:h-8 lg:w-8"
 							title="More..."
 							ref={targetRef}
 						>

@@ -52,7 +52,7 @@ function MobileMenuItem({
 				>
 					<span>{blocks[0].title}</span>
 					{blocks[0].tag && (
-						<span className="font-mono badge badge-sm">{blocks[0].tag}</span>
+						<span className="badge badge-sm font-mono">{blocks[0].tag}</span>
 					)}
 				</NavLink>
 			</li>
@@ -82,7 +82,7 @@ function MobileMenuItem({
 								{block.icon && <Icon size={16} />}
 								<span>{block.title}</span>
 								{block.tag && (
-									<span className="font-mono badge badge-sm">{block.tag}</span>
+									<span className="badge badge-sm font-mono">{block.tag}</span>
 								)}
 							</NavLink>
 						</li>
@@ -109,7 +109,7 @@ const extraMenuItems = [
 	{
 		icon: <IconShoppingCart size={18} />,
 		urlData: URLS.store,
-		badge: <span className="font-mono badge badge-sm badge-primary">new</span>
+		badge: <span className="badge badge-primary badge-sm font-mono">new</span>
 	},
 	{
 		icon: <IconRss size={18} />,
@@ -125,7 +125,7 @@ const extraMenuItems = [
 
 export function MobileMenu({ onClick }: { onClick: () => void }) {
 	return (
-		<ul className="py-3 menu">
+		<ul className="menu py-3">
 			{menuBlocks.map((blocks, idx) => (
 				<li key={idx}>
 					<MobileMenuItem blocks={blocks} onClick={onClick} />
