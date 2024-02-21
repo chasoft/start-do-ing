@@ -24,11 +24,11 @@ type TabId = "hottest" | "latest" | "heatmap"
 const TABS: Record<TabId, { key: string; label: string }> = {
 	hottest: {
 		key: "hottest",
-		label: "Hottest blocks"
+		label: "Hottest"
 	},
 	latest: {
 		key: "latest",
-		label: "Latest releases"
+		label: "Latest"
 	},
 	heatmap: {
 		key: "heatmap",

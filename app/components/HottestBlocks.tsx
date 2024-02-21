@@ -46,7 +46,7 @@ const dummyHottestBlocks = [
 export function HottestBlocks() {
 	return (
 		<>
-			<Text>Top 20 hottest blocks which get most access.</Text>
+			<Text>Hottest blocks which get most access.</Text>
 			<ol>
 				{dummyHottestBlocks.map((block) => (
 					<li key={block.id}>

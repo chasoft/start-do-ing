@@ -100,7 +100,7 @@ export function SupportFeature({
 				</h1>
 				<ScrollArea className="h-[calc(100%-30px)]" offsetScrollbars>
 					<Markdown className="max-w-3xl prose prose-base">{sponsorText}</Markdown>
-					<div className="flex flex-wrap gap-6 lg:gap-3 my-6 max-w-[768px] w-full justify-center">
+					<div className="flex flex-wrap gap-6 lg:gap-3 my-6 max-w-[768px] justify-center">
 						{buyMeCoffee.map((item, idx) => {
 							return (
 								<Link
@@ -111,7 +111,7 @@ export function SupportFeature({
 									className="transition-all duration-200 hover:-translate-y-1"
 								>
 									<Image
-										className={clsx("rounded-lg h-12", item.bgColor)}
+										className={clsx("rounded-lg h-12 w-auto", item.bgColor)}
 										src={item.img}
 									/>
 								</Link>

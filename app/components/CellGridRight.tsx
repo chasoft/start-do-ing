@@ -100,7 +100,7 @@ export function CellGridRight({ className }: { className?: string }) {
 									<Badge
 										size="md"
 										circle
-										className="absolute items-center justify-center hidden transition-all group-hover:flex top-2 left-2"
+										className="absolute items-center justify-center hidden transition-all group-hover:flex top-1 left-1 xl:top-2 xl:left-2"
 									>
 										{idx}
 									</Badge>
