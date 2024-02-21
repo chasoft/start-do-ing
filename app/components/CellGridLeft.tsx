@@ -1,5 +1,4 @@
 /* FRAMEWORK */
-import { Link } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 import { motion } from "framer-motion"
@@ -21,12 +20,7 @@ import { SIDE_BLOCKS } from "~/data"
 export function CellGridLeft({ className }: { className?: string }) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={SIDE_BLOCKS.LEFT.id}>
-			<Link
-				to={SIDE_BLOCKS.LEFT.to}
-				className="block h-full bg-gray-200 rounded-lg bg-opacity-60 hover:bg-opacity-70"
-			>
-				<div className="p-2">CellGridLeft</div>
-			</Link>
+			<div className="h-full w-full rounded-lg border-2 border-gray-200 bg-left-block-1 bg-cover"></div>
 		</motion.div>
 	)
 }

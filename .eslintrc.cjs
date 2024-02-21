@@ -22,7 +22,6 @@ module.exports = {
 
 	// Base config
 	extends: ["eslint:recommended"],
-
 	overrides: [
 		// React
 		{
@@ -79,5 +78,10 @@ module.exports = {
 				node: true
 			}
 		}
-	]
+	],
+	plugins: ["unused-imports"],
+	rules: {
+		"no-unused-vars": "off",
+		"unused-imports/no-unused-imports": "error"
+	}
 }

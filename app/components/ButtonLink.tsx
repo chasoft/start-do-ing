@@ -40,7 +40,7 @@ export function ButtonLink({
 						? "bg-opacity-80"
 						: isPending
 							? "bg-opacity-30"
-							: "bg-opacity-0 border-transparent"
+							: "border-transparent bg-opacity-0"
 				)
 			}
 		>

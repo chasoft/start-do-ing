@@ -23,12 +23,13 @@ export type GroupId =
 	| "date-time" //(3)
 	| "dev-utils" //(4)
 	| "domains" //(5)
-	| "kahoot" //(6)
+	| "quiz" //(6)
 	| "languages" //(7)
 	| "maths" //(8)
 	| "random" //(9)
 	| "url-shortener" //(10)
 	| "others" //(11)
+	| "books"
 	| "support"
 	| "dashboard"
 
@@ -64,7 +65,7 @@ export type DomainsLayoutId =
 	| "domains-extensions"
 	| "domains-whois"
 
-export type KahootLayoutId = "kahoot" | "kahoot-quiz"
+export type QuizLayoutId = "quiz" | "kahoot-quiz" | "vietnam-traffic-law"
 
 export type LanguagesLayoutId =
 	| "languages"
@@ -94,7 +95,7 @@ export type PageId =
 	| DateTimeLayoutId
 	| DevUtilsLayoutId
 	| DomainsLayoutId
-	| KahootLayoutId
+	| QuizLayoutId
 	| LanguagesLayoutId
 	| MathsLayoutId
 	| RandomLayoutId
@@ -103,7 +104,7 @@ export type PageId =
 	| SystemLayoutId
 	| FeatureLayoutId
 
-export type FeatureLayoutId = "left" | "right" | "last"
+export type FeatureLayoutId = "left" | "right" | "last" | "books"
 export type SystemLayoutId = "empty" | "404"
 export type DashboardLayoutId = "dashboard" | "settings"
 
@@ -133,7 +134,7 @@ export type NavigationGridCells =
 	| GridCellsFunction<DateTimeLayoutId>
 	| GridCellsFunction<DevUtilsLayoutId>
 	| GridCellsFunction<DomainsLayoutId>
-	| GridCellsFunction<KahootLayoutId>
+	| GridCellsFunction<QuizLayoutId>
 	| GridCellsFunction<LanguagesLayoutId>
 	| GridCellsFunction<MathsLayoutId>
 	| GridCellsFunction<RandomLayoutId>
@@ -160,6 +161,7 @@ export type TablerIconComponent = (props: TablerIconsProps) => JSX.Element
 
 export type BlockIcon = {
 	data: TablerIconComponent
+	logo?: string
 	color?: string
 }
 

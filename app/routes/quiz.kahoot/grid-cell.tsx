@@ -10,7 +10,7 @@ import type { GridCellProps } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { KAHOOT_QUIZ } from "./metadata"
-import { KAHOOT } from "../kahoot/metadata"
+import { QUIZ } from "../quiz/metadata"
 
 /***************************************************************************
  *
@@ -20,7 +20,7 @@ import { KAHOOT } from "../kahoot/metadata"
 
 export function KahootQuizCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={KAHOOT_QUIZ} upTo={KAHOOT.to} blockIndex={blockIndex}>
+		<CellIntro metaData={KAHOOT_QUIZ} upTo={QUIZ.to} blockIndex={blockIndex}>
 			.... INTRO... SETTINGS...DateTimeAnalogClockCell
 		</CellIntro>
 	)

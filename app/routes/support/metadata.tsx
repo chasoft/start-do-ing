@@ -21,7 +21,8 @@ export const SUPPORT: Block<"support"> = {
 	id: "support",
 	icon: { data: IconHeart, color: "#000" },
 	title: "Support",
-	description: "Support my work",
+	description:
+		"Enjoy what you see? Your support fuels my passion! Share, like, or buy me a coffee - it means the world!",
 	to: URLS.support.to,
 	group: [],
 	favorite: true,

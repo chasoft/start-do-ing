@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper, ReleaseUpdates } from "~/components"
+import { ContentWrapper, HomeTabs } from "~/components"
 import { useUrlSharingData } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
@@ -19,7 +19,6 @@ import { HOME } from "./metadata"
  *
  **************************************************************************/
 
-//TODO: layoutId is tring, need to change
 export function HomeFeature({
 	className,
 	layoutId
@@ -31,7 +30,7 @@ export function HomeFeature({
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<motion.div className={clsx("h-full", className)} layoutId={layoutId}>
-				<ReleaseUpdates />
+				<HomeTabs />
 			</motion.div>
 		</ContentWrapper>
 	)

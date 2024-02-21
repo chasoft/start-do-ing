@@ -39,7 +39,7 @@ export function SharingButton({ data }: { data: UrlSharingData }) {
 		return (
 			<div className="p-2">
 				<IconShare
-					className="w-6 h-6 text-gray-700 transition-all cursor-pointer hover:scale-125 active:scale-150"
+					className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
 					onClick={onClick}
 				/>
 			</div>

@@ -9,7 +9,7 @@ import { useDisclosure } from "@mantine/hooks"
 /* COMPONENTS & UTILS */
 import { FullScreenButton, SharingButton } from "."
 import { MobileMenu } from "./MobileMenu"
-import { useIsFullscreen, useIsMobileWindowSize, useIsShowMobileButtons } from "~/utils"
+import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -42,7 +42,6 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const [opened, { toggle, close }] = useDisclosure()
 	const isFullScreen = useIsFullscreen()
 	const isMobileWindowSize = useIsMobileWindowSize()
-	const isShowMobileButtons = useIsShowMobileButtons()
 	const urlSharingData = useAtomValue(urlSharingDataAtom)
 
 	/**
@@ -63,16 +62,14 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 			<AppShell.Header>
 				<Group h="100%" px="md">
 					<Burger opened={opened} onClick={toggle} hiddenFrom="lg" size="sm" />
-					<Link to={URLS.home.to} className="flex gap-2">
-						<Image src={Logo} className="w-7 h-7" />
+					<Link to={URLS.home.to} className="flex gap-2" onClick={close}>
+						<Image src={Logo} className="h-7 w-7" />
 						<Text fw={FW.EXTRA_BOLD}>{SITE.title}</Text>
 					</Link>
-					{isShowMobileButtons && (
-						<div className="flex gap-1 ml-auto">
-							{urlSharingData.url !== "" && <SharingButton data={urlSharingData} />}
-							<FullScreenButton />
-						</div>
-					)}
+					<div className="ml-auto flex gap-1 lg:hidden">
+						{urlSharingData.url !== "" && <SharingButton data={urlSharingData} />}
+						<FullScreenButton />
+					</div>
 				</Group>
 			</AppShell.Header>
 			<AppShell.Navbar>
@@ -82,7 +79,11 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 				</AppShell.Section>
 				<AppShell.Section className="flex justify-between p-3" hiddenFrom="md">
 					<Text size="xs">{SITE.email}</Text>
-					<Text size="xs">{SITE.makeWithLove}</Text>
+					<Link to={URLS.support.to}>
+						<Text size="xs" onClick={close}>
+							{SITE.makeWithLove}
+						</Text>
+					</Link>
 				</AppShell.Section>
 			</AppShell.Navbar>
 			<AppShell.Main>{children}</AppShell.Main>

@@ -18,7 +18,7 @@ import { URLS } from "~/data/urls"
  **************************************************************************/
 export function HomeLinks() {
 	return (
-		<div className="absolute hidden gap-1 bottom-2 left-2 lg:flex grow">
+		<div className="absolute bottom-2 left-2 hidden grow gap-1 lg:flex">
 			<ButtonLink
 				to={URLS.store.to}
 				icon={

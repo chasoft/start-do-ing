@@ -35,17 +35,17 @@ export function DateTimeCalculatorCellIntro({ blockIndex }: { blockIndex: number
 export function DateTimeCalculatorCell({ className }: GridCellProps) {
 	return (
 		<motion.div className={clsx("h-full", className)} layoutId={DATE_TIME_CALCULATOR.id}>
-			<div className="grid grid-cols-2 gap-1 lg:gap-2 h-full">
-				<div className="bg-blue-300 rounded-lg hover:bg-blue-400 cursor-pointer grid place-content-center">
+			<div className="grid h-full grid-cols-2 gap-1 lg:gap-2">
+				<div className="grid cursor-pointer place-content-center rounded-lg bg-blue-300 hover:bg-blue-400">
 					1
 				</div>
-				<div className="bg-blue-300 rounded-lg hover:bg-blue-400 cursor-pointer grid place-content-center">
+				<div className="grid cursor-pointer place-content-center rounded-lg bg-blue-300 hover:bg-blue-400">
 					2
 				</div>
-				<div className="bg-blue-300 rounded-lg hover:bg-blue-400 cursor-pointer grid place-content-center">
+				<div className="grid cursor-pointer place-content-center rounded-lg bg-blue-300 hover:bg-blue-400">
 					3
 				</div>
-				<div className="bg-blue-300 rounded-lg hover:bg-blue-400 cursor-pointer grid place-content-center">
+				<div className="grid cursor-pointer place-content-center rounded-lg bg-blue-300 hover:bg-blue-400">
 					4
 				</div>
 			</div>

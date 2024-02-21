@@ -29,7 +29,7 @@ export function FullScreenButton() {
 							return prev
 						})
 					}}
-					className="w-6 h-6 text-gray-700 transition-all cursor-pointer hover:scale-125 active:scale-150"
+					className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
 				/>
 			</div>
 		)
@@ -44,7 +44,7 @@ export function FullScreenButton() {
 						return prev
 					})
 				}}
-				className="w-6 h-6 text-gray-700 transition-all cursor-pointer hover:scale-125 active:scale-150"
+				className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
 			/>
 		</div>
 	)

@@ -34,7 +34,7 @@ export function CellItem({ className, metaData, blockIndex }: CellItemProps) {
 	const layoutId = isHome ? undefined : metaData.to
 	const Icon = getIcon(metaData.icon?.data)
 	return (
-		<motion.div className={clsx("h-full relative block", className)} layoutId={layoutId}>
+		<motion.div className={clsx("relative block h-full", className)} layoutId={layoutId}>
 			<CellGridLink to={metaData.to} blockIndex={blockIndex}>
 				<div className="flex flex-col p-2">
 					<h2 className="flex items-start gap-2">
@@ -43,7 +43,7 @@ export function CellItem({ className, metaData, blockIndex }: CellItemProps) {
 							{metaData.title}
 						</Text>
 					</h2>
-					<div className="flex flex-col grow">
+					<div className="flex grow flex-col">
 						{metaData.description && (
 							<Text size="md" lineClamp={2}>
 								{metaData.description}

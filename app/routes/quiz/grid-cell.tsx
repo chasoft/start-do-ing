@@ -10,8 +10,8 @@ import type { GridCellProps } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { KAHOOT } from "./metadata"
-import { KAHOOT_BLOCKS } from "~/data"
+import { QUIZ } from "./metadata"
+import { QUIZ_BLOCKS } from "~/data"
 
 /***************************************************************************
  *
@@ -19,23 +19,23 @@ import { KAHOOT_BLOCKS } from "~/data"
  *
  **************************************************************************/
 
-const dropdownMenuItems = getMenuItemsFromBlocks(KAHOOT_BLOCKS)
+const dropdownMenuItems = getMenuItemsFromBlocks(QUIZ_BLOCKS)
 
-export function KahootGroupCellIntro({ blockIndex }: { blockIndex: number }) {
+export function QuizGroupCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={KAHOOT} upTo={KAHOOT.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...KahootGroupCell
+		<CellIntro metaData={QUIZ} upTo={QUIZ.to} blockIndex={blockIndex}>
+			.... INTRO... SETTINGS...QuizGroupCell
 		</CellIntro>
 	)
 }
 
-export function KahootGroupCell({ className, blockIndex }: GridCellProps) {
+export function QuizGroupCell({ className, blockIndex }: GridCellProps) {
 	return (
 		<CellGroup
 			blockIndex={blockIndex}
 			className={className}
 			dropdownMenuItems={dropdownMenuItems}
-			metaData={KAHOOT}
+			metaData={QUIZ}
 		/>
 	)
 }

@@ -4,12 +4,12 @@
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft, CellGridRight } from "."
+import { CellGridEmpty, CellGridLast, CellGridLeft } from "."
 import { DateTimeGroupCell } from "~/routes/date-time/grid-cell"
 import { DevUtilsGroupCell } from "~/routes/dev-utils/grid-cell"
 import { DomainsGroupCell } from "~/routes/domains/grid-cell"
 import { HomeGridCellIntro } from "~/routes/_index/grid-cell"
-import { KahootGroupCell } from "~/routes/kahoot/grid-cell"
+import { QuizGroupCell } from "~/routes/quiz/grid-cell"
 import { LanguagesGroupCell } from "~/routes/languages/grid-cell"
 import { MathsGroupCell } from "~/routes/maths/grid-cell"
 import { OthersGroupCell } from "~/routes/others/grid-cell"
@@ -22,6 +22,7 @@ import type { GridCellsProps, GroupId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { EMPTY_LAYOUT_ID } from "~/data"
+import { BooksGridCellIntro } from "~/routes/books/grid-cell"
 
 /***************************************************************************
  *
@@ -65,10 +66,10 @@ export function RootGridCells({
 					<DomainsGroupCell blockIndex={blockIndex} />
 				</div>
 			)
-		case "kahoot":
+		case "quiz":
 			return (
 				<div className={clsx(className)}>
-					<KahootGroupCell blockIndex={blockIndex} />
+					<QuizGroupCell blockIndex={blockIndex} />
 				</div>
 			)
 		case "languages":
@@ -118,12 +119,12 @@ export function RootGridCells({
 					<CellGridLeft />
 				</div>
 			)
-		case "right":
-			return (
-				<div className={clsx(className)}>
-					<CellGridRight />
-				</div>
-			)
+		// case "right":
+		// 	return (
+		// 		<div className={clsx(className)}>
+		// 			<CellGridRight />
+		// 		</div>
+		// 	)
 		case "last":
 			return (
 				<div className={clsx(className)}>
@@ -139,6 +140,12 @@ export function RootGridCells({
 			return (
 				<div className={clsx(className)}>
 					<SupportGridCellIntro blockIndex={blockIndex} />
+				</div>
+			)
+		case "books":
+			return (
+				<div className={clsx(className)}>
+					<BooksGridCellIntro blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************
