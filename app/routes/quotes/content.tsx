@@ -21,9 +21,9 @@ import { BOOKS } from "./metadata"
  *
  **************************************************************************/
 
-const booksIntro = `hello **w**orld`
+const quotesIntro = `hello **w**orld`
 
-export function BooksFeature({
+export function QuotesFeature({
 	className,
 	layoutId
 }: {
@@ -39,9 +39,9 @@ export function BooksFeature({
 			>
 				<h1 className="mb-4 text-lg font-semibold sm:text-2xl">{BOOKS.title}</h1>
 				<ScrollArea className="h-[calc(100%-30px)]" offsetScrollbars>
-					<Markdown className="prose prose-base max-w-3xl">{booksIntro}</Markdown>
+					<Markdown className="prose prose-base max-w-3xl">{quotesIntro}</Markdown>
 					<div className="my-4 grid w-full max-w-lg grid-cols-2 gap-3 xs:grid-cols-4 xl:gap-5">
-						Books for life
+						Quotes for life
 					</div>
 					<Text size="md" className="mb-10 lg:mb-0">
 						Thanks for being awesome! 🤟

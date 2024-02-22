@@ -8,7 +8,7 @@ import type { Block, FeatureLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { BOOKS } from "~/routes/books/metadata"
+import { BOOKS } from "~/routes/quotes/metadata"
 import { URLS } from "./urls"
 
 /**************************************************************************
@@ -19,7 +19,7 @@ import { URLS } from "./urls"
 
 export const SIDE_BLOCKS: {
 	LEFT: Block<FeatureLayoutId>
-	RIGHT: Block<"books">
+	RIGHT: Block<"quotes">
 } = {
 	LEFT: {
 		id: "left",

@@ -12,6 +12,7 @@
 		"format": "prettier . --write --plugin=prettier-plugin-tailwindcss",
 		"format:view": "prettier . --check",
 		"test": "jest",
+		"update:remix": "npx upgrade-remix",
 		"check-all": "npm run lint & npm run typecheck & npm run format"
 	},
 	"dependencies": {
@@ -27,10 +28,10 @@
 		"@mantine/nprogress": "^7.5.1",
 		"@mantine/spotlight": "^7.5.1",
 		"@mantine/tiptap": "^7.5.1",
-		"@remix-run/cloudflare": "^2.4.1",
-		"@remix-run/cloudflare-pages": "^2.4.1",
-		"@remix-run/css-bundle": "^2.4.1",
-		"@remix-run/react": "^2.4.1",
+		"@remix-run/cloudflare": "2.7.1",
+		"@remix-run/cloudflare-pages": "2.7.1",
+		"@remix-run/css-bundle": "2.7.1",
+		"@remix-run/react": "2.7.1",
 		"@tabler/icons-react": "^2.47.0",
 		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"@tailwindcss/container-queries": "^0.1.1",
@@ -54,7 +55,7 @@
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20230518.0",
-		"@remix-run/dev": "^2.4.1",
+		"@remix-run/dev": "2.7.1",
 		"@types/jest": "^29.5.12",
 		"@types/lodash.groupby": "^4.6.9",
 		"@types/react": "^18.2.20",

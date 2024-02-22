@@ -74,7 +74,7 @@ export const SITE = {
 	description: `Unleash your creativity with Startdo.ing's collection of engaging online tools, called "blocks". Explore, have fun, and share the joy with your friends!`,
 	url: "https://startdo.ing",
 	email: "hi@startdo.ing",
-	makeWithLove: "Make with 🤍 by Brian Cao"
+	makeWithLove: "Make with 💖 by Brian Cao"
 } as const
 
 export const breakpoints: Breakpoint[] = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"]

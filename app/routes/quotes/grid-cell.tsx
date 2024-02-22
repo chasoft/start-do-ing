@@ -17,11 +17,11 @@ import { BOOKS } from "./metadata"
  *
  **************************************************************************/
 
-export function BooksGridCellIntro({ blockIndex }: { blockIndex: number }) {
+export function QuotesGridCellIntro({ blockIndex }: { blockIndex: number }) {
 	return <CellIntro metaData={BOOKS} upTo={BOOKS.to} blockIndex={blockIndex} />
 }
 
-export function BooksGridCell({
+export function QuotesGridCell({
 	className,
 	isLastGridCellBlocksEmpty
 }: {

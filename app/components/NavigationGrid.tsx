@@ -19,7 +19,7 @@ import type { Block, NavigationGridCells, PageId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { EMPTY_LAYOUT_ID, SIDE_BLOCKS } from "~/data"
-import { BooksGridCell } from "~/routes/books/grid-cell"
+import { QuotesGridCell } from "~/routes/quotes/grid-cell"
 
 /***************************************************************************
  *
@@ -95,7 +95,7 @@ export function NavigationGrid({
 				<div className="col-span-4 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
 					<div className="h-full overflow-hidden">{children}</div>
 				</div>
-				<BooksGridCell
+				<QuotesGridCell
 					isLastGridCellBlocksEmpty={isLastGridCellBlocksEmpty}
 					className={clsx("hidden lg:flex", { "row-span-2": isLastGridCellBlocksEmpty })}
 				/>

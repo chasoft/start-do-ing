@@ -8,7 +8,7 @@ import type { Block } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconBooks } from "@tabler/icons-react"
+import { IconQuote } from "@tabler/icons-react"
 import { URLS } from "~/data/urls"
 
 /***************************************************************************
@@ -17,13 +17,13 @@ import { URLS } from "~/data/urls"
  *
  **************************************************************************/
 
-export const BOOKS: Block<"books"> = {
-	id: "books",
-	icon: { data: IconBooks },
-	title: "Books",
+export const BOOKS: Block<"quotes"> = {
+	id: "quotes",
+	icon: { data: IconQuote },
+	title: "Quotes",
 	description:
-		"Expand your horizons with books on computers, programming, math, and the mind. Find the perfect resource to ignite your curiosity and fuel your journey.",
-	to: URLS.books.to,
+		"Quotes that will motivate you, inspire you, and might make you tear up a bit too.",
+	to: URLS.quotes.to,
 	group: [],
 	favorite: false,
 	color: {

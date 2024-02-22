@@ -41,7 +41,12 @@ export function ContentWrapper({
 			)}
 		>
 			{(!isMobileWindowSize || isFullScreen) && (
-				<div className="absolute right-0 top-0 z-[9999] flex sm:right-1 sm:top-1">
+				<div
+					className={clsx(
+						"absolute z-[9999] flex",
+						isFullScreen ? "right-0 top-0" : "right-2 top-2"
+					)}
+				>
 					<SharingButton data={urlSharingData} />
 					<FullScreenButton />
 				</div>

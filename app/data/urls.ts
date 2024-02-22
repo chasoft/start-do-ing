@@ -9,5 +9,5 @@ export const URLS = {
 	blog: { to: "/blog", label: "Blog" },
 	store: { to: "/store", label: "Store" },
 	support: { to: "/support", label: "Support Startdo.ing" },
-	books: { to: "/books", label: "Books" }
+	quotes: { to: "/quotes", label: "Quotes" }
 } as const

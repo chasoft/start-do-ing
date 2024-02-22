@@ -4,7 +4,7 @@ import { type MetaFunction } from "@remix-run/cloudflare"
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { BooksFeature } from "./content"
+import { QuotesFeature } from "./content"
 import { ErrorBoundaryBase } from "~/components/ErrorBoundaryBase"
 import { getBlockMetaData, useIsFullscreen, useIsMobileWindowSize } from "~/utils"
 import { FullScreenContentWrapper, NavigationGrid, NavigationMobile } from "~/components"
@@ -22,7 +22,7 @@ import { HOME_BLOCKS } from "~/data"
  *
  **************************************************************************/
 
-const layoutId = "books"
+const layoutId = "quotes"
 
 export const meta: MetaFunction = () => {
 	const { title, description } = getBlockMetaData(HOME_BLOCKS, layoutId)
@@ -33,14 +33,14 @@ export const handle: CustomRouteHandle = {
 	layoutId: layoutId
 }
 
-export default function BooksRoute() {
+export default function QuotesRoute() {
 	const isFullScreen = useIsFullscreen()
 	const isMobileWindowSize = useIsMobileWindowSize()
 
 	if (isFullScreen) {
 		return (
 			<FullScreenContentWrapper>
-				<BooksFeature layoutId={layoutId} />
+				<QuotesFeature layoutId={layoutId} />
 			</FullScreenContentWrapper>
 		)
 	}
@@ -48,14 +48,14 @@ export default function BooksRoute() {
 	if (isMobileWindowSize) {
 		return (
 			<NavigationMobile>
-				<BooksFeature layoutId={layoutId} />
+				<QuotesFeature layoutId={layoutId} />
 			</NavigationMobile>
 		)
 	}
 
 	return (
 		<NavigationGrid blocks={HOME_BLOCKS} GridCell={RootGridCells}>
-			<BooksFeature layoutId={layoutId} />
+			<QuotesFeature layoutId={layoutId} />
 		</NavigationGrid>
 	)
 }
