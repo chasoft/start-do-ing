@@ -35,7 +35,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DateTimeCalculatorRoute() {
-	return <DateTimeCalculatorContent layoutId={layoutId} />
+	return <DateTimeCalculatorContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

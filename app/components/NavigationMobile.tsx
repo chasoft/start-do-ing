@@ -2,7 +2,6 @@
 import React from "react"
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion"
 
 /* COMPONENTS & UTILS */
 
@@ -17,5 +16,5 @@ import { motion } from "framer-motion"
  **************************************************************************/
 
 export function NavigationMobile({ children }: { children: React.ReactNode }) {
-	return <motion.div className="p-2">{children}</motion.div>
+	return <div className="p-2">{children}</div>
 }

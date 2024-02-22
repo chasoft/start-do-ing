@@ -37,7 +37,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DevUtilsMarkdownEditorRoute() {
-	return <DevUtilsMarkdownEditorContent layoutId={layoutId} />
+	return <DevUtilsMarkdownEditorContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

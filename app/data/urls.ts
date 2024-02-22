@@ -8,6 +8,5 @@ export const URLS = {
 	home: { to: "/", label: "Home" },
 	blog: { to: "/blog", label: "Blog" },
 	store: { to: "/store", label: "Store" },
-	support: { to: "/support", label: "Support Startdo.ing" },
-	quotes: { to: "/quotes", label: "Quotes" }
+	support: { to: "/support", label: "Support Startdo.ing" }
 } as const

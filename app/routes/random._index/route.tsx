@@ -33,7 +33,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function RandomIndexRoute() {
-	return <RandomIndexContent layoutId={layoutId} />
+	return <RandomIndexContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

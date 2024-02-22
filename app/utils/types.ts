@@ -29,7 +29,6 @@ export type GroupId =
 	| "random" //(9)
 	| "url-shortener" //(10)
 	| "others" //(11)
-	| "quotes"
 	| "support"
 	| "dashboard"
 
@@ -104,7 +103,7 @@ export type PageId =
 	| SystemLayoutId
 	| FeatureLayoutId
 
-export type FeatureLayoutId = "left" | "right" | "last" | "quotes"
+export type FeatureLayoutId = "left" | "right" | "last"
 export type SystemLayoutId = "empty" | "404"
 export type DashboardLayoutId = "dashboard" | "settings"
 

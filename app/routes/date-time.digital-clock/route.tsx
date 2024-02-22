@@ -37,7 +37,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DateTimeDigitalClockRoute() {
-	return <DateTimeDigitalClockContent layoutId={layoutId} />
+	return <DateTimeDigitalClockContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

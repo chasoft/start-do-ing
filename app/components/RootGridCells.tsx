@@ -4,7 +4,7 @@
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft } from "."
+import { CellGridEmpty, CellGridLast, CellGridLeft, CellGridRight } from "."
 import { DateTimeGroupCell } from "~/routes/date-time/grid-cell"
 import { DevUtilsGroupCell } from "~/routes/dev-utils/grid-cell"
 import { DomainsGroupCell } from "~/routes/domains/grid-cell"
@@ -22,7 +22,6 @@ import type { GridCellsProps, GroupId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { EMPTY_LAYOUT_ID } from "~/data"
-import { QuotesGridCellIntro } from "~/routes/quotes/grid-cell"
 
 /***************************************************************************
  *
@@ -119,12 +118,12 @@ export function RootGridCells({
 					<CellGridLeft />
 				</div>
 			)
-		// case "right":
-		// 	return (
-		// 		<div className={clsx(className)}>
-		// 			<CellGridRight />
-		// 		</div>
-		// 	)
+		case "right":
+			return (
+				<div className={clsx(className)}>
+					<CellGridRight />
+				</div>
+			)
 		case "last":
 			return (
 				<div className={clsx(className)}>
@@ -140,12 +139,6 @@ export function RootGridCells({
 			return (
 				<div className={clsx(className)}>
 					<SupportGridCellIntro blockIndex={blockIndex} />
-				</div>
-			)
-		case "quotes":
-			return (
-				<div className={clsx(className)}>
-					<QuotesGridCellIntro blockIndex={blockIndex} />
 				</div>
 			)
 		/**********************************************************************

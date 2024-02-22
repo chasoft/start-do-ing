@@ -35,7 +35,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function MathsEmpty4Route() {
-	return <MathsEmpty4Content layoutId={layoutId} />
+	return <MathsEmpty4Content />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

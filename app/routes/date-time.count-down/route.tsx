@@ -35,7 +35,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DateTimeCountDownRoute() {
-	return <DateTimeCountDownContent layoutId={layoutId} />
+	return <DateTimeCountDownContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

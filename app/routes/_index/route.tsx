@@ -41,7 +41,7 @@ export default function HomeRoute() {
 	if (isFullScreen) {
 		return (
 			<FullScreenContentWrapper>
-				<HomeFeature layoutId={layoutId} />
+				<HomeFeature />
 			</FullScreenContentWrapper>
 		)
 	}
@@ -49,14 +49,14 @@ export default function HomeRoute() {
 	if (isMobileWindowSize) {
 		return (
 			<NavigationMobile>
-				<HomeFeature layoutId={layoutId} />
+				<HomeFeature />
 			</NavigationMobile>
 		)
 	}
 
 	return (
 		<NavigationGrid blocks={HOME_BLOCKS} GridCell={RootGridCells}>
-			<HomeFeature layoutId={layoutId} />
+			<HomeFeature />
 		</NavigationGrid>
 	)
 }

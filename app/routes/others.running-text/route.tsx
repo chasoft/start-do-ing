@@ -35,7 +35,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function OthersRunningTextRoute() {
-	return <OthersRunningTextContent layoutId={layoutId} />
+	return <OthersRunningTextContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

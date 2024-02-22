@@ -35,7 +35,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DevUtilsBase64Route() {
-	return <DevUtilsBase64Content layoutId={layoutId} />
+	return <DevUtilsBase64Content />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

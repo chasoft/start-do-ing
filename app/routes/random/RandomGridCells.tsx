@@ -1,7 +1,6 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
@@ -9,6 +8,7 @@ import {
 	CellGridEmpty,
 	CellGridLast,
 	CellGridLeft,
+	CellGridRight,
 	CellIntroSwitcher
 } from "~/components"
 import {
@@ -29,7 +29,7 @@ import type { GridCellsProps, RandomLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { BLOCK_NOT_FOUND, EMPTY_LAYOUT_ID } from "~/data"
+import { EMPTY_LAYOUT_ID } from "~/data"
 
 /***************************************************************************
  *
@@ -130,12 +130,12 @@ export function RandomGridCells({
 					<CellGridLeft />
 				</div>
 			)
-		// case "right":
-		// 	return (
-		// 		<div className={clsx(className)}>
-		// 			<CellGridRight />
-		// 		</div>
-		// 	)
+		case "right":
+			return (
+				<div className={clsx(className)}>
+					<CellGridRight />
+				</div>
+			)
 		case "last":
 			return (
 				<div className={clsx(className)}>
@@ -150,15 +150,12 @@ export function RandomGridCells({
 		default:
 			return (
 				<div className={clsx(className, "h-full")}>
-					<motion.div
-						className={clsx("h-full rounded-lg bg-gray-200")}
-						layoutId={BLOCK_NOT_FOUND}
-					>
+					<div className={clsx("h-full rounded-lg bg-gray-200")}>
 						<div className="grid h-full place-content-center text-lg text-red-900 md:text-xl">
 							BLOCK NOT FOUND
 							<p>{layoutId}</p>
 						</div>
-					</motion.div>
+					</div>
 				</div>
 			)
 	}

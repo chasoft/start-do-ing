@@ -37,7 +37,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DevUtilsHashGeneratorRoute() {
-	return <DevUtilsHashGeneratorContent layoutId={layoutId} />
+	return <DevUtilsHashGeneratorContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

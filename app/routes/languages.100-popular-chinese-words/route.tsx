@@ -39,7 +39,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function Languages100PopularChineseWordsRoute() {
-	return <Languages100PopularChineseWordsContent layoutId={layoutId} />
+	return <Languages100PopularChineseWordsContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

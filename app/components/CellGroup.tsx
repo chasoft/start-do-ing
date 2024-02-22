@@ -63,7 +63,7 @@ export function CellGroup({
 						<Tooltip key={i.to} label={i.title}>
 							<Link
 								to={i.to}
-								className="rounded-md bg-white bg-opacity-0 p-2 text-gray-500 hover:bg-opacity-40 hover:text-blue-600 active:bg-opacity-80"
+								className="rounded-md bg-white bg-opacity-0 p-2 text-gray-800 hover:bg-opacity-40 hover:text-blue-600 active:bg-opacity-80"
 							>
 								<Icon size={24} />
 							</Link>
@@ -87,27 +87,34 @@ export function CellGroup({
 	const Icon = getIcon(metaData.icon?.data)
 
 	return (
-		<motion.div className={clsx("relative block h-full overflow-hidden", className)}>
-			<CellGridLink to={metaData.to} blockIndex={blockIndex}>
-				<div className="flex flex-col p-2">
-					<h2 className="flex items-start gap-2">
-						{metaData.icon && <Icon size={24} className="mt-[2px]" />}{" "}
-						<Text size="lg" fw={FW.SEMI_BOLD}>
-							{metaData.title}
-						</Text>
-					</h2>
-					<div className="flex grow flex-col">
-						{metaData.description && (
-							<Text size="md" lineClamp={2}>
-								{metaData.description}
+		<div className={clsx("relative block h-full overflow-hidden", className)}>
+			<div
+				className={clsx(
+					"group relative block h-full rounded-lg border-2 transition-all",
+					`bg-white/20 backdrop-blur-[2px] hover:backdrop-blur-md`
+				)}
+			>
+				<CellGridLink to={metaData.to} blockIndex={blockIndex}>
+					<div className="flex flex-col p-2">
+						<h2 className="flex items-start gap-2">
+							{metaData.icon && <Icon size={24} className="mt-[2px]" />}{" "}
+							<Text size="lg" fw={FW.SEMI_BOLD}>
+								{metaData.title}
 							</Text>
-						)}
+						</h2>
+						<div className="flex grow flex-col">
+							{metaData.description && (
+								<Text size="md" lineClamp={2}>
+									{metaData.description}
+								</Text>
+							)}
+						</div>
 					</div>
-				</div>
-			</CellGridLink>
-			{isHome && (
-				<div className="absolute bottom-2 left-2 hidden grow lg:flex">{iconLinks}</div>
-			)}
+				</CellGridLink>
+				{isHome && (
+					<div className="absolute bottom-2 left-2 hidden grow lg:flex">{iconLinks}</div>
+				)}
+			</div>
 
 			{isHome && showMoreButton && (
 				<>
@@ -143,6 +150,6 @@ export function CellGroup({
 					)}
 				</>
 			)}
-		</motion.div>
+		</div>
 	)
 }

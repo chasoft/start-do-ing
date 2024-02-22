@@ -1,8 +1,6 @@
 /* FRAMEWORK */
-import { useLocation } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion"
 import { Text } from "@mantine/core"
 import clsx from "clsx"
 
@@ -29,29 +27,33 @@ type CellItemProps = {
 }
 
 export function CellItem({ className, metaData, blockIndex }: CellItemProps) {
-	const { pathname } = useLocation()
-	const isHome = pathname === metaData.to
-	const layoutId = isHome ? undefined : metaData.to
 	const Icon = getIcon(metaData.icon?.data)
 	return (
-		<motion.div className={clsx("relative block h-full", className)} layoutId={layoutId}>
-			<CellGridLink to={metaData.to} blockIndex={blockIndex}>
-				<div className="flex flex-col p-2">
-					<h2 className="flex items-start gap-2">
-						{metaData.icon && <Icon size={24} className="mt-[2px]" />}{" "}
-						<Text size="lg" fw={FW.SEMI_BOLD}>
-							{metaData.title}
-						</Text>
-					</h2>
-					<div className="flex grow flex-col">
-						{metaData.description && (
-							<Text size="md" lineClamp={2}>
-								{metaData.description}
+		<div className={clsx("relative block h-full", className)}>
+			<div
+				className={clsx(
+					"group relative block h-full rounded-lg border-2 transition-all",
+					`bg-white/20 backdrop-blur-[2px] hover:backdrop-blur-md`
+				)}
+			>
+				<CellGridLink to={metaData.to} blockIndex={blockIndex}>
+					<div className="flex flex-col p-2">
+						<h2 className="flex items-start gap-2">
+							{metaData.icon && <Icon size={24} className="mt-[2px]" />}{" "}
+							<Text size="lg" fw={FW.SEMI_BOLD}>
+								{metaData.title}
 							</Text>
-						)}
+						</h2>
+						<div className="flex grow flex-col">
+							{metaData.description && (
+								<Text size="md" lineClamp={2}>
+									{metaData.description}
+								</Text>
+							)}
+						</div>
 					</div>
-				</div>
-			</CellGridLink>
-		</motion.div>
+				</CellGridLink>
+			</div>
+		</div>
 	)
 }

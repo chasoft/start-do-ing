@@ -37,7 +37,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DateTimeAnalogClockRoute() {
-	return <DateTimeAnalogClockContent layoutId={layoutId} />
+	return <DateTimeAnalogClockContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

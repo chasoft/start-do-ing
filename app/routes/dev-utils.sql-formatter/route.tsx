@@ -37,7 +37,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DevUtilsSqlFormatterRoute() {
-	return <DevUtilsSqlFormatterContent layoutId={layoutId} />
+	return <DevUtilsSqlFormatterContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

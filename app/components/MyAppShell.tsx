@@ -5,6 +5,7 @@ import { Link, useLocation } from "@remix-run/react"
 import { AppShell, Burger, Group, Image, ScrollArea, Text } from "@mantine/core"
 import { useAtomValue } from "jotai"
 import { useDisclosure } from "@mantine/hooks"
+import sample from "lodash/sample"
 
 /* COMPONENTS & UTILS */
 import { FullScreenButton, SharingButton } from "."
@@ -18,6 +19,8 @@ import { FW, SITE } from "~/data"
 import { URLS } from "~/data/urls"
 import { urlSharingDataAtom } from "~/atoms/globals"
 import Logo from "~/assets/startdoing-logo.svg"
+import React, { useLayoutEffect } from "react"
+import { BACKGROUNDS } from "~/data/background"
 
 /***************************************************************************
  *
@@ -39,10 +42,15 @@ function OverlayMobileMenu() {
 }
 
 export function MyAppShell({ children }: { children: React.ReactNode }) {
+	const [backgroundImage, setBackgroundImage] = React.useState<string>("")
 	const [opened, { toggle, close }] = useDisclosure()
 	const isFullScreen = useIsFullscreen()
 	const isMobileWindowSize = useIsMobileWindowSize()
 	const urlSharingData = useAtomValue(urlSharingDataAtom)
+
+	useLayoutEffect(function randomBackgroundImage() {
+		setBackgroundImage(sample(BACKGROUNDS) ?? BACKGROUNDS[0])
+	}, [])
 
 	/**
 	 * We use completely different layout for blog 😉
@@ -58,6 +66,11 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 			header={{ height: HEADER_HEIGHT }}
 			navbar={{ width: NAVBAR_WIDTH, breakpoint: "lg", collapsed: { mobile: !opened } }}
 			disabled={isFullScreen || !isMobileWindowSize}
+			// className="bg-left-block-1 bg-cover"
+			style={{
+				backgroundImage: `url('${backgroundImage}')`,
+				backgroundPosition: "center"
+			}}
 		>
 			<AppShell.Header>
 				<Group h="100%" px="md">

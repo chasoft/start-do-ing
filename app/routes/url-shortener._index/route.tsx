@@ -33,7 +33,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function URLShortenerIndexRoute() {
-	return <URLShortenerIndexContent layoutId={layoutId} />
+	return <URLShortenerIndexContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)
