@@ -32,7 +32,7 @@ export function CellItem({ className, metaData, blockIndex }: CellItemProps) {
 		<div className={clsx("relative block h-full", className)}>
 			<div
 				className={clsx(
-					"group relative block h-full rounded-lg border-2 transition-all",
+					"group relative block h-full transition-all",
 					`bg-white/20 backdrop-blur-[2px] hover:backdrop-blur-md`
 				)}
 			>

@@ -34,7 +34,7 @@ export function CellGridLink({
 			to={to}
 			className={({ isActive, isPending }) =>
 				clsx(
-					"relative block h-full transition-all",
+					"relative block h-full rounded-lg border-2 transition-all",
 					bgColor,
 					isActive ? `${borderColor}` : isPending ? "bg-opacity-30" : "bg-opacity-60",
 					className
