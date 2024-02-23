@@ -18,7 +18,7 @@ import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
 import { FW, SITE } from "~/data"
 import { URLS } from "~/data/urls"
 import { urlSharingDataAtom } from "~/atoms/globals"
-import Logo from "~/assets/startdoing-logo.svg"
+import Logo from "~/assets/logo-startdoing.svg"
 import React, { useLayoutEffect } from "react"
 import { BACKGROUNDS } from "~/data/background"
 
@@ -66,7 +66,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 			header={{ height: HEADER_HEIGHT }}
 			navbar={{ width: NAVBAR_WIDTH, breakpoint: "lg", collapsed: { mobile: !opened } }}
 			disabled={isFullScreen || !isMobileWindowSize}
-			// className="bg-left-block-1 bg-cover"
+			// className="bg-cover bg-left-block-1"
 			style={{
 				backgroundImage: `url('${backgroundImage}')`,
 				backgroundPosition: "center"

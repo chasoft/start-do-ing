@@ -41,7 +41,7 @@ import {
 } from "@tabler/icons-react"
 import { FW } from "~/data"
 import { URLS } from "~/data/urls"
-import Logo from "~/assets/startdoing-logo.svg"
+import Logo from "~/assets/logo-startdoing.svg"
 
 /***************************************************************************
  *

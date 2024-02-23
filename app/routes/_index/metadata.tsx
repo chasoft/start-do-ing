@@ -10,7 +10,7 @@ import type { Block } from "~/utils/types"
 /* ASSETS & DATA IMPORT */
 import { IconHome } from "@tabler/icons-react"
 import { URLS } from "~/data/urls"
-import Logo from "~/assets/startdoing-logo.svg"
+import Logo from "~/assets/logo-startdoing.svg"
 
 /***************************************************************************
  *
