@@ -9,6 +9,7 @@ import type { Block } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconMist } from "@tabler/icons-react"
+import { OTHERS_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const OTHERS: Block<"others"> = {
 		bgLighter: "bg-emerald-100",
 		bgDarker: "bg-emerald-300"
 	},
-	updates: []
+	updates: OTHERS_UPDATES
 }

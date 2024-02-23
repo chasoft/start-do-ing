@@ -9,6 +9,7 @@ import type { Block } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconSquareRoot2 } from "@tabler/icons-react"
+import { MATHS_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const MATHS: Block<"maths"> = {
 		bgLighter: "bg-green-100",
 		bgDarker: "bg-green-300"
 	},
-	updates: []
+	updates: MATHS_UPDATES
 }

@@ -9,6 +9,7 @@ import type { Block, LanguagesLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconLetterC } from "@tabler/icons-react"
+import { LANGUAGES_CHINESE_CHARACTERS_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const LANGUAGES_CHINESE_CHARACTERS: Block<LanguagesLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: []
+	updates: LANGUAGES_CHINESE_CHARACTERS_UPDATES
 }

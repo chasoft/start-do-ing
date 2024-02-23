@@ -9,6 +9,7 @@ import type { Block, DateTimeLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconCalendarMonth } from "@tabler/icons-react"
+import { DATE_TIME_CALENDAR_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const DATE_TIME_CALENDAR: Block<DateTimeLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: []
+	updates: DATE_TIME_CALENDAR_UPDATES
 }

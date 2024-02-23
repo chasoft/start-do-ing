@@ -9,6 +9,7 @@ import type { Block } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconGoGame } from "@tabler/icons-react"
+import { QUIZ_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const QUIZ: Block<"quiz"> = {
 		bgLighter: "bg-yellow-100",
 		bgDarker: "bg-yellow-300"
 	},
-	updates: []
+	updates: QUIZ_UPDATES
 }

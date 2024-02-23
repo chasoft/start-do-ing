@@ -9,6 +9,7 @@ import type { Block, RandomLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconPassword } from "@tabler/icons-react"
+import { RANDOM_PASSWORD_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const RANDOM_PASSWORD: Block<RandomLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: []
+	updates: RANDOM_PASSWORD_UPDATES
 }

@@ -9,6 +9,7 @@ import type { Block, LanguagesLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconLetterV } from "@tabler/icons-react"
+import { LANGUAGES_VIETNAMESE_READING_FOR_KIDS_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const LANGUAGES_VIETNAMESE_READING_FOR_KIDS: Block<LanguagesLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: []
+	updates: LANGUAGES_VIETNAMESE_READING_FOR_KIDS_UPDATES
 }

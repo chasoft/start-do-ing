@@ -9,6 +9,7 @@ import type { Block, OthersLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconRun } from "@tabler/icons-react"
+import { OTHERS_RUNNING_TEXT_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const OTHERS_RUNNING_TEXT: Block<OthersLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: []
+	updates: OTHERS_RUNNING_TEXT_UPDATES
 }

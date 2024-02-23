@@ -9,6 +9,7 @@ import type { Block } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconCloud } from "@tabler/icons-react"
+import { DOMAINS_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const DOMAINS: Block<"domains"> = {
 		bgLighter: "bg-amber-100",
 		bgDarker: "bg-amber-300"
 	},
-	updates: []
+	updates: DOMAINS_UPDATES
 }
