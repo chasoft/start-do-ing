@@ -16,7 +16,11 @@ import { isRouteErrorResponse, useRouteError } from "@remix-run/react"
  **************************************************************************/
 
 function ErrorBox({ children }: { children: React.ReactNode }) {
-	return <div>{children}</div>
+	return (
+		<div className="h-full overflow-hidden rounded-lg border-2 border-white bg-white/60 p-4 backdrop-blur-lg">
+			{children}
+		</div>
+	)
 }
 
 export function ErrorBoundaryBase(location: string) {

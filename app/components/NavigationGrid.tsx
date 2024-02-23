@@ -89,15 +89,15 @@ export function NavigationGrid({
 				<GridCell
 					layoutId={SIDE_BLOCKS.LEFT.id}
 					blockIndex={13}
-					className="hidden xl:flex"
+					className="hidden lg:flex"
 				/>
-				<div className="col-span-4 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
+				<div className="col-span-3 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
 					<div className="h-full overflow-hidden">{children}</div>
 				</div>
 				<GridCell
 					layoutId={SIDE_BLOCKS.RIGHT.id}
 					blockIndex={14}
-					className="hidden xl:flex"
+					className="hidden lg:flex"
 				/>
 				{/* Row 3 */}
 				<GridCell blockIndex={6} layoutId={layoutIds[6]} />

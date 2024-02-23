@@ -20,6 +20,7 @@ export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
 export type GroupId =
 	| "home" //(1)
 	| "blog" //(2)
+	| "store" //(2.1)
 	| "date-time" //(3)
 	| "dev-utils" //(4)
 	| "domains" //(5)

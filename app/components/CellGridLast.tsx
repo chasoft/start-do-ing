@@ -74,8 +74,8 @@ export function CellGridLast({ className, blocks, blockIndex }: CellGridLastProp
 									bgColor
 								)}
 							>
-								<Icon />
-								<span>{block.title}</span>
+								<Icon size={18} />
+								<span className="line-clamp-2 text-xs">{block.title}</span>
 							</Link>
 						)
 					})}

@@ -80,12 +80,6 @@ export function DomainsGridCells({
 					className={className}
 				/>
 			)
-		case EMPTY_LAYOUT_ID:
-			return (
-				<div className={clsx(className)}>
-					<CellGridEmpty />
-				</div>
-			)
 		/**********************************************************************
 		 *
 		 *  FEATURED BLOCKS
@@ -111,18 +105,20 @@ export function DomainsGridCells({
 			)
 		/**********************************************************************
 		 *
-		 *  FIX BLOCKS
+		 *  EMPTY BLOCK
+		 *  If layoutId is not recognized, it means that this block is empty.
 		 *
 		 *********************************************************************/
+		case EMPTY_LAYOUT_ID:
+			return (
+				<div className={clsx(className)}>
+					<CellGridEmpty />
+				</div>
+			)
 		default:
 			return (
-				<div className={clsx(className, "h-full")}>
-					<div className={clsx("h-full rounded-lg bg-gray-200")}>
-						<div className="grid h-full place-content-center text-lg text-red-900 md:text-xl">
-							BLOCK NOT FOUND
-							<p>{layoutId}</p>
-						</div>
-					</div>
+				<div className={clsx(className)}>
+					<CellGridEmpty />
 				</div>
 			)
 	}

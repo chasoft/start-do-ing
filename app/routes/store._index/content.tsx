@@ -9,7 +9,7 @@ import { useUrlSharingData } from "~/utils"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { BLOG } from "../blog/metadata"
+import { STORE } from "../store/metadata"
 
 /***************************************************************************
  *
@@ -17,15 +17,15 @@ import { BLOG } from "../blog/metadata"
  *
  **************************************************************************/
 
-export function BlogIndexContent({ className }: { className?: string }) {
-	//TODO: Blog yet implemented yet
-	const urlSharingData = useUrlSharingData(BLOG)
+export function StoreIndexContent({ className }: { className?: string }) {
+	//TODO: Store yet implemented yet
+	const urlSharingData = useUrlSharingData(STORE)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData}>
 			<div className={className}>
 				<div className="h-full p-2 sm:p-4 xl:p-6">
-					<h1 className="text-lg font-semibold sm:text-2xl">Blog</h1>
-					<div>Blog is under construction</div>
+					<h1 className="text-lg font-semibold sm:text-2xl">Store</h1>
+					<div>Store is under construction</div>
 				</div>
 			</div>
 		</ContentWrapper>

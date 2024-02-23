@@ -35,9 +35,6 @@ export function ContentWrapper({
 			className={clsx(
 				"relative h-full w-full transition-all",
 				"rounded-lg bg-white/60 backdrop-blur-lg",
-				// {
-				// 	"rounded-lg border-2 border-gray-100 p-2": !isMobileWindowSize && !isFullScreen
-				// },
 				className
 			)}
 		>

@@ -101,12 +101,6 @@ export function RootGridCells({
 					<OthersGroupCell blockIndex={blockIndex} />
 				</div>
 			)
-		case EMPTY_LAYOUT_ID:
-			return (
-				<div className={clsx(className)}>
-					<CellGridEmpty />
-				</div>
-			)
 		/**********************************************************************
 		 *
 		 *  FEATURED BLOCKS
@@ -133,6 +127,7 @@ export function RootGridCells({
 		/**********************************************************************
 		 *
 		 *  ROOT BLOCKS
+		 *  are blocks that not belong to any group. eg: support page.
 		 *
 		 *********************************************************************/
 		case "support":
@@ -143,9 +138,16 @@ export function RootGridCells({
 			)
 		/**********************************************************************
 		 *
-		 *  FIX BLOCKS
+		 *  EMPTY BLOCK
+		 *  If layoutId is not recognized, it means that this block is empty.
 		 *
 		 *********************************************************************/
+		case EMPTY_LAYOUT_ID:
+			return (
+				<div className={clsx(className)}>
+					<CellGridEmpty />
+				</div>
+			)
 		default:
 			return (
 				<div className={clsx(className)}>
