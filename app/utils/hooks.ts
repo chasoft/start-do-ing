@@ -3,6 +3,8 @@ import React, { useEffect, useMemo } from "react"
 import { useMatches, useSearchParams } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
+import { useMediaQuery } from "@mantine/hooks"
+import { useSetAtom } from "jotai"
 
 /* COMPONENTS & UTILS */
 import { getMediaBreakpoint, getUrlSharingData } from "."
@@ -11,10 +13,8 @@ import type { Block, CustomRouteHandle } from "./types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { DEFAULT_BLOCK } from "~/data"
-import { useMediaQuery } from "@mantine/hooks"
+import { DEFAULT_BLOCK, searchParamsSettings } from "~/data"
 import { urlSharingDataAtom } from "~/atoms/globals"
-import { useSetAtom } from "jotai"
 
 /***************************************************************************
  *
@@ -50,7 +50,9 @@ export function useCurrentLayoutId() {
 
 export function useIsFullscreen() {
 	const [searchParams] = useSearchParams()
-	const isFullScreen = searchParams.get("full") === "true"
+	const isFullScreen =
+		searchParams.get(searchParamsSettings.view.key) ===
+		searchParamsSettings.view.values.fullscreen
 	return isFullScreen
 }
 
