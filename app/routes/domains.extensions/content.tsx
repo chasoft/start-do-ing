@@ -10,6 +10,7 @@ import { useUrlSharingData } from "~/utils"
 
 /* ASSETS & DATA IMPORT */
 import { DOMAINS_EXTENSIONS } from "./metadata"
+import { helpContents } from "./helpContents"
 
 /***************************************************************************
  *
@@ -20,7 +21,7 @@ import { DOMAINS_EXTENSIONS } from "./metadata"
 export function DomainsExtensionsContent({ className }: { className?: string }) {
 	const urlSharingData = useUrlSharingData(DOMAINS_EXTENSIONS)
 	return (
-		<ContentWrapper urlSharingData={urlSharingData}>
+		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<div className={className}>
 				<div className="h-full p-2 sm:p-4 xl:p-6">
 					<h1 className="text-lg font-semibold sm:text-2xl">Domain Extensions</h1>

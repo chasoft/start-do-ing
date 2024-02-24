@@ -24,9 +24,7 @@ export function DevUtilsCurlConverterCellIntro({ blockIndex }: { blockIndex: num
 			metaData={DEV_UTILS_CURL_CONVERTER}
 			upTo={DEV_UTILS.to}
 			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...DevUtilsCurlConverterCell
-		</CellIntro>
+		/>
 	)
 }
 

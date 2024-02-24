@@ -21,7 +21,8 @@ export const DATE_TIME: Block<"date-time"> = {
 	id: "date-time",
 	icon: { data: IconCalendarTime, color: "#000" },
 	title: "Date/Time",
-	description: "Tools for date/time manipulation",
+	description:
+		"Tools for date/time manipulation or counting down for everything you want.",
 	to: "/date-time",
 	group: [],
 	favorite: true,

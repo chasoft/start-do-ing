@@ -22,11 +22,7 @@ import { MATHS_BLOCKS } from "~/data"
 const dropdownMenuItems = getMenuItemsFromBlocks(MATHS_BLOCKS)
 
 export function MathsGroupCellIntro({ blockIndex }: { blockIndex: number }) {
-	return (
-		<CellIntro metaData={MATHS} upTo={MATHS.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...MathsGroupCell
-		</CellIntro>
-	)
+	return <CellIntro metaData={MATHS} upTo={MATHS.to} blockIndex={blockIndex} />
 }
 
 export function MathsGroupCell({ className, blockIndex }: GridCellProps) {

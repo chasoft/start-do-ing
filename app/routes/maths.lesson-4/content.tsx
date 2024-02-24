@@ -10,6 +10,7 @@ import { useUrlSharingData } from "~/utils"
 
 /* ASSETS & DATA IMPORT */
 import { MATHS_4 } from "../maths.lesson-4/metadata"
+import { helpContents } from "./helpContents"
 
 /***************************************************************************
  *
@@ -20,7 +21,7 @@ import { MATHS_4 } from "../maths.lesson-4/metadata"
 export function MathsEmpty4Content({ className }: { className?: string }) {
 	const urlSharingData = useUrlSharingData(MATHS_4)
 	return (
-		<ContentWrapper urlSharingData={urlSharingData}>
+		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<div className={className}>
 				<div className="h-full p-2 sm:p-4 xl:p-6">
 					<h1 className="text-lg font-semibold sm:text-2xl">Maths Empty 4</h1>

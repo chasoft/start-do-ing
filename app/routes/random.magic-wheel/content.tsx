@@ -10,6 +10,7 @@ import { useUrlSharingData } from "~/utils"
 
 /* ASSETS & DATA IMPORT */
 import { RANDOM_MAGIC_WHEEL } from "./metadata"
+import { helpContents } from "./helpContents"
 
 /***************************************************************************
  *
@@ -20,7 +21,7 @@ import { RANDOM_MAGIC_WHEEL } from "./metadata"
 export function RandomMagicWheelContent({ className }: { className?: string }) {
 	const urlSharingData = useUrlSharingData(RANDOM_MAGIC_WHEEL)
 	return (
-		<ContentWrapper urlSharingData={urlSharingData}>
+		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<div className={className}>
 				<div className="h-full p-2 sm:p-4 xl:p-6">
 					<h1 className="text-lg font-semibold sm:text-2xl">Magic Wheel</h1>

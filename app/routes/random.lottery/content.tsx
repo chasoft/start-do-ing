@@ -10,6 +10,7 @@ import { useUrlSharingData } from "~/utils"
 
 /* ASSETS & DATA IMPORT */
 import { RANDOM_LOTTERY } from "./metadata"
+import { helpContents } from "./helpContents"
 
 /***************************************************************************
  *
@@ -20,7 +21,7 @@ import { RANDOM_LOTTERY } from "./metadata"
 export function RandomLotteryContent({ className }: { className?: string }) {
 	const urlSharingData = useUrlSharingData(RANDOM_LOTTERY)
 	return (
-		<ContentWrapper urlSharingData={urlSharingData}>
+		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<div className={className}>
 				<div className="h-full p-2 sm:p-4 xl:p-6">
 					<h1 className="text-lg font-semibold sm:text-2xl">Lottery Generator</h1>

@@ -2,6 +2,7 @@
 import { useSearchParams } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
+import { Tooltip } from "@mantine/core"
 
 /* COMPONENTS & UTILS */
 import { IconArrowCollapse, IconArrowExpand } from "./icons"
@@ -15,13 +16,13 @@ import { IconArrowCollapse, IconArrowExpand } from "./icons"
  *  START
  *
  **************************************************************************/
-
+//BUG: why tooltip not working?
 export function FullScreenButton() {
 	const [searchParams, setSearchParams] = useSearchParams()
 	const isFullScreen = searchParams.get("full") === "true"
 	if (isFullScreen) {
 		return (
-			<div className="p-2">
+			<Tooltip className="p-2" label="Exit full-page">
 				<IconArrowCollapse
 					onClick={() => {
 						setSearchParams((prev) => {
@@ -31,12 +32,12 @@ export function FullScreenButton() {
 					}}
 					className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
 				/>
-			</div>
+			</Tooltip>
 		)
 	}
 
 	return (
-		<div className="p-2">
+		<Tooltip className="p-2" label="View full-page">
 			<IconArrowExpand
 				onClick={() => {
 					setSearchParams((prev) => {
@@ -46,6 +47,6 @@ export function FullScreenButton() {
 				}}
 				className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
 			/>
-		</div>
+		</Tooltip>
 	)
 }

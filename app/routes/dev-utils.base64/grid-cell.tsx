@@ -20,9 +20,7 @@ import { DEV_UTILS } from "../dev-utils/metadata"
 
 export function DevUtilsBase64CellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DEV_UTILS_BASE64} upTo={DEV_UTILS.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...DevUtilsBase64Cell
-		</CellIntro>
+		<CellIntro metaData={DEV_UTILS_BASE64} upTo={DEV_UTILS.to} blockIndex={blockIndex} />
 	)
 }
 

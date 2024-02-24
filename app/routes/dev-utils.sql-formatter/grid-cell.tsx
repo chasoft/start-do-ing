@@ -24,9 +24,7 @@ export function DevUtilsSqlFormatterCellIntro({ blockIndex }: { blockIndex: numb
 			metaData={DEV_UTILS_SQL_FORMATTER}
 			upTo={DEV_UTILS.to}
 			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...DevUtilsSqlFormatterCell
-		</CellIntro>
+		/>
 	)
 }
 

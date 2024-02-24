@@ -10,6 +10,7 @@ import { useUrlSharingData } from "~/utils"
 
 /* ASSETS & DATA IMPORT */
 import { LANGUAGES_100_POPULAR_CHINESE_WORDS } from "./metadata"
+import { helpContents } from "./helpContents"
 
 /***************************************************************************
  *
@@ -24,7 +25,7 @@ export function Languages100PopularChineseWordsContent({
 }) {
 	const urlSharingData = useUrlSharingData(LANGUAGES_100_POPULAR_CHINESE_WORDS)
 	return (
-		<ContentWrapper urlSharingData={urlSharingData}>
+		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<div className={className}>
 				<div className="h-full p-2 sm:p-4 xl:p-6">
 					<h1 className="text-lg font-semibold sm:text-2xl">100 Popular Chinese Words</h1>

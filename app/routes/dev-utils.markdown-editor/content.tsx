@@ -10,6 +10,7 @@ import { useUrlSharingData } from "~/utils"
 
 /* ASSETS & DATA IMPORT */
 import { DEV_UTILS_MARKDOWN_EDITOR } from "./metadata"
+import { helpContents } from "./helpContents"
 
 /***************************************************************************
  *
@@ -20,7 +21,7 @@ import { DEV_UTILS_MARKDOWN_EDITOR } from "./metadata"
 export function DevUtilsMarkdownEditorContent({ className }: { className?: string }) {
 	const urlSharingData = useUrlSharingData(DEV_UTILS_MARKDOWN_EDITOR)
 	return (
-		<ContentWrapper urlSharingData={urlSharingData}>
+		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<div className={className}>
 				<div className="h-full p-2 sm:p-4 xl:p-6">
 					<h1 className="text-lg font-semibold sm:text-2xl">Markdown Editor</h1>

@@ -20,9 +20,7 @@ import { RANDOM } from "../random/metadata"
 
 export function RandomMagicWheelCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={RANDOM_MAGIC_WHEEL} upTo={RANDOM.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...RandomMagicWheelCell
-		</CellIntro>
+		<CellIntro metaData={RANDOM_MAGIC_WHEEL} upTo={RANDOM.to} blockIndex={blockIndex} />
 	)
 }
 

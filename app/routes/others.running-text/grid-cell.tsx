@@ -20,9 +20,7 @@ import { OTHERS } from "../others/metadata"
 
 export function OthersRunningTextCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={OTHERS_RUNNING_TEXT} upTo={OTHERS.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...OthersRunningTextCell
-		</CellIntro>
+		<CellIntro metaData={OTHERS_RUNNING_TEXT} upTo={OTHERS.to} blockIndex={blockIndex} />
 	)
 }
 

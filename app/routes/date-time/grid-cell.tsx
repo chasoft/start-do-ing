@@ -22,11 +22,7 @@ import { DATE_TIME_BLOCKS } from "~/data"
 const dropdownMenuItems = getMenuItemsFromBlocks(DATE_TIME_BLOCKS)
 
 export function DateTimeGroupCellIntro({ blockIndex }: { blockIndex: number }) {
-	return (
-		<CellIntro metaData={DATE_TIME} upTo={DATE_TIME.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...DateTimeGroupCellIntro
-		</CellIntro>
-	)
+	return <CellIntro metaData={DATE_TIME} upTo={DATE_TIME.to} blockIndex={blockIndex} />
 }
 
 export function DateTimeGroupCell({ className, blockIndex }: GridCellProps) {

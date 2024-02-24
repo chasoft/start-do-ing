@@ -21,7 +21,7 @@ export const RANDOM: Block<"random"> = {
 	id: "random",
 	icon: { data: IconArrowsRandom, color: "#000" },
 	title: "Random",
-	description: "From numbers to everything",
+	description: "Randomize or shuffle any data, from numbers to complex objects.",
 	to: "/random",
 	group: [],
 	favorite: true,

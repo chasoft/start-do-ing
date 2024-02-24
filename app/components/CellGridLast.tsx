@@ -36,7 +36,10 @@ export function CellGridLast({ className, blocks, blockIndex }: CellGridLastProp
 	const { hovered: menuHovered, ref: menuRef } = useHover()
 	const { hovered: targetHovered, ref: targetRef } = useHover()
 
-	if (!blocks || blocks.length === 0) {
+	const isLastGridCellBlocksEmpty =
+		!blocks || blocks.every((block) => block.id === EMPTY_LAYOUT_ID)
+
+	if (isLastGridCellBlocksEmpty) {
 		return <CellGridEmpty />
 	}
 

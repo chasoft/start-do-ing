@@ -79,14 +79,17 @@ export const SITE = {
 
 export const breakpoints: Breakpoint[] = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"]
 
+/**
+ * The order of blocks is important. It is the display order of the blocks.
+ */
 export const HOME_BLOCKS: Block<GroupId>[] = [
 	HOME,
 	RANDOM,
 	DATE_TIME,
-	DEV_UTILS,
-	DOMAINS,
 	QUIZ,
 	LANGUAGES,
+	DOMAINS,
+	DEV_UTILS,
 	MATHS,
 	URL_SHORTENER,
 	OTHERS

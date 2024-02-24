@@ -10,6 +10,7 @@ import { useUrlSharingData } from "~/utils"
 
 /* ASSETS & DATA IMPORT */
 import { DEV_UTILS_LOREM_IPSUM_GENERATOR } from "./metadata"
+import { helpContents } from "./helpContents"
 
 /***************************************************************************
  *
@@ -24,7 +25,7 @@ export function DevUtilsLoremIpsumGeneratorContent({
 }) {
 	const urlSharingData = useUrlSharingData(DEV_UTILS_LOREM_IPSUM_GENERATOR)
 	return (
-		<ContentWrapper urlSharingData={urlSharingData}>
+		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<div className={className}>
 				<div className="h-full p-2 sm:p-4 xl:p-6">
 					<h1 className="text-lg font-semibold sm:text-2xl">Lorem Ipsum Generator</h1>

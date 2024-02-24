@@ -61,13 +61,13 @@ export function CellIntro({
 					</div>
 				</Text>
 				<div className="flex grow flex-col">
-					{metaData.description && (
+					{Boolean(metaData.description) && (
 						<Text size="md" lineClamp={2}>
 							{metaData.description}
 						</Text>
 					)}
 				</div>
-				{children && <div>{children}</div>}
+				{Boolean(children) && <div>{children}</div>}
 			</div>
 			<div className="absolute right-0 top-0 flex gap-2 p-2">
 				<HomeLink />

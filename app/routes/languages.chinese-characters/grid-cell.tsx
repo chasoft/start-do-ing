@@ -28,9 +28,7 @@ export function LanguagesChineseCharactersCellIntro({
 			metaData={LANGUAGES_CHINESE_CHARACTERS}
 			upTo={LANGUAGES.to}
 			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...LanguagesChineseCharactersCell
-		</CellIntro>
+		/>
 	)
 }
 

@@ -28,9 +28,7 @@ export function Languages100PopularChineseWordsCellIntro({
 			metaData={LANGUAGES_100_POPULAR_CHINESE_WORDS}
 			upTo={LANGUAGES.to}
 			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...Languages100PopularChineseWordsCell
-		</CellIntro>
+		/>
 	)
 }
 

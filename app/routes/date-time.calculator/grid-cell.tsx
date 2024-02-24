@@ -25,9 +25,7 @@ export function DateTimeCalculatorCellIntro({ blockIndex }: { blockIndex: number
 			metaData={DATE_TIME_CALCULATOR}
 			upTo={DATE_TIME.to}
 			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...DateTimeCalculatorCell
-		</CellIntro>
+		/>
 	)
 }
 

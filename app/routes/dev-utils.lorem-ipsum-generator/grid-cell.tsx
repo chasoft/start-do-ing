@@ -28,9 +28,7 @@ export function DevUtilsLoremIpsumGeneratorCellIntro({
 			metaData={DEV_UTILS_LOREM_IPSUM_GENERATOR}
 			upTo={DEV_UTILS.to}
 			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...DevUtilsLoremIpsumGeneratorCell
-		</CellIntro>
+		/>
 	)
 }
 

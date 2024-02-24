@@ -18,7 +18,7 @@ import type { Block, NavigationGridCells, PageId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { EMPTY_LAYOUT_ID, SIDE_BLOCKS } from "~/data"
+import { SIDE_BLOCKS } from "~/data"
 
 /***************************************************************************
  *
@@ -52,9 +52,6 @@ export function NavigationGrid({
 			[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
 
 	const lastGridCellBlocks = getLastGridCellBlocks(layouts)
-	const isLastGridCellBlocksEmpty = lastGridCellBlocks.every(
-		(block) => block.id === EMPTY_LAYOUT_ID
-	)
 	const activeBlockIndex = layouts.findIndex(({ id }) => id === currentLayoutId)
 
 	React.useEffect(() => {
@@ -110,7 +107,6 @@ export function NavigationGrid({
 					blockIndex={12}
 					layoutId="last"
 					lastGridCellBlocks={lastGridCellBlocks}
-					className={clsx({ hidden: isLastGridCellBlocksEmpty })}
 				/>
 			</motion.div>
 		</>

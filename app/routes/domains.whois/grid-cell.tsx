@@ -19,11 +19,7 @@ import { DOMAINS } from "../domains/metadata"
  **************************************************************************/
 
 export function DomainsWhoiCellIntro({ blockIndex }: { blockIndex: number }) {
-	return (
-		<CellIntro metaData={DOMAINS_WHOIS} upTo={DOMAINS.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...DomainsWhoiCell
-		</CellIntro>
-	)
+	return <CellIntro metaData={DOMAINS_WHOIS} upTo={DOMAINS.to} blockIndex={blockIndex} />
 }
 
 export function DomainsWhoiCell({ className, blockIndex }: GridCellProps) {

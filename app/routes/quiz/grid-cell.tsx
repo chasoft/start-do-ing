@@ -22,11 +22,7 @@ import { QUIZ_BLOCKS } from "~/data"
 const dropdownMenuItems = getMenuItemsFromBlocks(QUIZ_BLOCKS)
 
 export function QuizGroupCellIntro({ blockIndex }: { blockIndex: number }) {
-	return (
-		<CellIntro metaData={QUIZ} upTo={QUIZ.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...QuizGroupCell
-		</CellIntro>
-	)
+	return <CellIntro metaData={QUIZ} upTo={QUIZ.to} blockIndex={blockIndex} />
 }
 
 export function QuizGroupCell({ className, blockIndex }: GridCellProps) {

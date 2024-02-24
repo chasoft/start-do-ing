@@ -24,9 +24,7 @@ export function DateTimeDigitalClockCellIntro({ blockIndex }: { blockIndex: numb
 			metaData={DATE_TIME_DIGITAL_CLOCK}
 			upTo={DATE_TIME.to}
 			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...DateTimeDigitalClockCellIntro
-		</CellIntro>
+		/>
 	)
 }
 

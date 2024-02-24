@@ -19,11 +19,7 @@ import { RANDOM } from "../random/metadata"
  **************************************************************************/
 
 export function RandomUsernameCellIntro({ blockIndex }: { blockIndex: number }) {
-	return (
-		<CellIntro metaData={RANDOM_USERNAME} upTo={RANDOM.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...RandomUsernameCell
-		</CellIntro>
-	)
+	return <CellIntro metaData={RANDOM_USERNAME} upTo={RANDOM.to} blockIndex={blockIndex} />
 }
 
 export function RandomUsernameCell({ className, blockIndex }: GridCellProps) {

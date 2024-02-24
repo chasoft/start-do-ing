@@ -1,6 +1,7 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
+import { Tooltip } from "@mantine/core"
 
 /* COMPONENTS & UTILS */
 import type { UrlSharingData } from "~/utils/types"
@@ -15,7 +16,7 @@ import { IconShare } from "./icons"
  *  START
  *
  **************************************************************************/
-
+//BUG: why tooltip not working?
 export function SharingButton({ data }: { data: UrlSharingData }) {
 	const onClick = async () => {
 		try {
@@ -37,12 +38,12 @@ export function SharingButton({ data }: { data: UrlSharingData }) {
 
 	if ("canShare" in navigator) {
 		return (
-			<div className="p-2">
+			<Tooltip className="p-2" label="Share with...">
 				<IconShare
 					className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
 					onClick={onClick}
 				/>
-			</div>
+			</Tooltip>
 		)
 	}
 

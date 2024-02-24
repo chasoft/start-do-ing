@@ -39,13 +39,13 @@ export function CellItem({ className, metaData, blockIndex }: CellItemProps) {
 				<CellGridLink to={metaData.to} blockIndex={blockIndex}>
 					<div className="flex flex-col p-2">
 						<h2 className="flex items-start gap-2">
-							{metaData.icon && <Icon size={24} className="mt-[2px]" />}{" "}
+							{Boolean(metaData.icon) && <Icon size={24} className="mt-[2px]" />}{" "}
 							<Text size="lg" fw={FW.SEMI_BOLD}>
 								{metaData.title}
 							</Text>
 						</h2>
 						<div className="flex grow flex-col">
-							{metaData.description && (
+							{Boolean(metaData.description) && (
 								<Text size="md" lineClamp={2}>
 									{metaData.description}
 								</Text>

@@ -11,6 +11,7 @@ import { useUrlSharingData } from "~/utils"
 
 /* ASSETS & DATA IMPORT */
 import { HOME } from "./metadata"
+import { helpContents } from "./helpContents"
 
 /***************************************************************************
  *
@@ -21,7 +22,7 @@ import { HOME } from "./metadata"
 export function HomeFeature({ className }: { className?: string }) {
 	const urlSharingData = useUrlSharingData(HOME, false)
 	return (
-		<ContentWrapper urlSharingData={urlSharingData}>
+		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<div className={clsx("h-full", className)}>
 				<HomeTabs />
 			</div>

@@ -24,9 +24,7 @@ export function DateTimeAnalogClockCellIntro({ blockIndex }: { blockIndex: numbe
 			metaData={DATE_TIME_ANALOG_CLOCK}
 			upTo={DATE_TIME.to}
 			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...DateTimeAnalogClockCell
-		</CellIntro>
+		/>
 	)
 }
 

@@ -21,6 +21,7 @@ import logoBmc from "~/assets/logo-bmc.svg"
 import logoMomo from "~/assets/logo-momo.svg"
 import logoPaypal from "~/assets/logo-paypal.svg"
 import vietnamBankTransferring from "~/assets/logo-vietnam-bank-transferring.jpg"
+import { helpContents } from "./helpContents"
 
 /***************************************************************************
  *
@@ -89,7 +90,7 @@ export function SupportFeature({
 }) {
 	const urlSharingData = useUrlSharingData(SUPPORT)
 	return (
-		<ContentWrapper urlSharingData={urlSharingData}>
+		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<motion.div
 				className={clsx("h-full p-2 sm:p-4 xl:p-6", className)}
 				layoutId={layoutId}

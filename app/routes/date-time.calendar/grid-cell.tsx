@@ -20,9 +20,11 @@ import { DATE_TIME } from "../date-time/metadata"
 
 export function DateTimeCalendarCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DATE_TIME_CALENDAR} upTo={DATE_TIME.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...DateTimeCalendarCell
-		</CellIntro>
+		<CellIntro
+			metaData={DATE_TIME_CALENDAR}
+			upTo={DATE_TIME.to}
+			blockIndex={blockIndex}
+		/>
 	)
 }
 
