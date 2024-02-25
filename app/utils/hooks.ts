@@ -1,5 +1,5 @@
 /* FRAMEWORK */
-import React, { useEffect, useMemo } from "react"
+import React, { useCallback, useEffect, useMemo } from "react"
 import { useMatches, useSearchParams } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
@@ -8,12 +8,12 @@ import { useSetAtom } from "jotai"
 
 /* COMPONENTS & UTILS */
 import { getMediaBreakpoint, getUrlSharingData } from "."
-import type { Block, CustomRouteHandle } from "./types"
+import type { Block, CustomRouteHandle, PageId } from "./types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { DEFAULT_BLOCK, searchParamsSettings } from "~/data"
+import { DEFAULT_BLOCK, SPR } from "~/data"
 import { urlSharingDataAtom } from "~/atoms/globals"
 
 /***************************************************************************
@@ -50,9 +50,7 @@ export function useCurrentLayoutId() {
 
 export function useIsFullscreen() {
 	const [searchParams] = useSearchParams()
-	const isFullScreen =
-		searchParams.get(searchParamsSettings.view.key) ===
-		searchParamsSettings.view.values.fullscreen
+	const isFullScreen = searchParams.get(SPR.view.key) === SPR.view.values.fullpage
 	return isFullScreen
 }
 
@@ -61,12 +59,12 @@ export function useIsMobileWindowSize() {
 	return isMobileWindowSize
 }
 
-export function useUrlSharingData(block: Block<unknown>, fullscreen: boolean = true) {
+export function useUrlSharingData(block: Block<PageId>, fullpage: boolean = true) {
 	const setUrlSharingData = useSetAtom(urlSharingDataAtom)
 
 	const urlSharingData = useMemo(
-		() => getUrlSharingData(block, { fullscreen }),
-		[block, fullscreen]
+		() => getUrlSharingData(block, { viewFullpage: fullpage }),
+		[block, fullpage]
 	)
 
 	useEffect(() => {
@@ -74,4 +72,25 @@ export function useUrlSharingData(block: Block<unknown>, fullscreen: boolean = t
 	}, [urlSharingData, setUrlSharingData])
 
 	return urlSharingData
+}
+
+export function useToggleSearchParams({ key, value }: { key: string; value: string }) {
+	const [searchParams, setSearchParams] = useSearchParams()
+	const opened = searchParams.get(key) === value
+
+	const open = useCallback(() => {
+		setSearchParams((prev) => {
+			prev.set(key, value)
+			return prev
+		})
+	}, [key, setSearchParams, value])
+
+	const close = useCallback(() => {
+		setSearchParams((prev) => {
+			prev.delete(key)
+			return prev
+		})
+	}, [key, setSearchParams])
+
+	return [opened, { open, close }] as const
 }

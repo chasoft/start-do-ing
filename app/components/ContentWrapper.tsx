@@ -4,7 +4,7 @@
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { FullScreenButton, HelpButton, SharingButton } from "."
+import { FeedbackButton, FullScreenButton, HelpButton, SharingButton } from "."
 import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
 import type { MarkdownString, UrlSharingData } from "~/utils/types"
 
@@ -42,8 +42,9 @@ export function ContentWrapper({
 				)}
 			>
 				{(!isMobileWindowSize || isFullScreen) && (
-					<div className="absolute right-1 top-1 z-[9999] flex gap-2 p-2">
+					<div className="absolute right-1 top-1 z-[9999] flex gap-3 p-2">
 						<HelpButton data={helpContents} />
+						<FeedbackButton data={urlSharingData} />
 						<SharingButton data={urlSharingData} />
 						<FullScreenButton />
 					</div>

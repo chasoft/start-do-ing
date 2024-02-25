@@ -11,7 +11,7 @@ import { HottestBlocks, LatestReleases, ReleasesHeatMap } from "."
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { FW } from "~/data"
+import { FW, SPR } from "~/data"
 
 /***************************************************************************
  *
@@ -37,7 +37,6 @@ const TABS: Record<TabId, { key: string; label: string }> = {
 }
 
 const DEFAULT_TAB = TABS.hottest
-const ACTIVE_TAB_PARAM_KEY = "tab"
 
 const TABS_CONTENT: Array<{ key: TabId; content: React.ReactNode }> = [
 	{
@@ -57,20 +56,19 @@ const TABS_CONTENT: Array<{ key: TabId; content: React.ReactNode }> = [
 export function HomeTabs({ className }: { className?: string }) {
 	const [searchParams, setSearchParams] = useSearchParams()
 	// We force as TabId but it is not. So, we need to use `?` in `]?.key`
-	const activeTab =
-		TABS[searchParams.get(ACTIVE_TAB_PARAM_KEY) as TabId]?.key ?? DEFAULT_TAB.key
+	const activeTab = TABS[searchParams.get(SPR.tab.key) as TabId]?.key ?? DEFAULT_TAB.key
 	const onTabChange = (selectedTab: unknown) => {
 		switch (selectedTab) {
 			case "latest":
 			case "heatmap":
 				setSearchParams((prev) => {
-					prev.set(ACTIVE_TAB_PARAM_KEY, selectedTab)
+					prev.set(SPR.tab.key, selectedTab)
 					return prev
 				})
 				break
 			default:
 				setSearchParams((prev) => {
-					prev.delete(ACTIVE_TAB_PARAM_KEY)
+					prev.delete(SPR.tab.key)
 					return prev
 				})
 				break

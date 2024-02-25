@@ -15,13 +15,13 @@ import { useUrlSharingData } from "~/utils"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { helpContents } from "./helpContents"
 import { IconBuildingBank, IconHeart } from "@tabler/icons-react"
 import { SUPPORT } from "./metadata"
 import logoBmc from "~/assets/logo-bmc.svg"
 import logoMomo from "~/assets/logo-momo.svg"
 import logoPaypal from "~/assets/logo-paypal.svg"
 import vietnamBankTransferring from "~/assets/logo-vietnam-bank-transferring.jpg"
-import { helpContents } from "./helpContents"
 
 /***************************************************************************
  *
@@ -100,6 +100,7 @@ export function SupportFeature({
 					<span>Support my work</span>
 				</h1>
 				<ScrollArea className="h-[calc(100%-30px)]" offsetScrollbars>
+					{/* BUG:Text when viewing in iPad is too light */}
 					<Markdown className="prose prose-base max-w-3xl">{sponsorText}</Markdown>
 					<div className="my-6 flex max-w-[768px] flex-wrap justify-center gap-6 lg:gap-3">
 						{buyMeCoffee.map((item, idx) => {

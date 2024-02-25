@@ -14,7 +14,7 @@ import type { ReleaseWithMetadata } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { DATE_FORMAT } from "~/data"
+import { DATE_FORMAT, SPR } from "~/data"
 
 /***************************************************************************
  *
@@ -42,7 +42,7 @@ const getHeatmapWidth = () => {
  */
 export function ReleasesHeatMap() {
 	const [searchParams, setSearchParams] = useSearchParams()
-	const dateParam = decodeURIComponent(searchParams.get("date") ?? "")
+	const dateParam = decodeURIComponent(searchParams.get(SPR.date.key) ?? "")
 	const selectedDate =
 		Boolean(dateParam) && dayjs(dateParam).isValid()
 			? dayjs(dateParam).format(DATE_FORMAT.forHeatmap)
@@ -70,7 +70,7 @@ export function ReleasesHeatMap() {
 								{...props}
 								onClick={() => {
 									setSearchParams((prev) => {
-										prev.delete("date")
+										prev.delete(SPR.date.key)
 										return prev
 									})
 								}}
@@ -87,12 +87,15 @@ export function ReleasesHeatMap() {
 									const selected = (e.target as SVGElement).getAttribute("data-date")
 									if (selected) {
 										setSearchParams((prev) => {
-											prev.set("date", dayjs(selected).format(DATE_FORMAT.forSearchParam))
+											prev.set(
+												SPR.date.key,
+												dayjs(selected).format(DATE_FORMAT.forSearchParam)
+											)
 											return prev
 										})
 									} else {
 										setSearchParams((prev) => {
-											prev.delete("date")
+											prev.delete(SPR.date.key)
 											return prev
 										})
 									}

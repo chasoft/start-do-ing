@@ -1,49 +1,34 @@
 /* FRAMEWORK */
-import { useSearchParams } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
 import { Tooltip } from "@mantine/core"
 
 /* COMPONENTS & UTILS */
-import { IconArrowCollapse, IconArrowExpand } from "./icons"
-import { useCallback } from "react"
+import { useToggleSearchParams } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { searchParamsSettings } from "~/data"
+import { IconArrowsMinimize, IconArrowsMaximize } from "@tabler/icons-react"
+import { SPR } from "~/data"
 
 /***************************************************************************
  *
  *  START
  *
  **************************************************************************/
-//BUG: why tooltip not working?
+
 export function FullScreenButton() {
-	const [searchParams, setSearchParams] = useSearchParams()
-	const isFullScreen =
-		searchParams.get(searchParamsSettings.view.key) ===
-		searchParamsSettings.view.values.fullscreen
-
-	const exitFullpage = useCallback(() => {
-		setSearchParams((prev) => {
-			prev.delete(searchParamsSettings.view.key)
-			return prev
-		})
-	}, [setSearchParams])
-
-	const viewFullpage = useCallback(() => {
-		setSearchParams((prev) => {
-			prev.set(searchParamsSettings.view.key, searchParamsSettings.view.values.fullscreen)
-			return prev
-		})
-	}, [setSearchParams])
+	const [isFullScreen, { open, close }] = useToggleSearchParams({
+		key: SPR.view.key,
+		value: SPR.view.values.fullpage
+	})
 
 	if (isFullScreen) {
 		return (
 			<Tooltip className="p-2" label="Exit full-page">
-				<IconArrowCollapse
-					onClick={exitFullpage}
+				<IconArrowsMinimize
+					onClick={close}
 					className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
 				/>
 			</Tooltip>
@@ -52,8 +37,8 @@ export function FullScreenButton() {
 
 	return (
 		<Tooltip className="p-2" label="View full-page">
-			<IconArrowExpand
-				onClick={viewFullpage}
+			<IconArrowsMaximize
+				onClick={open}
 				className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
 			/>
 		</Tooltip>

@@ -9,15 +9,17 @@ import type { UrlSharingData } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconShare } from "./icons"
+import { IconShare } from "@tabler/icons-react"
 
 /***************************************************************************
  *
  *  START
  *
  **************************************************************************/
-//BUG: why tooltip not working?
-export function SharingButton({ data }: { data: UrlSharingData }) {
+
+export function SharingButton({ data }: { data?: UrlSharingData }) {
+	if (!data) return null
+
 	const onClick = async () => {
 		try {
 			const response = await fetch(data.image)

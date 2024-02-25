@@ -204,6 +204,7 @@ export type Block<TLayout> = {
 }
 
 export type UrlSharingData = {
+	layoutId: PageId
 	image: string
 	title: string
 	description: string
