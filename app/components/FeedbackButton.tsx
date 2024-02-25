@@ -18,7 +18,7 @@ import { SPR } from "~/data"
  *  START
  *
  **************************************************************************/
-//BUG: Feedback dialog not showed
+
 export function FeedbackButton({ data }: { data?: UrlSharingData }) {
 	const [showFeedbackDialog, { open, close }] = useToggleSearchParams({
 		key: SPR.dialog.key,
@@ -36,6 +36,7 @@ export function FeedbackButton({ data }: { data?: UrlSharingData }) {
 			</Tooltip>
 
 			<Modal opened={showFeedbackDialog} onClose={close} title="Feedback" centered>
+				{/* TODO: Implement feedback dialog */}
 				{JSON.stringify(data)}
 			</Modal>
 		</>
