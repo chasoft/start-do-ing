@@ -35,7 +35,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DomainsBuilderRoute() {
-	return <DomainsBuilderContent layoutId={layoutId} />
+	return <DomainsBuilderContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

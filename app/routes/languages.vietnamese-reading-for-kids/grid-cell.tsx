@@ -28,9 +28,7 @@ export function LanguagesVietnameseReadingForKidsCellIntro({
 			metaData={LANGUAGES_VIETNAMESE_READING_FOR_KIDS}
 			upTo={LANGUAGES.to}
 			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...LanguagesVietnameseReadingForKidsCell
-		</CellIntro>
+		/>
 	)
 }
 

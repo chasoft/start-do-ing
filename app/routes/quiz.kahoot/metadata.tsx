@@ -9,6 +9,7 @@ import type { Block, QuizLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconPlayerPlay } from "@tabler/icons-react"
+import { QUIZ_KAHOOT_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const KAHOOT_QUIZ: Block<QuizLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: []
+	updates: QUIZ_KAHOOT_UPDATES
 }

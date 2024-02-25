@@ -9,6 +9,7 @@ import type { Block } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconCalendarTime } from "@tabler/icons-react"
+import { DATE_TIME_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -20,7 +21,8 @@ export const DATE_TIME: Block<"date-time"> = {
 	id: "date-time",
 	icon: { data: IconCalendarTime, color: "#000" },
 	title: "Date/Time",
-	description: "Tools for date/time manipulation",
+	description:
+		"Tools for date/time manipulation or counting down for everything you want.",
 	to: "/date-time",
 	group: [],
 	favorite: true,
@@ -30,5 +32,5 @@ export const DATE_TIME: Block<"date-time"> = {
 		bgLighter: "bg-red-100",
 		bgDarker: "bg-red-300"
 	},
-	updates: []
+	updates: DATE_TIME_UPDATES
 }

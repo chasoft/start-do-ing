@@ -24,9 +24,7 @@ export function DevUtilsHashGeneratorCellIntro({ blockIndex }: { blockIndex: num
 			metaData={DEV_UTILS_HASH_GENERATOR}
 			upTo={DEV_UTILS.to}
 			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...DevUtilsHashGeneratorCell
-		</CellIntro>
+		/>
 	)
 }
 

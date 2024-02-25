@@ -9,6 +9,7 @@ import type { Block } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconArrowsRandom } from "@tabler/icons-react"
+import { RANDOM_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -20,7 +21,7 @@ export const RANDOM: Block<"random"> = {
 	id: "random",
 	icon: { data: IconArrowsRandom, color: "#000" },
 	title: "Random",
-	description: "From numbers to everything",
+	description: "Randomize or shuffle any data, from numbers to complex objects.",
 	to: "/random",
 	group: [],
 	favorite: true,
@@ -30,5 +31,5 @@ export const RANDOM: Block<"random"> = {
 		bgLighter: "bg-teal-100",
 		bgDarker: "bg-teal-300"
 	},
-	updates: []
+	updates: RANDOM_UPDATES
 }

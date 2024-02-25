@@ -9,7 +9,7 @@ import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { CellGridEmpty } from "."
-import { getBlockColor, getDynamicBlocks } from "~/utils"
+import { getBlockColor, getDynamicBlocks, getIcon } from "~/utils"
 import type { Block, PageId } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -36,7 +36,10 @@ export function CellGridLast({ className, blocks, blockIndex }: CellGridLastProp
 	const { hovered: menuHovered, ref: menuRef } = useHover()
 	const { hovered: targetHovered, ref: targetRef } = useHover()
 
-	if (!blocks || blocks.length === 0) {
+	const isLastGridCellBlocksEmpty =
+		!blocks || blocks.every((block) => block.id === EMPTY_LAYOUT_ID)
+
+	if (isLastGridCellBlocksEmpty) {
 		return <CellGridEmpty />
 	}
 
@@ -63,17 +66,19 @@ export function CellGridLast({ className, blocks, blockIndex }: CellGridLastProp
 							return <CellGridEmpty key={Math.random()} />
 						}
 						const { bgColor } = getBlockColor(blockIndex + idx)
+						const Icon = getIcon(block.icon?.data)
 						return (
 							<Link
 								key={block.to}
 								to={block.to}
 								className={clsx(
-									"grid place-content-center rounded-lg border-2 p-1",
+									"flex flex-col items-center justify-center rounded-lg border-2 p-1",
 									"bg-opacity-60 transition-all hover:bg-opacity-100",
 									bgColor
 								)}
 							>
-								{block.title}
+								<Icon size={18} />
+								<span className="line-clamp-2 text-xs">{block.title}</span>
 							</Link>
 						)
 					})}

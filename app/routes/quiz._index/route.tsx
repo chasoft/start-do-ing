@@ -33,7 +33,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function KahootIndexRoute() {
-	return <QuizIndexContent layoutId={layoutId} />
+	return <QuizIndexContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

@@ -9,6 +9,7 @@ import type { Block, RandomLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconNumbers } from "@tabler/icons-react"
+import { RANDOM_NUMBER_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,7 @@ export const RANDOM_NUMBER: Block<RandomLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: []
+	updates: RANDOM_NUMBER_UPDATES
 }
+
+// export const HELP

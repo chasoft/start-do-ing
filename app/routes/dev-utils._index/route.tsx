@@ -33,7 +33,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DevUtilsIndexRoute() {
-	return <DevUtilsIndexContent layoutId={layoutId} />
+	return <DevUtilsIndexContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

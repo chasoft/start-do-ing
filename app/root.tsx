@@ -19,18 +19,18 @@ import { Notifications } from "@mantine/notifications"
 import { nprogress, NavigationProgress } from "@mantine/nprogress"
 
 /* STYLING */
-import stylesheet from "~/tailwind.css"
-import "@mantine/core/styles.css"
 import "@mantine/carousel/styles.css"
+import "@mantine/core/styles.css"
+import "@mantine/core/styles/Text.css"
 import "@mantine/notifications/styles.css"
 import "@mantine/nprogress/styles.css"
-import { theme } from "./utils"
-import { MyAppShell } from "./components/MyAppShell"
-import "@mantine/core/styles/Text.css"
+import stylesheet from "~/tailwind.css"
 
 /* COMPONENTS */
+import { MyAppShell } from "./components/MyAppShell"
 
 /* UTILS */
+import { theme } from "./utils"
 
 /* TRANSLATIONS */
 
@@ -66,6 +66,7 @@ function Document({ children }: DocumentProps) {
 		<html lang="en">
 			<head>
 				<meta charSet="utf-8" />
+				<meta name="theme-color" media="(prefers-color-scheme: light)" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<Meta />
 				<Links />

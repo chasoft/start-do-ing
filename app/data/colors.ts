@@ -1,3 +1,4 @@
+import shuffle from "lodash.shuffle"
 import type { TColor } from "~/utils/types"
 
 /***************************************************************************
@@ -7,87 +8,79 @@ import type { TColor } from "~/utils/types"
  **************************************************************************/
 
 export const BLUE: TColor = {
-	bgColor: "bg-blue-300",
-	borderColor: "border-blue-600"
+	bgColor: "bg-blue-200",
+	borderColor: "border-blue-500"
 }
 
 export const SKY: TColor = {
-	bgColor: "bg-sky-300",
-	borderColor: "border-sky-600"
+	bgColor: "bg-sky-200",
+	borderColor: "border-sky-500"
 }
 
 export const CYAN: TColor = {
-	bgColor: "bg-cyan-300",
-	borderColor: "border-blue-300"
+	bgColor: "bg-cyan-200",
+	borderColor: "border-blue-200"
 }
 
 export const TEAL: TColor = {
-	bgColor: "bg-teal-300",
-	borderColor: "border-teal-600"
+	bgColor: "bg-teal-200",
+	borderColor: "border-teal-500"
 }
 
 export const EMERALD: TColor = {
-	bgColor: "bg-emerald-300",
-	borderColor: "border-emerald-600"
+	bgColor: "bg-emerald-200",
+	borderColor: "border-emerald-500"
 }
 
 export const GREEN: TColor = {
-	bgColor: "bg-green-300",
-	borderColor: "border-green-600"
-}
-
-export const LIME: TColor = {
-	bgColor: "bg-lime-300",
-	borderColor: "border-lime-600"
+	bgColor: "bg-green-200",
+	borderColor: "border-green-500"
 }
 
 export const INDIGO: TColor = {
-	bgColor: "bg-indigo-300",
-	borderColor: "border-indigo-600"
+	bgColor: "bg-indigo-200",
+	borderColor: "border-indigo-500"
 }
 
 export const VIOLET: TColor = {
-	bgColor: "bg-violet-300",
-	borderColor: "border-violet-600"
+	bgColor: "bg-violet-200",
+	borderColor: "border-violet-500"
 }
 
 export const PURPLE: TColor = {
-	bgColor: "bg-purple-300",
-	borderColor: "border-purple-600"
+	bgColor: "bg-purple-200",
+	borderColor: "border-purple-500"
 }
 
 export const FUCHSIA: TColor = {
-	bgColor: "bg-fuchsia-300",
-	borderColor: "border-fuchsia-600"
+	bgColor: "bg-fuchsia-200",
+	borderColor: "border-fuchsia-500"
 }
 
 export const ROSE: TColor = {
-	bgColor: "bg-rose-300",
-	borderColor: "border-rose-600"
+	bgColor: "bg-rose-200",
+	borderColor: "border-rose-500"
 }
 
 export const PINK: TColor = {
-	bgColor: "bg-pink-300",
-	borderColor: "border-pink-600"
+	bgColor: "bg-pink-200",
+	borderColor: "border-pink-500"
 }
 
 export const GRAY: TColor = {
-	bgColor: "bg-gray-300",
-	borderColor: "border-gray-600"
+	bgColor: "bg-gray-200",
+	borderColor: "border-gray-500"
 }
 
 export const DEFAULT_COLORS: TColor = GRAY
 
-// export const COLORS: TColor[] = []
-
-export const COLORS: TColor[] = [
+const _COLORS: TColor[] = [
 	BLUE,
 	SKY,
 	CYAN,
 	TEAL,
 	EMERALD,
 	GREEN,
-	LIME,
 	INDIGO,
 	VIOLET,
 	PURPLE,
@@ -95,3 +88,6 @@ export const COLORS: TColor[] = [
 	ROSE,
 	PINK
 ]
+
+// I want something new every time I run the app
+export const COLORS = shuffle(_COLORS)

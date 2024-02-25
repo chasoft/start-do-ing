@@ -39,7 +39,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DevUtilsLoremIpsumGeneratorRoute() {
-	return <DevUtilsLoremIpsumGeneratorContent layoutId={layoutId} />
+	return <DevUtilsLoremIpsumGeneratorContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

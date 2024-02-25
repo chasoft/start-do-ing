@@ -35,7 +35,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function RandomLotteryRoute() {
-	return <RandomLotteryContent layoutId={layoutId} />
+	return <RandomLotteryContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

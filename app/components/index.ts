@@ -33,8 +33,10 @@ export * from "./CellGridRight"
  ******************************************************************/
 
 export * from "./CellGridLink"
+export * from "./FeedbackButton"
 export * from "./FullScreenButton"
 export * from "./GoUpLink"
+export * from "./HelpButton"
 export * from "./HomeLink"
 export * from "./HomeLinks"
 export * from "./HomeTabs"

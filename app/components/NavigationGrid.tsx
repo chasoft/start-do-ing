@@ -18,8 +18,7 @@ import type { Block, NavigationGridCells, PageId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { EMPTY_LAYOUT_ID, SIDE_BLOCKS } from "~/data"
-import { BooksGridCell } from "~/routes/books/grid-cell"
+import { SIDE_BLOCKS } from "~/data"
 
 /***************************************************************************
  *
@@ -53,9 +52,6 @@ export function NavigationGrid({
 			[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
 
 	const lastGridCellBlocks = getLastGridCellBlocks(layouts)
-	const isLastGridCellBlocksEmpty = lastGridCellBlocks.every(
-		(block) => block.id === EMPTY_LAYOUT_ID
-	)
 	const activeBlockIndex = layouts.findIndex(({ id }) => id === currentLayoutId)
 
 	React.useEffect(() => {
@@ -89,15 +85,16 @@ export function NavigationGrid({
 				{/* Row 2 */}
 				<GridCell
 					layoutId={SIDE_BLOCKS.LEFT.id}
-					blockIndex={6}
-					className="aspect-h-2 aspect-w-2 hidden xl:block"
+					blockIndex={13}
+					className="hidden lg:flex"
 				/>
-				<div className="col-span-4 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
+				<div className="col-span-3 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
 					<div className="h-full overflow-hidden">{children}</div>
 				</div>
-				<BooksGridCell
-					isLastGridCellBlocksEmpty={isLastGridCellBlocksEmpty}
-					className={clsx("hidden lg:flex", { "row-span-2": isLastGridCellBlocksEmpty })}
+				<GridCell
+					layoutId={SIDE_BLOCKS.RIGHT.id}
+					blockIndex={14}
+					className="hidden lg:flex"
 				/>
 				{/* Row 3 */}
 				<GridCell blockIndex={6} layoutId={layoutIds[6]} />
@@ -110,7 +107,6 @@ export function NavigationGrid({
 					blockIndex={12}
 					layoutId="last"
 					lastGridCellBlocks={lastGridCellBlocks}
-					className={clsx({ hidden: isLastGridCellBlocksEmpty })}
 				/>
 			</motion.div>
 		</>

@@ -24,9 +24,7 @@ export function DevUtilsMarkdownEditorCellIntro({ blockIndex }: { blockIndex: nu
 			metaData={DEV_UTILS_MARKDOWN_EDITOR}
 			upTo={DEV_UTILS.to}
 			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...DevUtilsMarkdownEditorCell
-		</CellIntro>
+		/>
 	)
 }
 

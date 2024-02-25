@@ -19,11 +19,7 @@ import { QUIZ } from "../quiz/metadata"
  **************************************************************************/
 
 export function KahootQuizCellIntro({ blockIndex }: { blockIndex: number }) {
-	return (
-		<CellIntro metaData={KAHOOT_QUIZ} upTo={QUIZ.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...DateTimeAnalogClockCell
-		</CellIntro>
-	)
+	return <CellIntro metaData={KAHOOT_QUIZ} upTo={QUIZ.to} blockIndex={blockIndex} />
 }
 
 export function KahootQuizCell({ className, blockIndex }: GridCellProps) {

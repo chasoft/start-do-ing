@@ -26,6 +26,9 @@ export function ReleaseTimeline({
 }: {
 	releases: Array<[string, Array<ReleaseWithMetadata>]>
 }) {
+	if (releases.length === 0) {
+		return <p>There is no updates.</p>
+	}
 	return (
 		<ul className="timeline timeline-vertical timeline-compact timeline-snap-icon mb-10 lg:mb-0">
 			{releases.map((release, idx) => (
@@ -44,7 +47,7 @@ export function ReleaseTimeline({
 									key={`${release[0]}-${idx}`}
 									className="flex gap-1 rounded-lg bg-opacity-50 p-2 hover:bg-gray-200"
 								>
-									{releaseDetail.icon && (
+									{Boolean(releaseDetail.icon) && (
 										<span>
 											<Icon size={16} className="mt-[2px]" />
 										</span>

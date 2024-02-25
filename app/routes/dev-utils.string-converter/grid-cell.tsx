@@ -24,9 +24,7 @@ export function DevUtilsStringConverterCellIntro({ blockIndex }: { blockIndex: n
 			metaData={DEV_UTILS_STRING_CONVERTER}
 			upTo={DEV_UTILS.to}
 			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...DevUtilsStringConverterCell
-		</CellIntro>
+		/>
 	)
 }
 

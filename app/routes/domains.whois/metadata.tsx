@@ -9,6 +9,7 @@ import type { Block, DomainsLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconReportSearch } from "@tabler/icons-react"
+import { DOMAINS_WHOIS_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const DOMAINS_WHOIS: Block<DomainsLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: []
+	updates: DOMAINS_WHOIS_UPDATES
 }

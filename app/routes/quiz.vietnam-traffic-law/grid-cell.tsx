@@ -9,6 +9,7 @@ import type { GridCellProps } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { QUIZ } from "../quiz/metadata"
 import { VIETNAM_TRAFFIC_LAW } from "./metadata"
 
 /***************************************************************************
@@ -19,13 +20,7 @@ import { VIETNAM_TRAFFIC_LAW } from "./metadata"
 
 export function VietnamTrafficLawCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro
-			metaData={VIETNAM_TRAFFIC_LAW}
-			upTo={VIETNAM_TRAFFIC_LAW.to}
-			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...VietnamTrafficLawCell
-		</CellIntro>
+		<CellIntro metaData={VIETNAM_TRAFFIC_LAW} upTo={QUIZ.to} blockIndex={blockIndex} />
 	)
 }
 

@@ -20,6 +20,7 @@ export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
 export type GroupId =
 	| "home" //(1)
 	| "blog" //(2)
+	| "store" //(2.1)
 	| "date-time" //(3)
 	| "dev-utils" //(4)
 	| "domains" //(5)
@@ -29,7 +30,6 @@ export type GroupId =
 	| "random" //(9)
 	| "url-shortener" //(10)
 	| "others" //(11)
-	| "books"
 	| "support"
 	| "dashboard"
 
@@ -104,7 +104,7 @@ export type PageId =
 	| SystemLayoutId
 	| FeatureLayoutId
 
-export type FeatureLayoutId = "left" | "right" | "last" | "books"
+export type FeatureLayoutId = "left" | "right" | "last"
 export type SystemLayoutId = "empty" | "404"
 export type DashboardLayoutId = "dashboard" | "settings"
 
@@ -204,6 +204,7 @@ export type Block<TLayout> = {
 }
 
 export type UrlSharingData = {
+	layoutId: PageId
 	image: string
 	title: string
 	description: string

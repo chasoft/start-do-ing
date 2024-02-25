@@ -9,6 +9,7 @@ import type { Block, QuizLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconCar } from "@tabler/icons-react"
+import { QUIZ_VIETNAM_TRAFFIC_LAW_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const VIETNAM_TRAFFIC_LAW: Block<QuizLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: []
+	updates: QUIZ_VIETNAM_TRAFFIC_LAW_UPDATES
 }

@@ -1,14 +1,16 @@
 /* FRAMEWORK */
-import { useSearchParams } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
+import { Tooltip } from "@mantine/core"
 
 /* COMPONENTS & UTILS */
-import { IconArrowCollapse, IconArrowExpand } from "./icons"
+import { useToggleSearchParams } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { IconArrowsMinimize, IconArrowsMaximize } from "@tabler/icons-react"
+import { SPR } from "~/data"
 
 /***************************************************************************
  *
@@ -17,35 +19,28 @@ import { IconArrowCollapse, IconArrowExpand } from "./icons"
  **************************************************************************/
 
 export function FullScreenButton() {
-	const [searchParams, setSearchParams] = useSearchParams()
-	const isFullScreen = searchParams.get("full") === "true"
+	const [isFullScreen, { open, close }] = useToggleSearchParams({
+		key: SPR.view.key,
+		value: SPR.view.values.fullpage
+	})
+
 	if (isFullScreen) {
 		return (
-			<div className="p-2">
-				<IconArrowCollapse
-					onClick={() => {
-						setSearchParams((prev) => {
-							prev.delete("full")
-							return prev
-						})
-					}}
+			<Tooltip className="p-2" label="Exit full-page">
+				<IconArrowsMinimize
+					onClick={close}
 					className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
 				/>
-			</div>
+			</Tooltip>
 		)
 	}
 
 	return (
-		<div className="p-2">
-			<IconArrowExpand
-				onClick={() => {
-					setSearchParams((prev) => {
-						prev.set("full", "true")
-						return prev
-					})
-				}}
+		<Tooltip className="p-2" label="View full-page">
+			<IconArrowsMaximize
+				onClick={open}
 				className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
 			/>
-		</div>
+		</Tooltip>
 	)
 }

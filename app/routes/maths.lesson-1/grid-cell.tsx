@@ -19,11 +19,7 @@ import { MATHS } from "../maths/metadata"
  **************************************************************************/
 
 export function MathsEmpty1CellIntro({ blockIndex }: { blockIndex: number }) {
-	return (
-		<CellIntro metaData={MATHS_1} upTo={MATHS.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...MathsEmpty1Cell
-		</CellIntro>
-	)
+	return <CellIntro metaData={MATHS_1} upTo={MATHS.to} blockIndex={blockIndex} />
 }
 
 export function MathsEmpty1Cell({ className, blockIndex }: GridCellProps) {

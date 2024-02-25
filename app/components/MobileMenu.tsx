@@ -51,7 +51,7 @@ function MobileMenuItem({
 					}
 				>
 					<span>{blocks[0].title}</span>
-					{blocks[0].tag && (
+					{Boolean(blocks[0].tag) && (
 						<span className="badge badge-sm font-mono">{blocks[0].tag}</span>
 					)}
 				</NavLink>
@@ -64,7 +64,7 @@ function MobileMenuItem({
 	return (
 		<details open>
 			<summary className="group">
-				{blocks[0].icon && <Icon size={16} />}
+				{Boolean(blocks[0].icon) && <Icon size={16} />}
 				{blocks[0].title}
 			</summary>
 			<ul>
@@ -79,9 +79,9 @@ function MobileMenuItem({
 									clsx("group", isActive ? "active" : isPending ? "pending" : "")
 								}
 							>
-								{block.icon && <Icon size={16} />}
+								{Boolean(block.icon) && <Icon size={16} />}
 								<span>{block.title}</span>
-								{block.tag && (
+								{Boolean(block.tag) && (
 									<span className="badge badge-sm font-mono">{block.tag}</span>
 								)}
 							</NavLink>
@@ -142,7 +142,7 @@ export function MobileMenu({ onClick }: { onClick: () => void }) {
 					>
 						{i.icon}
 						<span>{i.urlData.label} </span>
-						{i.badge && i.badge}
+						{Boolean(i.badge) && i.badge}
 					</NavLink>
 				</li>
 			))}

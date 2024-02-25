@@ -37,7 +37,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DevUtilsStringConverterRoute() {
-	return <DevUtilsStringConverterContent layoutId={layoutId} />
+	return <DevUtilsStringConverterContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

@@ -33,7 +33,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function LanguagesIndexRoute() {
-	return <LanguagesIndexContent layoutId={layoutId} />
+	return <LanguagesIndexContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

@@ -9,7 +9,7 @@ import type { Block, DateTimeLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconClock } from "@tabler/icons-react"
-import dayjs from "dayjs"
+import { DATE_TIME_ANALOG_CLOCK_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -31,12 +31,5 @@ export const DATE_TIME_ANALOG_CLOCK: Block<DateTimeLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: [
-		{
-			date: dayjs("2024/02/16").valueOf(),
-			codeName: "",
-			description: "string",
-			version: "1.0.0"
-		}
-	]
+	updates: DATE_TIME_ANALOG_CLOCK_UPDATES
 }

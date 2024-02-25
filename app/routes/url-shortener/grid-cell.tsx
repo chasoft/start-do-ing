@@ -23,9 +23,7 @@ const dropdownMenuItems = getMenuItemsFromBlocks(URL_SHORTENER_BLOCKS)
 
 export function UrlShortenerGroupCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={URL_SHORTENER} upTo={URL_SHORTENER.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...UrlShortenerGroupCell
-		</CellIntro>
+		<CellIntro metaData={URL_SHORTENER} upTo={URL_SHORTENER.to} blockIndex={blockIndex} />
 	)
 }
 

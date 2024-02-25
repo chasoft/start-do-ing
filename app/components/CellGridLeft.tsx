@@ -1,7 +1,6 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
@@ -9,7 +8,6 @@ import clsx from "clsx"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { SIDE_BLOCKS } from "~/data"
 
 /***************************************************************************
  *
@@ -19,8 +17,8 @@ import { SIDE_BLOCKS } from "~/data"
 
 export function CellGridLeft({ className }: { className?: string }) {
 	return (
-		<motion.div className={clsx("h-full", className)} layoutId={SIDE_BLOCKS.LEFT.id}>
-			<div className="h-full w-full rounded-lg border-2 border-gray-200 bg-left-block-1 bg-cover"></div>
-		</motion.div>
+		<div className={clsx("h-full", className)}>
+			<div className="h-full w-full"></div>
+		</div>
 	)
 }

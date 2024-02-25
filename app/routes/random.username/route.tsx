@@ -35,7 +35,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function RandomUsernameRoute() {
-	return <RandomUsernameContent layoutId={layoutId} />
+	return <RandomUsernameContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

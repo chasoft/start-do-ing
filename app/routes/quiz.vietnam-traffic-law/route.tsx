@@ -35,7 +35,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function KahootQuizRoute() {
-	return <VietnamTrafficLawContent layoutId={layoutId} />
+	return <VietnamTrafficLawContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

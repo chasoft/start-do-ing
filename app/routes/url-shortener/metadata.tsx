@@ -9,6 +9,7 @@ import type { Block } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconLink } from "@tabler/icons-react"
+import { URL_SHORTENER_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const URL_SHORTENER: Block<"url-shortener"> = {
 		bgLighter: "bg-cyan-100",
 		bgDarker: "bg-cyan-300"
 	},
-	updates: []
+	updates: URL_SHORTENER_UPDATES
 }

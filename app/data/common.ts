@@ -74,19 +74,22 @@ export const SITE = {
 	description: `Unleash your creativity with Startdo.ing's collection of engaging online tools, called "blocks". Explore, have fun, and share the joy with your friends!`,
 	url: "https://startdo.ing",
 	email: "hi@startdo.ing",
-	makeWithLove: "Make with 🤍 by Brian Cao"
+	makeWithLove: "Make with 💖 by Brian Cao"
 } as const
 
 export const breakpoints: Breakpoint[] = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"]
 
+/**
+ * The order of blocks is important. It is the display order of the blocks.
+ */
 export const HOME_BLOCKS: Block<GroupId>[] = [
 	HOME,
 	RANDOM,
 	DATE_TIME,
-	DEV_UTILS,
-	DOMAINS,
 	QUIZ,
 	LANGUAGES,
+	DOMAINS,
+	DEV_UTILS,
 	MATHS,
 	URL_SHORTENER,
 	OTHERS

@@ -37,7 +37,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DevUtilsCurlConverterRoute() {
-	return <DevUtilsCurlConverterContent layoutId={layoutId} />
+	return <DevUtilsCurlConverterContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

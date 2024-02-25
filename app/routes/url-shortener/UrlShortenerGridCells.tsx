@@ -1,7 +1,6 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
@@ -9,6 +8,7 @@ import {
 	CellGridEmpty,
 	CellGridLast,
 	CellGridLeft,
+	CellGridRight,
 	CellIntroSwitcher
 } from "~/components"
 import { UrlShortenerGroupCell, UrlShortenerGroupCellIntro } from "./grid-cell"
@@ -17,7 +17,7 @@ import type { GridCellsProps, UrlShortenerLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { BLOCK_NOT_FOUND, EMPTY_LAYOUT_ID } from "~/data"
+import { EMPTY_LAYOUT_ID } from "~/data"
 
 /***************************************************************************
  *
@@ -56,12 +56,6 @@ export function UrlShortenerGridCells({
 					className={className}
 				/>
 			)
-		case EMPTY_LAYOUT_ID:
-			return (
-				<div className={clsx(className)}>
-					<CellGridEmpty />
-				</div>
-			)
 		/**********************************************************************
 		 *
 		 *  FEATURED BLOCKS
@@ -73,12 +67,12 @@ export function UrlShortenerGridCells({
 					<CellGridLeft />
 				</div>
 			)
-		// case "right":
-		// 	return (
-		// 		<div className={clsx(className)}>
-		// 			<CellGridRight />
-		// 		</div>
-		// 	)
+		case "right":
+			return (
+				<div className={clsx(className)}>
+					<CellGridRight />
+				</div>
+			)
 		case "last":
 			return (
 				<div className={clsx(className)}>
@@ -87,21 +81,20 @@ export function UrlShortenerGridCells({
 			)
 		/**********************************************************************
 		 *
-		 *  FIX BLOCKS
+		 *  EMPTY BLOCK
+		 *  If layoutId is not recognized, it means that this block is empty.
 		 *
 		 *********************************************************************/
+		case EMPTY_LAYOUT_ID:
+			return (
+				<div className={clsx(className)}>
+					<CellGridEmpty />
+				</div>
+			)
 		default:
 			return (
-				<div className={clsx(className, "h-full")}>
-					<motion.div
-						className={clsx("h-full rounded-lg bg-gray-200")}
-						layoutId={BLOCK_NOT_FOUND}
-					>
-						<div className="grid h-full place-content-center text-lg text-red-900 md:text-xl">
-							BLOCK NOT FOUND
-							<p>{layoutId}</p>
-						</div>
-					</motion.div>
+				<div className={clsx(className)}>
+					<CellGridEmpty />
 				</div>
 			)
 	}

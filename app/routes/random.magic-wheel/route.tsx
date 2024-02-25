@@ -35,7 +35,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function RandomMagicWheelRoute() {
-	return <RandomMagicWheelContent layoutId={layoutId} />
+	return <RandomMagicWheelContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

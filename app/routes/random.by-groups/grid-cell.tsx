@@ -20,9 +20,7 @@ import { RANDOM } from "../random/metadata"
 
 export function RandomByGroupsCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={RANDOM_BY_GROUPS} upTo={RANDOM.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...RandomByGroupsCell
-		</CellIntro>
+		<CellIntro metaData={RANDOM_BY_GROUPS} upTo={RANDOM.to} blockIndex={blockIndex} />
 	)
 }
 

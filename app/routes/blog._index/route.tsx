@@ -33,7 +33,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function BlogIndexRoute() {
-	return <BlogIndexContent layoutId={layoutId} />
+	return <BlogIndexContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

@@ -4,9 +4,9 @@
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { FullScreenButton, SharingButton } from "."
+import { FeedbackButton, FullScreenButton, HelpButton, SharingButton } from "."
 import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
-import type { UrlSharingData } from "~/utils/types"
+import type { MarkdownString, UrlSharingData } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
@@ -20,10 +20,12 @@ import type { UrlSharingData } from "~/utils/types"
 
 export function ContentWrapper({
 	urlSharingData,
+	helpContents,
 	children,
 	className
 }: {
 	urlSharingData: UrlSharingData
+	helpContents?: MarkdownString
 	children: React.ReactNode
 	className?: string
 }) {
@@ -31,22 +33,24 @@ export function ContentWrapper({
 	const isMobileWindowSize = useIsMobileWindowSize()
 
 	return (
-		<div
-			className={clsx(
-				"relative h-full w-full transition-all",
-				{
-					"rounded-lg border-2 border-gray-100 p-2": !isMobileWindowSize && !isFullScreen
-				},
-				className
-			)}
-		>
-			{(!isMobileWindowSize || isFullScreen) && (
-				<div className="absolute right-0 top-0 z-[9999] flex sm:right-1 sm:top-1">
-					<SharingButton data={urlSharingData} />
-					<FullScreenButton />
-				</div>
-			)}
-			<div className="h-full w-full">{children}</div>
-		</div>
+		<>
+			<div
+				className={clsx(
+					"relative h-full w-full transition-all",
+					"rounded-lg bg-white/60 backdrop-blur-lg",
+					className
+				)}
+			>
+				{(!isMobileWindowSize || isFullScreen) && (
+					<div className="absolute right-1 top-1 z-[9999] flex gap-3 p-2">
+						<HelpButton data={helpContents} />
+						<FeedbackButton data={urlSharingData} />
+						<SharingButton data={urlSharingData} />
+						<FullScreenButton />
+					</div>
+				)}
+				<div className="h-full w-full">{children}</div>
+			</div>
+		</>
 	)
 }

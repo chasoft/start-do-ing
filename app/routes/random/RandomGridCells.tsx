@@ -1,7 +1,6 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
@@ -9,6 +8,7 @@ import {
 	CellGridEmpty,
 	CellGridLast,
 	CellGridLeft,
+	CellGridRight,
 	CellIntroSwitcher
 } from "~/components"
 import {
@@ -21,7 +21,7 @@ import {
 	RandomMagicWheelCell,
 	RandomMagicWheelCellIntro
 } from "../random.magic-wheel/grid-cell"
-import { RandomNumberCell } from "../random.number/grid-cell"
+import { RandomNumberCell, RandomNumberCellIntro } from "../random.number/grid-cell"
 import { RandomPasswordCell, RandomPasswordCellIntro } from "../random.password/grid-cell"
 import { RandomUsernameCell, RandomUsernameCellIntro } from "../random.username/grid-cell"
 import type { GridCellsProps, RandomLayoutId } from "~/utils/types"
@@ -29,7 +29,7 @@ import type { GridCellsProps, RandomLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { BLOCK_NOT_FOUND, EMPTY_LAYOUT_ID } from "~/data"
+import { EMPTY_LAYOUT_ID } from "~/data"
 
 /***************************************************************************
  *
@@ -90,7 +90,7 @@ export function RandomGridCells({
 			return (
 				<CellIntroSwitcher
 					contentBlock={<RandomNumberCell blockIndex={blockIndex} />}
-					introBlock={<RandomNumberCell blockIndex={blockIndex} />}
+					introBlock={<RandomNumberCellIntro blockIndex={blockIndex} />}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
@@ -113,12 +113,6 @@ export function RandomGridCells({
 					className={className}
 				/>
 			)
-		case EMPTY_LAYOUT_ID:
-			return (
-				<div className={clsx(className)}>
-					<CellGridEmpty />
-				</div>
-			)
 		/**********************************************************************
 		 *
 		 *  FEATURED BLOCKS
@@ -130,12 +124,12 @@ export function RandomGridCells({
 					<CellGridLeft />
 				</div>
 			)
-		// case "right":
-		// 	return (
-		// 		<div className={clsx(className)}>
-		// 			<CellGridRight />
-		// 		</div>
-		// 	)
+		case "right":
+			return (
+				<div className={clsx(className)}>
+					<CellGridRight />
+				</div>
+			)
 		case "last":
 			return (
 				<div className={clsx(className)}>
@@ -144,21 +138,20 @@ export function RandomGridCells({
 			)
 		/**********************************************************************
 		 *
-		 *  FIX BLOCKS
+		 *  EMPTY BLOCK
+		 *  If layoutId is not recognized, it means that this block is empty.
 		 *
 		 *********************************************************************/
+		case EMPTY_LAYOUT_ID:
+			return (
+				<div className={clsx(className)}>
+					<CellGridEmpty />
+				</div>
+			)
 		default:
 			return (
-				<div className={clsx(className, "h-full")}>
-					<motion.div
-						className={clsx("h-full rounded-lg bg-gray-200")}
-						layoutId={BLOCK_NOT_FOUND}
-					>
-						<div className="grid h-full place-content-center text-lg text-red-900 md:text-xl">
-							BLOCK NOT FOUND
-							<p>{layoutId}</p>
-						</div>
-					</motion.div>
+				<div className={clsx(className)}>
+					<CellGridEmpty />
 				</div>
 			)
 	}

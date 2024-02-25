@@ -9,6 +9,7 @@ import type { Block, LanguagesLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconLetterP } from "@tabler/icons-react"
+import { LANGUAGES_100_POPULAR_CHINESE_WORDS_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const LANGUAGES_100_POPULAR_CHINESE_WORDS: Block<LanguagesLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: []
+	updates: LANGUAGES_100_POPULAR_CHINESE_WORDS_UPDATES
 }

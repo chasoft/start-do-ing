@@ -1,7 +1,6 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { motion } from "framer-motion"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
@@ -12,6 +11,7 @@ import { useUrlSharingData } from "~/utils"
 
 /* ASSETS & DATA IMPORT */
 import { HOME } from "./metadata"
+import { helpContents } from "./helpContents"
 
 /***************************************************************************
  *
@@ -19,19 +19,13 @@ import { HOME } from "./metadata"
  *
  **************************************************************************/
 
-export function HomeFeature({
-	className,
-	layoutId
-}: {
-	className?: string
-	layoutId: string
-}) {
+export function HomeFeature({ className }: { className?: string }) {
 	const urlSharingData = useUrlSharingData(HOME, false)
 	return (
-		<ContentWrapper urlSharingData={urlSharingData}>
-			<motion.div className={clsx("h-full", className)} layoutId={layoutId}>
+		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
+			<div className={clsx("h-full", className)}>
 				<HomeTabs />
-			</motion.div>
+			</div>
 		</ContentWrapper>
 	)
 }

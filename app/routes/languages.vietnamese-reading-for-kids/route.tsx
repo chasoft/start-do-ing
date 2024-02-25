@@ -39,7 +39,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function VietnameseReadingForKidsRoute() {
-	return <LanguagesVietnameseReadingForKidsContent layoutId={layoutId} />
+	return <LanguagesVietnameseReadingForKidsContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

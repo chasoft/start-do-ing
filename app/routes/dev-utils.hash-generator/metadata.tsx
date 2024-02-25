@@ -9,6 +9,7 @@ import type { Block, DevUtilsLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconLetterH } from "@tabler/icons-react"
+import { DEV_UTILS_HASH_GENERATOR_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const DEV_UTILS_HASH_GENERATOR: Block<DevUtilsLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: []
+	updates: DEV_UTILS_HASH_GENERATOR_UPDATES
 }

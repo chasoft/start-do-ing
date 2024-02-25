@@ -36,7 +36,6 @@ export function CellGridLink({
 				clsx(
 					"relative block h-full rounded-lg border-2 transition-all",
 					bgColor,
-					`hover:bg-opacity-100`,
 					isActive ? `${borderColor}` : isPending ? "bg-opacity-30" : "bg-opacity-60",
 					className
 				)

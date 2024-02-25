@@ -35,7 +35,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DateTimeCalendarRoute() {
-	return <DateTimeCalendarContent layoutId={layoutId} />
+	return <DateTimeCalendarContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

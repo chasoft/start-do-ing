@@ -9,6 +9,7 @@ import type { Block } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconLanguage } from "@tabler/icons-react"
+import { LANGUAGES_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -30,5 +31,5 @@ export const LANGUAGES: Block<"languages"> = {
 		bgLighter: "bg-lime-100",
 		bgDarker: "bg-lime-300"
 	},
-	updates: []
+	updates: LANGUAGES_UPDATES
 }

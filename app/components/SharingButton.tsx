@@ -1,6 +1,7 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
+import { Tooltip } from "@mantine/core"
 
 /* COMPONENTS & UTILS */
 import type { UrlSharingData } from "~/utils/types"
@@ -8,7 +9,7 @@ import type { UrlSharingData } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconShare } from "./icons"
+import { IconShare } from "@tabler/icons-react"
 
 /***************************************************************************
  *
@@ -16,7 +17,9 @@ import { IconShare } from "./icons"
  *
  **************************************************************************/
 
-export function SharingButton({ data }: { data: UrlSharingData }) {
+export function SharingButton({ data }: { data?: UrlSharingData }) {
+	if (!data) return null
+
 	const onClick = async () => {
 		try {
 			const response = await fetch(data.image)
@@ -37,12 +40,12 @@ export function SharingButton({ data }: { data: UrlSharingData }) {
 
 	if ("canShare" in navigator) {
 		return (
-			<div className="p-2">
+			<Tooltip className="p-2" label="Share with...">
 				<IconShare
 					className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
 					onClick={onClick}
 				/>
-			</div>
+			</Tooltip>
 		)
 	}
 

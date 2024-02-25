@@ -33,7 +33,7 @@ export const handle: CustomRouteHandle = {
 }
 
 export default function DateTimeIndexRoute() {
-	return <DateTimeIndexContent layoutId={layoutId} />
+	return <DateTimeIndexContent />
 }
 
 export const ErrorBoundary = ErrorBoundaryBase(layoutId)

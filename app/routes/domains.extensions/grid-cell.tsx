@@ -20,9 +20,7 @@ import { DOMAINS } from "../domains/metadata"
 
 export function DomainsExtensionsCellIntro({ blockIndex }: { blockIndex: number }) {
 	return (
-		<CellIntro metaData={DOMAINS_EXTENSIONS} upTo={DOMAINS.to} blockIndex={blockIndex}>
-			.... INTRO... SETTINGS...DomainsExtensionsCell
-		</CellIntro>
+		<CellIntro metaData={DOMAINS_EXTENSIONS} upTo={DOMAINS.to} blockIndex={blockIndex} />
 	)
 }
 

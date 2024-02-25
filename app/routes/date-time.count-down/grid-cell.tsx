@@ -24,9 +24,7 @@ export function DateTimeCountDownCellIntro({ blockIndex }: { blockIndex: number 
 			metaData={DATE_TIME_COUNT_DOWN}
 			upTo={DATE_TIME.to}
 			blockIndex={blockIndex}
-		>
-			.... INTRO... SETTINGS...DateTimeCountDownCell
-		</CellIntro>
+		/>
 	)
 }
 

@@ -4,7 +4,7 @@
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { CellGridEmpty, CellGridLast, CellGridLeft } from "."
+import { CellGridEmpty, CellGridLast, CellGridLeft, CellGridRight } from "."
 import { DateTimeGroupCell } from "~/routes/date-time/grid-cell"
 import { DevUtilsGroupCell } from "~/routes/dev-utils/grid-cell"
 import { DomainsGroupCell } from "~/routes/domains/grid-cell"
@@ -22,7 +22,6 @@ import type { GridCellsProps, GroupId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { EMPTY_LAYOUT_ID } from "~/data"
-import { BooksGridCellIntro } from "~/routes/books/grid-cell"
 
 /***************************************************************************
  *
@@ -102,12 +101,6 @@ export function RootGridCells({
 					<OthersGroupCell blockIndex={blockIndex} />
 				</div>
 			)
-		case EMPTY_LAYOUT_ID:
-			return (
-				<div className={clsx(className)}>
-					<CellGridEmpty />
-				</div>
-			)
 		/**********************************************************************
 		 *
 		 *  FEATURED BLOCKS
@@ -119,12 +112,12 @@ export function RootGridCells({
 					<CellGridLeft />
 				</div>
 			)
-		// case "right":
-		// 	return (
-		// 		<div className={clsx(className)}>
-		// 			<CellGridRight />
-		// 		</div>
-		// 	)
+		case "right":
+			return (
+				<div className={clsx(className)}>
+					<CellGridRight />
+				</div>
+			)
 		case "last":
 			return (
 				<div className={clsx(className)}>
@@ -134,6 +127,7 @@ export function RootGridCells({
 		/**********************************************************************
 		 *
 		 *  ROOT BLOCKS
+		 *  are blocks that not belong to any group. eg: support page.
 		 *
 		 *********************************************************************/
 		case "support":
@@ -142,17 +136,18 @@ export function RootGridCells({
 					<SupportGridCellIntro blockIndex={blockIndex} />
 				</div>
 			)
-		case "books":
-			return (
-				<div className={clsx(className)}>
-					<BooksGridCellIntro blockIndex={blockIndex} />
-				</div>
-			)
 		/**********************************************************************
 		 *
-		 *  FIX BLOCKS
+		 *  EMPTY BLOCK
+		 *  If layoutId is not recognized, it means that this block is empty.
 		 *
 		 *********************************************************************/
+		case EMPTY_LAYOUT_ID:
+			return (
+				<div className={clsx(className)}>
+					<CellGridEmpty />
+				</div>
+			)
 		default:
 			return (
 				<div className={clsx(className)}>
