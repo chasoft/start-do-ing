@@ -10,7 +10,7 @@ import Markdown from "react-markdown"
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components"
-import { useUrlSharingData } from "~/utils"
+import { useHelpContents, useUrlSharingData } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -89,6 +89,7 @@ export function SupportFeature({
 	layoutId: string
 }) {
 	const urlSharingData = useUrlSharingData(SUPPORT)
+	useHelpContents(helpContents)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<motion.div

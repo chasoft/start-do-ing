@@ -8,13 +8,13 @@ import { useSetAtom } from "jotai"
 
 /* COMPONENTS & UTILS */
 import { getMediaBreakpoint, getUrlSharingData } from "."
-import type { Block, CustomRouteHandle, PageId } from "./types"
+import type { Block, CustomRouteHandle, MarkdownString, PageId } from "./types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
 import { DEFAULT_BLOCK, SPR } from "~/data"
-import { urlSharingDataAtom } from "~/atoms/globals"
+import { helpContentsAtom, urlSharingDataAtom } from "~/atoms/globals"
 
 /***************************************************************************
  *
@@ -72,6 +72,16 @@ export function useUrlSharingData(block: Block<PageId>, fullpage: boolean = true
 	}, [urlSharingData, setUrlSharingData])
 
 	return urlSharingData
+}
+
+export function useHelpContents(helpContents: MarkdownString) {
+	const setHelpContents = useSetAtom(helpContentsAtom)
+
+	useEffect(() => {
+		setHelpContents(helpContents)
+	}, [helpContents, setHelpContents])
+
+	return helpContents
 }
 
 export function useToggleSearchParams({ key, value }: { key: string; value: string }) {

@@ -11,7 +11,7 @@ import { motion } from "framer-motion"
 /* ASSETS & DATA IMPORT */
 import { HOME } from "~/routes/_index/metadata"
 import { IconHome } from "@tabler/icons-react"
-import { URLS } from "~/data/urls"
+import { URLS } from "~/data"
 
 /***************************************************************************
  *

@@ -5,7 +5,7 @@ import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper, HomeTabs } from "~/components"
-import { useUrlSharingData } from "~/utils"
+import { useHelpContents, useUrlSharingData } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -21,6 +21,7 @@ import { helpContents } from "./helpContents"
 
 export function HomeFeature({ className }: { className?: string }) {
 	const urlSharingData = useUrlSharingData(HOME, false)
+	useHelpContents(helpContents)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<div className={clsx("h-full", className)}>

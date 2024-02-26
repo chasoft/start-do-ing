@@ -21,10 +21,10 @@ import {
 	MATHS_BLOCKS,
 	OTHERS_BLOCKS,
 	RANDOM_BLOCKS,
-	URL_SHORTENER_BLOCKS
+	URL_SHORTENER_BLOCKS,
+	URLS
 } from "~/data"
 import { IconHeart, IconRss, IconShoppingCart } from "@tabler/icons-react"
-import { URLS } from "~/data/urls"
 
 /***************************************************************************
  *
