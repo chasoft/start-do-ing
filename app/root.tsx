@@ -48,7 +48,9 @@ interface DocumentProps {
 
 export const links: LinksFunction = () => [
 	...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
-	{ rel: "stylesheet", href: stylesheet }
+	{ rel: "stylesheet", href: stylesheet },
+	{ rel: "icon", href: "./icon.ico", sizes: "32x32" },
+	{ rel: "icon", href: "./icon.svg", type: "image/svg+xml" },
 ]
 
 function Document({ children }: DocumentProps) {
