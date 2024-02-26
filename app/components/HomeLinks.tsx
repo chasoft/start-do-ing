@@ -9,7 +9,7 @@ import { ButtonLink } from "."
 
 /* ASSETS & DATA IMPORT */
 import { IconHeart, IconRss, IconShoppingCart } from "@tabler/icons-react"
-import { URLS } from "~/data"
+import { URLS } from "~/data/urls"
 
 /***************************************************************************
  *

@@ -16,8 +16,9 @@ import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { BACKGROUNDS, SITE, URLS } from "~/data"
+import { BACKGROUNDS, SITE } from "~/data"
 import { helpContentsAtom, urlSharingDataAtom } from "~/atoms/globals"
+import { URLS } from "~/data/urls"
 import Logo from "~/assets/logo-startdoing.svg"
 
 /***************************************************************************

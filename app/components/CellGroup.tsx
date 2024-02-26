@@ -16,8 +16,9 @@ import type { Block, TablerIconComponent } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { FW, URLS } from "~/data"
+import { FW } from "~/data"
 import { IconMoreHorizontal } from "./icons"
+import { URLS } from "~/data/urls"
 
 /***************************************************************************
  *

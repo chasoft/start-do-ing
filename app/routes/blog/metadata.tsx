@@ -9,7 +9,7 @@ import type { Block, BlogLayoutId } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconArticle } from "@tabler/icons-react"
-import { URLS } from "~/data"
+import { URLS } from "~/data/urls"
 
 /***************************************************************************
  *

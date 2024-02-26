@@ -9,7 +9,7 @@ import type { Block } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { IconShoppingCart } from "@tabler/icons-react"
-import { URLS } from "~/data"
+import { URLS } from "~/data/urls"
 
 /***************************************************************************
  *

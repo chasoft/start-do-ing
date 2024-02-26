@@ -39,7 +39,8 @@ import {
 	IconCoin,
 	IconChevronDown
 } from "@tabler/icons-react"
-import { FW, URLS } from "~/data"
+import { FW } from "~/data"
+import { URLS } from "~/data/urls"
 import Logo from "~/assets/logo-startdoing.svg"
 
 /***************************************************************************
