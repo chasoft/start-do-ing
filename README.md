@@ -30,13 +30,13 @@ The only CLI you need to run is `npm run check-all`
 
 This repository is licensed under the GNU General Public License version 3.0 (GPL-3.0). This license grants you a number of freedoms, including:
 
-* **Using the code for any purpose**: You can use the code in any way you see fit, including commercial applications.
-* **Modifying the code**: You are free to modify the code to suit your needs.
+- **Using the code for any purpose**: You can use the code in any way you see fit, including commercial applications.
+- **Modifying the code**: You are free to modify the code to suit your needs.
 
 However, the GPL-3.0 also requires you to fulfill certain obligations:
 
-* **Including the original copyright notice**: You must include the original copyright notice in any modified versions of the code. In this case, the notice is: `Copyright © 2024 Chasoft Labs`
-* **Sharing modified code**: If you distribute modified versions of the code, you must make the source code for your modifications available to the public, along with a description of the changes you made.
+- **Including the original copyright notice**: You must include the original copyright notice in any modified versions of the code. In this case, the notice is: `Copyright © 2024 Chasoft Labs`
+- **Sharing modified code**: If you distribute modified versions of the code, you must make the source code for your modifications available to the public, along with a description of the changes you made.
 
 By following these guidelines, you can ensure that you are using the code in accordance with the terms of the GPL-3.0 license.
 
