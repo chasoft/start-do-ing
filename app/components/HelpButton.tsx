@@ -11,7 +11,7 @@ import type { MarkdownString } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconHelp } from "@tabler/icons-react"
+import { IconHelp, IconXboxX } from "@tabler/icons-react"
 import { SPR } from "~/data"
 
 /***************************************************************************
@@ -41,12 +41,26 @@ export function HelpButton({
 		<>
 			<Tooltip className="p-2" label="Show Help">
 				<IconHelp
-					className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
+					className="h-6 w-6 cursor-pointer text-gray-700 transition-transform hover:scale-125 active:scale-150"
 					onClick={open}
 				/>
 			</Tooltip>
 
-			<Drawer opened={showHelp} onClose={close} position={position} title={title}>
+			<Drawer
+				opened={showHelp}
+				onClose={close}
+				position={position}
+				title={title}
+				closeButtonProps={{
+					icon: (
+						<IconXboxX
+							size={24}
+							stroke={1.5}
+							className="transition-transform hover:scale-125 active:scale-150"
+						/>
+					)
+				}}
+			>
 				<Markdown className="prose prose-base max-w-3xl">{data}</Markdown>
 			</Drawer>
 		</>

@@ -62,34 +62,37 @@ function MobileMenuItem({
 	const Icon = getIcon(blocks[0]?.icon?.data)
 
 	return (
-		<details open>
-			<summary className="group">
-				{Boolean(blocks[0].icon) && <Icon size={16} />}
-				{blocks[0].title}
-			</summary>
-			<ul>
-				{blocks.slice(1).map((block) => {
-					const key = block.id === EMPTY_LAYOUT_ID ? Math.random() : (block.id as string)
-					const Icon = getIcon(block.icon?.data)
-					return (
-						<li key={key} onClick={onClick} aria-hidden>
-							<NavLink
-								to={block.to}
-								className={({ isActive, isPending }) =>
-									clsx("group", isActive ? "active" : isPending ? "pending" : "")
-								}
-							>
-								{Boolean(block.icon) && <Icon size={16} />}
-								<span>{block.title}</span>
-								{Boolean(block.tag) && (
-									<span className="badge badge-sm font-mono">{block.tag}</span>
-								)}
-							</NavLink>
-						</li>
-					)
-				})}
-			</ul>
-		</details>
+		<li>
+			<details open>
+				<summary className="group">
+					{Boolean(blocks[0].icon) && <Icon size={16} />}
+					{blocks[0].title}
+				</summary>
+				<ul>
+					{blocks.slice(1).map((block) => {
+						const key =
+							block.id === EMPTY_LAYOUT_ID ? Math.random() : (block.id as string)
+						const Icon = getIcon(block.icon?.data)
+						return (
+							<li key={key} onClick={onClick} aria-hidden>
+								<NavLink
+									to={block.to}
+									className={({ isActive, isPending }) =>
+										clsx("group", isActive ? "active" : isPending ? "pending" : "")
+									}
+								>
+									{Boolean(block.icon) && <Icon size={16} />}
+									<span>{block.title}</span>
+									{Boolean(block.tag) && (
+										<span className="badge badge-sm font-mono">{block.tag}</span>
+									)}
+								</NavLink>
+							</li>
+						)
+					})}
+				</ul>
+			</details>
+		</li>
 	)
 }
 
@@ -127,9 +130,7 @@ export function MobileMenu({ onClick }: { onClick: () => void }) {
 	return (
 		<ul className="menu py-3">
 			{menuBlocks.map((blocks, idx) => (
-				<li key={idx}>
-					<MobileMenuItem blocks={blocks} onClick={onClick} />
-				</li>
+				<MobileMenuItem key={idx} blocks={blocks} onClick={onClick} />
 			))}
 			<li>{/* line separator */}</li>
 			{extraMenuItems.map((i, idx) => (

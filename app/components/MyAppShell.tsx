@@ -1,6 +1,6 @@
 /* FRAMEWORK */
 import { Link, useLocation } from "@remix-run/react"
-import React, { useLayoutEffect } from "react"
+import React from "react"
 
 /* THIRD-PARTY PACKAGES */
 import { AppShell, Burger, Group, Image, ScrollArea, Text } from "@mantine/core"
@@ -48,7 +48,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const urlSharingData = useAtomValue(urlSharingDataAtom)
 	const helpContents = useAtomValue(helpContentsAtom)
 
-	useLayoutEffect(function randomBackgroundImage() {
+	React.useEffect(function randomBackgroundImage() {
 		setBackgroundImage(sample(BACKGROUNDS) ?? BACKGROUNDS[0])
 	}, [])
 
@@ -61,7 +61,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 	if (isBlog || isStore) {
 		return children
 	}
-
+	// BUG:Responsive break when the width is exactly 1024px
 	return (
 		<AppShell
 			header={{ height: HEADER_HEIGHT }}

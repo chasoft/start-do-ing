@@ -19,9 +19,8 @@ import { Notifications } from "@mantine/notifications"
 import { nprogress, NavigationProgress } from "@mantine/nprogress"
 
 /* STYLING */
-import "@mantine/carousel/styles.css"
 import "@mantine/core/styles.css"
-import "@mantine/core/styles/Text.css"
+import "@mantine/carousel/styles.css"
 import "@mantine/notifications/styles.css"
 import "@mantine/nprogress/styles.css"
 import stylesheet from "~/tailwind.css"
@@ -49,8 +48,8 @@ interface DocumentProps {
 export const links: LinksFunction = () => [
 	...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 	{ rel: "stylesheet", href: stylesheet },
-	{ rel: "icon", href: "./icon.ico", sizes: "32x32" },
-	{ rel: "icon", href: "./icon.svg", type: "image/svg+xml" }
+	{ rel: "icon", href: "/icon.ico", sizes: "32x32" },
+	{ rel: "icon", href: "/icon.svg", type: "image/svg+xml" }
 ]
 
 function Document({ children }: DocumentProps) {
