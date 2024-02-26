@@ -13,6 +13,7 @@
 		"format:view": "prettier . --check",
 		"test": "jest",
 		"update:remix": "npx upgrade-remix",
+		"check": "npm run lint & npm run typecheck",
 		"check-all": "npm run lint & npm run typecheck & npm run format"
 	},
 	"dependencies": {
