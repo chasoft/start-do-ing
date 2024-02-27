@@ -1,8 +1,8 @@
 /* FRAMEWORK */
-import { useSearchParams } from "@remix-run/react"
+import React from "react"
 
 /* THIRD-PARTY PACKAGES */
-import { ScrollArea, Tabs, Text } from "@mantine/core"
+import { ScrollArea, Tabs } from "@mantine/core"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
@@ -11,7 +11,7 @@ import { HottestBlocks, LatestReleases, ReleasesHeatMap } from "."
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { FW, SPR } from "~/data"
+import { useTabsSearchParams } from "~/utils"
 
 /***************************************************************************
  *
@@ -19,70 +19,46 @@ import { FW, SPR } from "~/data"
  *
  **************************************************************************/
 
-type TabId = "hottest" | "latest" | "heatmap"
+const tabKeys = ["hottest", "latest", "heatmap"] as const
+type TabKey = typeof tabKeys[number]
+const defaultKey: TabKey = "hottest"
 
-const TABS: Record<TabId, { key: string; label: string }> = {
-	hottest: {
-		key: "hottest",
-		label: "Hottest"
-	},
-	latest: {
-		key: "latest",
-		label: "Latest"
-	},
-	heatmap: {
-		key: "heatmap",
-		label: "Heatmap"
-	}
-}
-
-const DEFAULT_TAB = TABS.hottest
-
-const TABS_CONTENT: Array<{ key: TabId; content: React.ReactNode }> = [
+const tabs: Array<{ key: string; label: string, content: React.ReactNode }> = [
 	{
 		key: "hottest",
+		label: "Hottest",
 		content: <HottestBlocks />
 	},
 	{
 		key: "latest",
+		label: "Latest",
 		content: <LatestReleases />
 	},
 	{
 		key: "heatmap",
+		label: "Heatmap",
 		content: <ReleasesHeatMap />
 	}
 ]
 
 export function HomeTabs({ className }: { className?: string }) {
-	const [searchParams, setSearchParams] = useSearchParams()
-	// We force as TabId but it is not. So, we need to use `?` in `]?.key`
-	const activeTab = TABS[searchParams.get(SPR.tab.key) as TabId]?.key ?? DEFAULT_TAB.key
-	const onTabChange = (selectedTab: unknown) => {
-		switch (selectedTab) {
-			case "latest":
-			case "heatmap":
-				setSearchParams((prev) => {
-					prev.set(SPR.tab.key, selectedTab)
-					return prev
-				})
-				break
-			default:
-				setSearchParams((prev) => {
-					prev.delete(SPR.tab.key)
-					return prev
-				})
-				break
-		}
-	}
+	const [selectedTabKey, onTabChange] = useTabsSearchParams<TabKey>({
+		keys: tabKeys,
+		defaultKey
+	})
 	return (
 		<div className={clsx("h-full", className)}>
-			<Tabs color="teal" className="h-full" value={activeTab} onChange={onTabChange}>
+			<Tabs color="teal" className="h-full" value={selectedTabKey} onChange={onTabChange}>
 				<Tabs.List>
-					{Object.values(TABS).map((tab) => (
-						<Tabs.Tab key={tab.key} value={tab.key}>
-							<Text size="md" fw={activeTab === tab.key ? FW.SEMI_BOLD : FW.NORMAL}>
+					{tabs.map((tab) => (
+						<Tabs.Tab
+							key={tab.key}
+							value={tab.key}
+							className="py-2"
+						>
+							<span className={tab.key === selectedTabKey ? "font-bold" : ""}>
 								{tab.label}
-							</Text>
+							</span>
 						</Tabs.Tab>
 					))}
 				</Tabs.List>
@@ -90,7 +66,7 @@ export function HomeTabs({ className }: { className?: string }) {
 					The height of the Tabs.Panel should be offset with the height
 					of Tabs.List. That's why we have the class `calc(100%-50px)`
 				*/}
-				{TABS_CONTENT.map((tab) => (
+				{tabs.map((tab) => (
 					<Tabs.Panel
 						key={tab.key}
 						pt="xs"

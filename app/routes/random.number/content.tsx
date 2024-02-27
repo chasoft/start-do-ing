@@ -30,37 +30,24 @@ function RandomNumberForm() {
 	)
 }
 
-type TabKey = "first-tab" | "second-tab" | "third-tab"
-
-const tabKeys: TabKey[] = ["first-tab", "second-tab", "third-tab"]
+const tabKeys = ["first-tab", "second-tab", "third-tab"] as const
+type TabKey = typeof tabKeys[number]
 const defaultKey: TabKey = "first-tab"
 
-const tabs: { key: TabKey; label: string }[] = [
+const tabs: Array<{ key: TabKey; label: string, content: React.ReactNode }> = [
 	{
 		key: "first-tab",
-		label: "First tab"
-	},
-	{
-		key: "second-tab",
-		label: "Second tab"
-	},
-	{
-		key: "third-tab",
-		label: "Third tab"
-	}
-]
-
-const tabContents: { key: TabKey; content: React.ReactNode }[] = [
-	{
-		key: "first-tab",
+		label: "First tab",
 		content: <div>First Tab Content</div>
 	},
 	{
 		key: "second-tab",
+		label: "Second tab",
 		content: <RandomNumberForm />
 	},
 	{
 		key: "third-tab",
+		label: "Third tab",
 		content: <div>3 third Content</div>
 	}
 ]
@@ -83,20 +70,21 @@ export function RandomNumberContent() {
 						<Tabs.Tab
 							key={tab.key}
 							value={tab.key}
-							className={tab.key === selectedTabKey ? "font-bold" : ""}
 						>
-							{tab.label}
+							<span className={tab.key === selectedTabKey ? "font-bold" : ""}>
+								{tab.label}
+							</span>
 						</Tabs.Tab>
 					))}
 				</Tabs.List>
 
-				{tabContents.map((tabContent) => (
+				{tabs.map((tabs) => (
 					<Tabs.Panel
-						key={tabContent.key}
-						value={tabContent.key}
+						key={tabs.key}
+						value={tabs.key}
 						className="p-2 sm:p-4 xl:p-6"
 					>
-						{tabContent.content}
+						{tabs.content}
 					</Tabs.Panel>
 				))}
 			</Tabs>
