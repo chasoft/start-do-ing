@@ -112,7 +112,9 @@ export function CellGroup({
 					</div>
 				</CellGridLink>
 				{isHome && (
-					<div className="absolute bottom-2 left-2 hidden grow lg:flex">{iconLinks}</div>
+					<div className="absolute bottom-2 left-2 hidden grow gap-1 lg:flex">
+						{iconLinks}
+					</div>
 				)}
 			</div>
 
