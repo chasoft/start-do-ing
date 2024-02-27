@@ -109,7 +109,7 @@ export function useTabsSearchParams<T>({
 	keys,
 	defaultKey
 }: {
-	keys: T[]
+	keys: readonly T[]
 	defaultKey: T
 }) {
 	const [searchParams, setSearchParams] = useSearchParams()
