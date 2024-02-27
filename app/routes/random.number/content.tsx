@@ -2,7 +2,8 @@
 import React from "react"
 
 /* THIRD-PARTY PACKAGES */
-import { Button, NumberInput, Tabs } from "@mantine/core"
+import { Button, NumberInput, ScrollArea, Tabs } from "@mantine/core"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components"
@@ -31,10 +32,10 @@ function RandomNumberForm() {
 }
 
 const tabKeys = ["first-tab", "second-tab", "third-tab"] as const
-type TabKey = typeof tabKeys[number]
+type TabKey = (typeof tabKeys)[number]
 const defaultKey: TabKey = "first-tab"
 
-const tabs: Array<{ key: TabKey; label: string, content: React.ReactNode }> = [
+const tabs: Array<{ key: TabKey; label: string; content: React.ReactNode }> = [
 	{
 		key: "first-tab",
 		label: "First tab",
@@ -53,38 +54,38 @@ const tabs: Array<{ key: TabKey; label: string, content: React.ReactNode }> = [
 ]
 
 export function RandomNumberContent() {
+	useHelpContents(helpContents)
+	const urlSharingData = useUrlSharingData(RANDOM_NUMBER)
 	const [selectedTabKey, onTabChange] = useTabsSearchParams<TabKey>({
 		keys: tabKeys,
 		defaultKey
 	})
-	const urlSharingData = useUrlSharingData(RANDOM_NUMBER)
-	useHelpContents(helpContents)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
-			<Tabs value={selectedTabKey} onChange={onTabChange}>
+			<Tabs className="h-full" value={selectedTabKey} onChange={onTabChange}>
+				<h1 className="px-3 pt-2 text-lg font-semibold lg:hidden">
+					{RANDOM_NUMBER.title}
+				</h1>
 				<Tabs.List>
-					<h1 className="px-3 py-2 text-lg font-semibold sm:text-2xl">
-						{RANDOM_NUMBER.title}
-					</h1>
 					{tabs.map((tab) => (
 						<Tabs.Tab
 							key={tab.key}
 							value={tab.key}
+							className={clsx("py-4", tab.key === selectedTabKey ? "font-bold" : "")}
 						>
-							<span className={tab.key === selectedTabKey ? "font-bold" : ""}>
-								{tab.label}
-							</span>
+							{tab.label}
 						</Tabs.Tab>
 					))}
 				</Tabs.List>
 
-				{tabs.map((tabs) => (
+				{tabs.map((tab) => (
 					<Tabs.Panel
-						key={tabs.key}
-						value={tabs.key}
-						className="p-2 sm:p-4 xl:p-6"
+						key={tab.key}
+						pt="xs"
+						value={tab.key}
+						className="h-[calc(100%-50px)] p-4 xl:p-6"
 					>
-						{tabs.content}
+						<ScrollArea className="h-full">{tab.content}</ScrollArea>
 					</Tabs.Panel>
 				))}
 			</Tabs>

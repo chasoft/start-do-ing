@@ -8,7 +8,7 @@
 		{
 			"column": 120,
 			"color": "#ff0000"
-		},
+		}
 	],
 	"workbench.colorCustomizations": {
 		"editorRuler.foreground": "#ff4081"
