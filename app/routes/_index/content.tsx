@@ -1,10 +1,14 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper, HomeTabs } from "~/components"
+import {
+	ContentTabsWrapper,
+	HottestBlocks,
+	LatestReleases,
+	ReleasesHeatMap
+} from "~/components"
 import { useHelpContents, useUrlSharingData } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
@@ -19,14 +23,44 @@ import { helpContents } from "./helpContents"
  *
  **************************************************************************/
 
-export function HomeFeature({ className }: { className?: string }) {
+type TabKey = "hottest" | "latest" | "heatmap"
+const tabKeys: TabKey[] = ["hottest", "latest", "heatmap"]
+const defaultKey: TabKey = "hottest"
+
+const tabs: Array<{
+	key: string
+	label: string
+	color?: string
+	content: React.ReactNode
+}> = [
+	{
+		key: "hottest",
+		label: "Hottest",
+		content: <HottestBlocks />
+	},
+	{
+		key: "latest",
+		label: "Latest",
+		content: <LatestReleases />
+	},
+	{
+		key: "heatmap",
+		label: "Heatmap",
+		content: <ReleasesHeatMap />
+	}
+]
+
+export function HomeFeature() {
 	const urlSharingData = useUrlSharingData(HOME, false)
 	useHelpContents(helpContents)
 	return (
-		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
-			<div className={clsx("h-full", className)}>
-				<HomeTabs />
-			</div>
-		</ContentWrapper>
+		<ContentTabsWrapper
+			defaultKey={defaultKey}
+			tabs={tabs}
+			tabKeys={tabKeys}
+			defaultTabColor="teal"
+			helpContents={helpContents}
+			urlSharingData={urlSharingData}
+		/>
 	)
 }
