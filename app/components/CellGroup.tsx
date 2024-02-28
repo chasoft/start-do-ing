@@ -97,7 +97,7 @@ export function CellGroup({
 				<CellGridLink to={metaData.to} blockIndex={blockIndex}>
 					<div className="flex flex-col p-2">
 						<h2 className="flex items-start gap-2">
-							{Boolean(metaData.icon) && <Icon size={24} className="mt-[2px]" />}{" "}
+							{!!metaData.icon && <Icon size={24} className="mt-[2px]" />}{" "}
 							<Text size="lg" fw={FW.SEMI_BOLD}>
 								{metaData.title}
 							</Text>
