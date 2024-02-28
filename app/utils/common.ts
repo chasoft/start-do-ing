@@ -62,12 +62,12 @@ export function getAllReleaseUpdates(blocks: Array<Block<unknown>>) {
 		.reduce((allUpdates, block) => {
 			const blockUpdates = block.updates
 				? block.updates.map((update) => ({
-						...update,
-						date: dayjs(update.date).format("YYYY/MM/DD"),
-						title: block.title,
-						to: block.to,
-						icon: block.icon
-					}))
+					...update,
+					date: dayjs(update.date).format("YYYY/MM/DD"),
+					title: block.title,
+					to: block.to,
+					icon: block.icon
+				}))
 				: []
 			return [...allUpdates, ...blockUpdates] as Array<ReleaseWithMetadata>
 		}, [] as Array<ReleaseWithMetadata>)
@@ -91,3 +91,6 @@ export const allReleaseUpdatesForHeatMap = () =>
  */
 export const latestReleaseUpdates = (limit: number = 3) =>
 	Object.entries(allReleaseUpdates).slice(0, limit)
+
+
+export const toNumber = <T>(input: T, defaultValue: number = 0): number => isNaN(Number(input)) ? defaultValue : Number(input)

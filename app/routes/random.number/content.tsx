@@ -1,7 +1,6 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { Button, NumberInput } from "@mantine/core"
 
 /* COMPONENTS & UTILS */
 import { ContentTabsWrapper } from "~/components"
@@ -14,22 +13,14 @@ import { TabData } from "~/utils/types"
 import { helpContents } from "./helpContents"
 import { IconSettings } from "@tabler/icons-react"
 import { RANDOM_NUMBER } from "./metadata"
+import { DisplayTab } from "./display"
+import { OptionsTab } from "./options"
 
 /***************************************************************************
  *
  *  START
  *
  **************************************************************************/
-
-function RandomNumberForm() {
-	return (
-		<div>
-			<NumberInput variant="filled" label="Min" placeholder="Input min value" />
-			<NumberInput variant="filled" label="Max" placeholder="Input max value" />
-			<Button>Generate</Button>
-		</div>
-	)
-}
 
 type TabKey = "contents" | "options"
 const tabKeys: TabKey[] = ["contents", "options"]
@@ -39,13 +30,13 @@ const tabs: Array<TabData<TabKey>> = [
 	{
 		key: "contents",
 		label: "Contents",
-		content: <div>First Tab Content</div>
+		content: <DisplayTab />
 	},
 	{
 		key: "options",
 		label: "Options",
 		icon: <IconSettings className="inline text-slate-700" />,
-		content: <RandomNumberForm />
+		content: <OptionsTab />
 	}
 ]
 
