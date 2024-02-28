@@ -1,5 +1,4 @@
 /* FRAMEWORK */
-import React from "react"
 
 /* THIRD-PARTY PACKAGES */
 import { Button, NumberInput } from "@mantine/core"
@@ -7,11 +6,13 @@ import { Button, NumberInput } from "@mantine/core"
 /* COMPONENTS & UTILS */
 import { ContentTabsWrapper } from "~/components"
 import { useHelpContents, useUrlSharingData } from "~/utils"
+import { TabData } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
 import { helpContents } from "./helpContents"
+import { IconSettings } from "@tabler/icons-react"
 import { RANDOM_NUMBER } from "./metadata"
 
 /***************************************************************************
@@ -30,25 +31,21 @@ function RandomNumberForm() {
 	)
 }
 
-type TabKey = "first-tab" | "second-tab" | "third-tab"
-const tabKeys: TabKey[] = ["first-tab", "second-tab", "third-tab"]
-const defaultKey: TabKey = "first-tab"
+type TabKey = "contents" | "options"
+const tabKeys: TabKey[] = ["contents", "options"]
+const defaultKey: TabKey = "contents"
 
-const tabs: Array<{ key: TabKey; label: string; content: React.ReactNode }> = [
+const tabs: Array<TabData<TabKey>> = [
 	{
-		key: "first-tab",
-		label: "First tab",
+		key: "contents",
+		label: "Contents",
 		content: <div>First Tab Content</div>
 	},
 	{
-		key: "second-tab",
-		label: "Second tab",
+		key: "options",
+		label: "Options",
+		icon: <IconSettings className="inline text-slate-700" />,
 		content: <RandomNumberForm />
-	},
-	{
-		key: "third-tab",
-		label: "Third tab",
-		content: <div>3 third Content</div>
 	}
 ]
 

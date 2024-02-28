@@ -77,7 +77,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 					<Burger opened={opened} onClick={toggle} hiddenFrom="lg" size="sm" />
 					<Link to={URLS.home.to} className="flex gap-2" onClick={close}>
 						<Image src={Logo} className="h-7 w-7" />
-						<p className="mt-[2px] font-bold">{SITE.title}</p>
+						<p className="mt-[2px] hidden font-bold xxs:block">{SITE.title}</p>
 					</Link>
 					<div className="ml-auto flex gap-3 lg:hidden">
 						<HelpButton data={helpContents} />

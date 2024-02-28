@@ -1,5 +1,4 @@
 /* FRAMEWORK */
-import React from "react"
 
 /* THIRD-PARTY PACKAGES */
 import { ScrollArea, Tabs } from "@mantine/core"
@@ -7,7 +6,7 @@ import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components"
-import { MarkdownString, UrlSharingData } from "~/utils/types"
+import { MarkdownString, TabData, UrlSharingData } from "~/utils/types"
 import { useTabsSearchParams } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
@@ -32,7 +31,7 @@ export function ContentTabsWrapper<T extends string>({
 	title?: string
 	defaultKey: T
 	tabKeys: Array<T>
-	tabs: Array<{ key: T; label: string; color?: string; content: React.ReactNode }>
+	tabs: Array<TabData<T>>
 	defaultTabColor?: string
 	helpContents?: MarkdownString
 	urlSharingData: UrlSharingData
@@ -41,6 +40,7 @@ export function ContentTabsWrapper<T extends string>({
 		keys: tabKeys,
 		defaultKey
 	})
+
 	return (
 		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<Tabs
@@ -49,18 +49,26 @@ export function ContentTabsWrapper<T extends string>({
 				value={selectedTabKey}
 				onChange={onTabChange}
 			>
-				{Boolean(title) && (
-					<h1 className="px-3 pt-2 text-lg font-semibold lg:hidden">{title}</h1>
+				{!!title && (
+					<h1 className="px-3 pt-2 text-lg font-semibold sm:hidden">{title}</h1>
 				)}
 				<Tabs.List>
+					{!!title && (
+						<h1 className="hidden px-3 pt-2 text-lg font-semibold sm:block lg:hidden">
+							{title}
+						</h1>
+					)}
 					{tabs.map((tab) => (
 						<Tabs.Tab
 							key={tab.key}
 							value={tab.key}
 							color={tab.color}
-							className={clsx("py-4", tab.key === selectedTabKey ? "font-bold" : "")}
+							className={clsx(
+								"flex gap-1 py-3",
+								tab.key === selectedTabKey ? "font-bold" : ""
+							)}
 						>
-							{tab.label}
+							{tab.icon && tab.icon} {tab.label}
 						</Tabs.Tab>
 					))}
 				</Tabs.List>
