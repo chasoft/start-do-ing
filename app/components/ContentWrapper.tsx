@@ -5,8 +5,9 @@ import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { FeedbackButton, FullScreenButton, HelpButton, SharingButton } from "."
-import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
+import { useInit, useIsFullPage, useIsMobileWindowSize } from "~/utils"
 import type { MarkdownString, UrlSharingData } from "~/utils/types"
+import React from "react"
 
 /* TRANSLATIONS IMPORT */
 
@@ -29,13 +30,14 @@ export function ContentWrapper({
 	children: React.ReactNode
 	className?: string
 }) {
-	const isFullScreen = useIsFullscreen()
+	const isFullScreen = useIsFullPage()
 	const isMobileWindowSize = useIsMobileWindowSize()
-
+	const isInitialized = useInit()
+	const showButtons = isInitialized && (!isMobileWindowSize || isFullScreen)
 	return (
 		<>
 			<div className="relative h-full w-full rounded-lg bg-white/60 backdrop-blur-lg transition-all">
-				{(!isMobileWindowSize || isFullScreen) && (
+				{showButtons && (
 					<div className="absolute right-1 top-1 z-[9999] flex gap-3 p-2">
 						<HelpButton data={helpContents} />
 						<FeedbackButton data={urlSharingData} />

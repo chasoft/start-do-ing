@@ -1,0 +1,9 @@
+/**
+ * AppShell.Main has an inner div containing
+ * this cause trouble when we want to control the height
+ * That's why we need to set it to 100% height here.
+ */
+
+.main > div {
+	height: 100%;
+}

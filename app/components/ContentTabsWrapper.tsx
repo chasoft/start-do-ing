@@ -7,7 +7,7 @@ import clsx from "clsx"
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components"
 import { MarkdownString, TabData, UrlSharingData } from "~/utils/types"
-import { useTabsSearchParams } from "~/utils"
+import { useIsFullPage, useTabsSearchParams } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -40,7 +40,7 @@ export function ContentTabsWrapper<T extends string>({
 		keys: tabKeys,
 		defaultKey
 	})
-
+	const isFullPage = useIsFullPage()
 	return (
 		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<Tabs
@@ -54,7 +54,11 @@ export function ContentTabsWrapper<T extends string>({
 				)}
 				<Tabs.List>
 					{!!title && (
-						<h1 className="hidden px-3 pt-2 text-lg font-semibold sm:block lg:hidden">
+						<h1
+							className={clsx("hidden px-3 pt-2 text-lg font-semibold sm:block", {
+								"lg:hidden": !isFullPage
+							})}
+						>
 							{title}
 						</h1>
 					)}
@@ -64,9 +68,10 @@ export function ContentTabsWrapper<T extends string>({
 							value={tab.key}
 							color={tab.color}
 							className={clsx(
-								"flex gap-1 py-3",
+								"flex h-12 gap-1 py-4",
 								tab.key === selectedTabKey ? "font-bold" : ""
 							)}
+							disabled={tab.disabled}
 						>
 							{tab.icon && tab.icon} {tab.label}
 						</Tabs.Tab>
@@ -75,11 +80,14 @@ export function ContentTabsWrapper<T extends string>({
 				{tabs.map((tab) => (
 					<Tabs.Panel
 						key={tab.key}
-						pt="xs"
 						value={tab.key}
 						className="h-[calc(100%-50px)] p-4 xl:p-6"
 					>
-						<ScrollArea className="h-full">{tab.content}</ScrollArea>
+						{tab.hasScrollAreaWrapper ? (
+							<ScrollArea className="h-full">{tab.content}</ScrollArea>
+						) : (
+							tab.content
+						)}
 					</Tabs.Panel>
 				))}
 			</Tabs>

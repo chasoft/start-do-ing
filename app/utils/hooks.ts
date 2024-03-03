@@ -1,5 +1,5 @@
 /* FRAMEWORK */
-import React, { useCallback, useEffect, useMemo } from "react"
+import React, { useCallback, useEffect, useMemo, useState } from "react"
 import { useMatches, useSearchParams } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
@@ -48,7 +48,7 @@ export function useCurrentLayoutId() {
 	return { currentLayoutId, isGroup }
 }
 
-export function useIsFullscreen() {
+export function useIsFullPage() {
 	const [searchParams] = useSearchParams()
 	const isFullScreen = searchParams.get(SPR.view.key) === SPR.view.values.fullpage
 	return isFullScreen
@@ -138,4 +138,20 @@ export function useTabsSearchParams<T>({
 	)
 
 	return [selectedTabKey, onChangeTab] as const
+}
+
+/**
+ * Many elements reply on useMediaQuery to control their visibility.
+ * The initial would always be false. Some cases, these elements might flicker
+ * briefly on the first render. To avoid this, this hook will help to hide
+ * the element on the first render.
+ */
+export function useInit() {
+	const [init, setInit] = useState<boolean>(false)
+
+	useEffect(() => {
+		setInit(true)
+	}, [])
+
+	return init
 }

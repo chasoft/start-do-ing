@@ -1,0 +1,19 @@
+.label {
+	margin-bottom: 4px;
+}
+
+.controls {
+	height: 100%;
+	overflow: hidden;
+}
+
+.controls {
+	border-radius: 12px;
+}
+
+.input {
+	font-size: 28px;
+	font-weight: 500;
+	height: 60px;
+	border-radius: 12px;
+}

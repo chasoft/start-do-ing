@@ -223,4 +223,6 @@ export type TabData<T> = {
 	color?: string
 	icon?: React.ReactNode
 	content: React.ReactNode
+	disabled?: boolean
+	hasScrollAreaWrapper?: boolean
 }
