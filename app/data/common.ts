@@ -211,7 +211,7 @@ export const FW = {
 	BLACK: 900
 } as const
 
-export const LIMIT_LATEST_RELEASE_DATES = 6
+export const LIMIT_LATEST_RELEASE_DATES = 30
 
 export const DATE_FORMAT = {
 	forSearchParam: "YYYY-MM-DD",

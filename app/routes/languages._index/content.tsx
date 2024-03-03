@@ -3,8 +3,13 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper } from "~/components"
-import { useHelpContents, useUrlSharingData } from "~/utils"
+import { ContentTabsWrapper, LatestReleases } from "~/components"
+import {
+	languagesLatestReleaseUpdates,
+	useHelpContents,
+	useUrlSharingData
+} from "~/utils"
+import type { TabData } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
@@ -18,16 +23,41 @@ import { helpContents } from "./helpContents"
  *
  **************************************************************************/
 
-export function LanguagesIndexContent({ className }: { className?: string }) {
-	const urlSharingData = useUrlSharingData(LANGUAGES)
+type TabKey = "intro"
+const tabKeys: TabKey[] = ["intro"]
+const defaultKey: TabKey = "intro"
+
+function GroupIntro() {
+	return (
+		<section className="">
+			<p className="text-lg font-semibold">Languages</p>
+			<p>Human languages!</p>
+		</section>
+	)
+}
+
+const tabs: Array<TabData<string>> = [
+	{
+		key: "intro",
+		label: "Introduction",
+		content: (
+			<LatestReleases intro={<GroupIntro />} getFunc={languagesLatestReleaseUpdates} />
+		),
+		hasScrollAreaWrapper: true
+	}
+]
+
+export function LanguagesIndexContent() {
+	const urlSharingData = useUrlSharingData(LANGUAGES, false)
 	useHelpContents(helpContents)
 	return (
-		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
-			<div className={className}>
-				<div className="h-full p-2 sm:p-4 xl:p-6">
-					<h1 className="text-lg font-semibold sm:text-2xl">Languages</h1>
-				</div>
-			</div>
-		</ContentWrapper>
+		<ContentTabsWrapper
+			defaultKey={defaultKey}
+			tabs={tabs}
+			tabKeys={tabKeys}
+			defaultTabColor="teal"
+			helpContents={helpContents}
+			urlSharingData={urlSharingData}
+		/>
 	)
 }
