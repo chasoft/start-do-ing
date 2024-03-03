@@ -22,14 +22,19 @@ import { OptionsTab } from "./options"
  *
  **************************************************************************/
 
-type TabKey = "contents" | "options"
-const tabKeys: TabKey[] = ["contents", "options"]
-const defaultKey: TabKey = "contents"
+type TabKey = "focus" | "full" | "options"
+const tabKeys: TabKey[] = ["focus", "full", "options"]
+const defaultKey: TabKey = "focus"
 
 const tabs: Array<TabData<TabKey>> = [
 	{
-		key: "contents",
-		label: "Contents",
+		key: "focus",
+		label: "Focus",
+		content: <DisplayTab view="focus" />
+	},
+	{
+		key: "full",
+		label: "Full",
 		content: <DisplayTab />
 	},
 	{

@@ -61,7 +61,7 @@ export function ReleaseTimeline({
 												{releaseDetail.title}
 											</Text>
 										</Link>
-										<Markdown className="prose prose-sm prose-p:mb-0 prose-ul:mt-0 prose-li:my-0 prose-li:pl-0">
+										<Markdown className="prose prose-sm prose-p:mb-0 prose-ul:mt-0 prose-li:my-0 prose-li:pl-0 dark:text-slate-600">
 											{releaseDetail.description}
 										</Markdown>
 									</div>

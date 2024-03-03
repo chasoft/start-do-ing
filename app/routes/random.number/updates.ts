@@ -12,5 +12,14 @@ export const RANDOM_NUMBER_UPDATES: Array<Release> = [
 		codeName: "random.number",
 		description: "Initial release",
 		version: "1.0.0"
+	},
+	{
+		date: new Date(2024, 2, 3).getTime(),
+		codeName: "random.number",
+		description: `
+- Add: focus view as default view
+- Add: support presets
+`,
+		version: "1.1.0"
 	}
 ]
