@@ -26,3 +26,10 @@ export type QuestionData = {
 }
 
 export * from "./chapter1"
+
+/**
+ * REf
+ * https://oto360.net/thi-lai-xe
+ * https://dailyxe.com.vn/thi-sat-hach/sa-hinh-7n.html
+ * https://hoclaixemoto.com/thi-bang-lai-xe-b2-online/#
+ */
