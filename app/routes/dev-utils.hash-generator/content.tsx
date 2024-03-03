@@ -4,7 +4,7 @@
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components"
-import { useUrlSharingData } from "~/utils"
+import { useHelpContents, useUrlSharingData } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -20,6 +20,7 @@ import { helpContents } from "./helpContents"
 
 export function DevUtilsHashGeneratorContent({ className }: { className?: string }) {
 	const urlSharingData = useUrlSharingData(DEV_UTILS_HASH_GENERATOR)
+	useHelpContents(helpContents)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<div className={className}>

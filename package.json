@@ -13,6 +13,7 @@
 		"format:view": "prettier . --check",
 		"test": "jest",
 		"update:remix": "npx upgrade-remix",
+		"check": "npm run lint & npm run typecheck",
 		"check-all": "npm run lint & npm run typecheck & npm run format"
 	},
 	"dependencies": {
@@ -61,7 +62,7 @@
 		"@types/jest": "^29.5.12",
 		"@types/lodash.groupby": "^4.6.9",
 		"@types/lodash.shuffle": "^4.2.9",
-		"@types/react": "^18.2.20",
+		"@types/react": "^18.2.61",
 		"@types/react-dom": "^18.2.7",
 		"@typescript-eslint/eslint-plugin": "^6.7.4",
 		"daisyui": "^4.6.1",
@@ -82,7 +83,7 @@
 		"tailwindcss": "^3.4.1",
 		"ts-jest": "^29.1.2",
 		"typescript": "^5.3.3",
-		"wrangler": "^3.28.2"
+		"wrangler": "^3.29.0"
 	},
 	"engines": {
 		"node": ">=18.0.0"

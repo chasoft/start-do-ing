@@ -97,7 +97,7 @@ export function CellGroup({
 				<CellGridLink to={metaData.to} blockIndex={blockIndex}>
 					<div className="flex flex-col p-2">
 						<h2 className="flex items-start gap-2">
-							{Boolean(metaData.icon) && <Icon size={24} className="mt-[2px]" />}{" "}
+							{!!metaData.icon && <Icon size={24} className="mt-[2px]" />}{" "}
 							<Text size="lg" fw={FW.SEMI_BOLD}>
 								{metaData.title}
 							</Text>
@@ -112,7 +112,9 @@ export function CellGroup({
 					</div>
 				</CellGridLink>
 				{isHome && (
-					<div className="absolute bottom-2 left-2 hidden grow lg:flex">{iconLinks}</div>
+					<div className="absolute bottom-2 left-2 hidden grow gap-1 lg:flex">
+						{iconLinks}
+					</div>
 				)}
 			</div>
 

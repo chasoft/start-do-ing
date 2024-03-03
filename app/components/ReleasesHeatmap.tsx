@@ -44,7 +44,7 @@ export function ReleasesHeatMap() {
 	const [searchParams, setSearchParams] = useSearchParams()
 	const dateParam = decodeURIComponent(searchParams.get(SPR.date.key) ?? "")
 	const selectedDate =
-		Boolean(dateParam) && dayjs(dateParam).isValid()
+		!!dateParam && dayjs(dateParam).isValid()
 			? dayjs(dateParam).format(DATE_FORMAT.forHeatmap)
 			: null
 	const releasesOfSelectedDate: Array<[string, ReleaseWithMetadata[]]> = selectedDate

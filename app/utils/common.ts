@@ -91,3 +91,6 @@ export const allReleaseUpdatesForHeatMap = () =>
  */
 export const latestReleaseUpdates = (limit: number = 3) =>
 	Object.entries(allReleaseUpdates).slice(0, limit)
+
+export const toNumber = <T>(input: T, defaultValue: number = 0): number =>
+	isNaN(Number(input)) ? defaultValue : Number(input)

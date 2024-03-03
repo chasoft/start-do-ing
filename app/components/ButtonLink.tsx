@@ -44,7 +44,7 @@ export function ButtonLink({
 				)
 			}
 		>
-			{Boolean(icon) && icon}
+			{!!icon && icon}
 			<span>{children}</span>
 		</NavLink>
 	)

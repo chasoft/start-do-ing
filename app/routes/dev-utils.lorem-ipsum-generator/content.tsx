@@ -4,7 +4,7 @@
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components"
-import { useUrlSharingData } from "~/utils"
+import { useHelpContents, useUrlSharingData } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -24,6 +24,7 @@ export function DevUtilsLoremIpsumGeneratorContent({
 	className?: string
 }) {
 	const urlSharingData = useUrlSharingData(DEV_UTILS_LOREM_IPSUM_GENERATOR)
+	useHelpContents(helpContents)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<div className={className}>

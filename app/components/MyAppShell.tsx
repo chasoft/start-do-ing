@@ -1,5 +1,6 @@
 /* FRAMEWORK */
 import { Link, useLocation } from "@remix-run/react"
+import React from "react"
 
 /* THIRD-PARTY PACKAGES */
 import { AppShell, Burger, Group, Image, ScrollArea, Text } from "@mantine/core"
@@ -8,19 +9,18 @@ import { useDisclosure } from "@mantine/hooks"
 import sample from "lodash/sample"
 
 /* COMPONENTS & UTILS */
-import { FullScreenButton, SharingButton } from "."
+import { FeedbackButton, FullScreenButton, HelpButton, SharingButton } from "."
 import { MobileMenu } from "./MobileMenu"
-import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
+import { useIsFullPage, useIsMobileWindowSize } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { FW, SITE } from "~/data"
+import { BACKGROUNDS, SITE } from "~/data"
+import { helpContentsAtom, urlSharingDataAtom } from "~/atoms/globals"
 import { URLS } from "~/data/urls"
-import { urlSharingDataAtom } from "~/atoms/globals"
 import Logo from "~/assets/logo-startdoing.svg"
-import React, { useLayoutEffect } from "react"
-import { BACKGROUNDS } from "~/data/background"
+import appShellMain from "./MyAppShell.module.css"
 
 /***************************************************************************
  *
@@ -44,11 +44,12 @@ function OverlayMobileMenu() {
 export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const [backgroundImage, setBackgroundImage] = React.useState<string>("")
 	const [opened, { toggle, close }] = useDisclosure()
-	const isFullScreen = useIsFullscreen()
+	const isFullScreen = useIsFullPage()
 	const isMobileWindowSize = useIsMobileWindowSize()
 	const urlSharingData = useAtomValue(urlSharingDataAtom)
+	const helpContents = useAtomValue(helpContentsAtom)
 
-	useLayoutEffect(function randomBackgroundImage() {
+	React.useEffect(function randomBackgroundImage() {
 		setBackgroundImage(sample(BACKGROUNDS) ?? BACKGROUNDS[0])
 	}, [])
 
@@ -57,16 +58,16 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 	 */
 	const { pathname } = useLocation()
 	const isBlog = pathname.startsWith(URLS.blog.to)
-	if (isBlog) {
+	const isStore = pathname.startsWith(URLS.store.to)
+	if (isBlog || isStore) {
 		return children
 	}
-
+	// BUG:Responsive break when the width is exactly 1024px
 	return (
 		<AppShell
 			header={{ height: HEADER_HEIGHT }}
 			navbar={{ width: NAVBAR_WIDTH, breakpoint: "lg", collapsed: { mobile: !opened } }}
 			disabled={isFullScreen || !isMobileWindowSize}
-			// className="bg-cover bg-left-block-1"
 			style={{
 				backgroundImage: `url('${backgroundImage}')`,
 				backgroundPosition: "center"
@@ -77,10 +78,12 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 					<Burger opened={opened} onClick={toggle} hiddenFrom="lg" size="sm" />
 					<Link to={URLS.home.to} className="flex gap-2" onClick={close}>
 						<Image src={Logo} className="h-7 w-7" />
-						<Text fw={FW.EXTRA_BOLD}>{SITE.title}</Text>
+						<p className="mt-[2px] hidden font-bold xxs:block">{SITE.title}</p>
 					</Link>
-					<div className="ml-auto flex gap-1 lg:hidden">
-						{urlSharingData.url !== "" && <SharingButton data={urlSharingData} />}
+					<div className="ml-auto flex gap-3 lg:hidden">
+						<HelpButton data={helpContents} />
+						<FeedbackButton data={urlSharingData} />
+						<SharingButton data={urlSharingData} />
 						<FullScreenButton />
 					</div>
 				</Group>
@@ -99,7 +102,9 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 					</Link>
 				</AppShell.Section>
 			</AppShell.Navbar>
-			<AppShell.Main>{children}</AppShell.Main>
+			<AppShell.Main className="h-dvh" classNames={appShellMain}>
+				{children}
+			</AppShell.Main>
 		</AppShell>
 	)
 }

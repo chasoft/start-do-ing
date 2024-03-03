@@ -47,7 +47,7 @@ export function ReleaseTimeline({
 									key={`${release[0]}-${idx}`}
 									className="flex gap-1 rounded-lg bg-opacity-50 p-2 hover:bg-gray-200"
 								>
-									{Boolean(releaseDetail.icon) && (
+									{!!releaseDetail.icon && (
 										<span>
 											<Icon size={16} className="mt-[2px]" />
 										</span>

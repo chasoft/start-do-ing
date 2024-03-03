@@ -1,5 +1,5 @@
 /* FRAMEWORK */
-import React, { useCallback, useEffect, useMemo } from "react"
+import React, { useCallback, useEffect, useMemo, useState } from "react"
 import { useMatches, useSearchParams } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
@@ -8,13 +8,13 @@ import { useSetAtom } from "jotai"
 
 /* COMPONENTS & UTILS */
 import { getMediaBreakpoint, getUrlSharingData } from "."
-import type { Block, CustomRouteHandle, PageId } from "./types"
+import type { Block, CustomRouteHandle, MarkdownString, PageId } from "./types"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
 import { DEFAULT_BLOCK, SPR } from "~/data"
-import { urlSharingDataAtom } from "~/atoms/globals"
+import { helpContentsAtom, urlSharingDataAtom } from "~/atoms/globals"
 
 /***************************************************************************
  *
@@ -48,7 +48,7 @@ export function useCurrentLayoutId() {
 	return { currentLayoutId, isGroup }
 }
 
-export function useIsFullscreen() {
+export function useIsFullPage() {
 	const [searchParams] = useSearchParams()
 	const isFullScreen = searchParams.get(SPR.view.key) === SPR.view.values.fullpage
 	return isFullScreen
@@ -74,6 +74,16 @@ export function useUrlSharingData(block: Block<PageId>, fullpage: boolean = true
 	return urlSharingData
 }
 
+export function useHelpContents(helpContents: MarkdownString) {
+	const setHelpContents = useSetAtom(helpContentsAtom)
+
+	useEffect(() => {
+		setHelpContents(helpContents)
+	}, [helpContents, setHelpContents])
+
+	return helpContents
+}
+
 export function useToggleSearchParams({ key, value }: { key: string; value: string }) {
 	const [searchParams, setSearchParams] = useSearchParams()
 	const opened = searchParams.get(key) === value
@@ -93,4 +103,55 @@ export function useToggleSearchParams({ key, value }: { key: string; value: stri
 	}, [key, setSearchParams])
 
 	return [opened, { open, close }] as const
+}
+
+export function useTabsSearchParams<T>({
+	keys,
+	defaultKey
+}: {
+	keys: T[]
+	defaultKey: T
+}) {
+	const [searchParams, setSearchParams] = useSearchParams()
+	const currentParam = searchParams.get(SPR.tab.key) as T
+	const selectedTabKey =
+		currentParam === defaultKey || !keys.includes(currentParam)
+			? defaultKey
+			: currentParam
+
+	const onChangeTab = useCallback(
+		(tabKey: string | null) => {
+			const _tabKey = tabKey as T
+			if (_tabKey !== defaultKey) {
+				setSearchParams((prev) => {
+					prev.set(SPR.tab.key, tabKey ?? "")
+					return prev
+				})
+			} else {
+				setSearchParams((prev) => {
+					prev.delete(SPR.tab.key)
+					return prev
+				})
+			}
+		},
+		[defaultKey, setSearchParams]
+	)
+
+	return [selectedTabKey, onChangeTab] as const
+}
+
+/**
+ * Many elements reply on useMediaQuery to control their visibility.
+ * The initial would always be false. Some cases, these elements might flicker
+ * briefly on the first render. To avoid this, this hook will help to hide
+ * the element on the first render.
+ */
+export function useInit() {
+	const [init, setInit] = useState<boolean>(false)
+
+	useEffect(() => {
+		setInit(true)
+	}, [])
+
+	return init
 }

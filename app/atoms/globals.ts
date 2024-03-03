@@ -4,7 +4,7 @@
 import { atom } from "jotai"
 
 /* COMPONENTS & UTILS */
-import { UrlSharingData } from "~/utils/types"
+import { MarkdownString, UrlSharingData } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
@@ -24,3 +24,5 @@ export const urlSharingDataAtom = atom<UrlSharingData>({
 	description: "",
 	url: ""
 })
+
+export const helpContentsAtom = atom<MarkdownString>("")

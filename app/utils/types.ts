@@ -1,3 +1,4 @@
+import React from "react"
 import { TablerIconsProps } from "@tabler/icons-react"
 
 /**
@@ -214,4 +215,14 @@ export type UrlSharingData = {
 export type TColor = {
 	bgColor: string
 	borderColor: string
+}
+
+export type TabData<T> = {
+	key: T
+	label: string
+	color?: string
+	icon?: React.ReactNode
+	content: React.ReactNode
+	disabled?: boolean
+	hasScrollAreaWrapper?: boolean
 }

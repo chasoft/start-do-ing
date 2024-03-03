@@ -6,4 +6,11 @@ import { Release } from "~/utils/types"
  *
  **************************************************************************/
 
-export const RANDOM_NUMBER_UPDATES: Array<Release> = []
+export const RANDOM_NUMBER_UPDATES: Array<Release> = [
+	{
+		date: new Date(2024, 2, 2).getTime(),
+		codeName: "random.number",
+		description: "Initial release",
+		version: "1.0.0"
+	}
+]

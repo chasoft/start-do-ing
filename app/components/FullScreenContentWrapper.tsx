@@ -15,5 +15,5 @@
  **************************************************************************/
 
 export function FullScreenContentWrapper({ children }: { children: React.ReactNode }) {
-	return <div className="p-2 sm:p-4">{children}</div>
+	return <div className="h-full p-2 sm:p-4">{children}</div>
 }

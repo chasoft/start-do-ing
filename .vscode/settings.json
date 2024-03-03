@@ -1,0 +1,17 @@
+{
+	"editor.rulers": [
+		{
+			"column": 80,
+			"color": "#ff4081"
+		},
+		100,
+		{
+			"column": 120,
+			"color": "#ff0000"
+		}
+	],
+	"workbench.colorCustomizations": {
+		"editorRuler.foreground": "#ff4081"
+	},
+	"editor.tabSize": 2
+}

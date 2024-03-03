@@ -1,11 +1,16 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { ContentWrapper, HomeTabs } from "~/components"
-import { useUrlSharingData } from "~/utils"
+import {
+	ContentTabsWrapper,
+	HottestBlocks,
+	LatestReleases,
+	ReleasesHeatMap
+} from "~/components"
+import { TabData } from "~/utils/types"
+import { useHelpContents, useUrlSharingData } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -19,13 +24,40 @@ import { helpContents } from "./helpContents"
  *
  **************************************************************************/
 
-export function HomeFeature({ className }: { className?: string }) {
+type TabKey = "hottest" | "latest" | "heatmap"
+const tabKeys: TabKey[] = ["hottest", "latest", "heatmap"]
+const defaultKey: TabKey = "latest"
+
+const tabs: Array<TabData<string>> = [
+	{
+		key: "hottest",
+		label: "Hottest",
+		content: <HottestBlocks />,
+		disabled: true
+	},
+	{
+		key: "latest",
+		label: "Latest",
+		content: <LatestReleases />
+	},
+	{
+		key: "heatmap",
+		label: "Heatmap",
+		content: <ReleasesHeatMap />
+	}
+]
+
+export function HomeFeature() {
 	const urlSharingData = useUrlSharingData(HOME, false)
+	useHelpContents(helpContents)
 	return (
-		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
-			<div className={clsx("h-full", className)}>
-				<HomeTabs />
-			</div>
-		</ContentWrapper>
+		<ContentTabsWrapper
+			defaultKey={defaultKey}
+			tabs={tabs}
+			tabKeys={tabKeys}
+			defaultTabColor="teal"
+			helpContents={helpContents}
+			urlSharingData={urlSharingData}
+		/>
 	)
 }
