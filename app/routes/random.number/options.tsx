@@ -1,16 +1,16 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { NumberInput } from "@mantine/core";
-import { useAtom } from "jotai";
+import { useAtom } from "jotai"
 
 /* COMPONENTS & UTILS */
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { maxNumAtom, minNumAtom } from "./atoms";
-import { toNumber } from "~/utils";
+import { NumberInput } from "~/components/inputs"
+import { randomNumberAtom } from "./atoms"
+import { toNumber } from "~/utils"
 
 /***************************************************************************
  *
@@ -19,34 +19,27 @@ import { toNumber } from "~/utils";
  **************************************************************************/
 
 export function OptionsTab() {
-	const [minNum, setMinNum] = useAtom(minNumAtom)
-	const [maxNum, setMaxNum] = useAtom(maxNumAtom)
+	const [data, setData] = useAtom(randomNumberAtom)
 	return (
-		<div>
-			<div className="flex gap-4">
-				<NumberInput
-					variant="filled"
-					label="Min"
-					placeholder="Input min value"
-					value={minNum}
-					max={maxNum}
-					onChange={(e) => setMinNum(toNumber(e))}
-				/>
-				<div className="grid ">
-					{[].map((num, idx) => <button key={idx}>{num}</button>)}
-
-				</div>
-			</div>
-			<div>
-				<NumberInput
-					variant="filled"
-					label="Max"
-					placeholder="Input max value"
-					value={maxNum}
-					min={minNum}
-					onChange={(e) => setMaxNum(toNumber(e))}
-				/>
-			</div>
+		<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+			<NumberInput
+				label="Min"
+				value={data.min}
+				onChange={(e) => {
+					setData({ ...data, min: toNumber(e) })
+				}}
+				min={undefined}
+				max={data.max}
+			/>
+			<NumberInput
+				label="Max"
+				value={data.max}
+				onChange={(e) => {
+					setData({ ...data, max: toNumber(e) })
+				}}
+				min={data.min}
+				max={undefined}
+			/>
 		</div>
 	)
 }

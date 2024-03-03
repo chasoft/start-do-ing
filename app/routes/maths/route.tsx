@@ -11,7 +11,7 @@ import { MathsGridCells } from "./MathsGridCells"
 
 /* ASSETS & DATA IMPORT */
 import { MATHS_BLOCKS } from "~/data"
-import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
+import { useIsFullPage, useIsMobileWindowSize } from "~/utils"
 
 /***************************************************************************
  *
@@ -20,7 +20,7 @@ import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
  **************************************************************************/
 
 export default function MathsGroupRoute() {
-	const isFullScreen = useIsFullscreen()
+	const isFullScreen = useIsFullPage()
 	const isMobileWindowSize = useIsMobileWindowSize()
 
 	if (isFullScreen) {

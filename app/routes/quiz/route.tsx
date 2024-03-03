@@ -6,7 +6,7 @@ import { Outlet } from "@remix-run/react"
 /* COMPONENTS & UTILS */
 import { FullScreenContentWrapper, NavigationGrid, NavigationMobile } from "~/components"
 import { QuizGridCells } from "./QuizGridCells"
-import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
+import { useIsFullPage, useIsMobileWindowSize } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -20,7 +20,7 @@ import { QUIZ_BLOCKS } from "~/data"
  **************************************************************************/
 
 export default function QuizGroupRoute() {
-	const isFullScreen = useIsFullscreen()
+	const isFullScreen = useIsFullPage()
 	const isMobileWindowSize = useIsMobileWindowSize()
 
 	if (isFullScreen) {

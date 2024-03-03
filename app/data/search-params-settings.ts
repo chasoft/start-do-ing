@@ -35,4 +35,4 @@ export const SPR = {
 		key: "tab",
 		values: {}
 	}
-}
+} as const

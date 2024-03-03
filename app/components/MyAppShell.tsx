@@ -11,7 +11,7 @@ import sample from "lodash/sample"
 /* COMPONENTS & UTILS */
 import { FeedbackButton, FullScreenButton, HelpButton, SharingButton } from "."
 import { MobileMenu } from "./MobileMenu"
-import { useIsFullscreen, useIsMobileWindowSize } from "~/utils"
+import { useIsFullPage, useIsMobileWindowSize } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -20,6 +20,7 @@ import { BACKGROUNDS, SITE } from "~/data"
 import { helpContentsAtom, urlSharingDataAtom } from "~/atoms/globals"
 import { URLS } from "~/data/urls"
 import Logo from "~/assets/logo-startdoing.svg"
+import appShellMain from "./MyAppShell.module.css"
 
 /***************************************************************************
  *
@@ -43,7 +44,7 @@ function OverlayMobileMenu() {
 export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const [backgroundImage, setBackgroundImage] = React.useState<string>("")
 	const [opened, { toggle, close }] = useDisclosure()
-	const isFullScreen = useIsFullscreen()
+	const isFullScreen = useIsFullPage()
 	const isMobileWindowSize = useIsMobileWindowSize()
 	const urlSharingData = useAtomValue(urlSharingDataAtom)
 	const helpContents = useAtomValue(helpContentsAtom)
@@ -101,7 +102,9 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 					</Link>
 				</AppShell.Section>
 			</AppShell.Navbar>
-			<AppShell.Main>{children}</AppShell.Main>
+			<AppShell.Main className="h-dvh" classNames={appShellMain}>
+				{children}
+			</AppShell.Main>
 		</AppShell>
 	)
 }

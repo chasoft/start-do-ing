@@ -9,6 +9,7 @@ import {
 	LatestReleases,
 	ReleasesHeatMap
 } from "~/components"
+import { TabData } from "~/utils/types"
 import { useHelpContents, useUrlSharingData } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
@@ -25,18 +26,14 @@ import { helpContents } from "./helpContents"
 
 type TabKey = "hottest" | "latest" | "heatmap"
 const tabKeys: TabKey[] = ["hottest", "latest", "heatmap"]
-const defaultKey: TabKey = "hottest"
+const defaultKey: TabKey = "latest"
 
-const tabs: Array<{
-	key: string
-	label: string
-	color?: string
-	content: React.ReactNode
-}> = [
+const tabs: Array<TabData<string>> = [
 	{
 		key: "hottest",
 		label: "Hottest",
-		content: <HottestBlocks />
+		content: <HottestBlocks />,
+		disabled: true
 	},
 	{
 		key: "latest",

@@ -1,4 +1,13 @@
-import { atomWithStorage } from "jotai/utils";
+import { atomWithStorage } from "jotai/utils"
 
-export const minNumAtom = atomWithStorage<number>('random.number.minNum', 0)
-export const maxNumAtom = atomWithStorage<number>('random.number.maxNum', 100)
+type RandomNumber = {
+	values: number[]
+	min: number
+	max: number
+}
+
+export const randomNumberAtom = atomWithStorage<RandomNumber>("random.number", {
+	values: [],
+	min: 0,
+	max: 100
+})
