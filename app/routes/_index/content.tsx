@@ -38,12 +38,14 @@ const tabs: Array<TabData<string>> = [
 	{
 		key: "latest",
 		label: "Latest",
-		content: <LatestReleases />
+		content: <LatestReleases />,
+		hasScrollAreaWrapper: true
 	},
 	{
 		key: "heatmap",
 		label: "Heatmap",
-		content: <ReleasesHeatMap />
+		content: <ReleasesHeatMap />,
+		hasScrollAreaWrapper: true
 	}
 ]
 

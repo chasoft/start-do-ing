@@ -45,7 +45,7 @@ export function ContentTabsWrapper<T extends string>({
 		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<Tabs
 				color={defaultTabColor}
-				className="h-full"
+				className="h-full overflow-hidden"
 				value={selectedTabKey}
 				onChange={onTabChange}
 			>

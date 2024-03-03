@@ -102,7 +102,7 @@ export function SupportFeature({
 				</h1>
 				<ScrollArea className="h-[calc(100%-30px)]" offsetScrollbars>
 					{/* BUG:Text when viewing in iPad is too light */}
-					<Markdown className="prose prose-base prose-slate max-w-3xl dark:prose-invert">
+					<Markdown className="prose prose-base prose-slate max-w-3xl dark:text-slate-600">
 						{sponsorText}
 					</Markdown>
 					<div className="my-6 flex max-w-[768px] flex-wrap justify-center gap-6 lg:gap-3">
