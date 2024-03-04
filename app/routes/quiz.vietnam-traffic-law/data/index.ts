@@ -25,7 +25,7 @@ export type QuestionData = {
 	options: Array<{ text: string; correct?: boolean }>
 }
 
-export * from "./chapter1"
+export * from "./600-chapter-1"
 
 /**
  * REf
