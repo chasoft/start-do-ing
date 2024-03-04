@@ -6,12 +6,12 @@ import { useAtom } from "jotai"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
+import TextResize from "~/components/TextResize"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
 import { randomNumberAtom } from "./atoms"
-import TextResize from "~/components/TextResize"
 
 /***************************************************************************
  *

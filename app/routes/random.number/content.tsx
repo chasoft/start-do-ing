@@ -4,8 +4,10 @@
 
 /* COMPONENTS & UTILS */
 import { ContentTabsWrapper } from "~/components"
+import { DisplayTab } from "./DisplayTab"
+import { OptionsTab } from "./OptionsTab"
 import { useHelpContents, useUrlSharingData } from "~/utils"
-import { TabData } from "~/utils/types"
+import type { TabData } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
@@ -13,8 +15,6 @@ import { TabData } from "~/utils/types"
 import { helpContents } from "./helpContents"
 import { IconSettings } from "@tabler/icons-react"
 import { RANDOM_NUMBER } from "./metadata"
-import { DisplayTab } from "./display"
-import { OptionsTab } from "./options"
 
 /***************************************************************************
  *
