@@ -29,6 +29,7 @@ import {
 	SPR,
 	URL_SHORTENER_BLOCKS
 } from "~/data"
+import { HOME_URLS } from "~/data/urls"
 import { IconBlank } from "~/components/icons"
 
 /***************************************************************************
@@ -158,6 +159,8 @@ export const othersLatestReleaseUpdates = (limit: number = UPDATES_LIMIT_VISIBLE
  * OTHER UTILS FUNCTIONS
  *
  *************************************************************************/
+
+export const isHomeURL = (url: string) => HOME_URLS.includes(url)
 
 export const toNumber = <T>(input: T, defaultValue: number = 0): number =>
 	isNaN(Number(input)) ? defaultValue : Number(input)

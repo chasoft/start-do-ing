@@ -10,3 +10,5 @@ export const URLS = {
 	store: { to: "/store", label: "Store" },
 	support: { to: "/support", label: "Support Startdo.ing" }
 } as const
+
+export const HOME_URLS = ["/", "/support"]
