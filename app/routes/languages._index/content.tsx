@@ -29,7 +29,7 @@ const defaultKey: TabKey = "intro"
 
 function GroupIntro() {
 	return (
-		<section className="">
+		<section className="max-w-3xl">
 			<p className="text-lg font-semibold">Languages</p>
 			<p>Human languages!</p>
 		</section>

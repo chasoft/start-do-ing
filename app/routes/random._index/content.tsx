@@ -25,7 +25,7 @@ const defaultKey: TabKey = "intro"
 
 function GroupIntro() {
 	return (
-		<section className="">
+		<section className="max-w-3xl">
 			<p className="text-lg font-semibold">Random</p>
 			<p>Randomize or shuffle any data, from numbers to complex objects!</p>
 		</section>

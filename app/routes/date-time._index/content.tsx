@@ -25,7 +25,7 @@ const defaultKey: TabKey = "intro"
 
 function GroupIntro() {
 	return (
-		<section className="">
+		<section className="max-w-3xl">
 			<p className="text-lg font-semibold">Date/Time</p>
 			<p>Tools for date/time manipulation or counting down for everything you want!</p>
 		</section>

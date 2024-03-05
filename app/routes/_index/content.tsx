@@ -35,7 +35,7 @@ const defaultKey: TabKey = "latest"
 
 function GroupIntro() {
 	return (
-		<section className="">
+		<section className="max-w-3xl">
 			<p className="text-lg font-semibold">Welcome to Startdo.ing!</p>
 			<p>
 				Explore, have fun, and share the joy with your friends! Startdo.ing is a one-stop
