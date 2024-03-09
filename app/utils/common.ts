@@ -59,8 +59,8 @@ export function getUrlSharingData(
 	}
 }
 
-export function getBlockColor(blockIndex: number, defaultColor: TColor = DEFAULT_COLORS) {
-	const color = COLORS[blockIndex] ?? defaultColor
+export function getBlockColor(blockIndex: number) {
+	const color = COLORS[Math.max(blockIndex, 0) % COLORS.length]
 	return color
 }
 
