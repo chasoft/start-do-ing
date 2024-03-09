@@ -1,6 +1,24 @@
+/* FRAMEWORK */
 import { useEffect, useRef } from "react"
 
+/* THIRD-PARTY PACKAGES */
+import clsx from "clsx"
+
+/* COMPONENTS & UTILS */
+
+/* TRANSLATIONS IMPORT */
+
+/* ASSETS & DATA IMPORT */
+
+
+/***************************************************************************
+ *
+ *  START
+ *
+ **************************************************************************/
+
 type TextResizeProps = {
+	className?: string
 	children: React.ReactNode
 }
 
@@ -10,7 +28,7 @@ const standardFontSize = "1em"
 const parentLayerClasses =
 	"h-fit w-fit mt-[var(--resize-layer-padding-top)] text-[length:var(--dynamic-font-size)]"
 
-export default function TextResize({ children }: TextResizeProps) {
+export default function TextResize({ className, children }: TextResizeProps) {
 	const resizeLayer = useRef<HTMLDivElement>(null)
 	useEffect(() => {
 		const targetEl = resizeLayer.current ?? document.body
@@ -43,7 +61,7 @@ export default function TextResize({ children }: TextResizeProps) {
 	}, [])
 
 	return (
-		<div className="flex h-full w-full max-w-7xl justify-center">
+		<div className={clsx("flex max-w-7xl justify-center", className)}>
 			<div id="resizeLayer" ref={resizeLayer} className={parentLayerClasses}>
 				{children}
 			</div>

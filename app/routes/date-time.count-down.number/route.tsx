@@ -14,7 +14,8 @@ import type { CustomRouteHandle } from "~/utils/types"
 
 /* ASSETS & DATA IMPORT */
 import { DATE_TIME_BLOCKS } from "~/data"
-import { DATE_TIME_COUNT_DOWN } from "./metadata"
+import { DATE_TIME_COUNT_DOWN_NUMBER } from "./metadata"
+import "@mantine/core/styles/ActionIcon.css"
 
 /***************************************************************************
  *
@@ -22,7 +23,7 @@ import { DATE_TIME_COUNT_DOWN } from "./metadata"
  *
  **************************************************************************/
 
-const layoutId = "date-time-count-down"
+const layoutId = "$date-time-count-down|number"
 
 export const meta: MetaFunction = () => {
 	const { title, description } = getBlockMetaData(DATE_TIME_BLOCKS, layoutId)
@@ -31,7 +32,9 @@ export const meta: MetaFunction = () => {
 
 export const handle: CustomRouteHandle = {
 	layoutId,
-	breadcrumb: () => <Link to={DATE_TIME_COUNT_DOWN.to}>{DATE_TIME_COUNT_DOWN.title}</Link>
+	breadcrumb: () => (
+		<Link to={DATE_TIME_COUNT_DOWN_NUMBER.to}>{DATE_TIME_COUNT_DOWN_NUMBER.title}</Link>
+	)
 }
 
 export default function DateTimeCountDownRoute() {
