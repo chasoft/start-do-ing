@@ -3,15 +3,11 @@
 /* THIRD-PARTY PACKAGES */
 import dayjs from "dayjs"
 import groupByFunc from "lodash.groupby"
+import reverse from "lodash.reverse"
+import sortBy from "lodash.sortby"
 
 /* COMPONENTS & UTILS */
-import type {
-	Block,
-	PageId,
-	ReleaseWithMetadata,
-	TColor,
-	TablerIconComponent
-} from "./types"
+import type { Block, PageId, ReleaseWithMetadata, TablerIconComponent } from "./types"
 import type { Dictionary } from "lodash"
 
 /* TRANSLATIONS IMPORT */
@@ -21,7 +17,6 @@ import {
 	allBlocks,
 	COLORS,
 	DATE_TIME_BLOCKS,
-	DEFAULT_COLORS,
 	DEFAULT_SHARING_IMAGE,
 	DEV_UTILS_BLOCKS,
 	DOMAINS_BLOCKS,
@@ -77,20 +72,23 @@ export const getIcon = (iconData?: TablerIconComponent) =>
  * get release updates grouped by released date
  */
 export function getReleaseUpdates(blocks: Array<Block<unknown>>) {
-	const releases = blocks
-		.reduce((allUpdates, block) => {
-			const blockUpdates = block.updates
-				? block.updates.map((update) => ({
-						...update,
-						date: dayjs(update.date).format("YYYY/MM/DD"),
-						title: block.title,
-						to: block.to,
-						icon: block.icon
-					}))
-				: []
-			return [...allUpdates, ...blockUpdates] as Array<ReleaseWithMetadata>
-		}, [] as Array<ReleaseWithMetadata>)
-		.sort((release1, release2) => release1.date - release2.date)
+	const releases = reverse(
+		sortBy(
+			blocks.reduce((allUpdates, block) => {
+				const blockUpdates = block.updates
+					? block.updates.map((update) => ({
+							...update,
+							date: dayjs(update.date).format("YYYY/MM/DD"),
+							title: block.title,
+							to: block.to,
+							icon: block.icon
+						}))
+					: []
+				return [...allUpdates, ...blockUpdates] as Array<ReleaseWithMetadata>
+			}, [] as Array<ReleaseWithMetadata>),
+			["date"]
+		)
+	)
 	return groupByFunc(releases, (release: ReleaseWithMetadata) => release.date)
 }
 
