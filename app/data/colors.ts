@@ -72,8 +72,6 @@ export const GRAY: TColor = {
 	borderColor: "border-gray-500"
 }
 
-export const DEFAULT_COLORS: TColor = GRAY
-
 const _COLORS: TColor[] = [
 	BLUE,
 	SKY,

@@ -4,7 +4,7 @@
 
 /* COMPONENTS & UTILS */
 import { ContentTabsWrapper } from "~/components"
-import { DisplayTab } from "./DisplayTab"
+import { CountdownDateTab } from "./CountdownDateTab"
 import { OptionsTab } from "./OptionsTab"
 import { useHelpContents, useUrlSharingData } from "~/utils"
 import type { TabData } from "~/utils/types"
@@ -12,9 +12,9 @@ import type { TabData } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
+import { DATE_TIME_COUNT_DOWN_DATE } from "./metadata"
 import { helpContents } from "./helpContents"
 import { IconSettings } from "@tabler/icons-react"
-import { RANDOM_NUMBER } from "./metadata"
 
 /***************************************************************************
  *
@@ -22,35 +22,31 @@ import { RANDOM_NUMBER } from "./metadata"
  *
  **************************************************************************/
 
-type TabKey = "focus" | "full" | "options"
-const tabKeys: TabKey[] = ["focus", "full", "options"]
-const defaultKey: TabKey = "focus"
+type TabKey = "date" | "options"
+const tabKeys: TabKey[] = ["date", "options"]
+const defaultKey: TabKey = "date"
 
 const tabs: Array<TabData<TabKey>> = [
 	{
-		key: "focus",
-		label: "Focus",
-		content: <DisplayTab view="focus" />
-	},
-	{
-		key: "full",
-		label: "Full",
-		content: <DisplayTab />
+		key: "date",
+		label: "Date",
+		content: <CountdownDateTab />
 	},
 	{
 		key: "options",
 		label: "Options",
 		icon: <IconSettings className="inline text-slate-700" />,
+		hasScrollAreaWrapper: true,
 		content: <OptionsTab />
 	}
 ]
 
-export function RandomNumberContent() {
+export function DateTimeCountDownContent() {
 	useHelpContents(helpContents)
-	const urlSharingData = useUrlSharingData(RANDOM_NUMBER)
+	const urlSharingData = useUrlSharingData(DATE_TIME_COUNT_DOWN_DATE)
 	return (
 		<ContentTabsWrapper
-			title={RANDOM_NUMBER.title}
+			title={DATE_TIME_COUNT_DOWN_DATE.title}
 			defaultKey={defaultKey}
 			tabs={tabs}
 			tabKeys={tabKeys}

@@ -6,12 +6,12 @@ import { useAtom } from "jotai"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
+import TextResize from "~/components/TextResize"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
 import { randomNumberAtom } from "./atoms"
-import TextResize from "~/components/TextResize"
 
 /***************************************************************************
  *
@@ -42,7 +42,7 @@ export function DisplayTab({ view }: { view?: View }) {
 					<span className="font-bold">{data.max}</span>
 				</div>
 				<div className="flex grow items-center justify-center p-8 text-center text-9xl font-bold">
-					<TextResize>{currentValue}</TextResize>
+					<TextResize className="h-full w-full">{currentValue}</TextResize>
 				</div>
 				<button
 					className="btn btn-outline w-full dark:border-slate-600 dark:text-slate-600"

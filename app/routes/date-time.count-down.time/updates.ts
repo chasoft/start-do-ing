@@ -6,4 +6,4 @@ import { Release } from "~/utils/types"
  *
  **************************************************************************/
 
-export const DATE_TIME_COUNT_DOWN_UPDATES: Array<Release> = []
+export const DATE_TIME_COUNT_DOWN_TIME_UPDATES: Array<Release> = []

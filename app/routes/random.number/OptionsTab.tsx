@@ -5,13 +5,13 @@ import { useAtom } from "jotai"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
+import { toNumber } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
 import { NumberInput } from "~/components/inputs"
 import { randomNumberAtom } from "./atoms"
-import { toNumber } from "~/utils"
 
 /***************************************************************************
  *

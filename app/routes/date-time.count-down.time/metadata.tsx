@@ -8,8 +8,8 @@ import type { Block, DateTimeLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconCalculator } from "@tabler/icons-react"
-import { DATE_TIME_CALCULATOR_UPDATES } from "./updates"
+import { IconClockDown } from "@tabler/icons-react"
+import { DATE_TIME_COUNT_DOWN_TIME_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -17,12 +17,13 @@ import { DATE_TIME_CALCULATOR_UPDATES } from "./updates"
  *
  **************************************************************************/
 
-export const DATE_TIME_CALCULATOR: Block<DateTimeLayoutId> = {
-	id: "date-time-calculator",
-	icon: { data: IconCalculator, color: "#000" },
-	title: "Date/Time Calculator",
-	description: "Calculate date and time (Lunar calendar supported)",
-	to: "/date-time/calculator",
+export const DATE_TIME_COUNT_DOWN_TIME: Block<DateTimeLayoutId> = {
+	id: "$date-time-count-down|time",
+	icon: { data: IconClockDown, color: "#000" },
+	title: "Time Count Down",
+	description: "Simple but useful time count down",
+	to: "/date-time/count-down/time",
+	isSubLayout: true,
 	group: [],
 	favorite: false,
 	color: {
@@ -31,5 +32,5 @@ export const DATE_TIME_CALCULATOR: Block<DateTimeLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: DATE_TIME_CALCULATOR_UPDATES
+	updates: DATE_TIME_COUNT_DOWN_TIME_UPDATES
 }

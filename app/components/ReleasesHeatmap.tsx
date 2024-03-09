@@ -7,7 +7,7 @@ import dayjs from "dayjs"
 import HeatMap from "@uiw/react-heat-map"
 
 /* COMPONENTS & UTILS */
-import { allReleaseUpdates, allReleaseUpdatesForHeatMap } from "~/utils"
+import { allReleaseUpdates } from "~/utils"
 import { ReleaseTimeline } from "."
 import type { ReleaseWithMetadata } from "~/utils/types"
 
@@ -40,7 +40,11 @@ const getHeatmapWidth = () => {
  * then we can implement the logic for the width.
  * Idea: we have each HeatMap for each year! 😆
  */
-export function ReleasesHeatMap() {
+export function ReleasesHeatMap({
+	getFunc
+}: {
+	getFunc: () => { date: string; count: number }[]
+}) {
 	const [searchParams, setSearchParams] = useSearchParams()
 	const dateParam = decodeURIComponent(searchParams.get(SPR.date.key) ?? "")
 	const selectedDate =
@@ -50,7 +54,7 @@ export function ReleasesHeatMap() {
 	const releasesOfSelectedDate: Array<[string, ReleaseWithMetadata[]]> = selectedDate
 		? [[selectedDate, allReleaseUpdates[selectedDate]]]
 		: [["", []]]
-	const heatmapData = allReleaseUpdatesForHeatMap()
+	const heatmapData = getFunc()
 	const width = getHeatmapWidth()
 	return (
 		<>

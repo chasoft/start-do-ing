@@ -10,7 +10,12 @@ import {
 	ReleasesHeatMap
 } from "~/components"
 import { TabData } from "~/utils/types"
-import { useHelpContents, useUrlSharingData } from "~/utils"
+import {
+	allLatestReleaseUpdates,
+	allReleaseUpdatesForHeatMap,
+	useHelpContents,
+	useUrlSharingData
+} from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -28,6 +33,19 @@ type TabKey = "hottest" | "latest" | "heatmap"
 const tabKeys: TabKey[] = ["hottest", "latest", "heatmap"]
 const defaultKey: TabKey = "latest"
 
+function GroupIntro() {
+	return (
+		<section className="">
+			<p className="text-lg font-semibold">Welcome to Startdo.ing!</p>
+			<p>
+				Explore, have fun, and share the joy with your friends! Startdo.ing is a one-stop
+				shop for a variety of tools and resources that can help you with your everyday
+				tasks, from web development and design to language learning and math games.
+			</p>
+		</section>
+	)
+}
+
 const tabs: Array<TabData<string>> = [
 	{
 		key: "hottest",
@@ -38,13 +56,13 @@ const tabs: Array<TabData<string>> = [
 	{
 		key: "latest",
 		label: "Latest",
-		content: <LatestReleases />,
+		content: <LatestReleases intro={<GroupIntro />} getFunc={allLatestReleaseUpdates} />,
 		hasScrollAreaWrapper: true
 	},
 	{
 		key: "heatmap",
 		label: "Heatmap",
-		content: <ReleasesHeatMap />,
+		content: <ReleasesHeatMap getFunc={allReleaseUpdatesForHeatMap} />,
 		hasScrollAreaWrapper: true
 	}
 ]

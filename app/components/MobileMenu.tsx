@@ -5,8 +5,8 @@ import { NavLink } from "@remix-run/react"
 import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
-import { Block } from "~/utils/types"
-import { getIcon } from "~/utils"
+import { getIcon, isLayoutGroupId } from "~/utils"
+import type { Block } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
@@ -97,7 +97,7 @@ function MobileMenuItem({
 }
 
 const menuBlocks = [
-	DATE_TIME_BLOCKS,
+	DATE_TIME_BLOCKS.filter((block) => !isLayoutGroupId(block.id)),
 	DEV_UTILS_BLOCKS,
 	DOMAINS_BLOCKS,
 	QUIZ_BLOCKS,

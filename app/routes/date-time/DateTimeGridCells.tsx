@@ -24,15 +24,19 @@ import {
 	DateTimeCalendarCellIntro
 } from "../date-time.calendar/grid-cell"
 import {
-	DateTimeCountDownCell,
-	DateTimeCountDownCellIntro
-} from "../date-time.count-down/grid-cell"
-import {
 	DateTimeDigitalClockCell,
 	DateTimeDigitalClockCellIntro
 } from "../date-time.digital-clock/grid-cell"
-import { DateTimeGroupCell, DateTimeGroupCellIntro } from "./grid-cell"
+import { DateTimeCountDownDateCellIntro } from "../date-time.count-down.date/grid-cell"
+import { DateTimeCountDownTimeCellIntro } from "../date-time.count-down.time/grid-cell"
+import { DateTimeCountDownNumberCellIntro } from "../date-time.count-down.number/grid-cell"
+import {
+	DateTimeCountDownCell,
+	DateTimeGroupCell,
+	DateTimeGroupCellIntro
+} from "./grid-cell"
 import type { DateTimeLayoutId, GridCellsProps } from "~/utils/types"
+import { getLayoutDetails } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -52,7 +56,10 @@ export function DateTimeGridCells({
 	isIntroBlock,
 	lastGridCellBlocks
 }: GridCellsProps<DateTimeLayoutId>): JSX.Element {
-	switch (layoutId) {
+	const [rootLayoutId, subLayoutId] = getLayoutDetails(layoutId)
+	let subLayoutIntroContent: React.ReactNode
+	let subBlockIndex: number = blockIndex
+	switch (rootLayoutId) {
 		/**********************************************************************
 		 *
 		 *  CONTENT BLOCKS
@@ -94,11 +101,35 @@ export function DateTimeGridCells({
 					className={className}
 				/>
 			)
-		case "date-time-count-down":
+		case "$date-time-count-down":
+			switch (subLayoutId) {
+				case "number":
+					subBlockIndex = blockIndex
+					subLayoutIntroContent = (
+						<DateTimeCountDownNumberCellIntro blockIndex={subBlockIndex} />
+					)
+					break
+				case "time":
+					subBlockIndex = blockIndex + 1
+					subLayoutIntroContent = (
+						<DateTimeCountDownTimeCellIntro blockIndex={subBlockIndex} />
+					)
+					break
+				case "date":
+					subBlockIndex = blockIndex + 2
+					subLayoutIntroContent = (
+						<DateTimeCountDownDateCellIntro blockIndex={subBlockIndex} />
+					)
+					break
+				default:
+					break
+			}
 			return (
 				<CellIntroSwitcher
-					contentBlock={<DateTimeCountDownCell blockIndex={blockIndex} />}
-					introBlock={<DateTimeCountDownCellIntro blockIndex={blockIndex} />}
+					contentBlock={
+						<DateTimeCountDownCell blockIndex={subBlockIndex} className="text-xs" />
+					}
+					introBlock={subLayoutIntroContent}
 					isIntroBlock={isIntroBlock}
 					className={className}
 				/>
