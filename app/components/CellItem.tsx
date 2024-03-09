@@ -45,7 +45,7 @@ export function CellItem({ className, metaData, blockIndex }: CellItemProps) {
 							</Text>
 						</h2>
 						<div className="flex grow flex-col">
-							{!!metaData.description && (
+							{!!metaData.description && !metaData.isSubLayout && (
 								<Text size="md" lineClamp={2}>
 									{metaData.description}
 								</Text>

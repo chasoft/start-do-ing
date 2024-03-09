@@ -8,8 +8,8 @@ import type { Block, DateTimeLayoutId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { IconClockDown } from "@tabler/icons-react"
-import { DATE_TIME_COUNT_DOWN_UPDATES } from "./updates"
+import { IconCalendarDown } from "@tabler/icons-react"
+import { DATE_TIME_COUNT_DOWN_DATE_UPDATES } from "./updates"
 
 /***************************************************************************
  *
@@ -17,12 +17,13 @@ import { DATE_TIME_COUNT_DOWN_UPDATES } from "./updates"
  *
  **************************************************************************/
 
-export const DATE_TIME_COUNT_DOWN: Block<DateTimeLayoutId> = {
-	id: "date-time-count-down",
-	icon: { data: IconClockDown, color: "#000" },
-	title: "Count Down",
-	description: "Everything counting down",
-	to: "/date-time/count-down",
+export const DATE_TIME_COUNT_DOWN_DATE: Block<DateTimeLayoutId> = {
+	id: "$date-time-count-down|date",
+	icon: { data: IconCalendarDown, color: "#000" },
+	title: "Date Count Down",
+	description: "Your important date",
+	to: "/date-time/count-down/date",
+	isSubLayout: true,
 	group: [],
 	favorite: false,
 	color: {
@@ -31,5 +32,5 @@ export const DATE_TIME_COUNT_DOWN: Block<DateTimeLayoutId> = {
 		bgLighter: "bg-rose-100",
 		bgDarker: "bg-rose-300"
 	},
-	updates: DATE_TIME_COUNT_DOWN_UPDATES
+	updates: DATE_TIME_COUNT_DOWN_DATE_UPDATES
 }

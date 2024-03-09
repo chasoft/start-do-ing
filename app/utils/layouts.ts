@@ -141,3 +141,21 @@ export function getLastGridCellBlocks(blocks: Block<PageId>[]) {
 	if (blocks.length > maxVisibleBlocks) return blocks.slice(maxVisibleBlocks)
 	return []
 }
+
+export const LAYOUT_SEPARATOR = "|"
+export const LAYOUT_GROUP_INDICATOR = "$"
+
+export function getLayoutDetails<LayoutId extends string>(layoutId?: LayoutId) {
+	if (!layoutId) return [undefined, undefined]
+	return layoutId.split(LAYOUT_SEPARATOR) as [LayoutId, string]
+}
+
+export function isSubLayoutId(layoutId: PageId) {
+	return layoutId.includes(LAYOUT_SEPARATOR)
+}
+
+export function isLayoutGroupId(layoutId: PageId) {
+	const hasLayoutGroupIndicator = layoutId[0] === LAYOUT_GROUP_INDICATOR
+	const isNotSubLayoutId = !isSubLayoutId(layoutId)
+	return hasLayoutGroupIndicator && isNotSubLayoutId
+}

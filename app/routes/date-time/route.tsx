@@ -4,9 +4,9 @@ import { Outlet } from "@remix-run/react"
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
-import { FullScreenContentWrapper, NavigationGrid, NavigationMobile } from "~/components"
 import { DateTimeGridCells } from "./DateTimeGridCells"
-import { useIsFullPage, useIsMobileWindowSize } from "~/utils"
+import { FullScreenContentWrapper, NavigationGrid, NavigationMobile } from "~/components"
+import { LAYOUT_SEPARATOR, useIsFullPage, useIsMobileWindowSize } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -39,8 +39,10 @@ export default function DateTimeGroupRoute() {
 		)
 	}
 
+	const BLOCKS = DATE_TIME_BLOCKS.filter((block) => !block.id.includes(LAYOUT_SEPARATOR))
+
 	return (
-		<NavigationGrid blocks={DATE_TIME_BLOCKS} GridCell={DateTimeGridCells}>
+		<NavigationGrid blocks={BLOCKS} GridCell={DateTimeGridCells}>
 			<Outlet />
 		</NavigationGrid>
 	)

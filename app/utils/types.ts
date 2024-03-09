@@ -47,7 +47,10 @@ export type DateTimeLayoutId =
 	| "date-time-analog-clock"
 	| "date-time-calculator"
 	| "date-time-calendar"
-	| "date-time-count-down"
+	| "$date-time-count-down"
+	| "$date-time-count-down|date"
+	| "$date-time-count-down|time"
+	| "$date-time-count-down|number"
 	| "date-time-digital-clock"
 
 export type DevUtilsLayoutId =
@@ -121,6 +124,7 @@ export interface GridCellProps {
 export interface GridCellsProps<TLayout> {
 	className?: string
 	layoutId?: TLayout | FeatureLayoutId | SystemLayoutId | DashboardLayoutId
+	subLayoutId?: TLayout | FeatureLayoutId | SystemLayoutId | DashboardLayoutId
 	isIntroBlock?: boolean
 	blockIndex: number
 	lastGridCellBlocks?: Block<PageId>[]
@@ -179,6 +183,10 @@ export type Block<TLayout> = {
 	description: string
 	image?: string
 	to: string
+	/**
+	 * Whether the metadata of the block is belong to a subLayout
+	 */
+	isSubLayout?: boolean
 	/**
 	 * organizing blocks by tags and/or favorite
 	 */
