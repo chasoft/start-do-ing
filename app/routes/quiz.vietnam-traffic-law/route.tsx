@@ -15,6 +15,7 @@ import type { CustomRouteHandle } from "~/utils/types"
 /* ASSETS & DATA IMPORT */
 import { QUIZ_BLOCKS } from "~/data"
 import { VIETNAM_TRAFFIC_LAW } from "./metadata"
+import "@mantine/core/styles/Combobox.css"
 
 /***************************************************************************
  *

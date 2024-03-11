@@ -107,13 +107,15 @@ export function useToggleSearchParams({ key, value }: { key: string; value: stri
 
 export function useTabsSearchParams<T>({
 	keys,
-	defaultKey
+	defaultKey,
+	paramKey = SPR.tab.key
 }: {
 	keys: T[]
 	defaultKey: T
+	paramKey?: string
 }) {
 	const [searchParams, setSearchParams] = useSearchParams()
-	const currentParam = searchParams.get(SPR.tab.key) as T
+	const currentParam = searchParams.get(paramKey) as T
 	const selectedTabKey =
 		currentParam === defaultKey || !keys.includes(currentParam)
 			? defaultKey
@@ -124,17 +126,17 @@ export function useTabsSearchParams<T>({
 			const _tabKey = tabKey as T
 			if (_tabKey !== defaultKey) {
 				setSearchParams((prev) => {
-					prev.set(SPR.tab.key, tabKey ?? "")
+					prev.set(paramKey, tabKey ?? "")
 					return prev
 				})
 			} else {
 				setSearchParams((prev) => {
-					prev.delete(SPR.tab.key)
+					prev.delete(paramKey)
 					return prev
 				})
 			}
 		},
-		[defaultKey, setSearchParams]
+		[defaultKey, paramKey, setSearchParams]
 	)
 
 	return [selectedTabKey, onChangeTab] as const
