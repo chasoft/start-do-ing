@@ -25,7 +25,7 @@ const defaultKey: TabKey = "intro"
 
 function GroupIntro() {
 	return (
-		<section className="">
+		<section className="max-w-3xl">
 			<p className="text-lg font-semibold">Dev Utils</p>
 			<p>Utils for web development!</p>
 		</section>

@@ -1,7 +1,7 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import { CloseButton, Input, NumberInput, Switch, Textarea } from "@mantine/core"
+import { CloseButton, Input, NumberInput } from "@mantine/core"
 import { useAtom } from "jotai"
 
 /* COMPONENTS & UTILS */
@@ -18,25 +18,15 @@ import { countdownNumberAtom } from "./atoms"
  *
  **************************************************************************/
 
-// const presets = [
-// 	{ min: 0, max: 20 },
-// 	{ min: 0, max: 50 },
-// 	{ min: 0, max: 100 },
-// 	{ min: 0, max: 1000 },
-// 	{ min: 50, max: 100 },
-// 	{ min: 100, max: 200 }
-// ]
-
 export function OptionsTab() {
 	const [data, setData] = useAtom(countdownNumberAtom)
-	/**
-	 * Check warning if startAt === stopAt
-	 */
+	const errorMessage =
+		data.startAt === data.stopAt ? "Start At and Stop At must be different" : ""
 	return (
 		<div className="grid grid-cols-1 gap-4 rounded-lg border-2 border-slate-500 p-4 sm:grid-cols-2 sm:rounded-2xl">
-			<Input.Wrapper label="Counter Name" description="Name of your counter">
+			<Input.Wrapper label="Counter Name" description="Name of your number counter">
 				<Input
-					placeholder="Name your number counter"
+					placeholder="Enter name of your number counter"
 					value={data.name}
 					onChange={(event) => setData({ ...data, name: event.currentTarget.value })}
 					rightSectionPointerEvents="all"
@@ -50,19 +40,29 @@ export function OptionsTab() {
 					}
 				/>
 			</Input.Wrapper>
-			<Textarea
-				label="Message"
-				description="The message you want to display after the countdown."
-				placeholder="Input message"
-				value={data.message}
-				onChange={(e) => setData({ ...data, message: e.currentTarget.value })}
-			/>
+			<Input.Wrapper label="Ending Message" description="Message of your number counter">
+				<Input
+					placeholder="Enter message of your number counter"
+					value={data.message}
+					onChange={(event) => setData({ ...data, message: event.currentTarget.value })}
+					rightSectionPointerEvents="all"
+					mt="md"
+					rightSection={
+						<CloseButton
+							aria-label="Clear input"
+							onClick={() => setData({ ...data, name: "" })}
+							style={{ display: data.name ? undefined : "none" }}
+						/>
+					}
+				/>
+			</Input.Wrapper>
 			<NumberInput
 				label="Start at"
 				value={data.startAt}
 				onChange={(e) => {
 					setData({ ...data, startAt: toNumber(e) })
 				}}
+				error={errorMessage}
 			/>
 			<NumberInput
 				label="Stop at"
@@ -70,11 +70,7 @@ export function OptionsTab() {
 				onChange={(e) => {
 					setData({ ...data, stopAt: toNumber(e) })
 				}}
-			/>
-			<Switch
-				checked={data.loop}
-				label="Looping"
-				onChange={(event) => setData({ ...data, loop: event.currentTarget.checked })}
+				error={errorMessage}
 			/>
 		</div>
 	)

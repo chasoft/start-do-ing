@@ -10,7 +10,7 @@ import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { CellGridLink } from "."
-import { getIcon } from "~/utils"
+import { getIcon, isHomeURL } from "~/utils"
 import type { Block, TablerIconComponent } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -18,7 +18,6 @@ import type { Block, TablerIconComponent } from "~/utils/types"
 /* ASSETS & DATA IMPORT */
 import { FW } from "~/data"
 import { IconMoreHorizontal } from "./icons"
-import { URLS } from "~/data/urls"
 
 /***************************************************************************
  *
@@ -51,7 +50,7 @@ export function CellGroup({
 	const { hovered: menuHovered, ref: menuRef } = useHover()
 	const { hovered: targetHovered, ref: targetRef } = useHover()
 	const { pathname } = useLocation()
-	const isHome = pathname === URLS.home.to
+	const isHome = isHomeURL(pathname)
 	const iconLinks = useMemo(
 		() =>
 			dropdownMenuItems

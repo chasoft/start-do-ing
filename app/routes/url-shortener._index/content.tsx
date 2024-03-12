@@ -29,7 +29,7 @@ const defaultKey: TabKey = "intro"
 
 function GroupIntro() {
 	return (
-		<section className="">
+		<section className="max-w-3xl">
 			<p className="text-lg font-semibold">URL Shortener</p>
 			<p>Short URLs for actions!</p>
 		</section>
