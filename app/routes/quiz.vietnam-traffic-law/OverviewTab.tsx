@@ -1,7 +1,7 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import remarkGfm from 'remark-gfm'
+import remarkGfm from "remark-gfm"
 import Markdown from "react-markdown"
 
 /* COMPONENTS & UTILS */
@@ -59,7 +59,12 @@ Mỗi câu hỏi trong tài liệu 600 câu hỏi lý thuyết lái xe B2 chỉ 
 export function OverviewTab() {
 	return (
 		<div className="">
-			<Markdown className="prose prose-sm sm:prose-base max-w-3xl text-slate-900" remarkPlugins={[remarkGfm]}>{intro}</Markdown>
+			<Markdown
+				className="prose prose-sm max-w-3xl text-slate-900 sm:prose-base"
+				remarkPlugins={[remarkGfm]}
+			>
+				{intro}
+			</Markdown>
 		</div>
 	)
 }

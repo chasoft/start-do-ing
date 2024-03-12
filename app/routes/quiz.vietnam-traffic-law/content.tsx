@@ -32,14 +32,14 @@ const tabs: Array<TabData<TabKey>> = [
 		key: "overview",
 		label: "Overview",
 		hasScrollAreaWrapper: true,
-		content: <OverviewTab />,
+		content: <OverviewTab />
 	},
 	{
 		key: "learn",
 		label: "Learn",
 		icon: <IconBook className="inline text-slate-700" />,
 		hasScrollAreaWrapper: true,
-		content: <LearnTab />,
+		content: <LearnTab />
 	},
 	{
 		key: "test",

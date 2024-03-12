@@ -18,14 +18,14 @@
  * 						60 questions
  */
 
-import { chapter1 } from "./600-chapter-1";
-import { chapter2 } from "./600-chapter-2";
-import { chapter3 } from "./600-chapter-3";
-import { chapter4 } from "./600-chapter-4";
-import { chapter5 } from "./600-chapter-5";
-import { chapter6 } from "./600-chapter-6";
-import { chapter7 } from "./600-chapter-7";
-import { getChapter8 } from "./600-chapter-8";
+import { chapter1 } from "./600-chapter-1"
+import { chapter2 } from "./600-chapter-2"
+import { chapter3 } from "./600-chapter-3"
+import { chapter4 } from "./600-chapter-4"
+import { chapter5 } from "./600-chapter-5"
+import { chapter6 } from "./600-chapter-6"
+import { chapter7 } from "./600-chapter-7"
+import { getChapter8 } from "./600-chapter-8"
 
 export type QuestionData = {
 	id: number
@@ -102,7 +102,14 @@ export type LearnSettings = {
 }
 
 export const allChapters = [
-	chapter1, chapter2, chapter3, chapter4, chapter5, chapter6, chapter7, getChapter8()
+	chapter1,
+	chapter2,
+	chapter3,
+	chapter4,
+	chapter5,
+	chapter6,
+	chapter7,
+	getChapter8()
 ]
 
 /**

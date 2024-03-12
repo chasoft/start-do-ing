@@ -18,9 +18,12 @@ import { useSearchParams } from "@remix-run/react"
  *
  **************************************************************************/
 
-function Question({ data, className }: { data: QuestionData, className?: string }) {
+function Question({ data, className }: { data: QuestionData; className?: string }) {
 	return (
-		<div key={data.id} className={clsx("prose max-w-3xl text-slate-900 prose-sm sm:prose-base", className)}>
+		<div
+			key={data.id}
+			className={clsx("prose prose-sm max-w-3xl text-slate-900 sm:prose-base", className)}
+		>
 			<div>{data.question}</div>
 			<ol>
 				{data.options.map((o, idx) => {
@@ -34,11 +37,9 @@ function Question({ data, className }: { data: QuestionData, className?: string 
 function Questions({ list }: { list: Array<QuestionData> }) {
 	return (
 		<>
-			{
-				list.map((item, idx) => {
-					return <Question key={idx} data={item} />
-				})
-			}
+			{list.map((item, idx) => {
+				return <Question key={idx} data={item} />
+			})}
 		</>
 	)
 }
