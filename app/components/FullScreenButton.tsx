@@ -29,7 +29,7 @@ export function FullScreenButton() {
 			<Tooltip className="p-2" label="Exit full-page">
 				<IconArrowsMinimize
 					onClick={close}
-					className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
+					className="h-6 w-6 cursor-pointer text-sky-900 transition-all hover:scale-125 hover:text-sky-700 active:scale-150"
 				/>
 			</Tooltip>
 		)
@@ -39,7 +39,7 @@ export function FullScreenButton() {
 		<Tooltip className="p-2" label="View full-page">
 			<IconArrowsMaximize
 				onClick={open}
-				className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
+				className="h-6 w-6 cursor-pointer text-sky-900 transition-all hover:scale-125 hover:text-sky-700 active:scale-150"
 			/>
 		</Tooltip>
 	)
