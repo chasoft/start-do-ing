@@ -6,7 +6,6 @@ import React from "react"
 import { AppShell, Burger, Group, Image, ScrollArea, Text } from "@mantine/core"
 import { useAtomValue } from "jotai"
 import { useDisclosure } from "@mantine/hooks"
-import sample from "lodash/sample"
 
 /* COMPONENTS & UTILS */
 import { FeedbackButton, FullScreenButton, HelpButton, SharingButton } from "."
@@ -16,11 +15,11 @@ import { useIsFullPage, useIsMobileWindowSize } from "~/utils"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { BACKGROUNDS, SITE } from "~/data"
 import { helpContentsAtom, urlSharingDataAtom } from "~/atoms/globals"
+import { SITE, getRandomBackground } from "~/data"
 import { URLS } from "~/data/urls"
-import Logo from "~/assets/logo-startdoing.svg"
 import appShellMain from "./MyAppShell.module.css"
+import Logo from "~/assets/logo-startdoing.svg"
 
 /***************************************************************************
  *
@@ -50,7 +49,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const helpContents = useAtomValue(helpContentsAtom)
 
 	React.useEffect(function randomBackgroundImage() {
-		setBackgroundImage(sample(BACKGROUNDS) ?? BACKGROUNDS[0])
+		setBackgroundImage(getRandomBackground())
 	}, [])
 
 	/**
