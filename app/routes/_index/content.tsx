@@ -3,13 +3,13 @@
 /* THIRD-PARTY PACKAGES */
 
 /* COMPONENTS & UTILS */
+import type { TabData } from "~/utils/types"
 import {
 	ContentTabsWrapper,
 	HottestBlocks,
 	LatestReleases,
 	ReleasesHeatMap
 } from "~/components"
-import { TabData } from "~/utils/types"
 import {
 	allLatestReleaseUpdates,
 	allReleaseUpdatesForHeatMap,
@@ -35,12 +35,13 @@ const defaultKey: TabKey = "latest"
 
 function GroupIntro() {
 	return (
-		<section className="max-w-3xl">
+		<section className="flex max-w-3xl flex-col gap-2 leading-7">
 			<p className="text-lg font-semibold">Welcome to Startdo.ing!</p>
 			<p>
-				Explore, have fun, and share the joy with your friends! Startdo.ing is a one-stop
-				shop for a variety of tools and resources that can help you with your everyday
-				tasks, from web development and design to language learning and math games.
+				🔎 Explore, have fun, and 🔗 share the joy with your friends!{" "}
+				<strong>Startdo.ing</strong> is a one-stop shop for a variety of 🔨 tools and
+				resources that can help you with your everyday ⚒️ tasks, from 🌏 web development
+				and design to 🈳 language learning and 🧮 math games.
 			</p>
 		</section>
 	)

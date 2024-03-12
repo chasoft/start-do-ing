@@ -81,8 +81,9 @@ export function ContentTabsWrapper<T extends string>({
 					<Tabs.Panel
 						key={tab.key}
 						value={tab.key}
-						className={clsx("p-4 sm:h-[calc(100%-40px)] xl:p-6", {
-							"h-[calc(100%-80px)]": !!title
+						className={clsx("p-4 xl:p-6", {
+							"h-[calc(100%-40px)]": !title,
+							"h-[calc(100%-80px)] sm:h-[calc(100%-50px)]": !!title
 						})}
 					>
 						{tab.hasScrollAreaWrapper ? (
