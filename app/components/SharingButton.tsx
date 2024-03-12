@@ -42,7 +42,7 @@ export function SharingButton({ data }: { data?: UrlSharingData }) {
 		return (
 			<Tooltip className="p-2" label="Share with...">
 				<IconShare
-					className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
+					className="h-6 w-6 cursor-pointer text-green-900 transition-all hover:scale-125 hover:text-green-700 active:scale-150"
 					onClick={onClick}
 				/>
 			</Tooltip>
