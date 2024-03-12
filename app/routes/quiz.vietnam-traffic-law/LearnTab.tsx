@@ -45,7 +45,7 @@ function Questions({ list }: { list: Array<QuestionData> }) {
 
 export function LearnTab() {
 	const [searchParams] = useSearchParams()
-	const selectedChapter = Number(searchParams.get("chapter") ?? 0)
+	const selectedChapter = Number(searchParams.get("chapter") ?? 1) - 1
 	const questionList = allChapters[selectedChapter]
 	return (
 		<div className="">
