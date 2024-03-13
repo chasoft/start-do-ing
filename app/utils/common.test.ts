@@ -4,7 +4,7 @@
 import { describe, expect, test } from "@jest/globals"
 
 /* COMPONENTS & UTILS */
-import { getReleaseUpdates } from "./common"
+import { getReleases } from "./common"
 import { IconBlank } from "~/components/icons"
 import type { Block } from "./types"
 
@@ -86,7 +86,7 @@ const TEST_BLOCKS: Block<string>[] = [
 
 describe("getAllReleaseUpdates function", () => {
 	test("works as expected", () => {
-		const d = getReleaseUpdates(TEST_BLOCKS)
+		const d = getReleases([TEST_BLOCKS])
 		expect(d).toStrictEqual({
 			"2024/01/05": [
 				{

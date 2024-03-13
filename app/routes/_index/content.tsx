@@ -11,8 +11,8 @@ import {
 	ReleasesHeatMap
 } from "~/components"
 import {
-	allLatestReleaseUpdates,
-	allReleaseUpdatesForHeatMap,
+	allLatestReleases,
+	allReleasesForHeatMap,
 	useHelpContents,
 	useUrlSharingData
 } from "~/utils"
@@ -57,13 +57,13 @@ const tabs: Array<TabData<string>> = [
 	{
 		key: "latest",
 		label: "Latest",
-		content: <LatestReleases intro={<GroupIntro />} getFunc={allLatestReleaseUpdates} />,
+		content: <LatestReleases intro={<GroupIntro />} getFunc={allLatestReleases} />,
 		hasScrollAreaWrapper: true
 	},
 	{
 		key: "heatmap",
 		label: "Heatmap",
-		content: <ReleasesHeatMap getFunc={allReleaseUpdatesForHeatMap} />,
+		content: <ReleasesHeatMap getHeatmapDataFn={allReleasesForHeatMap} />,
 		hasScrollAreaWrapper: true
 	}
 ]

@@ -4,11 +4,7 @@
 
 /* COMPONENTS & UTILS */
 import { ContentTabsWrapper, LatestReleases } from "~/components"
-import {
-	languagesLatestReleaseUpdates,
-	useHelpContents,
-	useUrlSharingData
-} from "~/utils"
+import { languagesLatestReleases, useHelpContents, useUrlSharingData } from "~/utils"
 import type { TabData } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -40,9 +36,7 @@ const tabs: Array<TabData<string>> = [
 	{
 		key: "intro",
 		label: "Introduction",
-		content: (
-			<LatestReleases intro={<GroupIntro />} getFunc={languagesLatestReleaseUpdates} />
-		),
+		content: <LatestReleases intro={<GroupIntro />} getFunc={languagesLatestReleases} />,
 		hasScrollAreaWrapper: true
 	}
 ]
