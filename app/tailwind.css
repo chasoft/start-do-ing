@@ -1,3 +1,10 @@
-@tailwind base;
+/**
+ * Note: 
+ * Tailwind CSS and Mantine UI have a conflict on base styles.
+ * Solution @ https://github.com/orgs/mantinedev/discussions/1672#discussioncomment-7870643
+ */
+@layer tailwind {
+	@tailwind base;
+}
 @tailwind components;
 @tailwind utilities;

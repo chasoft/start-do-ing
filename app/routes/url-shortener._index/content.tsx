@@ -4,11 +4,7 @@
 
 /* COMPONENTS & UTILS */
 import { ContentTabsWrapper, LatestReleases } from "~/components"
-import {
-	urlShortenerLatestReleaseUpdates,
-	useHelpContents,
-	useUrlSharingData
-} from "~/utils"
+import { urlShortenerLatestReleases, useHelpContents, useUrlSharingData } from "~/utils"
 import type { TabData } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
@@ -41,7 +37,7 @@ const tabs: Array<TabData<string>> = [
 		key: "intro",
 		label: "Introduction",
 		content: (
-			<LatestReleases intro={<GroupIntro />} getFunc={urlShortenerLatestReleaseUpdates} />
+			<LatestReleases intro={<GroupIntro />} getFunc={urlShortenerLatestReleases} />
 		),
 		hasScrollAreaWrapper: true
 	}

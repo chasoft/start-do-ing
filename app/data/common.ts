@@ -187,16 +187,20 @@ export const OTHERS_BLOCKS: Block<OthersLayoutId>[] = [OTHERS, OTHERS_RUNNING_TE
 
 export const BOOKS_BLOCKS: Block<GroupId>[] = []
 
+/**
+ * Note: when using `allBlocks`,
+ * remember that the first item is "group", not "block feature".
+ */
 export const allBlocks = [
-	...DATE_TIME_BLOCKS.slice(1),
-	...DEV_UTILS_BLOCKS.slice(1),
-	...DOMAINS_BLOCKS.slice(1),
-	...QUIZ_BLOCKS.slice(1),
-	...LANGUAGES_BLOCKS.slice(1),
-	...MATHS_BLOCKS.slice(1),
-	...RANDOM_BLOCKS.slice(1),
-	...URL_SHORTENER_BLOCKS.slice(1),
-	...OTHERS_BLOCKS.slice(1)
+	DATE_TIME_BLOCKS,
+	DEV_UTILS_BLOCKS,
+	DOMAINS_BLOCKS,
+	QUIZ_BLOCKS,
+	LANGUAGES_BLOCKS,
+	MATHS_BLOCKS,
+	RANDOM_BLOCKS,
+	URL_SHORTENER_BLOCKS,
+	OTHERS_BLOCKS
 ]
 
 export const DEFAULT_BLOCK: Block<"home"> = HOME

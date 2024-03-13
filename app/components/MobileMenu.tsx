@@ -6,7 +6,7 @@ import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { getIcon, isLayoutGroupId } from "~/utils"
-import type { Block } from "~/utils/types"
+import type { Block, MiscellaneousId, UrlData } from "~/utils/types"
 
 /* TRANSLATIONS IMPORT */
 
@@ -108,45 +108,59 @@ const menuBlocks = [
 	OTHERS_BLOCKS
 ]
 
-const extraMenuItems = [
+type TMenuItem = {
+	id: MiscellaneousId
+	icon: JSX.Element
+	urlData: UrlData
+	badge: JSX.Element
+}
+
+export const extraMenuItems: Array<TMenuItem> = [
 	{
+		id: "store",
 		icon: <IconShoppingCart size={18} />,
 		urlData: URLS.store,
 		badge: <span className="badge badge-primary badge-sm font-mono">new</span>
 	},
 	{
+		id: "blog",
 		icon: <IconRss size={18} />,
 		urlData: URLS.blog,
-		badge: null
+		badge: <></>
 	},
 	{
+		id: "support",
 		icon: <IconHeart size={18} />,
 		urlData: URLS.support,
-		badge: null
+		badge: <></>
 	}
 ]
 
 export function MobileMenu({ onClick }: { onClick: () => void }) {
+	const blockMenus = menuBlocks.map((blocks, idx) => (
+		<MobileMenuItem key={idx} blocks={blocks} onClick={onClick} />
+	))
+
+	const extraMenus = extraMenuItems.map((i, idx) => (
+		<li key={idx} onClick={onClick} aria-hidden>
+			<NavLink
+				to={i.urlData.to}
+				className={({ isActive, isPending }) =>
+					clsx("group", isActive ? "active" : isPending ? "pending" : "")
+				}
+			>
+				{i.icon}
+				<span>{i.urlData.label} </span>
+				{!!i.badge && i.badge}
+			</NavLink>
+		</li>
+	))
+
 	return (
 		<ul className="menu py-3">
-			{menuBlocks.map((blocks, idx) => (
-				<MobileMenuItem key={idx} blocks={blocks} onClick={onClick} />
-			))}
+			{blockMenus}
 			<li>{/* line separator */}</li>
-			{extraMenuItems.map((i, idx) => (
-				<li key={idx} onClick={onClick} aria-hidden>
-					<NavLink
-						to={i.urlData.to}
-						className={({ isActive, isPending }) =>
-							clsx("group", isActive ? "active" : isPending ? "pending" : "")
-						}
-					>
-						{i.icon}
-						<span>{i.urlData.label} </span>
-						{!!i.badge && i.badge}
-					</NavLink>
-				</li>
-			))}
+			{extraMenus}
 		</ul>
 	)
 }
