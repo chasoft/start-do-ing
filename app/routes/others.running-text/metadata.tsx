@@ -21,7 +21,7 @@ export const OTHERS_RUNNING_TEXT: Block<OthersLayoutId> = {
 	id: "others-running-text",
 	icon: { data: IconRun, color: "#000" },
 	title: "Running Text",
-	description: "",
+	description: "Sometime you just need a simple running text",
 	to: "/others/running-text",
 	group: [],
 	favorite: false,
