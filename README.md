@@ -4,6 +4,9 @@
 
 Explore, have fun, and share the joy with your friends! Startdo.ing is a one-stop shop for a variety of tools and resources that can help you with your everyday tasks, from web development and design to language learning and math games.
 
+- Official website: [https://startdo.ing](https://startdo.ing)
+- Development website: [https://dev.start-do-ing.pages.dev](https://dev.start-do-ing.pages.dev) | new features are available here sooner
+
 ## Techstack
 
 What makes Startdo.ing is an interesting project? It is because it uses [Remix Framework](https://remix.run/) as a starting point.
