@@ -92,6 +92,8 @@ export type UrlShortenerLayoutId = "url-shortener" | "url-shortener-index"
 
 export type OthersLayoutId = "others" | "others-running-text"
 
+export type MiscellaneousId = "store" | "support" | "dashboard" | "blog"
+
 export type PageId =
 	| GroupId
 	| DashboardLayoutId
@@ -107,6 +109,7 @@ export type PageId =
 	| OthersLayoutId
 	| SystemLayoutId
 	| FeatureLayoutId
+	| MiscellaneousId
 
 export type FeatureLayoutId = "left" | "right" | "last"
 export type SystemLayoutId = "empty" | "404"
@@ -233,4 +236,10 @@ export type TabData<T> = {
 	content: React.ReactNode
 	disabled?: boolean
 	hasScrollAreaWrapper?: boolean
+}
+
+export type UrlData = {
+	to: string
+	label: string
+	description: string
 }

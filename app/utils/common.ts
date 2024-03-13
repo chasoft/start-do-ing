@@ -38,21 +38,20 @@ import { IconBlank } from "~/components/icons"
  *
  **************************************************************************/
 
-// TODO: Sharing button will display a popup dialog when clicked
-// - the user will be allowed to copy the URL to their clipboard
-// - options are available like share page as is or share feature as full page
 export function getUrlSharingData(
 	block: Block<PageId>,
 	{ viewFullpage = true }: { viewFullpage: boolean }
 ) {
 	const viewParams = viewFullpage ? `?${SPR.view.key}=${SPR.view.values.fullpage}` : ""
-	return {
+	const targetUrl = SITE.url + block.to + viewParams
+	const sharedData = {
 		layoutId: block.id,
 		title: block.title,
 		description: block.description,
-		url: SITE.url + block.to + viewParams,
+		url: targetUrl,
 		image: block.image ?? DEFAULT_SHARING_IMAGE
 	}
+	return sharedData
 }
 
 export function getBlockColor(blockIndex: number) {
@@ -60,6 +59,9 @@ export function getBlockColor(blockIndex: number) {
 	return color
 }
 
+/**
+ * This function is used to get the icon from block's metadata
+ */
 export const getIcon = (iconData?: TablerIconComponent) =>
 	(iconData ?? IconBlank) as TablerIconComponent
 
@@ -72,25 +74,27 @@ export const getIcon = (iconData?: TablerIconComponent) =>
 /**
  * get release updates grouped by released date
  */
-export function getReleaseUpdates(blocks: Array<Block<unknown>>) {
-	const releases = reverse(
-		sortBy(
-			blocks.reduce((allUpdates, block) => {
-				const blockUpdates = block.updates
-					? block.updates.map((update) => ({
-							...update,
-							date: dayjs(update.date).format("YYYY/MM/DD"),
-							title: block.title,
-							to: block.to,
-							icon: block.icon
-						}))
-					: []
-				return [...allUpdates, ...blockUpdates] as Array<ReleaseWithMetadata>
-			}, [] as Array<ReleaseWithMetadata>),
-			["date"]
-		)
-	)
-	return groupByFunc(releases, (release: ReleaseWithMetadata) => release.date)
+export function getReleases(blocks: Array<Array<Block<unknown>>>) {
+	// Remove first block as it is the group block (not the actual block)
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const flattenBlocks = blocks.reduce((acc, [_, ...blocks]) => acc.concat(blocks), [])
+	const unsortedUpdates = flattenBlocks.reduce((allUpdates, block) => {
+		const blockUpdates = block.updates
+			? block.updates.map((update) => ({
+					...update,
+					date: dayjs(update.date).format("YYYY/MM/DD"),
+					title: block.title,
+					to: block.to,
+					icon: block.icon
+				}))
+			: []
+		return [...allUpdates, ...blockUpdates] as Array<ReleaseWithMetadata>
+	}, [] as Array<ReleaseWithMetadata>)
+
+	//TODO: Improve sorting algorithm
+	const sortedUpdates = reverse(sortBy(unsortedUpdates, ["date"]))
+	const updatesGroupedByDate = groupByFunc(sortedUpdates, (release) => release.date)
+	return updatesGroupedByDate
 }
 
 /**
@@ -102,57 +106,53 @@ const getHeatmapData = (releases: Dictionary<ReleaseWithMetadata[]>) =>
 		count: value.length
 	}))
 
-export const allReleaseUpdates = getReleaseUpdates(allBlocks)
-export const dateTimeReleaseUpdates = getReleaseUpdates(DATE_TIME_BLOCKS.slice(1))
-export const devUtilsReleaseUpdates = getReleaseUpdates(DEV_UTILS_BLOCKS.slice(1))
-export const domainsReleaseUpdates = getReleaseUpdates(DOMAINS_BLOCKS.slice(1))
-export const quizReleaseUpdates = getReleaseUpdates(QUIZ_BLOCKS.slice(1))
-export const languagesReleaseUpdates = getReleaseUpdates(LANGUAGES_BLOCKS.slice(1))
-export const mathsReleaseUpdates = getReleaseUpdates(MATHS_BLOCKS.slice(1))
-export const randomReleaseUpdates = getReleaseUpdates(RANDOM_BLOCKS.slice(1))
-export const urlShortenerReleaseUpdates = getReleaseUpdates(URL_SHORTENER_BLOCKS.slice(1))
-export const othersReleaseUpdates = getReleaseUpdates(OTHERS_BLOCKS.slice(1))
+export const allReleases = getReleases(allBlocks)
+export const dateTimeReleases = getReleases([DATE_TIME_BLOCKS])
+export const devUtilsReleases = getReleases([DEV_UTILS_BLOCKS])
+export const domainsReleases = getReleases([DOMAINS_BLOCKS])
+export const quizReleases = getReleases([QUIZ_BLOCKS])
+export const languagesReleases = getReleases([LANGUAGES_BLOCKS])
+export const mathsReleases = getReleases([MATHS_BLOCKS])
+export const randomReleases = getReleases([RANDOM_BLOCKS])
+export const urlShortenerReleases = getReleases([URL_SHORTENER_BLOCKS])
+export const othersReleases = getReleases([OTHERS_BLOCKS])
 
-export const allReleaseUpdatesForHeatMap = () => getHeatmapData(allReleaseUpdates)
-export const dateTimeReleaseUpdatesForHeatMap = () =>
-	getHeatmapData(dateTimeReleaseUpdates)
-export const devUtilsReleaseUpdatesForHeatMap = () =>
-	getHeatmapData(devUtilsReleaseUpdates)
-export const domainsReleaseUpdatesForHeatMap = () => getHeatmapData(domainsReleaseUpdates)
-export const quizReleaseUpdatesForHeatMap = () => getHeatmapData(quizReleaseUpdates)
-export const languagesReleaseUpdatesForHeatMap = () =>
-	getHeatmapData(languagesReleaseUpdates)
-export const mathsReleaseUpdatesForHeatMap = () => getHeatmapData(mathsReleaseUpdates)
-export const randomReleaseUpdatesForHeatMap = () => getHeatmapData(randomReleaseUpdates)
-export const urlShortenerReleaseUpdatesForHeatMap = () =>
-	getHeatmapData(urlShortenerReleaseUpdates)
-export const othersReleaseUpdatesForHeatMap = () => getHeatmapData(othersReleaseUpdates)
+export const allReleasesForHeatMap = () => getHeatmapData(allReleases)
+export const dateTimeReleasesForHeatMap = () => getHeatmapData(dateTimeReleases)
+export const devUtilsReleasesForHeatMap = () => getHeatmapData(devUtilsReleases)
+export const domainsReleasesForHeatMap = () => getHeatmapData(domainsReleases)
+export const quizReleasesForHeatMap = () => getHeatmapData(quizReleases)
+export const languagesReleasesForHeatMap = () => getHeatmapData(languagesReleases)
+export const mathsReleasesForHeatMap = () => getHeatmapData(mathsReleases)
+export const randomReleasesForHeatMap = () => getHeatmapData(randomReleases)
+export const urlShortenerReleasesForHeatMap = () => getHeatmapData(urlShortenerReleases)
+export const othersReleasesForHeatMap = () => getHeatmapData(othersReleases)
 
 /**
  * Latest release updates
  */
-const UPDATES_LIMIT_VISIBLE = 30
+const RELEASE_SHOWING_LIMIT = 30
 
-export const allLatestReleaseUpdates = (limit: number = UPDATES_LIMIT_VISIBLE) =>
-	Object.entries(allReleaseUpdates).slice(0, limit)
-export const dateTimeLatestReleaseUpdates = (limit: number = UPDATES_LIMIT_VISIBLE) =>
-	Object.entries(dateTimeReleaseUpdates).slice(0, limit)
-export const devUtilsLatestReleaseUpdates = (limit: number = UPDATES_LIMIT_VISIBLE) =>
-	Object.entries(devUtilsReleaseUpdates).slice(0, limit)
-export const domainsLatestReleaseUpdates = (limit: number = UPDATES_LIMIT_VISIBLE) =>
-	Object.entries(domainsReleaseUpdates).slice(0, limit)
-export const quizLatestReleaseUpdates = (limit: number = UPDATES_LIMIT_VISIBLE) =>
-	Object.entries(quizReleaseUpdates).slice(0, limit)
-export const languagesLatestReleaseUpdates = (limit: number = UPDATES_LIMIT_VISIBLE) =>
-	Object.entries(languagesReleaseUpdates).slice(0, limit)
-export const mathsLatestReleaseUpdates = (limit: number = UPDATES_LIMIT_VISIBLE) =>
-	Object.entries(mathsReleaseUpdates).slice(0, limit)
-export const randomLatestReleaseUpdates = (limit: number = UPDATES_LIMIT_VISIBLE) =>
-	Object.entries(randomReleaseUpdates).slice(0, limit)
-export const urlShortenerLatestReleaseUpdates = (limit: number = UPDATES_LIMIT_VISIBLE) =>
-	Object.entries(urlShortenerReleaseUpdates).slice(0, limit)
-export const othersLatestReleaseUpdates = (limit: number = UPDATES_LIMIT_VISIBLE) =>
-	Object.entries(othersReleaseUpdates).slice(0, limit)
+export const allLatestReleases = (limit: number = RELEASE_SHOWING_LIMIT) =>
+	Object.entries(allReleases).slice(0, limit)
+export const dateTimeLatestReleases = (limit: number = RELEASE_SHOWING_LIMIT) =>
+	Object.entries(dateTimeReleases).slice(0, limit)
+export const devUtilsLatestReleases = (limit: number = RELEASE_SHOWING_LIMIT) =>
+	Object.entries(devUtilsReleases).slice(0, limit)
+export const domainsLatestReleases = (limit: number = RELEASE_SHOWING_LIMIT) =>
+	Object.entries(domainsReleases).slice(0, limit)
+export const quizLatestReleases = (limit: number = RELEASE_SHOWING_LIMIT) =>
+	Object.entries(quizReleases).slice(0, limit)
+export const languagesLatestReleases = (limit: number = RELEASE_SHOWING_LIMIT) =>
+	Object.entries(languagesReleases).slice(0, limit)
+export const mathsLatestReleases = (limit: number = RELEASE_SHOWING_LIMIT) =>
+	Object.entries(mathsReleases).slice(0, limit)
+export const randomLatestReleases = (limit: number = RELEASE_SHOWING_LIMIT) =>
+	Object.entries(randomReleases).slice(0, limit)
+export const urlShortenerLatestReleases = (limit: number = RELEASE_SHOWING_LIMIT) =>
+	Object.entries(urlShortenerReleases).slice(0, limit)
+export const othersLatestReleases = (limit: number = RELEASE_SHOWING_LIMIT) =>
+	Object.entries(othersReleases).slice(0, limit)
 
 /**************************************************************************
  *

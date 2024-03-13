@@ -3,8 +3,10 @@ import { useEffect, useRef, useState } from "react"
 
 /* THIRD-PARTY PACKAGES */
 import { ActionIcon, Button } from "@mantine/core"
-import { useAtom } from "jotai"
+import { motion } from "framer-motion"
+import { useAtomValue } from "jotai"
 import { useInterval } from "@mantine/hooks"
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import { useInit } from "~/utils"
@@ -31,7 +33,7 @@ const startBtnLabel = {
 
 export function CountdownNumberTab() {
 	const init = useInit()
-	const [data] = useAtom(countdownNumberAtom)
+	const data = useAtomValue(countdownNumberAtom)
 	const [currentCountValue, setCurrentCountValue] = useState(data.startAt)
 	const startBtnRef = useRef<HTMLButtonElement>(null)
 
@@ -57,6 +59,8 @@ export function CountdownNumberTab() {
 					: "resume"
 
 	const disableResetButton = statusCode !== "resume"
+	const hasEndingMessage = data.name !== "" || data.message !== ""
+	const showEndingMessage = statusCode === "start-over" && hasEndingMessage
 
 	const onStartBtnClick = () => {
 		switch (statusCode) {
@@ -91,10 +95,30 @@ export function CountdownNumberTab() {
 
 	return (
 		<div className="flex h-full flex-col">
-			<TextResize className="w-full grow font-semibold">
+			<TextResize
+				className={clsx("relative w-full grow font-semibold transition-all", {
+					"scale-90 text-transparent/40": showEndingMessage
+				})}
+			>
 				{currentCountValue}
-				<span className="">{}</span>
 			</TextResize>
+			{showEndingMessage && (
+				<motion.div
+					className="absolute left-[5%] top-[20%] flex h-[70%] w-[90%] flex-col"
+					initial={{ opacity: 0, scale: 0.5 }}
+					animate={{ opacity: 1, scale: 1 }}
+					exit={{ opacity: 0, scale: 0.5 }}
+				>
+					{data.name && (
+						<TextResize className="h-[40%] w-full font-semibold">{data.name}</TextResize>
+					)}
+					{data.message && (
+						<TextResize className="h-[30%] w-full font-semibold">
+							{data.message}
+						</TextResize>
+					)}
+				</motion.div>
+			)}
 			<div className="flex items-center gap-2">
 				<Button
 					ref={startBtnRef}

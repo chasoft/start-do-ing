@@ -48,6 +48,7 @@ import "@mantine/core/styles.css"
 // import "@mantine/core/styles/Button.css"
 import "@mantine/notifications/styles.css"
 import "@mantine/dates/styles.css"
+import "@mantine/spotlight/styles.css"
 import "@mantine/nprogress/styles.css"
 import stylesheet from "~/tailwind.css"
 

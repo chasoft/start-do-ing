@@ -41,7 +41,7 @@ export function HelpButton({
 		<>
 			<Tooltip className="p-2" label="Show Help">
 				<IconHelp
-					className="h-6 w-6 cursor-pointer text-gray-700 transition-transform hover:scale-125 active:scale-150"
+					className="h-6 w-6 cursor-pointer text-blue-900 transition-transform hover:scale-125 hover:text-blue-700 active:scale-150"
 					onClick={open}
 				/>
 			</Tooltip>
@@ -61,9 +61,7 @@ export function HelpButton({
 					)
 				}}
 			>
-				<Markdown className="prose prose-base max-w-3xl dark:text-slate-600">
-					{data}
-				</Markdown>
+				<Markdown className="prose prose-base max-w-3xl text-slate-900">{data}</Markdown>
 			</Drawer>
 		</>
 	)

@@ -31,7 +31,7 @@ export function FeedbackButton({ data }: { data?: UrlSharingData }) {
 		<>
 			<Tooltip className="p-2" label="Feedback">
 				<IconMessageReport
-					className="h-6 w-6 cursor-pointer text-gray-700 transition-all hover:scale-125 active:scale-150"
+					className="h-6 w-6 cursor-pointer text-yellow-900 transition-all hover:scale-125 hover:text-yellow-700 active:scale-150"
 					onClick={open}
 				/>
 			</Tooltip>

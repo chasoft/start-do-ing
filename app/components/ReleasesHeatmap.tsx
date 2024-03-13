@@ -7,7 +7,7 @@ import dayjs from "dayjs"
 import HeatMap from "@uiw/react-heat-map"
 
 /* COMPONENTS & UTILS */
-import { allReleaseUpdates } from "~/utils"
+import { allReleases } from "~/utils"
 import { ReleaseTimeline } from "."
 import type { ReleaseWithMetadata } from "~/utils/types"
 
@@ -40,10 +40,13 @@ const getHeatmapWidth = () => {
  * then we can implement the logic for the width.
  * Idea: we have each HeatMap for each year! 😆
  */
+
+type HeatmapData = { date: string; count: number }
+
 export function ReleasesHeatMap({
-	getFunc
+	getHeatmapDataFn
 }: {
-	getFunc: () => { date: string; count: number }[]
+	getHeatmapDataFn: () => HeatmapData[]
 }) {
 	const [searchParams, setSearchParams] = useSearchParams()
 	const dateParam = decodeURIComponent(searchParams.get(SPR.date.key) ?? "")
@@ -52,10 +55,21 @@ export function ReleasesHeatMap({
 			? dayjs(dateParam).format(DATE_FORMAT.forHeatmap)
 			: null
 	const releasesOfSelectedDate: Array<[string, ReleaseWithMetadata[]]> = selectedDate
-		? [[selectedDate, allReleaseUpdates[selectedDate]]]
+		? [[selectedDate, allReleases[selectedDate]]]
 		: [["", []]]
-	const heatmapData = getFunc()
+	const heatmapData = getHeatmapDataFn()
 	const width = getHeatmapWidth()
+	// TODO: refactor the implementation, not using such weird refs like `[0][1]`
+	const isSelectedDateHasNoReleases =
+		!releasesOfSelectedDate[0][1] || releasesOfSelectedDate[0][1].length === 0
+	const selectedDateForDisplay = dayjs(selectedDate).format(DATE_FORMAT.forDisplay)
+
+	const messagesBelowHeatmap = !selectedDate
+		? "To see what got released, click a highlight date block."
+		: isSelectedDateHasNoReleases
+			? `There is no updates for selected date: "${selectedDateForDisplay}"`
+			: ""
+
 	return (
 		<>
 			<Text size="md" className="mb-4">
@@ -69,54 +83,38 @@ export function ReleasesHeatMap({
 				rectProps={{ rx: 3.5 }}
 				rectRender={(props, data) => {
 					if (!data.count) {
-						return (
-							<rect
-								{...props}
-								onClick={() => {
-									setSearchParams((prev) => {
-										prev.delete(SPR.date.key)
-										return prev
-									})
-								}}
-							/>
-						)
+						const onClick = () => {
+							setSearchParams((prev) => {
+								prev.delete(SPR.date.key)
+								return prev
+							})
+						}
+						return <rect {...props} onClick={onClick} />
+					}
+					const tooltipContent = `${dayjs(data.date).format(DATE_FORMAT.forDisplay)} (${data.count} releases)`
+					const onClick = (e: React.MouseEvent<SVGRectElement, MouseEvent>) => {
+						const isSelected = (e.target as SVGElement).getAttribute("data-date")
+						setSearchParams((prev) => {
+							if (isSelected) {
+								prev.set(
+									SPR.date.key,
+									dayjs(isSelected).format(DATE_FORMAT.forSearchParam)
+								)
+							} else {
+								prev.delete(SPR.date.key)
+							}
+							return prev
+						})
 					}
 					return (
-						<Tooltip
-							label={`${dayjs(data.date).format(DATE_FORMAT.forDisplay)} (${data.count} releases)`}
-						>
-							<rect
-								{...props}
-								onClick={(e) => {
-									const selected = (e.target as SVGElement).getAttribute("data-date")
-									if (selected) {
-										setSearchParams((prev) => {
-											prev.set(
-												SPR.date.key,
-												dayjs(selected).format(DATE_FORMAT.forSearchParam)
-											)
-											return prev
-										})
-									} else {
-										setSearchParams((prev) => {
-											prev.delete(SPR.date.key)
-											return prev
-										})
-									}
-								}}
-							/>
+						<Tooltip label={tooltipContent}>
+							<rect {...props} onClick={onClick} />
 						</Tooltip>
 					)
 				}}
 			/>
 			<div>
-				{!selectedDate ? (
-					"To see what got released, click a highlight date block."
-				) : !releasesOfSelectedDate[0][1] || releasesOfSelectedDate[0][1].length === 0 ? (
-					`There is no updates for selected date: "${dayjs(selectedDate).format(DATE_FORMAT.forDisplay)}"`
-				) : (
-					<ReleaseTimeline releases={releasesOfSelectedDate} />
-				)}
+				{messagesBelowHeatmap || <ReleaseTimeline releases={releasesOfSelectedDate} />}
 			</div>
 		</>
 	)
