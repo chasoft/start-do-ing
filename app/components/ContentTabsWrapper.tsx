@@ -67,10 +67,7 @@ export function ContentTabsWrapper<T extends string>({
 							key={tab.key}
 							value={tab.key}
 							color={tab.color}
-							className={clsx(
-								"flex h-12 gap-1 py-4",
-								tab.key === selectedTabKey ? "font-bold" : ""
-							)}
+							className="flex h-12 gap-1 py-4"
 							disabled={tab.disabled}
 						>
 							{tab.icon && tab.icon} {tab.label}
