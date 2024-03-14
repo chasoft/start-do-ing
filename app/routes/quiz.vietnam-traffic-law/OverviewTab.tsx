@@ -58,9 +58,9 @@ Mỗi câu hỏi trong tài liệu 600 câu hỏi lý thuyết lái xe B2 chỉ 
 
 export function OverviewTab() {
 	return (
-		<div className="">
+		<div className="flex justify-center">
 			<Markdown
-				className="prose prose-sm max-w-3xl text-slate-900 sm:prose-base"
+				className="prose prose-base max-w-3xl text-slate-900 sm:prose-lg"
 				remarkPlugins={[remarkGfm]}
 			>
 				{intro}

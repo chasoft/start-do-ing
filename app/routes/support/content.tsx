@@ -2,7 +2,7 @@
 import { Link } from "@remix-run/react"
 
 /* THIRD-PARTY PACKAGES */
-import { Button, Image, Popover, ScrollArea, Text, Tooltip } from "@mantine/core"
+import { Button, Image, Popover, ScrollArea, Tooltip } from "@mantine/core"
 import { motion } from "framer-motion"
 import { useDisclosure } from "@mantine/hooks"
 import clsx from "clsx"
@@ -10,7 +10,7 @@ import Markdown from "react-markdown"
 
 /* COMPONENTS & UTILS */
 import { ContentWrapper } from "~/components"
-import { useHelpContents, useUrlSharingData } from "~/utils"
+import { useHelpContents, useIsFullPage, useUrlSharingData } from "~/utils"
 
 /* TRANSLATIONS IMPORT */
 
@@ -89,22 +89,27 @@ export function SupportFeature({
 	layoutId: string
 }) {
 	const urlSharingData = useUrlSharingData(SUPPORT)
+	const isFullpage = useIsFullPage()
 	useHelpContents(helpContents)
 	return (
 		<ContentWrapper urlSharingData={urlSharingData} helpContents={helpContents}>
 			<motion.div
-				className={clsx("h-full p-2 sm:p-4 xl:p-6", className)}
+				className={clsx(
+					"flex h-full flex-col p-2 sm:p-4 xl:p-6",
+					{ "items-center justify-center": isFullpage },
+					className
+				)}
 				layoutId={layoutId}
 			>
-				<h1 className="mb-4 flex items-center gap-2 text-lg font-semibold sm:text-2xl">
+				<h1 className="mb-4 flex w-full max-w-3xl items-center gap-2 text-lg font-semibold sm:text-2xl">
 					<IconHeart size={24} className="fill-red-400" />
 					<span>Support my work</span>
 				</h1>
-				<ScrollArea className="h-[calc(100%-30px)]" offsetScrollbars>
-					<Markdown className="prose prose-base prose-slate max-w-3xl text-slate-900">
+				<ScrollArea className="max-h-[calc(100%-30px)]" offsetScrollbars>
+					<Markdown className="prose prose-base prose-slate max-w-3xl text-slate-900 sm:prose-lg">
 						{sponsorText}
 					</Markdown>
-					<div className="my-6 flex max-w-[768px] flex-wrap justify-center gap-6 lg:gap-3">
+					<div className="my-6 flex max-w-3xl flex-wrap justify-center gap-6 lg:gap-3">
 						{buyMeCoffee.map((item, idx) => {
 							return (
 								<Link
@@ -125,9 +130,9 @@ export function SupportFeature({
 							<BankIcon />
 						</Tooltip>
 					</div>
-					<Text size="md" className="mb-10 lg:mb-0">
+					<p className="mb-10 text-base sm:text-lg lg:mb-0">
 						Thanks for being awesome! 🤟
-					</Text>
+					</p>
 				</ScrollArea>
 			</motion.div>
 		</ContentWrapper>

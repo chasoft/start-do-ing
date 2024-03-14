@@ -61,7 +61,9 @@ export function HelpButton({
 					)
 				}}
 			>
-				<Markdown className="prose prose-base max-w-3xl text-slate-900">{data}</Markdown>
+				<Markdown className="prose prose-base max-w-3xl text-slate-900 sm:prose-lg">
+					{data}
+				</Markdown>
 			</Drawer>
 		</>
 	)
