@@ -18,7 +18,7 @@ import type { Block, NavigationGridCells, PageId } from "~/utils/types"
 /* TRANSLATIONS IMPORT */
 
 /* ASSETS & DATA IMPORT */
-import { SIDE_BLOCKS } from "~/data"
+import { EMPTY_LAYOUT_ID, SIDE_BLOCKS } from "~/data"
 
 /***************************************************************************
  *
@@ -47,12 +47,13 @@ export function NavigationGrid({
 	])
 	const layoutIds = isGroup
 		? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-			(layouts.map((block) => block.id) as any[])
+		(layouts.map((block) => block.id) as any[])
 		: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-			[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
+		[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
 
 	const lastGridCellBlocks = getLastGridCellBlocks(layouts)
 	const activeBlockIndex = layouts.findIndex(({ id }) => id === currentLayoutId)
+	const isRow3Empty = layoutIds[6] === EMPTY_LAYOUT_ID
 
 	React.useEffect(() => {
 		updateLayouts(getBlocks(blocks as Block<PageId>[]))
@@ -88,7 +89,7 @@ export function NavigationGrid({
 					blockIndex={13}
 					className="hidden lg:flex"
 				/>
-				<div className="col-span-3 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
+				<div className="col-span-3 row-span-2 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
 					<div className="h-full overflow-hidden">{children}</div>
 				</div>
 				<GridCell
@@ -97,17 +98,29 @@ export function NavigationGrid({
 					className="hidden lg:flex"
 				/>
 				{/* Row 3 */}
-				<GridCell blockIndex={6} layoutId={layoutIds[6]} />
-				<GridCell blockIndex={7} layoutId={layoutIds[7]} />
-				<GridCell blockIndex={8} layoutId={layoutIds[8]} />
-				<GridCell blockIndex={9} layoutId={layoutIds[9]} />
-				<GridCell blockIndex={10} layoutId={layoutIds[10]} className="hidden 2xl:block" />
-				<GridCell blockIndex={11} layoutId={layoutIds[11]} className="hidden 3xl:block" />
-				<GridCell
-					blockIndex={12}
-					layoutId="last"
-					lastGridCellBlocks={lastGridCellBlocks}
-				/>
+				{!isRow3Empty && (
+					<>
+						<GridCell blockIndex={6} layoutId={layoutIds[6]} />
+						<GridCell blockIndex={7} layoutId={layoutIds[7]} />
+						<GridCell blockIndex={8} layoutId={layoutIds[8]} />
+						<GridCell blockIndex={9} layoutId={layoutIds[9]} />
+						<GridCell
+							blockIndex={10}
+							layoutId={layoutIds[10]}
+							className="hidden 2xl:block"
+						/>
+						<GridCell
+							blockIndex={11}
+							layoutId={layoutIds[11]}
+							className="hidden 3xl:block"
+						/>
+						<GridCell
+							blockIndex={12}
+							layoutId="last"
+							lastGridCellBlocks={lastGridCellBlocks}
+						/>
+					</>
+				)}
 			</motion.div>
 		</>
 	)
