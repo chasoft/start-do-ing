@@ -47,9 +47,9 @@ export function NavigationGrid({
 	])
 	const layoutIds = isGroup
 		? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-		(layouts.map((block) => block.id) as any[])
+			(layouts.map((block) => block.id) as any[])
 		: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-		[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
+			[currentLayoutId, ...(layouts.slice(1).map((block) => block.id) as any[])]
 
 	const lastGridCellBlocks = getLastGridCellBlocks(layouts)
 	const activeBlockIndex = layouts.findIndex(({ id }) => id === currentLayoutId)
@@ -89,7 +89,12 @@ export function NavigationGrid({
 					blockIndex={13}
 					className="hidden lg:flex"
 				/>
-				<div className="col-span-3 row-span-2 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5">
+				<div
+					className={clsx(
+						"col-span-3 gap-4 xl:col-span-3 2xl:col-span-4 3xl:col-span-5",
+						{ "row-span-2": isRow3Empty }
+					)}
+				>
 					<div className="h-full overflow-hidden">{children}</div>
 				</div>
 				<GridCell

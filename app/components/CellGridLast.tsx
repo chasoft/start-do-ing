@@ -108,7 +108,7 @@ export function CellGridLast({ className, blocks, blockIndex }: CellGridLastProp
 			<div
 				role="button"
 				className={clsx(
-					"absolute bottom-0 right-0 m-1 hidden h-6 w-6 place-content-center rounded-lg bg-opacity-60 hover:bg-opacity-100 lg:grid lg:h-8 lg:w-8",
+					"absolute bottom-0 right-0 m-1 hidden size-6 place-content-center rounded-lg bg-opacity-60 hover:bg-opacity-100 lg:grid lg:size-8",
 					bgColor,
 					{ "!hidden": showMoreButton === false }
 				)}

@@ -40,9 +40,9 @@ export function SharingButton({ data }: { data?: UrlSharingData }) {
 
 	if ("canShare" in navigator) {
 		return (
-			<Tooltip className="p-2" label="Share with...">
+			<Tooltip className="lg:p-2" label="Share with...">
 				<IconShare
-					className="h-6 w-6 cursor-pointer text-green-900 transition-all hover:scale-125 hover:text-green-700 active:scale-150"
+					className="size-10 cursor-pointer p-2 text-green-900 transition-all hover:scale-125 hover:text-green-700 active:scale-150 lg:size-6 lg:p-0"
 					onClick={onClick}
 				/>
 			</Tooltip>

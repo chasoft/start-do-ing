@@ -39,9 +39,9 @@ export function HelpButton({
 	if (!data) return null
 	return (
 		<>
-			<Tooltip className="p-2" label="Show Help">
+			<Tooltip className="lg:p-2" label="Show Help">
 				<IconHelp
-					className="h-6 w-6 cursor-pointer text-blue-900 transition-transform hover:scale-125 hover:text-blue-700 active:scale-150"
+					className="size-10 cursor-pointer p-2 text-blue-900 transition-transform hover:scale-125 hover:text-blue-700 active:scale-150 lg:size-6 lg:p-0"
 					onClick={open}
 				/>
 			</Tooltip>

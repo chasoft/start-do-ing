@@ -26,20 +26,20 @@ export function FullScreenButton() {
 
 	if (isFullScreen) {
 		return (
-			<Tooltip className="p-2" label="Exit full-page">
+			<Tooltip className="lg:p-2" label="Exit full-page">
 				<IconArrowsMinimize
 					onClick={close}
-					className="h-6 w-6 cursor-pointer text-sky-900 transition-all hover:scale-125 hover:text-sky-700 active:scale-150"
+					className="size-10 cursor-pointer p-2 text-sky-900 transition-all hover:scale-125 hover:text-sky-700 active:scale-150 lg:size-6 lg:p-0"
 				/>
 			</Tooltip>
 		)
 	}
 
 	return (
-		<Tooltip className="p-2" label="View full-page">
+		<Tooltip className="lg:p-2" label="View full-page">
 			<IconArrowsMaximize
 				onClick={open}
-				className="h-6 w-6 cursor-pointer text-sky-900 transition-all hover:scale-125 hover:text-sky-700 active:scale-150"
+				className="size-10 cursor-pointer p-2 text-sky-900 transition-all hover:scale-125 hover:text-sky-700 active:scale-150 lg:size-6 lg:p-0"
 			/>
 		</Tooltip>
 	)

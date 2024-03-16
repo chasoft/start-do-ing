@@ -18,7 +18,7 @@ import { IconArrowBackUp } from "@tabler/icons-react"
 export function GoUpLink({ upTo }: { upTo: string }) {
 	return (
 		<Link to={upTo}>
-			<IconArrowBackUp className="h-6 w-6 transition-all hover:scale-125 active:scale-110 active:text-blue-900" />
+			<IconArrowBackUp className="size-6 transition-all hover:scale-125 active:scale-110 active:text-blue-900" />
 		</Link>
 	)
 }

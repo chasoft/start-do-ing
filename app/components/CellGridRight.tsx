@@ -18,7 +18,7 @@ import clsx from "clsx"
 export function CellGridRight({ className }: { className?: string }) {
 	return (
 		<div className={clsx("h-full", className)}>
-			<div className="h-full w-full"></div>
+			<div className="size-full"></div>
 		</div>
 	)
 }

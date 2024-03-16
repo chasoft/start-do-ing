@@ -142,7 +142,7 @@ export function CellGroup({
 					{showMoreButton && (
 						<div
 							role="button"
-							className="absolute bottom-0 right-0 m-1 hidden h-6 w-6 place-content-center rounded-lg hover:bg-gray-300 hover:bg-opacity-50 lg:grid lg:h-8 lg:w-8"
+							className="absolute bottom-0 right-0 m-1 hidden size-6 place-content-center rounded-lg hover:bg-gray-300 hover:bg-opacity-50 lg:grid lg:size-8"
 							title="More..."
 							ref={targetRef}
 						>

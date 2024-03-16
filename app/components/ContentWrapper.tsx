@@ -36,7 +36,7 @@ export function ContentWrapper({
 	const showButtons = isInitialized && (!isMobileWindowSize || isFullScreen)
 	return (
 		<>
-			<div className="relative h-full w-full rounded-lg bg-white/60 backdrop-blur-lg transition-all">
+			<div className="relative size-full rounded-lg bg-white/60 backdrop-blur-lg transition-all">
 				{showButtons && (
 					<div className="absolute right-1 top-1 z-[9999] flex gap-3 p-2">
 						<HelpButton data={helpContents} />
@@ -45,7 +45,7 @@ export function ContentWrapper({
 						<FullScreenButton />
 					</div>
 				)}
-				<div className={clsx("h-full w-full", className)}>{children}</div>
+				<div className={clsx("size-full", className)}>{children}</div>
 			</div>
 		</>
 	)

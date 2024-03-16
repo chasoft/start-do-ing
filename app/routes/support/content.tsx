@@ -69,7 +69,7 @@ function BankIcon() {
 					onMouseEnter={open}
 					onMouseLeave={close}
 					variant="transparent"
-					className="h-12 w-12 rounded-lg border-2 border-gray-200 bg-slate-100 p-1 transition-all duration-200 hover:-translate-y-1"
+					className="size-12 rounded-lg border-2 border-gray-200 bg-slate-100 p-1 transition-all duration-200 hover:-translate-y-1"
 				>
 					<IconBuildingBank size={48} />
 				</Button>
