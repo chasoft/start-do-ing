@@ -8,7 +8,14 @@ import { useAtomValue } from "jotai"
 import { useDisclosure } from "@mantine/hooks"
 
 /* COMPONENTS & UTILS */
-import { CommandK, FeedbackButton, FullScreenButton, HelpButton, SharingButton } from "."
+import {
+	CommandK,
+	FeedbackButton,
+	FullScreenButton,
+	HelpButton,
+	SearchButton,
+	SharingButton
+} from "."
 import { MobileMenu } from "./MobileMenu"
 import { useIsFullPage, useIsMobileWindowSize } from "~/utils"
 
@@ -77,10 +84,11 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 					<Group h="100%" px="md">
 						<Burger opened={opened} onClick={toggle} hiddenFrom="lg" size="sm" />
 						<Link to={URLS.home.to} className="flex gap-2" onClick={close}>
-							<Image src={Logo} className="h-7 w-7" />
+							<Image src={Logo} className="size-7" />
 							<p className="mt-[2px] hidden font-bold xxs:block">{SITE.title}</p>
 						</Link>
-						<div className="ml-auto flex gap-3 lg:hidden">
+						<div className="ml-auto flex items-center lg:hidden">
+							<SearchButton />
 							<HelpButton data={helpContents} />
 							<FeedbackButton data={urlSharingData} />
 							<SharingButton data={urlSharingData} />
