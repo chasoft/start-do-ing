@@ -8,14 +8,7 @@ import { useAtomValue } from "jotai"
 import { useDisclosure } from "@mantine/hooks"
 
 /* COMPONENTS & UTILS */
-import {
-	CommandK,
-	FeedbackButton,
-	FullScreenButton,
-	HelpButton,
-	SearchButton,
-	SharingButton
-} from "."
+import { CommandK, FeedbackButton, FullScreenButton, HelpButton, SearchButton } from "."
 import { MobileMenu } from "./MobileMenu"
 import { useIsFullPage, useIsMobileWindowSize } from "~/utils"
 
@@ -50,7 +43,7 @@ function OverlayMobileMenu() {
 export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const [backgroundImage, setBackgroundImage] = React.useState<string>("")
 	const [opened, { toggle, close }] = useDisclosure()
-	const isFullScreen = useIsFullPage()
+	const isFullPage = useIsFullPage()
 	const isMobileWindowSize = useIsMobileWindowSize()
 	const urlSharingData = useAtomValue(urlSharingDataAtom)
 	const helpContents = useAtomValue(helpContentsAtom)
@@ -74,7 +67,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 			<AppShell
 				header={{ height: HEADER_HEIGHT }}
 				navbar={{ width: NAVBAR_WIDTH, breakpoint: "lg", collapsed: { mobile: !opened } }}
-				disabled={isFullScreen || !isMobileWindowSize}
+				disabled={isFullPage || !isMobileWindowSize}
 				style={{
 					backgroundImage: `url('${backgroundImage}')`,
 					backgroundPosition: "center"
@@ -91,7 +84,6 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 							<SearchButton />
 							<HelpButton data={helpContents} />
 							<FeedbackButton data={urlSharingData} />
-							<SharingButton data={urlSharingData} />
 							<FullScreenButton />
 						</div>
 					</Group>

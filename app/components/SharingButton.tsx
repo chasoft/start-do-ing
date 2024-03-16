@@ -17,6 +17,7 @@ import { IconShare } from "@tabler/icons-react"
  *
  **************************************************************************/
 
+//TODO: Share button not work as expected. Temporary not using.
 export function SharingButton({ data }: { data?: UrlSharingData }) {
 	if (!data) return null
 
