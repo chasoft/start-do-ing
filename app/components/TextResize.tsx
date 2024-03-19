@@ -25,7 +25,7 @@ const dynamicFontsizeVar = "--dynamic-font-size"
 const parentPaddingTopVar = "--resize-layer-padding-top"
 const standardFontSize = "1em"
 const parentLayerClasses =
-	"h-fit w-fit mt-[var(--resize-layer-padding-top)] text-[length:var(--dynamic-font-size)]"
+	"size-fit mt-[var(--resize-layer-padding-top)] text-[length:var(--dynamic-font-size)]"
 
 export default function TextResize({ className, children }: TextResizeProps) {
 	const resizeLayer = useRef<HTMLDivElement>(null)

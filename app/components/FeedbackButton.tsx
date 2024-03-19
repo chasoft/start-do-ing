@@ -29,9 +29,9 @@ export function FeedbackButton({ data }: { data?: UrlSharingData }) {
 	if (!data) return null
 	return (
 		<>
-			<Tooltip className="p-2" label="Feedback">
+			<Tooltip className="lg:p-2" label="Feedback">
 				<IconMessageReport
-					className="h-6 w-6 cursor-pointer text-yellow-900 transition-all hover:scale-125 hover:text-yellow-700 active:scale-150"
+					className="size-10 cursor-pointer p-2 text-yellow-900 transition-all hover:scale-125 hover:text-yellow-700 active:scale-150 lg:size-6 lg:p-0"
 					onClick={open}
 				/>
 			</Tooltip>

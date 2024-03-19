@@ -1,6 +1,7 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
+import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 import type { TabData } from "~/utils/types"
@@ -14,6 +15,7 @@ import {
 	allLatestReleases,
 	allReleasesForHeatMap,
 	useHelpContents,
+	useIsFullPage,
 	useUrlSharingData
 } from "~/utils"
 
@@ -34,10 +36,11 @@ const tabKeys: TabKey[] = ["hottest", "latest", "heatmap"]
 const defaultKey: TabKey = "latest"
 
 function GroupIntro() {
+	const isFullpage = useIsFullPage()
 	return (
-		<section className="flex max-w-3xl flex-col gap-2 leading-7">
+		<section className={clsx("flex flex-col gap-2", { "max-w-3xl": isFullpage })}>
 			<p className="text-lg font-semibold">Welcome to Startdo.ing!</p>
-			<p>
+			<p className="text-base leading-8 sm:text-lg sm:leading-9">
 				🔎 Explore, have fun, and 🔗 share the joy with your friends!{" "}
 				<strong>Startdo.ing</strong> is a one-stop shop for a variety of 🔨 tools and
 				resources that can help you with your everyday ⚒️ tasks, from 🌏 web development

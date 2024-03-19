@@ -8,7 +8,7 @@ import { useAtomValue } from "jotai"
 import { useDisclosure } from "@mantine/hooks"
 
 /* COMPONENTS & UTILS */
-import { CommandK, FeedbackButton, FullScreenButton, HelpButton, SharingButton } from "."
+import { CommandK, FeedbackButton, FullScreenButton, HelpButton, SearchButton } from "."
 import { MobileMenu } from "./MobileMenu"
 import { useIsFullPage, useIsMobileWindowSize } from "~/utils"
 
@@ -43,7 +43,7 @@ function OverlayMobileMenu() {
 export function MyAppShell({ children }: { children: React.ReactNode }) {
 	const [backgroundImage, setBackgroundImage] = React.useState<string>("")
 	const [opened, { toggle, close }] = useDisclosure()
-	const isFullScreen = useIsFullPage()
+	const isFullPage = useIsFullPage()
 	const isMobileWindowSize = useIsMobileWindowSize()
 	const urlSharingData = useAtomValue(urlSharingDataAtom)
 	const helpContents = useAtomValue(helpContentsAtom)
@@ -67,7 +67,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 			<AppShell
 				header={{ height: HEADER_HEIGHT }}
 				navbar={{ width: NAVBAR_WIDTH, breakpoint: "lg", collapsed: { mobile: !opened } }}
-				disabled={isFullScreen || !isMobileWindowSize}
+				disabled={isFullPage || !isMobileWindowSize}
 				style={{
 					backgroundImage: `url('${backgroundImage}')`,
 					backgroundPosition: "center"
@@ -77,13 +77,13 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
 					<Group h="100%" px="md">
 						<Burger opened={opened} onClick={toggle} hiddenFrom="lg" size="sm" />
 						<Link to={URLS.home.to} className="flex gap-2" onClick={close}>
-							<Image src={Logo} className="h-7 w-7" />
+							<Image src={Logo} className="size-7" />
 							<p className="mt-[2px] hidden font-bold xxs:block">{SITE.title}</p>
 						</Link>
-						<div className="ml-auto flex gap-3 lg:hidden">
+						<div className="ml-auto flex items-center lg:hidden">
+							<SearchButton />
 							<HelpButton data={helpContents} />
 							<FeedbackButton data={urlSharingData} />
-							<SharingButton data={urlSharingData} />
 							<FullScreenButton />
 						</div>
 					</Group>

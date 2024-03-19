@@ -1,7 +1,6 @@
 /* FRAMEWORK */
 
 /* THIRD-PARTY PACKAGES */
-import clsx from "clsx"
 
 /* COMPONENTS & UTILS */
 
@@ -15,10 +14,6 @@ import clsx from "clsx"
  *
  **************************************************************************/
 
-export function CellGridRight({ className }: { className?: string }) {
-	return (
-		<div className={clsx("h-full", className)}>
-			<div className="size-full"></div>
-		</div>
-	)
+export function TestTab() {
+	return <div className="">Test</div>
 }

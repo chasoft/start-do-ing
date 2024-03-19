@@ -51,7 +51,7 @@ export function CellIntro({
 				<Text component="h2" size="lg" fw={FW.SEMI_BOLD} lineClamp={1}>
 					<div className="flex items-center gap-2">
 						{metaData.icon?.logo ? (
-							<Image src={metaData.icon?.logo} className="h-8 w-8" />
+							<Image src={metaData.icon?.logo} className="size-8" />
 						) : (
 							<Icon size={24} />
 						)}
