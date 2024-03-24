@@ -1,0 +1,8 @@
+# 
+# How to config `wrangler.toml`
+# https://developers.cloudflare.com/workers/wrangler/configuration/
+#
+
+kv_namespaces = [
+  { id = "MY_KV", binding="MY_KV" }
+]

@@ -1,4 +1,3 @@
-import shuffle from "lodash.shuffle"
 import type { TColor } from "~/utils/types"
 
 /***************************************************************************
@@ -72,7 +71,7 @@ export const GRAY: TColor = {
 	borderColor: "border-gray-500"
 }
 
-const _COLORS: TColor[] = [
+export const COLORS: TColor[] = [
 	BLUE,
 	SKY,
 	CYAN,
@@ -86,6 +85,4 @@ const _COLORS: TColor[] = [
 	ROSE,
 	PINK
 ]
-
-// I want something new every time I run the app
-export const COLORS = shuffle(_COLORS)
+export const DEFAULT_COLOR = COLORS[0]

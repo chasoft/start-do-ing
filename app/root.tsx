@@ -2,21 +2,19 @@
 import React from "react"
 import {
 	Links,
-	LiveReload,
 	Meta,
 	Outlet,
 	Scripts,
 	ScrollRestoration,
 	useNavigation
 } from "@remix-run/react"
-import { cssBundleHref } from "@remix-run/css-bundle"
 import type { LinksFunction } from "@remix-run/cloudflare"
 
 /* THIRD-PARTY PACKAGES */
-import { Provider as JotaiProvider } from "jotai"
 import { ColorSchemeScript, MantineProvider } from "@mantine/core"
 import { Notifications } from "@mantine/notifications"
 import { nprogress, NavigationProgress } from "@mantine/nprogress"
+import { Provider as JotaiProvider } from "jotai"
 
 /* STYLING */
 import "@mantine/core/styles/global.css"
@@ -50,7 +48,7 @@ import "@mantine/notifications/styles.css"
 import "@mantine/dates/styles.css"
 import "@mantine/spotlight/styles.css"
 import "@mantine/nprogress/styles.css"
-import stylesheet from "~/tailwind.css"
+import stylesheet from "~/tailwind.css?url"
 
 /* COMPONENTS */
 import { MyAppShell } from "./components/MyAppShell"
@@ -73,7 +71,6 @@ interface DocumentProps {
 }
 
 export const links: LinksFunction = () => [
-	...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 	{ rel: "stylesheet", href: stylesheet },
 	{ rel: "icon", href: "/icon.ico", sizes: "32x32" },
 	{ rel: "icon", href: "/icon.svg", type: "image/svg+xml" }
@@ -109,7 +106,6 @@ function Document({ children }: DocumentProps) {
 					</JotaiProvider>
 					<ScrollRestoration />
 					<Scripts />
-					<LiveReload />
 				</MantineProvider>
 			</body>
 		</html>
